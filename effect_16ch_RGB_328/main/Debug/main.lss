@@ -1,0 +1,1679 @@
+
+main.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  00000bf8  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000b84  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000038  00800100  00800100  00000bf8  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000bf8  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000c28  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000000f8  00000000  00000000  00000c68  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000039de  00000000  00000000  00000d60  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000675  00000000  00000000  0000473e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000014d2  00000000  00000000  00004db3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000004bc  00000000  00000000  00006288  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000004b0  00000000  00000000  00006744  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00002958  00000000  00000000  00006bf4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000310  00000000  00000000  0000954c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__ctors_end>
+   4:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+   8:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+   c:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  10:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  14:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  18:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  1c:	0c 94 df 04 	jmp	0x9be	; 0x9be <__vector_7>
+  20:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  24:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  28:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  2c:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  30:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  34:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  38:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  3c:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  40:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  44:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  48:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  4c:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  50:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  54:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  58:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  5c:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  60:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  64:	0c 94 77 00 	jmp	0xee	; 0xee <__bad_interrupt>
+  68:	d5 00       	.word	0x00d5	; ????
+  6a:	d9 00       	.word	0x00d9	; ????
+  6c:	dd 00       	.word	0x00dd	; ????
+  6e:	e1 00       	.word	0x00e1	; ????
+  70:	e5 00       	.word	0x00e5	; ????
+  72:	f0 00       	.word	0x00f0	; ????
+  74:	e9 00       	.word	0x00e9	; ????
+  76:	ed 00       	.word	0x00ed	; ????
+  78:	bf 04       	cpc	r11, r15
+  7a:	c1 04       	cpc	r12, r1
+  7c:	c3 04       	cpc	r12, r3
+  7e:	c5 04       	cpc	r12, r5
+  80:	c7 04       	cpc	r12, r7
+  82:	c9 04       	cpc	r12, r9
+  84:	cb 04       	cpc	r12, r11
+  86:	cd 04       	cpc	r12, r13
+  88:	cf 04       	cpc	r12, r15
+  8a:	d1 04       	cpc	r13, r1
+  8c:	d3 04       	cpc	r13, r3
+  8e:	d5 04       	cpc	r13, r5
+  90:	d7 04       	cpc	r13, r7
+  92:	d9 04       	cpc	r13, r9
+  94:	db 04       	cpc	r13, r11
+  96:	37 05       	cpc	r19, r7
+  98:	3d 05       	cpc	r19, r13
+  9a:	43 05       	cpc	r20, r3
+  9c:	49 05       	cpc	r20, r9
+  9e:	4f 05       	cpc	r20, r15
+  a0:	55 05       	cpc	r21, r5
+  a2:	5b 05       	cpc	r21, r11
+  a4:	61 05       	cpc	r22, r1
+  a6:	67 05       	cpc	r22, r7
+  a8:	6d 05       	cpc	r22, r13
+  aa:	73 05       	cpc	r23, r3
+  ac:	79 05       	cpc	r23, r9
+  ae:	7f 05       	cpc	r23, r15
+  b0:	85 05       	cpc	r24, r5
+  b2:	8b 05       	cpc	r24, r11
+
+000000b4 <__ctors_end>:
+  b4:	11 24       	eor	r1, r1
+  b6:	1f be       	out	0x3f, r1	; 63
+  b8:	cf ef       	ldi	r28, 0xFF	; 255
+  ba:	d8 e0       	ldi	r29, 0x08	; 8
+  bc:	de bf       	out	0x3e, r29	; 62
+  be:	cd bf       	out	0x3d, r28	; 61
+
+000000c0 <__do_clear_bss>:
+  c0:	21 e0       	ldi	r18, 0x01	; 1
+  c2:	a0 e0       	ldi	r26, 0x00	; 0
+  c4:	b1 e0       	ldi	r27, 0x01	; 1
+  c6:	01 c0       	rjmp	.+2      	; 0xca <.do_clear_bss_start>
+
+000000c8 <.do_clear_bss_loop>:
+  c8:	1d 92       	st	X+, r1
+
+000000ca <.do_clear_bss_start>:
+  ca:	a8 33       	cpi	r26, 0x38	; 56
+  cc:	b2 07       	cpc	r27, r18
+  ce:	e1 f7       	brne	.-8      	; 0xc8 <.do_clear_bss_loop>
+
+000000d0 <__do_copy_data>:
+  d0:	11 e0       	ldi	r17, 0x01	; 1
+  d2:	a0 e0       	ldi	r26, 0x00	; 0
+  d4:	b1 e0       	ldi	r27, 0x01	; 1
+  d6:	e4 e8       	ldi	r30, 0x84	; 132
+  d8:	fb e0       	ldi	r31, 0x0B	; 11
+  da:	02 c0       	rjmp	.+4      	; 0xe0 <__do_copy_data+0x10>
+  dc:	05 90       	lpm	r0, Z+
+  de:	0d 92       	st	X+, r0
+  e0:	a0 30       	cpi	r26, 0x00	; 0
+  e2:	b1 07       	cpc	r27, r17
+  e4:	d9 f7       	brne	.-10     	; 0xdc <__do_copy_data+0xc>
+  e6:	0e 94 dd 01 	call	0x3ba	; 0x3ba <main>
+  ea:	0c 94 c0 05 	jmp	0xb80	; 0xb80 <_exit>
+
+000000ee <__bad_interrupt>:
+  ee:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000f2 <RGB_out_to_lpd>:
+				cur_color = to_color;
+				to_color = RGB_base_convert((random()%7));
+			}
+			break;
+		}
+}
+  f2:	0f 93       	push	r16
+  f4:	1f 93       	push	r17
+  f6:	cf 93       	push	r28
+  f8:	df 93       	push	r29
+  fa:	cd b7       	in	r28, 0x3d	; 61
+  fc:	de b7       	in	r29, 0x3e	; 62
+  fe:	60 97       	sbiw	r28, 0x10	; 16
+ 100:	0f b6       	in	r0, 0x3f	; 63
+ 102:	f8 94       	cli
+ 104:	de bf       	out	0x3e, r29	; 62
+ 106:	0f be       	out	0x3f, r0	; 63
+ 108:	cd bf       	out	0x3d, r28	; 61
+ 10a:	8c 01       	movw	r16, r24
+ 10c:	61 15       	cp	r22, r1
+ 10e:	71 05       	cpc	r23, r1
+ 110:	99 f1       	breq	.+102    	; 0x178 <RGB_out_to_lpd+0x86>
+ 112:	20 e0       	ldi	r18, 0x00	; 0
+ 114:	30 e0       	ldi	r19, 0x00	; 0
+ 116:	90 e0       	ldi	r25, 0x00	; 0
+ 118:	49 2f       	mov	r20, r25
+ 11a:	50 e0       	ldi	r21, 0x00	; 0
+ 11c:	fa 01       	movw	r30, r20
+ 11e:	ee 0f       	add	r30, r30
+ 120:	ff 1f       	adc	r31, r31
+ 122:	4e 0f       	add	r20, r30
+ 124:	5f 1f       	adc	r21, r31
+ 126:	f9 01       	movw	r30, r18
+ 128:	ee 0f       	add	r30, r30
+ 12a:	ff 1f       	adc	r31, r31
+ 12c:	2e 0f       	add	r18, r30
+ 12e:	3f 1f       	adc	r19, r31
+ 130:	f8 01       	movw	r30, r16
+ 132:	e2 0f       	add	r30, r18
+ 134:	f3 1f       	adc	r31, r19
+ 136:	21 e0       	ldi	r18, 0x01	; 1
+ 138:	30 e0       	ldi	r19, 0x00	; 0
+ 13a:	2c 0f       	add	r18, r28
+ 13c:	3d 1f       	adc	r19, r29
+ 13e:	24 0f       	add	r18, r20
+ 140:	35 1f       	adc	r19, r21
+ 142:	80 81       	ld	r24, Z
+ 144:	d9 01       	movw	r26, r18
+ 146:	8c 93       	st	X, r24
+ 148:	22 e0       	ldi	r18, 0x02	; 2
+ 14a:	30 e0       	ldi	r19, 0x00	; 0
+ 14c:	2c 0f       	add	r18, r28
+ 14e:	3d 1f       	adc	r19, r29
+ 150:	24 0f       	add	r18, r20
+ 152:	35 1f       	adc	r19, r21
+ 154:	81 81       	ldd	r24, Z+1	; 0x01
+ 156:	d9 01       	movw	r26, r18
+ 158:	8c 93       	st	X, r24
+ 15a:	23 e0       	ldi	r18, 0x03	; 3
+ 15c:	30 e0       	ldi	r19, 0x00	; 0
+ 15e:	2c 0f       	add	r18, r28
+ 160:	3d 1f       	adc	r19, r29
+ 162:	42 0f       	add	r20, r18
+ 164:	53 1f       	adc	r21, r19
+ 166:	22 81       	ldd	r18, Z+2	; 0x02
+ 168:	da 01       	movw	r26, r20
+ 16a:	2c 93       	st	X, r18
+ 16c:	9f 5f       	subi	r25, 0xFF	; 255
+ 16e:	29 2f       	mov	r18, r25
+ 170:	30 e0       	ldi	r19, 0x00	; 0
+ 172:	26 17       	cp	r18, r22
+ 174:	37 07       	cpc	r19, r23
+ 176:	80 f2       	brcs	.-96     	; 0x118 <RGB_out_to_lpd+0x26>
+ 178:	ce 01       	movw	r24, r28
+ 17a:	01 96       	adiw	r24, 0x01	; 1
+ 17c:	0e 94 97 05 	call	0xb2e	; 0xb2e <output_updata>
+ 180:	60 96       	adiw	r28, 0x10	; 16
+ 182:	0f b6       	in	r0, 0x3f	; 63
+ 184:	f8 94       	cli
+ 186:	de bf       	out	0x3e, r29	; 62
+ 188:	0f be       	out	0x3f, r0	; 63
+ 18a:	cd bf       	out	0x3d, r28	; 61
+ 18c:	df 91       	pop	r29
+ 18e:	cf 91       	pop	r28
+ 190:	1f 91       	pop	r17
+ 192:	0f 91       	pop	r16
+ 194:	08 95       	ret
+
+00000196 <RGB_base_convert>:
+ 196:	48 2f       	mov	r20, r24
+ 198:	50 e0       	ldi	r21, 0x00	; 0
+ 19a:	48 30       	cpi	r20, 0x08	; 8
+ 19c:	51 05       	cpc	r21, r1
+ 19e:	00 f5       	brcc	.+64     	; 0x1e0 <RGB_base_convert+0x4a>
+ 1a0:	fa 01       	movw	r30, r20
+ 1a2:	ec 5c       	subi	r30, 0xCC	; 204
+ 1a4:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1a6:	0c 94 ba 05 	jmp	0xb74	; 0xb74 <__tablejump2__>
+ 1aa:	90 e0       	ldi	r25, 0x00	; 0
+ 1ac:	20 e0       	ldi	r18, 0x00	; 0
+ 1ae:	30 e0       	ldi	r19, 0x00	; 0
+ 1b0:	17 c0       	rjmp	.+46     	; 0x1e0 <RGB_base_convert+0x4a>
+ 1b2:	90 e0       	ldi	r25, 0x00	; 0
+ 1b4:	20 e0       	ldi	r18, 0x00	; 0
+ 1b6:	32 e3       	ldi	r19, 0x32	; 50
+ 1b8:	13 c0       	rjmp	.+38     	; 0x1e0 <RGB_base_convert+0x4a>
+ 1ba:	90 e0       	ldi	r25, 0x00	; 0
+ 1bc:	22 e3       	ldi	r18, 0x32	; 50
+ 1be:	30 e0       	ldi	r19, 0x00	; 0
+ 1c0:	0f c0       	rjmp	.+30     	; 0x1e0 <RGB_base_convert+0x4a>
+ 1c2:	92 e3       	ldi	r25, 0x32	; 50
+ 1c4:	20 e0       	ldi	r18, 0x00	; 0
+ 1c6:	30 e0       	ldi	r19, 0x00	; 0
+ 1c8:	0b c0       	rjmp	.+22     	; 0x1e0 <RGB_base_convert+0x4a>
+ 1ca:	90 e0       	ldi	r25, 0x00	; 0
+ 1cc:	22 e3       	ldi	r18, 0x32	; 50
+ 1ce:	32 e3       	ldi	r19, 0x32	; 50
+ 1d0:	07 c0       	rjmp	.+14     	; 0x1e0 <RGB_base_convert+0x4a>
+ 1d2:	92 e3       	ldi	r25, 0x32	; 50
+ 1d4:	20 e0       	ldi	r18, 0x00	; 0
+ 1d6:	32 e3       	ldi	r19, 0x32	; 50
+ 1d8:	03 c0       	rjmp	.+6      	; 0x1e0 <RGB_base_convert+0x4a>
+ 1da:	92 e3       	ldi	r25, 0x32	; 50
+ 1dc:	22 e3       	ldi	r18, 0x32	; 50
+ 1de:	32 e3       	ldi	r19, 0x32	; 50
+ 1e0:	63 2f       	mov	r22, r19
+ 1e2:	72 2f       	mov	r23, r18
+ 1e4:	89 2f       	mov	r24, r25
+ 1e6:	08 95       	ret
+
+000001e8 <RGB_color_change>:
+ 1e8:	fc 01       	movw	r30, r24
+ 1ea:	db 01       	movw	r26, r22
+ 1ec:	92 81       	ldd	r25, Z+2	; 0x02
+ 1ee:	12 96       	adiw	r26, 0x02	; 2
+ 1f0:	8c 91       	ld	r24, X
+ 1f2:	12 97       	sbiw	r26, 0x02	; 2
+ 1f4:	98 13       	cpse	r25, r24
+ 1f6:	0a c0       	rjmp	.+20     	; 0x20c <RGB_color_change+0x24>
+ 1f8:	91 81       	ldd	r25, Z+1	; 0x01
+ 1fa:	11 96       	adiw	r26, 0x01	; 1
+ 1fc:	8c 91       	ld	r24, X
+ 1fe:	11 97       	sbiw	r26, 0x01	; 1
+ 200:	98 13       	cpse	r25, r24
+ 202:	04 c0       	rjmp	.+8      	; 0x20c <RGB_color_change+0x24>
+ 204:	90 81       	ld	r25, Z
+ 206:	8c 91       	ld	r24, X
+ 208:	98 17       	cp	r25, r24
+ 20a:	69 f1       	breq	.+90     	; 0x266 <RGB_color_change+0x7e>
+ 20c:	44 23       	and	r20, r20
+ 20e:	69 f1       	breq	.+90     	; 0x26a <RGB_color_change+0x82>
+ 210:	90 e0       	ldi	r25, 0x00	; 0
+ 212:	80 81       	ld	r24, Z
+ 214:	2c 91       	ld	r18, X
+ 216:	28 17       	cp	r18, r24
+ 218:	18 f4       	brcc	.+6      	; 0x220 <RGB_color_change+0x38>
+ 21a:	81 50       	subi	r24, 0x01	; 1
+ 21c:	80 83       	st	Z, r24
+ 21e:	04 c0       	rjmp	.+8      	; 0x228 <RGB_color_change+0x40>
+ 220:	82 17       	cp	r24, r18
+ 222:	10 f4       	brcc	.+4      	; 0x228 <RGB_color_change+0x40>
+ 224:	8f 5f       	subi	r24, 0xFF	; 255
+ 226:	80 83       	st	Z, r24
+ 228:	81 81       	ldd	r24, Z+1	; 0x01
+ 22a:	11 96       	adiw	r26, 0x01	; 1
+ 22c:	2c 91       	ld	r18, X
+ 22e:	11 97       	sbiw	r26, 0x01	; 1
+ 230:	28 17       	cp	r18, r24
+ 232:	18 f4       	brcc	.+6      	; 0x23a <RGB_color_change+0x52>
+ 234:	81 50       	subi	r24, 0x01	; 1
+ 236:	81 83       	std	Z+1, r24	; 0x01
+ 238:	04 c0       	rjmp	.+8      	; 0x242 <RGB_color_change+0x5a>
+ 23a:	82 17       	cp	r24, r18
+ 23c:	10 f4       	brcc	.+4      	; 0x242 <RGB_color_change+0x5a>
+ 23e:	8f 5f       	subi	r24, 0xFF	; 255
+ 240:	81 83       	std	Z+1, r24	; 0x01
+ 242:	82 81       	ldd	r24, Z+2	; 0x02
+ 244:	12 96       	adiw	r26, 0x02	; 2
+ 246:	2c 91       	ld	r18, X
+ 248:	12 97       	sbiw	r26, 0x02	; 2
+ 24a:	28 17       	cp	r18, r24
+ 24c:	18 f4       	brcc	.+6      	; 0x254 <RGB_color_change+0x6c>
+ 24e:	81 50       	subi	r24, 0x01	; 1
+ 250:	82 83       	std	Z+2, r24	; 0x02
+ 252:	04 c0       	rjmp	.+8      	; 0x25c <RGB_color_change+0x74>
+ 254:	82 17       	cp	r24, r18
+ 256:	10 f4       	brcc	.+4      	; 0x25c <RGB_color_change+0x74>
+ 258:	8f 5f       	subi	r24, 0xFF	; 255
+ 25a:	82 83       	std	Z+2, r24	; 0x02
+ 25c:	9f 5f       	subi	r25, 0xFF	; 255
+ 25e:	94 13       	cpse	r25, r20
+ 260:	d8 cf       	rjmp	.-80     	; 0x212 <RGB_color_change+0x2a>
+ 262:	80 e0       	ldi	r24, 0x00	; 0
+ 264:	08 95       	ret
+ 266:	81 e0       	ldi	r24, 0x01	; 1
+ 268:	08 95       	ret
+ 26a:	80 e0       	ldi	r24, 0x00	; 0
+ 26c:	08 95       	ret
+
+0000026e <RGB_color_change_sys>:
+}
+
+
+
+void RGB_color_change_sys(Color_pack *rgb,uint16_t first_point,uint16_t last_point,Color_pack to_color,uint8_t speed,uint8_t ratio,uint16_t wait)
+{
+ 26e:	2f 92       	push	r2
+ 270:	3f 92       	push	r3
+ 272:	4f 92       	push	r4
+ 274:	5f 92       	push	r5
+ 276:	6f 92       	push	r6
+ 278:	7f 92       	push	r7
+ 27a:	8f 92       	push	r8
+ 27c:	9f 92       	push	r9
+ 27e:	af 92       	push	r10
+ 280:	bf 92       	push	r11
+ 282:	cf 92       	push	r12
+ 284:	df 92       	push	r13
+ 286:	ef 92       	push	r14
+ 288:	ff 92       	push	r15
+ 28a:	0f 93       	push	r16
+ 28c:	1f 93       	push	r17
+ 28e:	cf 93       	push	r28
+ 290:	df 93       	push	r29
+ 292:	00 d0       	rcall	.+0      	; 0x294 <RGB_color_change_sys+0x26>
+ 294:	00 d0       	rcall	.+0      	; 0x296 <RGB_color_change_sys+0x28>
+ 296:	00 d0       	rcall	.+0      	; 0x298 <RGB_color_change_sys+0x2a>
+ 298:	cd b7       	in	r28, 0x3d	; 61
+ 29a:	de b7       	in	r29, 0x3e	; 62
+ 29c:	0c 83       	std	Y+4, r16	; 0x04
+ 29e:	1d 83       	std	Y+5, r17	; 0x05
+ 2a0:	2e 83       	std	Y+6, r18	; 0x06
+	Color_pack _cur_color=rgb[first_point];
+ 2a2:	fb 01       	movw	r30, r22
+ 2a4:	ee 0f       	add	r30, r30
+ 2a6:	ff 1f       	adc	r31, r31
+ 2a8:	e6 0f       	add	r30, r22
+ 2aa:	f7 1f       	adc	r31, r23
+ 2ac:	e8 0f       	add	r30, r24
+ 2ae:	f9 1f       	adc	r31, r25
+ 2b0:	60 80       	ld	r6, Z
+ 2b2:	71 80       	ldd	r7, Z+1	; 0x01
+ 2b4:	82 80       	ldd	r8, Z+2	; 0x02
+ 2b6:	69 82       	std	Y+1, r6	; 0x01
+ 2b8:	7a 82       	std	Y+2, r7	; 0x02
+ 2ba:	8b 82       	std	Y+3, r8	; 0x03
+	
+	if ((_cur_color.Color.Blue==to_color.Color.Blue)&&(_cur_color.Color.Red==to_color.Color.Red)&&(_cur_color.Color.Green==to_color.Color.Green)) return;
+ 2bc:	3b 81       	ldd	r19, Y+3	; 0x03
+ 2be:	2e 81       	ldd	r18, Y+6	; 0x06
+ 2c0:	32 17       	cp	r19, r18
+ 2c2:	f1 f0       	breq	.+60     	; 0x300 <RGB_color_change_sys+0x92>
+	do 
+	{
+		for (uint16_t i=0;i<(last_point-first_point)+1;i++) rgb[first_point+i]=_cur_color;
+ 2c4:	46 1b       	sub	r20, r22
+ 2c6:	57 0b       	sbc	r21, r23
+ 2c8:	2a 01       	movw	r4, r20
+ 2ca:	2f ef       	ldi	r18, 0xFF	; 255
+ 2cc:	42 1a       	sub	r4, r18
+ 2ce:	52 0a       	sbc	r5, r18
+ 2d0:	19 f0       	breq	.+6      	; 0x2d8 <RGB_color_change_sys+0x6a>
+ 2d2:	d4 2c       	mov	r13, r4
+ 2d4:	f5 2c       	mov	r15, r5
+ 2d6:	02 c0       	rjmp	.+4      	; 0x2dc <RGB_color_change_sys+0x6e>
+ 2d8:	d1 2c       	mov	r13, r1
+ 2da:	f1 2c       	mov	r15, r1
+ 2dc:	3c 01       	movw	r6, r24
+ 2de:	6f 5f       	subi	r22, 0xFF	; 255
+ 2e0:	7f 4f       	sbci	r23, 0xFF	; 255
+ 2e2:	46 0f       	add	r20, r22
+ 2e4:	57 1f       	adc	r21, r23
+ 2e6:	4a 01       	movw	r8, r20
+ 2e8:	88 0c       	add	r8, r8
+ 2ea:	99 1c       	adc	r9, r9
+ 2ec:	84 0e       	add	r8, r20
+ 2ee:	95 1e       	adc	r9, r21
+ 2f0:	88 0e       	add	r8, r24
+ 2f2:	99 1e       	adc	r9, r25
+ 2f4:	2e 2e       	mov	r2, r30
+ 2f6:	3f 2e       	mov	r3, r31
+		RGB_out_to_lpd(rgb,(last_point-first_point)+1);
+		for (uint16_t i = 0;i<speed;i++) _delay_ms(1);
+ 2f8:	0e 2d       	mov	r16, r14
+ 2fa:	10 e0       	ldi	r17, 0x00	; 0
+ 2fc:	e1 2c       	mov	r14, r1
+ 2fe:	09 c0       	rjmp	.+18     	; 0x312 <RGB_color_change_sys+0xa4>
+
+void RGB_color_change_sys(Color_pack *rgb,uint16_t first_point,uint16_t last_point,Color_pack to_color,uint8_t speed,uint8_t ratio,uint16_t wait)
+{
+	Color_pack _cur_color=rgb[first_point];
+	
+	if ((_cur_color.Color.Blue==to_color.Color.Blue)&&(_cur_color.Color.Red==to_color.Color.Red)&&(_cur_color.Color.Green==to_color.Color.Green)) return;
+ 300:	39 81       	ldd	r19, Y+1	; 0x01
+ 302:	2c 81       	ldd	r18, Y+4	; 0x04
+ 304:	32 13       	cpse	r19, r18
+ 306:	de cf       	rjmp	.-68     	; 0x2c4 <RGB_color_change_sys+0x56>
+ 308:	3a 81       	ldd	r19, Y+2	; 0x02
+ 30a:	2d 81       	ldd	r18, Y+5	; 0x05
+ 30c:	32 13       	cpse	r19, r18
+ 30e:	da cf       	rjmp	.-76     	; 0x2c4 <RGB_color_change_sys+0x56>
+ 310:	3b c0       	rjmp	.+118    	; 0x388 <RGB_color_change_sys+0x11a>
+	do 
+	{
+		for (uint16_t i=0;i<(last_point-first_point)+1;i++) rgb[first_point+i]=_cur_color;
+ 312:	41 14       	cp	r4, r1
+ 314:	51 04       	cpc	r5, r1
+ 316:	59 f0       	breq	.+22     	; 0x32e <RGB_color_change_sys+0xc0>
+ 318:	e2 2d       	mov	r30, r2
+ 31a:	f3 2d       	mov	r31, r3
+ 31c:	89 81       	ldd	r24, Y+1	; 0x01
+ 31e:	9a 81       	ldd	r25, Y+2	; 0x02
+ 320:	ab 81       	ldd	r26, Y+3	; 0x03
+ 322:	81 93       	st	Z+, r24
+ 324:	91 93       	st	Z+, r25
+ 326:	a1 93       	st	Z+, r26
+ 328:	e8 15       	cp	r30, r8
+ 32a:	f9 05       	cpc	r31, r9
+ 32c:	b9 f7       	brne	.-18     	; 0x31c <RGB_color_change_sys+0xae>
+		RGB_out_to_lpd(rgb,(last_point-first_point)+1);
+ 32e:	6d 2d       	mov	r22, r13
+ 330:	7f 2d       	mov	r23, r15
+ 332:	c3 01       	movw	r24, r6
+ 334:	0e 94 79 00 	call	0xf2	; 0xf2 <RGB_out_to_lpd>
+		for (uint16_t i = 0;i<speed;i++) _delay_ms(1);
+ 338:	01 15       	cp	r16, r1
+ 33a:	11 05       	cpc	r17, r1
+ 33c:	61 f0       	breq	.+24     	; 0x356 <RGB_color_change_sys+0xe8>
+ 33e:	8e 2d       	mov	r24, r14
+ 340:	90 e0       	ldi	r25, 0x00	; 0
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 342:	ef e9       	ldi	r30, 0x9F	; 159
+ 344:	ff e0       	ldi	r31, 0x0F	; 15
+ 346:	31 97       	sbiw	r30, 0x01	; 1
+ 348:	f1 f7       	brne	.-4      	; 0x346 <RGB_color_change_sys+0xd8>
+ 34a:	00 c0       	rjmp	.+0      	; 0x34c <RGB_color_change_sys+0xde>
+ 34c:	00 00       	nop
+ 34e:	01 96       	adiw	r24, 0x01	; 1
+ 350:	80 17       	cp	r24, r16
+ 352:	91 07       	cpc	r25, r17
+ 354:	b1 f7       	brne	.-20     	; 0x342 <RGB_color_change_sys+0xd4>
+	} while (RGB_color_change(&_cur_color,&to_color,ratio)==0);
+ 356:	4c 2d       	mov	r20, r12
+ 358:	be 01       	movw	r22, r28
+ 35a:	6c 5f       	subi	r22, 0xFC	; 252
+ 35c:	7f 4f       	sbci	r23, 0xFF	; 255
+ 35e:	ce 01       	movw	r24, r28
+ 360:	01 96       	adiw	r24, 0x01	; 1
+ 362:	0e 94 f4 00 	call	0x1e8	; 0x1e8 <RGB_color_change>
+ 366:	88 23       	and	r24, r24
+ 368:	a1 f2       	breq	.-88     	; 0x312 <RGB_color_change_sys+0xa4>
+	for (uint16_t i = 0;i<wait;i++)
+ 36a:	a1 14       	cp	r10, r1
+ 36c:	b1 04       	cpc	r11, r1
+ 36e:	61 f0       	breq	.+24     	; 0x388 <RGB_color_change_sys+0x11a>
+ 370:	80 e0       	ldi	r24, 0x00	; 0
+ 372:	90 e0       	ldi	r25, 0x00	; 0
+ 374:	ef e9       	ldi	r30, 0x9F	; 159
+ 376:	ff e0       	ldi	r31, 0x0F	; 15
+ 378:	31 97       	sbiw	r30, 0x01	; 1
+ 37a:	f1 f7       	brne	.-4      	; 0x378 <RGB_color_change_sys+0x10a>
+ 37c:	00 c0       	rjmp	.+0      	; 0x37e <RGB_color_change_sys+0x110>
+ 37e:	00 00       	nop
+ 380:	01 96       	adiw	r24, 0x01	; 1
+ 382:	8a 15       	cp	r24, r10
+ 384:	9b 05       	cpc	r25, r11
+ 386:	b1 f7       	brne	.-20     	; 0x374 <RGB_color_change_sys+0x106>
+	_delay_ms(1);
+}
+ 388:	26 96       	adiw	r28, 0x06	; 6
+ 38a:	0f b6       	in	r0, 0x3f	; 63
+ 38c:	f8 94       	cli
+ 38e:	de bf       	out	0x3e, r29	; 62
+ 390:	0f be       	out	0x3f, r0	; 63
+ 392:	cd bf       	out	0x3d, r28	; 61
+ 394:	df 91       	pop	r29
+ 396:	cf 91       	pop	r28
+ 398:	1f 91       	pop	r17
+ 39a:	0f 91       	pop	r16
+ 39c:	ff 90       	pop	r15
+ 39e:	ef 90       	pop	r14
+ 3a0:	df 90       	pop	r13
+ 3a2:	cf 90       	pop	r12
+ 3a4:	bf 90       	pop	r11
+ 3a6:	af 90       	pop	r10
+ 3a8:	9f 90       	pop	r9
+ 3aa:	8f 90       	pop	r8
+ 3ac:	7f 90       	pop	r7
+ 3ae:	6f 90       	pop	r6
+ 3b0:	5f 90       	pop	r5
+ 3b2:	4f 90       	pop	r4
+ 3b4:	3f 90       	pop	r3
+ 3b6:	2f 90       	pop	r2
+ 3b8:	08 95       	ret
+
+000003ba <main>:
+ uint8_t gray_scale[DATA_LEN];
+Color_pack RGB[max_led];
+int main(void)
+{
+	
+	wdt_reset();
+ 3ba:	a8 95       	wdr
+				: "r0"
+		);
+	}
+	else
+	{
+		__asm__ __volatile__ (
+ 3bc:	9c e0       	ldi	r25, 0x0C	; 12
+ 3be:	88 e1       	ldi	r24, 0x18	; 24
+ 3c0:	0f b6       	in	r0, 0x3f	; 63
+ 3c2:	f8 94       	cli
+ 3c4:	a8 95       	wdr
+ 3c6:	80 93 60 00 	sts	0x0060, r24
+ 3ca:	0f be       	out	0x3f, r0	; 63
+ 3cc:	90 93 60 00 	sts	0x0060, r25
+	wdt_enable(WDTO_250MS);
+	output_init();
+ 3d0:	0e 94 85 04 	call	0x90a	; 0x90a <output_init>
+	timer2_CTC_init();
+ 3d4:	0e 94 a2 04 	call	0x944	; 0x944 <timer2_CTC_init>
+	
+	DDRD &=~(1<<PIND2);
+ 3d8:	52 98       	cbi	0x0a, 2	; 10
+	PORTD|=1<<PIND2;
+ 3da:	5a 9a       	sbi	0x0b, 2	; 11
+	DDRD |=(1<<PIND1);
+ 3dc:	51 9a       	sbi	0x0a, 1	; 10
+	
+	
+	sei();
+ 3de:	78 94       	sei
+		//RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(3),5,1,20);
+		//RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(0),5,1,20);
+		//
+		//
+		
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(1),1,2,20);
+ 3e0:	81 e0       	ldi	r24, 0x01	; 1
+ 3e2:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 3e6:	0f 2e       	mov	r0, r31
+ 3e8:	f4 e1       	ldi	r31, 0x14	; 20
+ 3ea:	af 2e       	mov	r10, r31
+ 3ec:	b1 2c       	mov	r11, r1
+ 3ee:	f0 2d       	mov	r31, r0
+ 3f0:	68 94       	set
+ 3f2:	cc 24       	eor	r12, r12
+ 3f4:	c1 f8       	bld	r12, 1
+ 3f6:	ee 24       	eor	r14, r14
+ 3f8:	e3 94       	inc	r14
+ 3fa:	8b 01       	movw	r16, r22
+ 3fc:	28 2f       	mov	r18, r24
+ 3fe:	44 e0       	ldi	r20, 0x04	; 4
+ 400:	50 e0       	ldi	r21, 0x00	; 0
+ 402:	60 e0       	ldi	r22, 0x00	; 0
+ 404:	70 e0       	ldi	r23, 0x00	; 0
+ 406:	84 e0       	ldi	r24, 0x04	; 4
+ 408:	91 e0       	ldi	r25, 0x01	; 1
+ 40a:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(2),1,2,20);
+ 40e:	82 e0       	ldi	r24, 0x02	; 2
+ 410:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 414:	8b 01       	movw	r16, r22
+ 416:	28 2f       	mov	r18, r24
+ 418:	44 e0       	ldi	r20, 0x04	; 4
+ 41a:	50 e0       	ldi	r21, 0x00	; 0
+ 41c:	60 e0       	ldi	r22, 0x00	; 0
+ 41e:	70 e0       	ldi	r23, 0x00	; 0
+ 420:	84 e0       	ldi	r24, 0x04	; 4
+ 422:	91 e0       	ldi	r25, 0x01	; 1
+ 424:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(3),1,2,20);
+ 428:	83 e0       	ldi	r24, 0x03	; 3
+ 42a:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 42e:	8b 01       	movw	r16, r22
+ 430:	28 2f       	mov	r18, r24
+ 432:	44 e0       	ldi	r20, 0x04	; 4
+ 434:	50 e0       	ldi	r21, 0x00	; 0
+ 436:	60 e0       	ldi	r22, 0x00	; 0
+ 438:	70 e0       	ldi	r23, 0x00	; 0
+ 43a:	84 e0       	ldi	r24, 0x04	; 4
+ 43c:	91 e0       	ldi	r25, 0x01	; 1
+ 43e:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(4),1,2,20);
+ 442:	84 e0       	ldi	r24, 0x04	; 4
+ 444:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 448:	8b 01       	movw	r16, r22
+ 44a:	28 2f       	mov	r18, r24
+ 44c:	44 e0       	ldi	r20, 0x04	; 4
+ 44e:	50 e0       	ldi	r21, 0x00	; 0
+ 450:	60 e0       	ldi	r22, 0x00	; 0
+ 452:	70 e0       	ldi	r23, 0x00	; 0
+ 454:	84 e0       	ldi	r24, 0x04	; 4
+ 456:	91 e0       	ldi	r25, 0x01	; 1
+ 458:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(5),1,2,20);
+ 45c:	85 e0       	ldi	r24, 0x05	; 5
+ 45e:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 462:	8b 01       	movw	r16, r22
+ 464:	28 2f       	mov	r18, r24
+ 466:	44 e0       	ldi	r20, 0x04	; 4
+ 468:	50 e0       	ldi	r21, 0x00	; 0
+ 46a:	60 e0       	ldi	r22, 0x00	; 0
+ 46c:	70 e0       	ldi	r23, 0x00	; 0
+ 46e:	84 e0       	ldi	r24, 0x04	; 4
+ 470:	91 e0       	ldi	r25, 0x01	; 1
+ 472:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(6),1,2,20);
+ 476:	86 e0       	ldi	r24, 0x06	; 6
+ 478:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 47c:	8b 01       	movw	r16, r22
+ 47e:	28 2f       	mov	r18, r24
+ 480:	44 e0       	ldi	r20, 0x04	; 4
+ 482:	50 e0       	ldi	r21, 0x00	; 0
+ 484:	60 e0       	ldi	r22, 0x00	; 0
+ 486:	70 e0       	ldi	r23, 0x00	; 0
+ 488:	84 e0       	ldi	r24, 0x04	; 4
+ 48a:	91 e0       	ldi	r25, 0x01	; 1
+ 48c:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(7),1,2,20);
+ 490:	87 e0       	ldi	r24, 0x07	; 7
+ 492:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 496:	8b 01       	movw	r16, r22
+ 498:	28 2f       	mov	r18, r24
+ 49a:	44 e0       	ldi	r20, 0x04	; 4
+ 49c:	50 e0       	ldi	r21, 0x00	; 0
+ 49e:	60 e0       	ldi	r22, 0x00	; 0
+ 4a0:	70 e0       	ldi	r23, 0x00	; 0
+ 4a2:	84 e0       	ldi	r24, 0x04	; 4
+ 4a4:	91 e0       	ldi	r25, 0x01	; 1
+ 4a6:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(0),1,2,20);
+ 4aa:	80 e0       	ldi	r24, 0x00	; 0
+ 4ac:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 4b0:	8b 01       	movw	r16, r22
+ 4b2:	28 2f       	mov	r18, r24
+ 4b4:	44 e0       	ldi	r20, 0x04	; 4
+ 4b6:	50 e0       	ldi	r21, 0x00	; 0
+ 4b8:	60 e0       	ldi	r22, 0x00	; 0
+ 4ba:	70 e0       	ldi	r23, 0x00	; 0
+ 4bc:	84 e0       	ldi	r24, 0x04	; 4
+ 4be:	91 e0       	ldi	r25, 0x01	; 1
+ 4c0:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(7),1,2,20);
+ 4c4:	87 e0       	ldi	r24, 0x07	; 7
+ 4c6:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 4ca:	8b 01       	movw	r16, r22
+ 4cc:	28 2f       	mov	r18, r24
+ 4ce:	44 e0       	ldi	r20, 0x04	; 4
+ 4d0:	50 e0       	ldi	r21, 0x00	; 0
+ 4d2:	60 e0       	ldi	r22, 0x00	; 0
+ 4d4:	70 e0       	ldi	r23, 0x00	; 0
+ 4d6:	84 e0       	ldi	r24, 0x04	; 4
+ 4d8:	91 e0       	ldi	r25, 0x01	; 1
+ 4da:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(0),1,2,20);
+ 4de:	80 e0       	ldi	r24, 0x00	; 0
+ 4e0:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 4e4:	8b 01       	movw	r16, r22
+ 4e6:	28 2f       	mov	r18, r24
+ 4e8:	44 e0       	ldi	r20, 0x04	; 4
+ 4ea:	50 e0       	ldi	r21, 0x00	; 0
+ 4ec:	60 e0       	ldi	r22, 0x00	; 0
+ 4ee:	70 e0       	ldi	r23, 0x00	; 0
+ 4f0:	84 e0       	ldi	r24, 0x04	; 4
+ 4f2:	91 e0       	ldi	r25, 0x01	; 1
+ 4f4:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(7),1,2,20);
+ 4f8:	87 e0       	ldi	r24, 0x07	; 7
+ 4fa:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 4fe:	8b 01       	movw	r16, r22
+ 500:	28 2f       	mov	r18, r24
+ 502:	44 e0       	ldi	r20, 0x04	; 4
+ 504:	50 e0       	ldi	r21, 0x00	; 0
+ 506:	60 e0       	ldi	r22, 0x00	; 0
+ 508:	70 e0       	ldi	r23, 0x00	; 0
+ 50a:	84 e0       	ldi	r24, 0x04	; 4
+ 50c:	91 e0       	ldi	r25, 0x01	; 1
+ 50e:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(0),1,2,20);
+ 512:	80 e0       	ldi	r24, 0x00	; 0
+ 514:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 518:	8b 01       	movw	r16, r22
+ 51a:	28 2f       	mov	r18, r24
+ 51c:	44 e0       	ldi	r20, 0x04	; 4
+ 51e:	50 e0       	ldi	r21, 0x00	; 0
+ 520:	60 e0       	ldi	r22, 0x00	; 0
+ 522:	70 e0       	ldi	r23, 0x00	; 0
+ 524:	84 e0       	ldi	r24, 0x04	; 4
+ 526:	91 e0       	ldi	r25, 0x01	; 1
+ 528:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(7),1,2,20);
+ 52c:	87 e0       	ldi	r24, 0x07	; 7
+ 52e:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 532:	8b 01       	movw	r16, r22
+ 534:	28 2f       	mov	r18, r24
+ 536:	44 e0       	ldi	r20, 0x04	; 4
+ 538:	50 e0       	ldi	r21, 0x00	; 0
+ 53a:	60 e0       	ldi	r22, 0x00	; 0
+ 53c:	70 e0       	ldi	r23, 0x00	; 0
+ 53e:	84 e0       	ldi	r24, 0x04	; 4
+ 540:	91 e0       	ldi	r25, 0x01	; 1
+ 542:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		
+		
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(7),1,2,20);
+ 546:	87 e0       	ldi	r24, 0x07	; 7
+ 548:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 54c:	8b 01       	movw	r16, r22
+ 54e:	28 2f       	mov	r18, r24
+ 550:	44 e0       	ldi	r20, 0x04	; 4
+ 552:	50 e0       	ldi	r21, 0x00	; 0
+ 554:	60 e0       	ldi	r22, 0x00	; 0
+ 556:	70 e0       	ldi	r23, 0x00	; 0
+ 558:	84 e0       	ldi	r24, 0x04	; 4
+ 55a:	91 e0       	ldi	r25, 0x01	; 1
+ 55c:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(1),1,2,20);
+ 560:	81 e0       	ldi	r24, 0x01	; 1
+ 562:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 566:	8b 01       	movw	r16, r22
+ 568:	28 2f       	mov	r18, r24
+ 56a:	44 e0       	ldi	r20, 0x04	; 4
+ 56c:	50 e0       	ldi	r21, 0x00	; 0
+ 56e:	60 e0       	ldi	r22, 0x00	; 0
+ 570:	70 e0       	ldi	r23, 0x00	; 0
+ 572:	84 e0       	ldi	r24, 0x04	; 4
+ 574:	91 e0       	ldi	r25, 0x01	; 1
+ 576:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(7),1,2,20);
+ 57a:	87 e0       	ldi	r24, 0x07	; 7
+ 57c:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 580:	8b 01       	movw	r16, r22
+ 582:	28 2f       	mov	r18, r24
+ 584:	44 e0       	ldi	r20, 0x04	; 4
+ 586:	50 e0       	ldi	r21, 0x00	; 0
+ 588:	60 e0       	ldi	r22, 0x00	; 0
+ 58a:	70 e0       	ldi	r23, 0x00	; 0
+ 58c:	84 e0       	ldi	r24, 0x04	; 4
+ 58e:	91 e0       	ldi	r25, 0x01	; 1
+ 590:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(2),1,2,20);
+ 594:	82 e0       	ldi	r24, 0x02	; 2
+ 596:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 59a:	8b 01       	movw	r16, r22
+ 59c:	28 2f       	mov	r18, r24
+ 59e:	44 e0       	ldi	r20, 0x04	; 4
+ 5a0:	50 e0       	ldi	r21, 0x00	; 0
+ 5a2:	60 e0       	ldi	r22, 0x00	; 0
+ 5a4:	70 e0       	ldi	r23, 0x00	; 0
+ 5a6:	84 e0       	ldi	r24, 0x04	; 4
+ 5a8:	91 e0       	ldi	r25, 0x01	; 1
+ 5aa:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(7),1,2,20);
+ 5ae:	87 e0       	ldi	r24, 0x07	; 7
+ 5b0:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 5b4:	8b 01       	movw	r16, r22
+ 5b6:	28 2f       	mov	r18, r24
+ 5b8:	44 e0       	ldi	r20, 0x04	; 4
+ 5ba:	50 e0       	ldi	r21, 0x00	; 0
+ 5bc:	60 e0       	ldi	r22, 0x00	; 0
+ 5be:	70 e0       	ldi	r23, 0x00	; 0
+ 5c0:	84 e0       	ldi	r24, 0x04	; 4
+ 5c2:	91 e0       	ldi	r25, 0x01	; 1
+ 5c4:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(3),1,2,20);
+ 5c8:	83 e0       	ldi	r24, 0x03	; 3
+ 5ca:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 5ce:	8b 01       	movw	r16, r22
+ 5d0:	28 2f       	mov	r18, r24
+ 5d2:	44 e0       	ldi	r20, 0x04	; 4
+ 5d4:	50 e0       	ldi	r21, 0x00	; 0
+ 5d6:	60 e0       	ldi	r22, 0x00	; 0
+ 5d8:	70 e0       	ldi	r23, 0x00	; 0
+ 5da:	84 e0       	ldi	r24, 0x04	; 4
+ 5dc:	91 e0       	ldi	r25, 0x01	; 1
+ 5de:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(1),1,2,20);
+ 5e2:	81 e0       	ldi	r24, 0x01	; 1
+ 5e4:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 5e8:	8b 01       	movw	r16, r22
+ 5ea:	28 2f       	mov	r18, r24
+ 5ec:	44 e0       	ldi	r20, 0x04	; 4
+ 5ee:	50 e0       	ldi	r21, 0x00	; 0
+ 5f0:	60 e0       	ldi	r22, 0x00	; 0
+ 5f2:	70 e0       	ldi	r23, 0x00	; 0
+ 5f4:	84 e0       	ldi	r24, 0x04	; 4
+ 5f6:	91 e0       	ldi	r25, 0x01	; 1
+ 5f8:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(0),1,2,20);
+ 5fc:	80 e0       	ldi	r24, 0x00	; 0
+ 5fe:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 602:	8b 01       	movw	r16, r22
+ 604:	28 2f       	mov	r18, r24
+ 606:	44 e0       	ldi	r20, 0x04	; 4
+ 608:	50 e0       	ldi	r21, 0x00	; 0
+ 60a:	60 e0       	ldi	r22, 0x00	; 0
+ 60c:	70 e0       	ldi	r23, 0x00	; 0
+ 60e:	84 e0       	ldi	r24, 0x04	; 4
+ 610:	91 e0       	ldi	r25, 0x01	; 1
+ 612:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(2),1,2,20);
+ 616:	82 e0       	ldi	r24, 0x02	; 2
+ 618:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 61c:	8b 01       	movw	r16, r22
+ 61e:	28 2f       	mov	r18, r24
+ 620:	44 e0       	ldi	r20, 0x04	; 4
+ 622:	50 e0       	ldi	r21, 0x00	; 0
+ 624:	60 e0       	ldi	r22, 0x00	; 0
+ 626:	70 e0       	ldi	r23, 0x00	; 0
+ 628:	84 e0       	ldi	r24, 0x04	; 4
+ 62a:	91 e0       	ldi	r25, 0x01	; 1
+ 62c:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(0),1,2,20);
+ 630:	80 e0       	ldi	r24, 0x00	; 0
+ 632:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 636:	8b 01       	movw	r16, r22
+ 638:	28 2f       	mov	r18, r24
+ 63a:	44 e0       	ldi	r20, 0x04	; 4
+ 63c:	50 e0       	ldi	r21, 0x00	; 0
+ 63e:	60 e0       	ldi	r22, 0x00	; 0
+ 640:	70 e0       	ldi	r23, 0x00	; 0
+ 642:	84 e0       	ldi	r24, 0x04	; 4
+ 644:	91 e0       	ldi	r25, 0x01	; 1
+ 646:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(3),1,2,20);
+ 64a:	83 e0       	ldi	r24, 0x03	; 3
+ 64c:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 650:	8b 01       	movw	r16, r22
+ 652:	28 2f       	mov	r18, r24
+ 654:	44 e0       	ldi	r20, 0x04	; 4
+ 656:	50 e0       	ldi	r21, 0x00	; 0
+ 658:	60 e0       	ldi	r22, 0x00	; 0
+ 65a:	70 e0       	ldi	r23, 0x00	; 0
+ 65c:	84 e0       	ldi	r24, 0x04	; 4
+ 65e:	91 e0       	ldi	r25, 0x01	; 1
+ 660:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(0),1,2,20);
+ 664:	80 e0       	ldi	r24, 0x00	; 0
+ 666:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 66a:	8b 01       	movw	r16, r22
+ 66c:	28 2f       	mov	r18, r24
+ 66e:	44 e0       	ldi	r20, 0x04	; 4
+ 670:	50 e0       	ldi	r21, 0x00	; 0
+ 672:	60 e0       	ldi	r22, 0x00	; 0
+ 674:	70 e0       	ldi	r23, 0x00	; 0
+ 676:	84 e0       	ldi	r24, 0x04	; 4
+ 678:	91 e0       	ldi	r25, 0x01	; 1
+ 67a:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		
+		
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(1),1,2,20);
+ 67e:	81 e0       	ldi	r24, 0x01	; 1
+ 680:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 684:	8b 01       	movw	r16, r22
+ 686:	28 2f       	mov	r18, r24
+ 688:	44 e0       	ldi	r20, 0x04	; 4
+ 68a:	50 e0       	ldi	r21, 0x00	; 0
+ 68c:	60 e0       	ldi	r22, 0x00	; 0
+ 68e:	70 e0       	ldi	r23, 0x00	; 0
+ 690:	84 e0       	ldi	r24, 0x04	; 4
+ 692:	91 e0       	ldi	r25, 0x01	; 1
+ 694:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(2),1,2,20);
+ 698:	82 e0       	ldi	r24, 0x02	; 2
+ 69a:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 69e:	8b 01       	movw	r16, r22
+ 6a0:	28 2f       	mov	r18, r24
+ 6a2:	44 e0       	ldi	r20, 0x04	; 4
+ 6a4:	50 e0       	ldi	r21, 0x00	; 0
+ 6a6:	60 e0       	ldi	r22, 0x00	; 0
+ 6a8:	70 e0       	ldi	r23, 0x00	; 0
+ 6aa:	84 e0       	ldi	r24, 0x04	; 4
+ 6ac:	91 e0       	ldi	r25, 0x01	; 1
+ 6ae:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(3),1,2,20);
+ 6b2:	83 e0       	ldi	r24, 0x03	; 3
+ 6b4:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 6b8:	8b 01       	movw	r16, r22
+ 6ba:	28 2f       	mov	r18, r24
+ 6bc:	44 e0       	ldi	r20, 0x04	; 4
+ 6be:	50 e0       	ldi	r21, 0x00	; 0
+ 6c0:	60 e0       	ldi	r22, 0x00	; 0
+ 6c2:	70 e0       	ldi	r23, 0x00	; 0
+ 6c4:	84 e0       	ldi	r24, 0x04	; 4
+ 6c6:	91 e0       	ldi	r25, 0x01	; 1
+ 6c8:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(4),1,2,20);
+ 6cc:	84 e0       	ldi	r24, 0x04	; 4
+ 6ce:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 6d2:	8b 01       	movw	r16, r22
+ 6d4:	28 2f       	mov	r18, r24
+ 6d6:	44 e0       	ldi	r20, 0x04	; 4
+ 6d8:	50 e0       	ldi	r21, 0x00	; 0
+ 6da:	60 e0       	ldi	r22, 0x00	; 0
+ 6dc:	70 e0       	ldi	r23, 0x00	; 0
+ 6de:	84 e0       	ldi	r24, 0x04	; 4
+ 6e0:	91 e0       	ldi	r25, 0x01	; 1
+ 6e2:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(5),1,2,20);
+ 6e6:	85 e0       	ldi	r24, 0x05	; 5
+ 6e8:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 6ec:	8b 01       	movw	r16, r22
+ 6ee:	28 2f       	mov	r18, r24
+ 6f0:	44 e0       	ldi	r20, 0x04	; 4
+ 6f2:	50 e0       	ldi	r21, 0x00	; 0
+ 6f4:	60 e0       	ldi	r22, 0x00	; 0
+ 6f6:	70 e0       	ldi	r23, 0x00	; 0
+ 6f8:	84 e0       	ldi	r24, 0x04	; 4
+ 6fa:	91 e0       	ldi	r25, 0x01	; 1
+ 6fc:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(6),1,2,20);
+ 700:	86 e0       	ldi	r24, 0x06	; 6
+ 702:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 706:	8b 01       	movw	r16, r22
+ 708:	28 2f       	mov	r18, r24
+ 70a:	44 e0       	ldi	r20, 0x04	; 4
+ 70c:	50 e0       	ldi	r21, 0x00	; 0
+ 70e:	60 e0       	ldi	r22, 0x00	; 0
+ 710:	70 e0       	ldi	r23, 0x00	; 0
+ 712:	84 e0       	ldi	r24, 0x04	; 4
+ 714:	91 e0       	ldi	r25, 0x01	; 1
+ 716:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(7),1,2,20);
+ 71a:	87 e0       	ldi	r24, 0x07	; 7
+ 71c:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 720:	8b 01       	movw	r16, r22
+ 722:	28 2f       	mov	r18, r24
+ 724:	44 e0       	ldi	r20, 0x04	; 4
+ 726:	50 e0       	ldi	r21, 0x00	; 0
+ 728:	60 e0       	ldi	r22, 0x00	; 0
+ 72a:	70 e0       	ldi	r23, 0x00	; 0
+ 72c:	84 e0       	ldi	r24, 0x04	; 4
+ 72e:	91 e0       	ldi	r25, 0x01	; 1
+ 730:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(0),1,2,20);
+ 734:	80 e0       	ldi	r24, 0x00	; 0
+ 736:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 73a:	8b 01       	movw	r16, r22
+ 73c:	28 2f       	mov	r18, r24
+ 73e:	44 e0       	ldi	r20, 0x04	; 4
+ 740:	50 e0       	ldi	r21, 0x00	; 0
+ 742:	60 e0       	ldi	r22, 0x00	; 0
+ 744:	70 e0       	ldi	r23, 0x00	; 0
+ 746:	84 e0       	ldi	r24, 0x04	; 4
+ 748:	91 e0       	ldi	r25, 0x01	; 1
+ 74a:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(7),1,2,20);
+ 74e:	87 e0       	ldi	r24, 0x07	; 7
+ 750:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 754:	8b 01       	movw	r16, r22
+ 756:	28 2f       	mov	r18, r24
+ 758:	44 e0       	ldi	r20, 0x04	; 4
+ 75a:	50 e0       	ldi	r21, 0x00	; 0
+ 75c:	60 e0       	ldi	r22, 0x00	; 0
+ 75e:	70 e0       	ldi	r23, 0x00	; 0
+ 760:	84 e0       	ldi	r24, 0x04	; 4
+ 762:	91 e0       	ldi	r25, 0x01	; 1
+ 764:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(0),1,2,20);
+ 768:	80 e0       	ldi	r24, 0x00	; 0
+ 76a:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 76e:	8b 01       	movw	r16, r22
+ 770:	28 2f       	mov	r18, r24
+ 772:	44 e0       	ldi	r20, 0x04	; 4
+ 774:	50 e0       	ldi	r21, 0x00	; 0
+ 776:	60 e0       	ldi	r22, 0x00	; 0
+ 778:	70 e0       	ldi	r23, 0x00	; 0
+ 77a:	84 e0       	ldi	r24, 0x04	; 4
+ 77c:	91 e0       	ldi	r25, 0x01	; 1
+ 77e:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(7),1,2,20);
+ 782:	87 e0       	ldi	r24, 0x07	; 7
+ 784:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 788:	8b 01       	movw	r16, r22
+ 78a:	28 2f       	mov	r18, r24
+ 78c:	44 e0       	ldi	r20, 0x04	; 4
+ 78e:	50 e0       	ldi	r21, 0x00	; 0
+ 790:	60 e0       	ldi	r22, 0x00	; 0
+ 792:	70 e0       	ldi	r23, 0x00	; 0
+ 794:	84 e0       	ldi	r24, 0x04	; 4
+ 796:	91 e0       	ldi	r25, 0x01	; 1
+ 798:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(0),1,2,20);
+ 79c:	80 e0       	ldi	r24, 0x00	; 0
+ 79e:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 7a2:	8b 01       	movw	r16, r22
+ 7a4:	28 2f       	mov	r18, r24
+ 7a6:	44 e0       	ldi	r20, 0x04	; 4
+ 7a8:	50 e0       	ldi	r21, 0x00	; 0
+ 7aa:	60 e0       	ldi	r22, 0x00	; 0
+ 7ac:	70 e0       	ldi	r23, 0x00	; 0
+ 7ae:	84 e0       	ldi	r24, 0x04	; 4
+ 7b0:	91 e0       	ldi	r25, 0x01	; 1
+ 7b2:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(7),1,2,20);
+ 7b6:	87 e0       	ldi	r24, 0x07	; 7
+ 7b8:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 7bc:	8b 01       	movw	r16, r22
+ 7be:	28 2f       	mov	r18, r24
+ 7c0:	44 e0       	ldi	r20, 0x04	; 4
+ 7c2:	50 e0       	ldi	r21, 0x00	; 0
+ 7c4:	60 e0       	ldi	r22, 0x00	; 0
+ 7c6:	70 e0       	ldi	r23, 0x00	; 0
+ 7c8:	84 e0       	ldi	r24, 0x04	; 4
+ 7ca:	91 e0       	ldi	r25, 0x01	; 1
+ 7cc:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		
+		
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(7),1,2,20);
+ 7d0:	87 e0       	ldi	r24, 0x07	; 7
+ 7d2:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 7d6:	8b 01       	movw	r16, r22
+ 7d8:	28 2f       	mov	r18, r24
+ 7da:	44 e0       	ldi	r20, 0x04	; 4
+ 7dc:	50 e0       	ldi	r21, 0x00	; 0
+ 7de:	60 e0       	ldi	r22, 0x00	; 0
+ 7e0:	70 e0       	ldi	r23, 0x00	; 0
+ 7e2:	84 e0       	ldi	r24, 0x04	; 4
+ 7e4:	91 e0       	ldi	r25, 0x01	; 1
+ 7e6:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(1),1,2,20);
+ 7ea:	81 e0       	ldi	r24, 0x01	; 1
+ 7ec:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 7f0:	8b 01       	movw	r16, r22
+ 7f2:	28 2f       	mov	r18, r24
+ 7f4:	44 e0       	ldi	r20, 0x04	; 4
+ 7f6:	50 e0       	ldi	r21, 0x00	; 0
+ 7f8:	60 e0       	ldi	r22, 0x00	; 0
+ 7fa:	70 e0       	ldi	r23, 0x00	; 0
+ 7fc:	84 e0       	ldi	r24, 0x04	; 4
+ 7fe:	91 e0       	ldi	r25, 0x01	; 1
+ 800:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(7),1,2,20);
+ 804:	87 e0       	ldi	r24, 0x07	; 7
+ 806:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 80a:	8b 01       	movw	r16, r22
+ 80c:	28 2f       	mov	r18, r24
+ 80e:	44 e0       	ldi	r20, 0x04	; 4
+ 810:	50 e0       	ldi	r21, 0x00	; 0
+ 812:	60 e0       	ldi	r22, 0x00	; 0
+ 814:	70 e0       	ldi	r23, 0x00	; 0
+ 816:	84 e0       	ldi	r24, 0x04	; 4
+ 818:	91 e0       	ldi	r25, 0x01	; 1
+ 81a:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(2),1,2,20);
+ 81e:	82 e0       	ldi	r24, 0x02	; 2
+ 820:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 824:	8b 01       	movw	r16, r22
+ 826:	28 2f       	mov	r18, r24
+ 828:	44 e0       	ldi	r20, 0x04	; 4
+ 82a:	50 e0       	ldi	r21, 0x00	; 0
+ 82c:	60 e0       	ldi	r22, 0x00	; 0
+ 82e:	70 e0       	ldi	r23, 0x00	; 0
+ 830:	84 e0       	ldi	r24, 0x04	; 4
+ 832:	91 e0       	ldi	r25, 0x01	; 1
+ 834:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(7),1,2,20);
+ 838:	87 e0       	ldi	r24, 0x07	; 7
+ 83a:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 83e:	8b 01       	movw	r16, r22
+ 840:	28 2f       	mov	r18, r24
+ 842:	44 e0       	ldi	r20, 0x04	; 4
+ 844:	50 e0       	ldi	r21, 0x00	; 0
+ 846:	60 e0       	ldi	r22, 0x00	; 0
+ 848:	70 e0       	ldi	r23, 0x00	; 0
+ 84a:	84 e0       	ldi	r24, 0x04	; 4
+ 84c:	91 e0       	ldi	r25, 0x01	; 1
+ 84e:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(3),1,2,20);
+ 852:	83 e0       	ldi	r24, 0x03	; 3
+ 854:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 858:	8b 01       	movw	r16, r22
+ 85a:	28 2f       	mov	r18, r24
+ 85c:	44 e0       	ldi	r20, 0x04	; 4
+ 85e:	50 e0       	ldi	r21, 0x00	; 0
+ 860:	60 e0       	ldi	r22, 0x00	; 0
+ 862:	70 e0       	ldi	r23, 0x00	; 0
+ 864:	84 e0       	ldi	r24, 0x04	; 4
+ 866:	91 e0       	ldi	r25, 0x01	; 1
+ 868:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(1),1,2,20);
+ 86c:	81 e0       	ldi	r24, 0x01	; 1
+ 86e:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 872:	8b 01       	movw	r16, r22
+ 874:	28 2f       	mov	r18, r24
+ 876:	44 e0       	ldi	r20, 0x04	; 4
+ 878:	50 e0       	ldi	r21, 0x00	; 0
+ 87a:	60 e0       	ldi	r22, 0x00	; 0
+ 87c:	70 e0       	ldi	r23, 0x00	; 0
+ 87e:	84 e0       	ldi	r24, 0x04	; 4
+ 880:	91 e0       	ldi	r25, 0x01	; 1
+ 882:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(0),1,2,20);
+ 886:	80 e0       	ldi	r24, 0x00	; 0
+ 888:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 88c:	8b 01       	movw	r16, r22
+ 88e:	28 2f       	mov	r18, r24
+ 890:	44 e0       	ldi	r20, 0x04	; 4
+ 892:	50 e0       	ldi	r21, 0x00	; 0
+ 894:	60 e0       	ldi	r22, 0x00	; 0
+ 896:	70 e0       	ldi	r23, 0x00	; 0
+ 898:	84 e0       	ldi	r24, 0x04	; 4
+ 89a:	91 e0       	ldi	r25, 0x01	; 1
+ 89c:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(2),1,2,20);
+ 8a0:	82 e0       	ldi	r24, 0x02	; 2
+ 8a2:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 8a6:	8b 01       	movw	r16, r22
+ 8a8:	28 2f       	mov	r18, r24
+ 8aa:	44 e0       	ldi	r20, 0x04	; 4
+ 8ac:	50 e0       	ldi	r21, 0x00	; 0
+ 8ae:	60 e0       	ldi	r22, 0x00	; 0
+ 8b0:	70 e0       	ldi	r23, 0x00	; 0
+ 8b2:	84 e0       	ldi	r24, 0x04	; 4
+ 8b4:	91 e0       	ldi	r25, 0x01	; 1
+ 8b6:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(0),1,2,20);
+ 8ba:	80 e0       	ldi	r24, 0x00	; 0
+ 8bc:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 8c0:	8b 01       	movw	r16, r22
+ 8c2:	28 2f       	mov	r18, r24
+ 8c4:	44 e0       	ldi	r20, 0x04	; 4
+ 8c6:	50 e0       	ldi	r21, 0x00	; 0
+ 8c8:	60 e0       	ldi	r22, 0x00	; 0
+ 8ca:	70 e0       	ldi	r23, 0x00	; 0
+ 8cc:	84 e0       	ldi	r24, 0x04	; 4
+ 8ce:	91 e0       	ldi	r25, 0x01	; 1
+ 8d0:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(3),1,2,20);
+ 8d4:	83 e0       	ldi	r24, 0x03	; 3
+ 8d6:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 8da:	8b 01       	movw	r16, r22
+ 8dc:	28 2f       	mov	r18, r24
+ 8de:	44 e0       	ldi	r20, 0x04	; 4
+ 8e0:	50 e0       	ldi	r21, 0x00	; 0
+ 8e2:	60 e0       	ldi	r22, 0x00	; 0
+ 8e4:	70 e0       	ldi	r23, 0x00	; 0
+ 8e6:	84 e0       	ldi	r24, 0x04	; 4
+ 8e8:	91 e0       	ldi	r25, 0x01	; 1
+ 8ea:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+		RGB_color_change_sys(RGB,_BOT,_TOP,RGB_base_convert(0),1,2,20);
+ 8ee:	80 e0       	ldi	r24, 0x00	; 0
+ 8f0:	0e 94 cb 00 	call	0x196	; 0x196 <RGB_base_convert>
+ 8f4:	8b 01       	movw	r16, r22
+ 8f6:	28 2f       	mov	r18, r24
+ 8f8:	44 e0       	ldi	r20, 0x04	; 4
+ 8fa:	50 e0       	ldi	r21, 0x00	; 0
+ 8fc:	60 e0       	ldi	r22, 0x00	; 0
+ 8fe:	70 e0       	ldi	r23, 0x00	; 0
+ 900:	84 e0       	ldi	r24, 0x04	; 4
+ 902:	91 e0       	ldi	r25, 0x01	; 1
+ 904:	0e 94 37 01 	call	0x26e	; 0x26e <RGB_color_change_sys>
+	//shooting_star(0,31,gray_scale,3,16,1);
+	//shooting_star(0,31,gray_scale,3,16,0);
+////  shooting_star(0,31,gray_scale,1,4,0,0);
+	
+	
+    }
+ 908:	6b cd       	rjmp	.-1322   	; 0x3e0 <main+0x26>
+
+0000090a <output_init>:
+volatile uint8_t _mapD;
+
+
+void output_init()
+{
+	DDRB |= S_MASK_PB;//pinB 0,1,2,3,4,5
+ 90a:	84 b1       	in	r24, 0x04	; 4
+ 90c:	8f 63       	ori	r24, 0x3F	; 63
+ 90e:	84 b9       	out	0x04, r24	; 4
+	DDRC |= S_MASK_PC;//pinC 0,1,2,3,4,5
+ 910:	87 b1       	in	r24, 0x07	; 7
+ 912:	8f 63       	ori	r24, 0x3F	; 63
+ 914:	87 b9       	out	0x07, r24	; 7
+	DDRD |= S_MASK_PD;//pinD 4,5,6,7
+ 916:	8a b1       	in	r24, 0x0a	; 10
+ 918:	80 6f       	ori	r24, 0xF0	; 240
+ 91a:	8a b9       	out	0x0a, r24	; 10
+ 91c:	08 95       	ret
+
+0000091e <output_off_all>:
+
+///updata 050815
+
+void output_off_all()
+{
+	PORTB &= C_MASK_PB|_mapB; //pinB 0,1,2,3,4,5
+ 91e:	80 91 24 01 	lds	r24, 0x0124
+ 922:	95 b1       	in	r25, 0x05	; 5
+ 924:	80 6c       	ori	r24, 0xC0	; 192
+ 926:	89 23       	and	r24, r25
+ 928:	85 b9       	out	0x05, r24	; 5
+	PORTC &= C_MASK_PC|_mapC; //pinC 0,1,2,3,4,5
+ 92a:	80 91 23 01 	lds	r24, 0x0123
+ 92e:	98 b1       	in	r25, 0x08	; 8
+ 930:	80 6c       	ori	r24, 0xC0	; 192
+ 932:	89 23       	and	r24, r25
+ 934:	88 b9       	out	0x08, r24	; 8
+	PORTD &= C_MASK_PD|_mapD;//pinD 4,5,6,7
+ 936:	80 91 26 01 	lds	r24, 0x0126
+ 93a:	9b b1       	in	r25, 0x0b	; 11
+ 93c:	8f 60       	ori	r24, 0x0F	; 15
+ 93e:	89 23       	and	r24, r25
+ 940:	8b b9       	out	0x0b, r24	; 11
+ 942:	08 95       	ret
+
+00000944 <timer2_CTC_init>:
+}
+
+void timer2_CTC_init()
+{
+	TIMSK2 |= (1 << OCIE0A);                    // set output compare interrupt enable
+ 944:	e0 e7       	ldi	r30, 0x70	; 112
+ 946:	f0 e0       	ldi	r31, 0x00	; 0
+ 948:	80 81       	ld	r24, Z
+ 94a:	82 60       	ori	r24, 0x02	; 2
+ 94c:	80 83       	st	Z, r24
+	TCCR2A |= (1 << WGM21);
+ 94e:	e0 eb       	ldi	r30, 0xB0	; 176
+ 950:	f0 e0       	ldi	r31, 0x00	; 0
+ 952:	80 81       	ld	r24, Z
+ 954:	82 60       	ori	r24, 0x02	; 2
+ 956:	80 83       	st	Z, r24
+	TCCR2B |= TIMER2_PRESCALER;				// set CTC mode
+ 958:	e1 eb       	ldi	r30, 0xB1	; 177
+ 95a:	f0 e0       	ldi	r31, 0x00	; 0
+ 95c:	80 81       	ld	r24, Z
+ 95e:	83 60       	ori	r24, 0x03	; 3
+ 960:	80 83       	st	Z, r24
+	OCR2A   = TIMER2_COMPARE_VALUE;            // set compare value for interrupt
+ 962:	82 e3       	ldi	r24, 0x32	; 50
+ 964:	80 93 b3 00 	sts	0x00B3, r24
+	sei();
+ 968:	78 94       	sei
+ 96a:	08 95       	ret
+
+0000096c <pin_table>:
+	 _counter--;
+}
+
+void pin_table(uint8_t pins)
+{
+	switch (pins)
+ 96c:	90 e0       	ldi	r25, 0x00	; 0
+ 96e:	8f 30       	cpi	r24, 0x0F	; 15
+ 970:	91 05       	cpc	r25, r1
+ 972:	18 f5       	brcc	.+70     	; 0x9ba <pin_table+0x4e>
+ 974:	fc 01       	movw	r30, r24
+ 976:	e4 5c       	subi	r30, 0xC4	; 196
+ 978:	ff 4f       	sbci	r31, 0xFF	; 255
+ 97a:	0c 94 ba 05 	jmp	0xb74	; 0xb74 <__tablejump2__>
+	{
+		case 0:
+		PORTC |=S_MASK_5;
+ 97e:	45 9a       	sbi	0x08, 5	; 8
+		return;
+ 980:	08 95       	ret
+		case 1:
+		PORTC |=S_MASK_4;
+ 982:	44 9a       	sbi	0x08, 4	; 8
+		return;
+ 984:	08 95       	ret
+		case 2:
+		PORTC |=S_MASK_3;
+ 986:	43 9a       	sbi	0x08, 3	; 8
+		return;
+ 988:	08 95       	ret
+		case 3:
+		PORTC |=S_MASK_2;
+ 98a:	42 9a       	sbi	0x08, 2	; 8
+		return;
+ 98c:	08 95       	ret
+		case 4:
+		PORTC |=S_MASK_1;
+ 98e:	41 9a       	sbi	0x08, 1	; 8
+		return;
+ 990:	08 95       	ret
+		case 5:
+		PORTC |=S_MASK_0;
+ 992:	40 9a       	sbi	0x08, 0	; 8
+		return;
+ 994:	08 95       	ret
+		case 6:
+		PORTB |=S_MASK_5;
+ 996:	2d 9a       	sbi	0x05, 5	; 5
+		return;
+ 998:	08 95       	ret
+		case 7:
+		PORTB |=S_MASK_4;
+ 99a:	2c 9a       	sbi	0x05, 4	; 5
+		return;
+ 99c:	08 95       	ret
+		case 8:
+		PORTB |=S_MASK_3;
+ 99e:	2b 9a       	sbi	0x05, 3	; 5
+		return;
+ 9a0:	08 95       	ret
+		case 9:
+		PORTB |=S_MASK_2;
+ 9a2:	2a 9a       	sbi	0x05, 2	; 5
+		return;
+ 9a4:	08 95       	ret
+		case 10:
+		PORTB |=S_MASK_1;
+ 9a6:	29 9a       	sbi	0x05, 1	; 5
+		return;
+ 9a8:	08 95       	ret
+		case 11:
+		PORTB |=S_MASK_0;
+ 9aa:	28 9a       	sbi	0x05, 0	; 5
+		return;
+ 9ac:	08 95       	ret
+		case 12:
+		PORTD |=S_MASK_7;
+ 9ae:	5f 9a       	sbi	0x0b, 7	; 11
+		return;
+ 9b0:	08 95       	ret
+		case 13:
+		PORTD |= S_MASK_6;
+ 9b2:	5e 9a       	sbi	0x0b, 6	; 11
+		return;
+ 9b4:	08 95       	ret
+		case 14:
+		PORTD |=S_MASK_5;
+ 9b6:	5d 9a       	sbi	0x0b, 5	; 11
+		return;
+ 9b8:	08 95       	ret
+		default:
+		PORTD |=S_MASK_4;
+ 9ba:	5c 9a       	sbi	0x0b, 4	; 11
+ 9bc:	08 95       	ret
+
+000009be <__vector_7>:
+		if (channel_buff[i]>=MAX_COUNT) map_maker(i);
+	}
+}
+
+ISR(TIMER2_COMPA_vect)
+{
+ 9be:	1f 92       	push	r1
+ 9c0:	0f 92       	push	r0
+ 9c2:	0f b6       	in	r0, 0x3f	; 63
+ 9c4:	0f 92       	push	r0
+ 9c6:	11 24       	eor	r1, r1
+ 9c8:	2f 93       	push	r18
+ 9ca:	3f 93       	push	r19
+ 9cc:	4f 93       	push	r20
+ 9ce:	5f 93       	push	r21
+ 9d0:	6f 93       	push	r22
+ 9d2:	7f 93       	push	r23
+ 9d4:	8f 93       	push	r24
+ 9d6:	9f 93       	push	r25
+ 9d8:	af 93       	push	r26
+ 9da:	bf 93       	push	r27
+ 9dc:	ef 93       	push	r30
+ 9de:	ff 93       	push	r31
+	wdt_reset();
+ 9e0:	a8 95       	wdr
+	 _pointer = 0;
+ 9e2:	10 92 37 01 	sts	0x0137, r1
+	 if (_counter==0)
+ 9e6:	80 91 25 01 	lds	r24, 0x0125
+ 9ea:	81 11       	cpse	r24, r1
+ 9ec:	05 c0       	rjmp	.+10     	; 0x9f8 <__vector_7+0x3a>
+	 {
+		 output_off_all();
+ 9ee:	0e 94 8f 04 	call	0x91e	; 0x91e <output_off_all>
+		 _counter=MAX_COUNT;
+ 9f2:	82 e3       	ldi	r24, 0x32	; 50
+ 9f4:	80 93 25 01 	sts	0x0125, r24
+	 }
+	 
+	 while (_pointer<DATA_LEN)
+ 9f8:	80 91 37 01 	lds	r24, 0x0137
+ 9fc:	80 31       	cpi	r24, 0x10	; 16
+ 9fe:	b8 f4       	brcc	.+46     	; 0xa2e <__vector_7+0x70>
+	 {
+		 if ( channel_buff[_pointer]>=_counter) pin_table(_pointer);
+ a00:	e0 91 37 01 	lds	r30, 0x0137
+ a04:	f0 e0       	ldi	r31, 0x00	; 0
+ a06:	e9 5d       	subi	r30, 0xD9	; 217
+ a08:	fe 4f       	sbci	r31, 0xFE	; 254
+ a0a:	90 81       	ld	r25, Z
+ a0c:	80 91 25 01 	lds	r24, 0x0125
+ a10:	98 17       	cp	r25, r24
+ a12:	20 f0       	brcs	.+8      	; 0xa1c <__vector_7+0x5e>
+ a14:	80 91 37 01 	lds	r24, 0x0137
+ a18:	0e 94 b6 04 	call	0x96c	; 0x96c <pin_table>
+		 _pointer++;
+ a1c:	80 91 37 01 	lds	r24, 0x0137
+ a20:	8f 5f       	subi	r24, 0xFF	; 255
+ a22:	80 93 37 01 	sts	0x0137, r24
+	 {
+		 output_off_all();
+		 _counter=MAX_COUNT;
+	 }
+	 
+	 while (_pointer<DATA_LEN)
+ a26:	80 91 37 01 	lds	r24, 0x0137
+ a2a:	80 31       	cpi	r24, 0x10	; 16
+ a2c:	48 f3       	brcs	.-46     	; 0xa00 <__vector_7+0x42>
+	 {
+		 if ( channel_buff[_pointer]>=_counter) pin_table(_pointer);
+		 _pointer++;
+	 }
+	 _counter--;
+ a2e:	80 91 25 01 	lds	r24, 0x0125
+ a32:	81 50       	subi	r24, 0x01	; 1
+ a34:	80 93 25 01 	sts	0x0125, r24
+}
+ a38:	ff 91       	pop	r31
+ a3a:	ef 91       	pop	r30
+ a3c:	bf 91       	pop	r27
+ a3e:	af 91       	pop	r26
+ a40:	9f 91       	pop	r25
+ a42:	8f 91       	pop	r24
+ a44:	7f 91       	pop	r23
+ a46:	6f 91       	pop	r22
+ a48:	5f 91       	pop	r21
+ a4a:	4f 91       	pop	r20
+ a4c:	3f 91       	pop	r19
+ a4e:	2f 91       	pop	r18
+ a50:	0f 90       	pop	r0
+ a52:	0f be       	out	0x3f, r0	; 63
+ a54:	0f 90       	pop	r0
+ a56:	1f 90       	pop	r1
+ a58:	18 95       	reti
+
+00000a5a <map_maker>:
+
+
+///updata 050815
+void map_maker(unsigned char _mux)
+{
+	switch (_mux)
+ a5a:	90 e0       	ldi	r25, 0x00	; 0
+ a5c:	8f 30       	cpi	r24, 0x0F	; 15
+ a5e:	91 05       	cpc	r25, r1
+ a60:	08 f0       	brcs	.+2      	; 0xa64 <map_maker+0xa>
+ a62:	5f c0       	rjmp	.+190    	; 0xb22 <map_maker+0xc8>
+ a64:	fc 01       	movw	r30, r24
+ a66:	e5 5b       	subi	r30, 0xB5	; 181
+ a68:	ff 4f       	sbci	r31, 0xFF	; 255
+ a6a:	0c 94 ba 05 	jmp	0xb74	; 0xb74 <__tablejump2__>
+	{
+		case 0:
+		_mapC |=S_MASK_5;
+ a6e:	80 91 23 01 	lds	r24, 0x0123
+ a72:	80 62       	ori	r24, 0x20	; 32
+ a74:	80 93 23 01 	sts	0x0123, r24
+		return;
+ a78:	08 95       	ret
+		case 1:
+		_mapC |=S_MASK_4;
+ a7a:	80 91 23 01 	lds	r24, 0x0123
+ a7e:	80 61       	ori	r24, 0x10	; 16
+ a80:	80 93 23 01 	sts	0x0123, r24
+		return;
+ a84:	08 95       	ret
+		case 2:
+		_mapC |=S_MASK_3;
+ a86:	80 91 23 01 	lds	r24, 0x0123
+ a8a:	88 60       	ori	r24, 0x08	; 8
+ a8c:	80 93 23 01 	sts	0x0123, r24
+		return;
+ a90:	08 95       	ret
+		case 3:
+		_mapC |=S_MASK_2;
+ a92:	80 91 23 01 	lds	r24, 0x0123
+ a96:	84 60       	ori	r24, 0x04	; 4
+ a98:	80 93 23 01 	sts	0x0123, r24
+		return;
+ a9c:	08 95       	ret
+		case 4:
+		_mapC |=S_MASK_1;
+ a9e:	80 91 23 01 	lds	r24, 0x0123
+ aa2:	82 60       	ori	r24, 0x02	; 2
+ aa4:	80 93 23 01 	sts	0x0123, r24
+		return;
+ aa8:	08 95       	ret
+		case 5:
+		_mapC |=S_MASK_0;
+ aaa:	80 91 23 01 	lds	r24, 0x0123
+ aae:	81 60       	ori	r24, 0x01	; 1
+ ab0:	80 93 23 01 	sts	0x0123, r24
+		return;
+ ab4:	08 95       	ret
+		case 6:
+		_mapB |=S_MASK_5;
+ ab6:	80 91 24 01 	lds	r24, 0x0124
+ aba:	80 62       	ori	r24, 0x20	; 32
+ abc:	80 93 24 01 	sts	0x0124, r24
+		return;
+ ac0:	08 95       	ret
+		case 7:
+		_mapB |=S_MASK_4;
+ ac2:	80 91 24 01 	lds	r24, 0x0124
+ ac6:	80 61       	ori	r24, 0x10	; 16
+ ac8:	80 93 24 01 	sts	0x0124, r24
+		return;
+ acc:	08 95       	ret
+		case 8:
+		_mapB |=S_MASK_3;
+ ace:	80 91 24 01 	lds	r24, 0x0124
+ ad2:	88 60       	ori	r24, 0x08	; 8
+ ad4:	80 93 24 01 	sts	0x0124, r24
+		return;
+ ad8:	08 95       	ret
+		case 9:
+		_mapB |=S_MASK_2;
+ ada:	80 91 24 01 	lds	r24, 0x0124
+ ade:	84 60       	ori	r24, 0x04	; 4
+ ae0:	80 93 24 01 	sts	0x0124, r24
+		return;
+ ae4:	08 95       	ret
+		case 10:
+		_mapB |=S_MASK_1;
+ ae6:	80 91 24 01 	lds	r24, 0x0124
+ aea:	82 60       	ori	r24, 0x02	; 2
+ aec:	80 93 24 01 	sts	0x0124, r24
+		return;
+ af0:	08 95       	ret
+		case 11:
+		_mapB |=S_MASK_0;
+ af2:	80 91 24 01 	lds	r24, 0x0124
+ af6:	81 60       	ori	r24, 0x01	; 1
+ af8:	80 93 24 01 	sts	0x0124, r24
+		return;
+ afc:	08 95       	ret
+		case 12:
+		_mapD |=S_MASK_7;
+ afe:	80 91 26 01 	lds	r24, 0x0126
+ b02:	80 68       	ori	r24, 0x80	; 128
+ b04:	80 93 26 01 	sts	0x0126, r24
+		return;
+ b08:	08 95       	ret
+		case 13:
+		_mapD |=S_MASK_6;
+ b0a:	80 91 26 01 	lds	r24, 0x0126
+ b0e:	80 64       	ori	r24, 0x40	; 64
+ b10:	80 93 26 01 	sts	0x0126, r24
+		return;
+ b14:	08 95       	ret
+		case 14:
+		_mapD |=S_MASK_5;
+ b16:	80 91 26 01 	lds	r24, 0x0126
+ b1a:	80 62       	ori	r24, 0x20	; 32
+ b1c:	80 93 26 01 	sts	0x0126, r24
+		return;
+ b20:	08 95       	ret
+		default:
+		_mapD |=S_MASK_4;
+ b22:	80 91 26 01 	lds	r24, 0x0126
+ b26:	80 61       	ori	r24, 0x10	; 16
+ b28:	80 93 26 01 	sts	0x0126, r24
+ b2c:	08 95       	ret
+
+00000b2e <output_updata>:
+}
+
+
+///updata 050815
+void output_updata(unsigned char *_data)
+{
+ b2e:	0f 93       	push	r16
+ b30:	1f 93       	push	r17
+ b32:	cf 93       	push	r28
+ b34:	df 93       	push	r29
+	_mapB=0;
+ b36:	10 92 24 01 	sts	0x0124, r1
+	_mapC=0;
+ b3a:	10 92 23 01 	sts	0x0123, r1
+	_mapD=0;
+ b3e:	10 92 26 01 	sts	0x0126, r1
+ b42:	8c 01       	movw	r16, r24
+ b44:	c0 e0       	ldi	r28, 0x00	; 0
+ b46:	d0 e0       	ldi	r29, 0x00	; 0
+	for (unsigned char i= 0;i<DATA_LEN;i++)
+	{
+		channel_buff[i]= _data[i];
+ b48:	f8 01       	movw	r30, r16
+ b4a:	81 91       	ld	r24, Z+
+ b4c:	8f 01       	movw	r16, r30
+ b4e:	fe 01       	movw	r30, r28
+ b50:	e9 5d       	subi	r30, 0xD9	; 217
+ b52:	fe 4f       	sbci	r31, 0xFE	; 254
+ b54:	80 83       	st	Z, r24
+		if (channel_buff[i]>=MAX_COUNT) map_maker(i);
+ b56:	80 81       	ld	r24, Z
+ b58:	82 33       	cpi	r24, 0x32	; 50
+ b5a:	18 f0       	brcs	.+6      	; 0xb62 <output_updata+0x34>
+ b5c:	8c 2f       	mov	r24, r28
+ b5e:	0e 94 2d 05 	call	0xa5a	; 0xa5a <map_maker>
+ b62:	21 96       	adiw	r28, 0x01	; 1
+void output_updata(unsigned char *_data)
+{
+	_mapB=0;
+	_mapC=0;
+	_mapD=0;
+	for (unsigned char i= 0;i<DATA_LEN;i++)
+ b64:	c0 31       	cpi	r28, 0x10	; 16
+ b66:	d1 05       	cpc	r29, r1
+ b68:	79 f7       	brne	.-34     	; 0xb48 <output_updata+0x1a>
+	{
+		channel_buff[i]= _data[i];
+		if (channel_buff[i]>=MAX_COUNT) map_maker(i);
+	}
+}
+ b6a:	df 91       	pop	r29
+ b6c:	cf 91       	pop	r28
+ b6e:	1f 91       	pop	r17
+ b70:	0f 91       	pop	r16
+ b72:	08 95       	ret
+
+00000b74 <__tablejump2__>:
+ b74:	ee 0f       	add	r30, r30
+ b76:	ff 1f       	adc	r31, r31
+ b78:	05 90       	lpm	r0, Z+
+ b7a:	f4 91       	lpm	r31, Z
+ b7c:	e0 2d       	mov	r30, r0
+ b7e:	09 94       	ijmp
+
+00000b80 <_exit>:
+ b80:	f8 94       	cli
+
+00000b82 <__stop_program>:
+ b82:	ff cf       	rjmp	.-2      	; 0xb82 <__stop_program>

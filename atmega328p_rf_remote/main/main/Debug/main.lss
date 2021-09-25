@@ -1,0 +1,581 @@
+
+main.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000002cc  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000002  00800100  00800100  00000340  2**0
+                  ALLOC
+  2 .comment      00000030  00000000  00000000  00000340  2**0
+                  CONTENTS, READONLY
+  3 .debug_aranges 000000c8  00000000  00000000  00000370  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000921  00000000  00000000  00000438  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 0000038d  00000000  00000000  00000d59  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   00000472  00000000  00000000  000010e6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000190  00000000  00000000  00001558  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    00000386  00000000  00000000  000016e8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    00000300  00000000  00000000  00001a6e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000098  00000000  00000000  00001d6e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   8:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   c:	0c 94 ae 00 	jmp	0x15c	; 0x15c <__vector_3>
+  10:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  14:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  18:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  1c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  20:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  24:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  28:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  2c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  30:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  34:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  38:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  3c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  40:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  44:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  48:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  4c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  50:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  54:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  58:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  5c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  60:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  64:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_clear_bss>:
+  74:	21 e0       	ldi	r18, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	01 c0       	rjmp	.+2      	; 0x7e <.do_clear_bss_start>
+
+0000007c <.do_clear_bss_loop>:
+  7c:	1d 92       	st	X+, r1
+
+0000007e <.do_clear_bss_start>:
+  7e:	a2 30       	cpi	r26, 0x02	; 2
+  80:	b2 07       	cpc	r27, r18
+  82:	e1 f7       	brne	.-8      	; 0x7c <.do_clear_bss_loop>
+  84:	0e 94 48 00 	call	0x90	; 0x90 <main>
+  88:	0c 94 64 01 	jmp	0x2c8	; 0x2c8 <_exit>
+
+0000008c <__bad_interrupt>:
+  8c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000090 <main>:
+#include "pwm6ch.h"
+#include <avr/io.h>
+#include "pt2260_dec.h"
+int main(void)
+{
+	pwm_phasecorrect_timer0_initial(clk_timer0_div64);
+  90:	83 e0       	ldi	r24, 0x03	; 3
+  92:	0e 94 22 01 	call	0x244	; 0x244 <pwm_phasecorrect_timer0_initial>
+	pwm_phasecorrect_timer1_initial(clk_timer1_div64);
+  96:	83 e0       	ldi	r24, 0x03	; 3
+  98:	0e 94 2c 01 	call	0x258	; 0x258 <pwm_phasecorrect_timer1_initial>
+	pwm_phasecorrect_timer2_initial(clk_timer2_div64);
+  9c:	84 e0       	ldi	r24, 0x04	; 4
+  9e:	0e 94 41 01 	call	0x282	; 0x282 <pwm_phasecorrect_timer2_initial>
+	
+
+	RF_decode_initial(0xDA);
+  a2:	8a ed       	ldi	r24, 0xDA	; 218
+  a4:	0e 94 91 00 	call	0x122	; 0x122 <RF_decode_initial>
+	sei();
+  a8:	78 94       	sei
+    while(1)
+    {
+			switch (RF_decode_read())
+  aa:	0e 94 ab 00 	call	0x156	; 0x156 <RF_decode_read>
+  ae:	82 30       	cpi	r24, 0x02	; 2
+  b0:	91 f0       	breq	.+36     	; 0xd6 <main+0x46>
+  b2:	18 f4       	brcc	.+6      	; 0xba <main+0x2a>
+  b4:	81 30       	cpi	r24, 0x01	; 1
+  b6:	31 f0       	breq	.+12     	; 0xc4 <main+0x34>
+  b8:	28 c0       	rjmp	.+80     	; 0x10a <main+0x7a>
+  ba:	84 30       	cpi	r24, 0x04	; 4
+  bc:	a9 f0       	breq	.+42     	; 0xe8 <main+0x58>
+  be:	88 30       	cpi	r24, 0x08	; 8
+  c0:	e1 f0       	breq	.+56     	; 0xfa <main+0x6a>
+  c2:	23 c0       	rjmp	.+70     	; 0x10a <main+0x7a>
+			{
+				case 1:
+				pwm_phasecorrect_6ch_updata(255,0,0,0,0,0);
+  c4:	e1 2c       	mov	r14, r1
+  c6:	00 e0       	ldi	r16, 0x00	; 0
+  c8:	20 e0       	ldi	r18, 0x00	; 0
+  ca:	40 e0       	ldi	r20, 0x00	; 0
+  cc:	60 e0       	ldi	r22, 0x00	; 0
+  ce:	8f ef       	ldi	r24, 0xFF	; 255
+  d0:	0e 94 4f 01 	call	0x29e	; 0x29e <pwm_phasecorrect_6ch_updata>
+				break;
+  d4:	1a c0       	rjmp	.+52     	; 0x10a <main+0x7a>
+				case 2:
+				pwm_phasecorrect_6ch_updata(0,255,0,0,0,0);
+  d6:	e1 2c       	mov	r14, r1
+  d8:	00 e0       	ldi	r16, 0x00	; 0
+  da:	20 e0       	ldi	r18, 0x00	; 0
+  dc:	40 e0       	ldi	r20, 0x00	; 0
+  de:	6f ef       	ldi	r22, 0xFF	; 255
+  e0:	80 e0       	ldi	r24, 0x00	; 0
+  e2:	0e 94 4f 01 	call	0x29e	; 0x29e <pwm_phasecorrect_6ch_updata>
+				break;
+  e6:	11 c0       	rjmp	.+34     	; 0x10a <main+0x7a>
+				case 4:
+				pwm_phasecorrect_6ch_updata(0,0,255,0,0,0);
+  e8:	e1 2c       	mov	r14, r1
+  ea:	00 e0       	ldi	r16, 0x00	; 0
+  ec:	20 e0       	ldi	r18, 0x00	; 0
+  ee:	4f ef       	ldi	r20, 0xFF	; 255
+  f0:	60 e0       	ldi	r22, 0x00	; 0
+  f2:	80 e0       	ldi	r24, 0x00	; 0
+  f4:	0e 94 4f 01 	call	0x29e	; 0x29e <pwm_phasecorrect_6ch_updata>
+				break;
+  f8:	08 c0       	rjmp	.+16     	; 0x10a <main+0x7a>
+				case 8:
+				pwm_phasecorrect_6ch_updata(0,0,0,255,0,0);
+  fa:	e1 2c       	mov	r14, r1
+  fc:	00 e0       	ldi	r16, 0x00	; 0
+  fe:	2f ef       	ldi	r18, 0xFF	; 255
+ 100:	40 e0       	ldi	r20, 0x00	; 0
+ 102:	60 e0       	ldi	r22, 0x00	; 0
+ 104:	80 e0       	ldi	r24, 0x00	; 0
+ 106:	0e 94 4f 01 	call	0x29e	; 0x29e <pwm_phasecorrect_6ch_updata>
+				break;
+				default:
+				break;
+			}
+			
+			RF_decode_start();
+ 10a:	0e 94 a5 00 	call	0x14a	; 0x14a <RF_decode_start>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 10e:	2f ef       	ldi	r18, 0xFF	; 255
+ 110:	81 ee       	ldi	r24, 0xE1	; 225
+ 112:	94 e0       	ldi	r25, 0x04	; 4
+ 114:	21 50       	subi	r18, 0x01	; 1
+ 116:	80 40       	sbci	r24, 0x00	; 0
+ 118:	90 40       	sbci	r25, 0x00	; 0
+ 11a:	e1 f7       	brne	.-8      	; 0x114 <main+0x84>
+ 11c:	00 c0       	rjmp	.+0      	; 0x11e <main+0x8e>
+ 11e:	00 00       	nop
+ 120:	c4 cf       	rjmp	.-120    	; 0xaa <main+0x1a>
+
+00000122 <RF_decode_initial>:
+
+volatile RF_DECODE rf_decode;
+
+void RF_decode_initial(unsigned char id)
+{
+	DDR_RF &= ~(1<<IN_RF);
+ 122:	20 98       	cbi	0x04, 0	; 4
+	POR_RF |=1<<IN_RF;
+ 124:	28 9a       	sbi	0x05, 0	; 5
+	PCICR = 1<<PCIE0;	// PCINT0 select
+ 126:	91 e0       	ldi	r25, 0x01	; 1
+ 128:	90 93 68 00 	sts	0x0068, r25
+	PCMSK0 = 1<<PCINT0;
+ 12c:	90 93 6b 00 	sts	0x006B, r25
+	PCMSK1 =0;
+ 130:	10 92 6c 00 	sts	0x006C, r1
+	PCMSK2 =0;
+ 134:	10 92 6d 00 	sts	0x006D, r1
+	rf_decode.rf_id = id;	
+ 138:	80 93 01 01 	sts	0x0101, r24
+ 13c:	08 95       	ret
+
+0000013e <RF_decode_stop>:
+}
+
+void RF_decode_stop()
+{
+	PCICR &=~(1<<PCIE0);	// PCINT0 disable	
+ 13e:	e8 e6       	ldi	r30, 0x68	; 104
+ 140:	f0 e0       	ldi	r31, 0x00	; 0
+ 142:	80 81       	ld	r24, Z
+ 144:	8e 7f       	andi	r24, 0xFE	; 254
+ 146:	80 83       	st	Z, r24
+ 148:	08 95       	ret
+
+0000014a <RF_decode_start>:
+}
+
+void RF_decode_start()
+{
+	PCICR |=(1<<PCIE0);		// PCINT0 enable
+ 14a:	e8 e6       	ldi	r30, 0x68	; 104
+ 14c:	f0 e0       	ldi	r31, 0x00	; 0
+ 14e:	80 81       	ld	r24, Z
+ 150:	81 60       	ori	r24, 0x01	; 1
+ 152:	80 83       	st	Z, r24
+ 154:	08 95       	ret
+
+00000156 <RF_decode_read>:
+}
+
+
+
+unsigned char RF_decode_read() //rf_key read back
+ 156:	80 91 00 01 	lds	r24, 0x0100
+{
+ 15a:	08 95       	ret
+
+0000015c <__vector_3>:
+				}
+		}
+		return 0;
+}
+
+ISR(PCINT0_vect)
+ 15c:	1f 92       	push	r1
+ 15e:	0f 92       	push	r0
+ 160:	0f b6       	in	r0, 0x3f	; 63
+ 162:	0f 92       	push	r0
+ 164:	11 24       	eor	r1, r1
+ 166:	2f 93       	push	r18
+ 168:	3f 93       	push	r19
+ 16a:	4f 93       	push	r20
+ 16c:	5f 93       	push	r21
+ 16e:	6f 93       	push	r22
+ 170:	7f 93       	push	r23
+ 172:	8f 93       	push	r24
+ 174:	9f 93       	push	r25
+ 176:	af 93       	push	r26
+ 178:	bf 93       	push	r27
+ 17a:	ef 93       	push	r30
+ 17c:	ff 93       	push	r31
+{
+	unsigned char _temp_data;
+	// start condition detector
+ 17e:	18 99       	sbic	0x03, 0	; 3
+ 180:	50 c0       	rjmp	.+160    	; 0x222 <__vector_3+0xc6>
+ 182:	8f e7       	ldi	r24, 0x7F	; 127
+ 184:	9b eb       	ldi	r25, 0xBB	; 187
+ 186:	01 97       	sbiw	r24, 0x01	; 1
+ 188:	f1 f7       	brne	.-4      	; 0x186 <__vector_3+0x2a>
+ 18a:	00 c0       	rjmp	.+0      	; 0x18c <__vector_3+0x30>
+ 18c:	00 00       	nop
+	if (!(PIN_RF&(1<<IN_RF)))
+	{
+		_delay_ms(12);
+ 18e:	18 99       	sbic	0x03, 0	; 3
+ 190:	48 c0       	rjmp	.+144    	; 0x222 <__vector_3+0xc6>
+ 192:	2c e0       	ldi	r18, 0x0C	; 12
+ 194:	80 e0       	ldi	r24, 0x00	; 0
+ 196:	90 e0       	ldi	r25, 0x00	; 0
+static unsigned char RF_decode(void)
+{
+	unsigned int _data = 0;
+	unsigned char _counter = 0;
+	while(1)
+	{
+ 198:	18 9b       	sbis	0x03, 0	; 3
+ 19a:	fe cf       	rjmp	.-4      	; 0x198 <__vector_3+0x3c>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 19c:	ef e1       	ldi	r30, 0x1F	; 31
+ 19e:	fd e0       	ldi	r31, 0x0D	; 13
+ 1a0:	31 97       	sbiw	r30, 0x01	; 1
+ 1a2:	f1 f7       	brne	.-4      	; 0x1a0 <__vector_3+0x44>
+ 1a4:	00 c0       	rjmp	.+0      	; 0x1a6 <__vector_3+0x4a>
+ 1a6:	00 00       	nop
+		while (!(PIN_RF&(1<<IN_RF))) {}; // waitting 1
+			_delay_us(2*rf_1a);
+			
+ 1a8:	18 9b       	sbis	0x03, 0	; 3
+ 1aa:	12 c0       	rjmp	.+36     	; 0x1d0 <__vector_3+0x74>
+			if (PIN_RF&(1<<IN_RF))
+			{
+ 1ac:	18 99       	sbic	0x03, 0	; 3
+ 1ae:	fe cf       	rjmp	.-4      	; 0x1ac <__vector_3+0x50>
+				while (PIN_RF&(1<<IN_RF)) {}; //waitting 0
+ 1b0:	18 9b       	sbis	0x03, 0	; 3
+ 1b2:	fe cf       	rjmp	.-4      	; 0x1b0 <__vector_3+0x54>
+ 1b4:	ef e1       	ldi	r30, 0x1F	; 31
+ 1b6:	fd e0       	ldi	r31, 0x0D	; 13
+ 1b8:	31 97       	sbiw	r30, 0x01	; 1
+ 1ba:	f1 f7       	brne	.-4      	; 0x1b8 <__vector_3+0x5c>
+ 1bc:	00 c0       	rjmp	.+0      	; 0x1be <__vector_3+0x62>
+ 1be:	00 00       	nop
+				while (!(PIN_RF&(1<<IN_RF))) {}; // waitting 1
+				_delay_us(2*rf_1a);
+ 1c0:	18 9b       	sbis	0x03, 0	; 3
+ 1c2:	2f c0       	rjmp	.+94     	; 0x222 <__vector_3+0xc6>
+				if (PIN_RF&(1<<IN_RF))
+				{
+					//bit 1 detected
+ 1c4:	88 0f       	add	r24, r24
+ 1c6:	99 1f       	adc	r25, r25
+					_data <<=1;
+ 1c8:	81 60       	ori	r24, 0x01	; 1
+					_data|=1;
+ 1ca:	18 99       	sbic	0x03, 0	; 3
+ 1cc:	fe cf       	rjmp	.-4      	; 0x1ca <__vector_3+0x6e>
+ 1ce:	12 c0       	rjmp	.+36     	; 0x1f4 <__vector_3+0x98>
+					while (PIN_RF&(1<<IN_RF)) {}; //waitting 0
+				}
+				else return 0;
+			}
+			else
+			{
+ 1d0:	18 9b       	sbis	0x03, 0	; 3
+ 1d2:	fe cf       	rjmp	.-4      	; 0x1d0 <__vector_3+0x74>
+ 1d4:	ef e1       	ldi	r30, 0x1F	; 31
+ 1d6:	fd e0       	ldi	r31, 0x0D	; 13
+ 1d8:	31 97       	sbiw	r30, 0x01	; 1
+ 1da:	f1 f7       	brne	.-4      	; 0x1d8 <__vector_3+0x7c>
+ 1dc:	00 c0       	rjmp	.+0      	; 0x1de <__vector_3+0x82>
+ 1de:	00 00       	nop
+				while (!(PIN_RF&(1<<IN_RF))) {}; // waitting 1
+				_delay_us(2*rf_1a);
+ 1e0:	18 99       	sbic	0x03, 0	; 3
+ 1e2:	03 c0       	rjmp	.+6      	; 0x1ea <__vector_3+0x8e>
+				if (!(PIN_RF&(1<<IN_RF)))
+				{
+					//bit 0 detected
+ 1e4:	88 0f       	add	r24, r24
+ 1e6:	99 1f       	adc	r25, r25
+ 1e8:	05 c0       	rjmp	.+10     	; 0x1f4 <__vector_3+0x98>
+					_data <<=1;
+				}
+				else 
+				{
+					//floating detected  = 1
+ 1ea:	88 0f       	add	r24, r24
+ 1ec:	99 1f       	adc	r25, r25
+					_data <<=1;
+ 1ee:	81 60       	ori	r24, 0x01	; 1
+					_data|=1;
+ 1f0:	18 99       	sbic	0x03, 0	; 3
+ 1f2:	fe cf       	rjmp	.-4      	; 0x1f0 <__vector_3+0x94>
+ 1f4:	21 50       	subi	r18, 0x01	; 1
+					while (PIN_RF&(1<<IN_RF)) {}; //waitting 0
+				}
+			}
+				_counter++;
+ 1f6:	81 f6       	brne	.-96     	; 0x198 <__vector_3+0x3c>
+				if (_counter>=rf_data_len)
+				{
+ 1f8:	20 91 01 01 	lds	r18, 0x0101
+ 1fc:	30 e0       	ldi	r19, 0x00	; 0
+ 1fe:	ac 01       	movw	r20, r24
+ 200:	52 95       	swap	r21
+ 202:	42 95       	swap	r20
+ 204:	4f 70       	andi	r20, 0x0F	; 15
+ 206:	45 27       	eor	r20, r21
+ 208:	5f 70       	andi	r21, 0x0F	; 15
+ 20a:	45 27       	eor	r20, r21
+ 20c:	42 17       	cp	r20, r18
+ 20e:	53 07       	cpc	r21, r19
+ 210:	41 f4       	brne	.+16     	; 0x222 <__vector_3+0xc6>
+ 212:	8f 70       	andi	r24, 0x0F	; 15
+ 214:	99 27       	eor	r25, r25
+	if (!(PIN_RF&(1<<IN_RF)))
+	{
+		_delay_ms(12);
+		if (!(PIN_RF&(1<<IN_RF))) 
+		{
+			_temp_data = RF_decode();
+ 216:	00 97       	sbiw	r24, 0x00	; 0
+ 218:	21 f0       	breq	.+8      	; 0x222 <__vector_3+0xc6>
+			if (_temp_data!=0)
+			{
+ 21a:	80 93 00 01 	sts	0x0100, r24
+				 rf_decode.rf_data = _temp_data;
+ 21e:	0e 94 9f 00 	call	0x13e	; 0x13e <RF_decode_stop>
+				 RF_decode_stop();// removeable
+			}
+			
+		}
+	}
+ 222:	ff 91       	pop	r31
+ 224:	ef 91       	pop	r30
+ 226:	bf 91       	pop	r27
+ 228:	af 91       	pop	r26
+ 22a:	9f 91       	pop	r25
+ 22c:	8f 91       	pop	r24
+ 22e:	7f 91       	pop	r23
+ 230:	6f 91       	pop	r22
+ 232:	5f 91       	pop	r21
+ 234:	4f 91       	pop	r20
+ 236:	3f 91       	pop	r19
+ 238:	2f 91       	pop	r18
+ 23a:	0f 90       	pop	r0
+ 23c:	0f be       	out	0x3f, r0	; 63
+ 23e:	0f 90       	pop	r0
+ 240:	1f 90       	pop	r1
+ 242:	18 95       	reti
+
+00000244 <pwm_phasecorrect_timer0_initial>:
+
+//timer 0 pwm_phasecorect
+
+void pwm_phasecorrect_timer0_initial(unsigned char clk)
+{
+	DDRD |=(1<<PORTD5)|(1<<PORTD6); // OC0A,OC0B IS OUTPUT
+ 244:	9a b1       	in	r25, 0x0a	; 10
+ 246:	90 66       	ori	r25, 0x60	; 96
+ 248:	9a b9       	out	0x0a, r25	; 10
+	TCCR0A = (0<<COM0A0)| (1<<COM0A1)| (0<<COM0B0)| (1<<COM0B1)| (1<<WGM00);
+ 24a:	91 ea       	ldi	r25, 0xA1	; 161
+ 24c:	94 bd       	out	0x24, r25	; 36
+	TCCR0B = (0<<WGM02)|(clk<<CS00);
+ 24e:	85 bd       	out	0x25, r24	; 37
+	TCNT0 = 0;
+ 250:	16 bc       	out	0x26, r1	; 38
+	OCR0A = 0;
+ 252:	17 bc       	out	0x27, r1	; 39
+	OCR0B = 0;
+ 254:	18 bc       	out	0x28, r1	; 40
+ 256:	08 95       	ret
+
+00000258 <pwm_phasecorrect_timer1_initial>:
+
+
+//timer 1 pwm_phasecorect
+void pwm_phasecorrect_timer1_initial(unsigned char clk)
+{
+	DDRB |=(1<<PORTB2)|(1<<PORTB1); // OC1A,OC1B IS OUTPUT
+ 258:	94 b1       	in	r25, 0x04	; 4
+ 25a:	96 60       	ori	r25, 0x06	; 6
+ 25c:	94 b9       	out	0x04, r25	; 4
+	TCCR1A = (0<<COM1A0)| (1<<COM1A1)| (0<<COM1B0)| (1<<COM1B1)| (1<<WGM10);
+ 25e:	91 ea       	ldi	r25, 0xA1	; 161
+ 260:	90 93 80 00 	sts	0x0080, r25
+	TCCR1B =(clk<<CS00);
+ 264:	80 93 81 00 	sts	0x0081, r24
+	TCNT1 = 0;
+ 268:	10 92 85 00 	sts	0x0085, r1
+ 26c:	10 92 84 00 	sts	0x0084, r1
+	OCR1A = 0;
+ 270:	10 92 89 00 	sts	0x0089, r1
+ 274:	10 92 88 00 	sts	0x0088, r1
+	OCR1B = 0;
+ 278:	10 92 8b 00 	sts	0x008B, r1
+ 27c:	10 92 8a 00 	sts	0x008A, r1
+ 280:	08 95       	ret
+
+00000282 <pwm_phasecorrect_timer2_initial>:
+
+//timer 2 pwm_phasecorect
+void pwm_phasecorrect_timer2_initial(unsigned char clk)
+{
+	 // OC2A,OC2B IS OUTPUT
+	DDRB |=(1<<PORTB3);
+ 282:	23 9a       	sbi	0x04, 3	; 4
+	DDRD |=(1<<PORTD3);
+ 284:	53 9a       	sbi	0x0a, 3	; 10
+	
+	TCCR2A = (0<<COM2A0)| (1<<COM2A1)| (0<<COM2B0)| (1<<COM2B1)| (1<<WGM20);
+ 286:	91 ea       	ldi	r25, 0xA1	; 161
+ 288:	90 93 b0 00 	sts	0x00B0, r25
+	TCCR2B =(clk<<CS00);
+ 28c:	80 93 b1 00 	sts	0x00B1, r24
+	TCNT2 = 0;
+ 290:	10 92 b2 00 	sts	0x00B2, r1
+	OCR2A = 0;
+ 294:	10 92 b3 00 	sts	0x00B3, r1
+	OCR2B = 0;
+ 298:	10 92 b4 00 	sts	0x00B4, r1
+ 29c:	08 95       	ret
+
+0000029e <pwm_phasecorrect_6ch_updata>:
+}
+
+
+
+void pwm_phasecorrect_6ch_updata(unsigned char ch1,unsigned char ch2,unsigned char ch3,unsigned char ch4,unsigned char ch5,unsigned char ch6)
+{
+ 29e:	ef 92       	push	r14
+ 2a0:	0f 93       	push	r16
+	OCR2B = 0;
+}
+
+void pwm_phasecorrect_timer2_OCR2A_updata(unsigned char	val)
+{
+	OCR2A = val;	
+ 2a2:	80 93 b3 00 	sts	0x00B3, r24
+}
+
+void pwm_phasecorrect_timer1_OCR1B_updata(unsigned char val)
+{
+	
+	OCR1B =val;
+ 2a6:	70 e0       	ldi	r23, 0x00	; 0
+ 2a8:	70 93 8b 00 	sts	0x008B, r23
+ 2ac:	60 93 8a 00 	sts	0x008A, r22
+}
+
+
+void pwm_phasecorrect_timer1_OCR1A_updata(unsigned char	val)
+{
+	OCR1A = val;	
+ 2b0:	50 e0       	ldi	r21, 0x00	; 0
+ 2b2:	50 93 89 00 	sts	0x0089, r21
+ 2b6:	40 93 88 00 	sts	0x0088, r20
+
+
+
+void pwm_phasecorrect_timer0_OCR0A_updata(unsigned char	val)
+{
+	OCR0A = val;	
+ 2ba:	27 bd       	out	0x27, r18	; 39
+}
+
+void pwm_phasecorrect_timer0_OCR0B_updata(unsigned char val)
+{
+	
+	OCR0B =val;
+ 2bc:	08 bd       	out	0x28, r16	; 40
+	OCR2A = val;	
+}
+
+void pwm_phasecorrect_timer2_OCR2B_updata(unsigned char val)
+{
+	OCR2B =val;
+ 2be:	e0 92 b4 00 	sts	0x00B4, r14
+		pwm_phasecorrect_timer1_OCR1B_updata(ch2);
+		pwm_phasecorrect_timer1_OCR1A_updata(ch3);
+		pwm_phasecorrect_timer0_OCR0A_updata(ch4);
+		pwm_phasecorrect_timer0_OCR0B_updata(ch5);
+		pwm_phasecorrect_timer2_OCR2B_updata(ch6);
+}
+ 2c2:	0f 91       	pop	r16
+ 2c4:	ef 90       	pop	r14
+ 2c6:	08 95       	ret
+
+000002c8 <_exit>:
+ 2c8:	f8 94       	cli
+
+000002ca <__stop_program>:
+ 2ca:	ff cf       	rjmp	.-2      	; 0x2ca <__stop_program>

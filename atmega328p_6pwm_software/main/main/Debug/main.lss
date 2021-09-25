@@ -1,0 +1,472 @@
+
+main.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000002b0  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000010  00800100  00800100  00000324  2**0
+                  ALLOC
+  2 .comment      00000030  00000000  00000000  00000324  2**0
+                  CONTENTS, READONLY
+  3 .debug_aranges 00000078  00000000  00000000  00000354  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000350  00000000  00000000  000003cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 000001da  00000000  00000000  0000071c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   000001a2  00000000  00000000  000008f6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000114  00000000  00000000  00000a98  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    000001d2  00000000  00000000  00000bac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    00000289  00000000  00000000  00000d7e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000058  00000000  00000000  00001007  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   8:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  10:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  14:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  18:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  1c:	0c 94 b5 00 	jmp	0x16a	; 0x16a <__vector_7>
+  20:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  24:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  28:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  2c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  30:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  34:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  38:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  3c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  40:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  44:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  48:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  4c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  50:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  54:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  58:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  5c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  60:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  64:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_clear_bss>:
+  74:	21 e0       	ldi	r18, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	01 c0       	rjmp	.+2      	; 0x7e <.do_clear_bss_start>
+
+0000007c <.do_clear_bss_loop>:
+  7c:	1d 92       	st	X+, r1
+
+0000007e <.do_clear_bss_start>:
+  7e:	a0 31       	cpi	r26, 0x10	; 16
+  80:	b2 07       	cpc	r27, r18
+  82:	e1 f7       	brne	.-8      	; 0x7c <.do_clear_bss_loop>
+  84:	0e 94 48 00 	call	0x90	; 0x90 <main>
+  88:	0c 94 56 01 	jmp	0x2ac	; 0x2ac <_exit>
+
+0000008c <__bad_interrupt>:
+  8c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000090 <main>:
+#include "PWM.h"
+#include <avr/io.h>
+unsigned char tem[DATA_LEN];
+int main(void)
+{
+	tem[0] = 10;
+  90:	8a e0       	ldi	r24, 0x0A	; 10
+  92:	80 93 00 01 	sts	0x0100, r24
+	tem[1] = 50;
+  96:	82 e3       	ldi	r24, 0x32	; 50
+  98:	80 93 01 01 	sts	0x0101, r24
+	tem[2] = 100;
+  9c:	84 e6       	ldi	r24, 0x64	; 100
+  9e:	80 93 02 01 	sts	0x0102, r24
+	tem[3] = 254;
+  a2:	8e ef       	ldi	r24, 0xFE	; 254
+  a4:	80 93 03 01 	sts	0x0103, r24
+	tem[4] = 200;
+  a8:	88 ec       	ldi	r24, 0xC8	; 200
+  aa:	80 93 04 01 	sts	0x0104, r24
+	tem[5] = 255;
+  ae:	8f ef       	ldi	r24, 0xFF	; 255
+  b0:	80 93 05 01 	sts	0x0105, r24
+	PWM_initial();
+  b4:	0e 94 89 00 	call	0x112	; 0x112 <PWM_initial>
+	PWM_updata(tem);
+  b8:	80 e0       	ldi	r24, 0x00	; 0
+  ba:	91 e0       	ldi	r25, 0x01	; 1
+  bc:	0e 94 35 01 	call	0x26a	; 0x26a <PWM_updata>
+  c0:	ff cf       	rjmp	.-2      	; 0xc0 <main+0x30>
+
+000000c2 <output_init>:
+}
+
+
+void output_init()
+{
+	DDRB |= S_MASK_PB;//pinB 1,2,3
+  c2:	84 b1       	in	r24, 0x04	; 4
+  c4:	8e 60       	ori	r24, 0x0E	; 14
+  c6:	84 b9       	out	0x04, r24	; 4
+	DDRD |= S_MASK_PD;//pinD 3,5,6
+  c8:	8a b1       	in	r24, 0x0a	; 10
+  ca:	88 66       	ori	r24, 0x68	; 104
+  cc:	8a b9       	out	0x0a, r24	; 10
+  ce:	08 95       	ret
+
+000000d0 <output_off_all>:
+}
+
+void output_off_all()
+{
+	PORTB &= C_MASK_PB|_mapB;//pinB 1,2,3
+  d0:	95 b1       	in	r25, 0x05	; 5
+  d2:	80 91 06 01 	lds	r24, 0x0106
+  d6:	81 6f       	ori	r24, 0xF1	; 241
+  d8:	89 23       	and	r24, r25
+  da:	85 b9       	out	0x05, r24	; 5
+	PORTD &= C_MASK_PD|_mapD;//pinD 3,5,6
+  dc:	9b b1       	in	r25, 0x0b	; 11
+  de:	80 91 08 01 	lds	r24, 0x0108
+  e2:	87 69       	ori	r24, 0x97	; 151
+  e4:	89 23       	and	r24, r25
+  e6:	8b b9       	out	0x0b, r24	; 11
+  e8:	08 95       	ret
+
+000000ea <timer2_CTC_init>:
+}
+
+void timer2_CTC_init()
+{
+	TIMSK2 |= (1 << OCIE0A);					 // set output compare interrupt enable
+  ea:	e0 e7       	ldi	r30, 0x70	; 112
+  ec:	f0 e0       	ldi	r31, 0x00	; 0
+  ee:	80 81       	ld	r24, Z
+  f0:	82 60       	ori	r24, 0x02	; 2
+  f2:	80 83       	st	Z, r24
+	TCCR2A |= (1 << WGM21);						// set CTC mode
+  f4:	e0 eb       	ldi	r30, 0xB0	; 176
+  f6:	f0 e0       	ldi	r31, 0x00	; 0
+  f8:	80 81       	ld	r24, Z
+  fa:	82 60       	ori	r24, 0x02	; 2
+  fc:	80 83       	st	Z, r24
+	TCCR2B |= TIMER2_PRESCALER;					//CLK/32
+  fe:	e1 eb       	ldi	r30, 0xB1	; 177
+ 100:	f0 e0       	ldi	r31, 0x00	; 0
+ 102:	80 81       	ld	r24, Z
+ 104:	83 60       	ori	r24, 0x03	; 3
+ 106:	80 83       	st	Z, r24
+	OCR2A   = TIMER2_COMPARE_VALUE;				// set compare value for interrupt
+ 108:	8a e0       	ldi	r24, 0x0A	; 10
+ 10a:	80 93 b3 00 	sts	0x00B3, r24
+	sei();
+ 10e:	78 94       	sei
+ 110:	08 95       	ret
+
+00000112 <PWM_initial>:
+
+
+
+void PWM_initial(void)
+{
+	for(unsigned char i=0;i<DATA_LEN;i++) channel_buff[i] =0;
+ 112:	10 92 09 01 	sts	0x0109, r1
+ 116:	10 92 0a 01 	sts	0x010A, r1
+ 11a:	10 92 0b 01 	sts	0x010B, r1
+ 11e:	10 92 0c 01 	sts	0x010C, r1
+ 122:	10 92 0d 01 	sts	0x010D, r1
+ 126:	10 92 0e 01 	sts	0x010E, r1
+	output_init();
+ 12a:	0e 94 61 00 	call	0xc2	; 0xc2 <output_init>
+	output_off_all();
+ 12e:	0e 94 68 00 	call	0xd0	; 0xd0 <output_off_all>
+	timer2_CTC_init();
+ 132:	0e 94 75 00 	call	0xea	; 0xea <timer2_CTC_init>
+ 136:	08 95       	ret
+
+00000138 <pin_table>:
+	 _counter--;
+}
+
+void pin_table(uint8_t pins)
+{
+	switch (pins)
+ 138:	82 30       	cpi	r24, 0x02	; 2
+ 13a:	79 f0       	breq	.+30     	; 0x15a <pin_table+0x22>
+ 13c:	28 f4       	brcc	.+10     	; 0x148 <pin_table+0x10>
+ 13e:	88 23       	and	r24, r24
+ 140:	41 f0       	breq	.+16     	; 0x152 <pin_table+0x1a>
+ 142:	81 30       	cpi	r24, 0x01	; 1
+ 144:	41 f0       	breq	.+16     	; 0x156 <pin_table+0x1e>
+ 146:	0f c0       	rjmp	.+30     	; 0x166 <pin_table+0x2e>
+ 148:	83 30       	cpi	r24, 0x03	; 3
+ 14a:	49 f0       	breq	.+18     	; 0x15e <pin_table+0x26>
+ 14c:	84 30       	cpi	r24, 0x04	; 4
+ 14e:	49 f0       	breq	.+18     	; 0x162 <pin_table+0x2a>
+ 150:	0a c0       	rjmp	.+20     	; 0x166 <pin_table+0x2e>
+	{
+		case 0:
+		PORTB |=S_MASK_1;
+ 152:	29 9a       	sbi	0x05, 1	; 5
+		return;
+ 154:	08 95       	ret
+		case 1:
+		PORTB |=S_MASK_2;
+ 156:	2a 9a       	sbi	0x05, 2	; 5
+		return;
+ 158:	08 95       	ret
+		case 2:
+		PORTB |=S_MASK_3;
+ 15a:	2b 9a       	sbi	0x05, 3	; 5
+		return;
+ 15c:	08 95       	ret
+		case 3:
+		PORTD |=S_MASK_3;
+ 15e:	5b 9a       	sbi	0x0b, 3	; 11
+		return;
+ 160:	08 95       	ret
+		case 4:
+		PORTD |=S_MASK_5;
+ 162:	5d 9a       	sbi	0x0b, 5	; 11
+		return;
+ 164:	08 95       	ret
+		default:
+		PORTD |=S_MASK_6;
+ 166:	5e 9a       	sbi	0x0b, 6	; 11
+ 168:	08 95       	ret
+
+0000016a <__vector_7>:
+	OCR2A   = TIMER2_COMPARE_VALUE;				// set compare value for interrupt
+	sei();
+}
+
+ISR(TIMER2_COMPA_vect)
+{
+ 16a:	1f 92       	push	r1
+ 16c:	0f 92       	push	r0
+ 16e:	0f b6       	in	r0, 0x3f	; 63
+ 170:	0f 92       	push	r0
+ 172:	11 24       	eor	r1, r1
+ 174:	2f 93       	push	r18
+ 176:	3f 93       	push	r19
+ 178:	4f 93       	push	r20
+ 17a:	5f 93       	push	r21
+ 17c:	6f 93       	push	r22
+ 17e:	7f 93       	push	r23
+ 180:	8f 93       	push	r24
+ 182:	9f 93       	push	r25
+ 184:	af 93       	push	r26
+ 186:	bf 93       	push	r27
+ 188:	ef 93       	push	r30
+ 18a:	ff 93       	push	r31
+	 _pointer = 0;
+ 18c:	10 92 0f 01 	sts	0x010F, r1
+	 if (_counter==0)
+ 190:	80 91 07 01 	lds	r24, 0x0107
+ 194:	81 11       	cpse	r24, r1
+ 196:	05 c0       	rjmp	.+10     	; 0x1a2 <__vector_7+0x38>
+	 {
+		 output_off_all();
+ 198:	0e 94 68 00 	call	0xd0	; 0xd0 <output_off_all>
+		 _counter = RESOLUTION;
+ 19c:	8f ef       	ldi	r24, 0xFF	; 255
+ 19e:	80 93 07 01 	sts	0x0107, r24
+	 }
+	 while (_pointer<DATA_LEN)
+ 1a2:	80 91 0f 01 	lds	r24, 0x010F
+ 1a6:	86 30       	cpi	r24, 0x06	; 6
+ 1a8:	b8 f4       	brcc	.+46     	; 0x1d8 <__vector_7+0x6e>
+	 {
+		 if ( channel_buff[_pointer]>=_counter) pin_table(_pointer);
+ 1aa:	e0 91 0f 01 	lds	r30, 0x010F
+ 1ae:	f0 e0       	ldi	r31, 0x00	; 0
+ 1b0:	e7 5f       	subi	r30, 0xF7	; 247
+ 1b2:	fe 4f       	sbci	r31, 0xFE	; 254
+ 1b4:	90 81       	ld	r25, Z
+ 1b6:	80 91 07 01 	lds	r24, 0x0107
+ 1ba:	98 17       	cp	r25, r24
+ 1bc:	20 f0       	brcs	.+8      	; 0x1c6 <__vector_7+0x5c>
+ 1be:	80 91 0f 01 	lds	r24, 0x010F
+ 1c2:	0e 94 9c 00 	call	0x138	; 0x138 <pin_table>
+		 _pointer++;
+ 1c6:	80 91 0f 01 	lds	r24, 0x010F
+ 1ca:	8f 5f       	subi	r24, 0xFF	; 255
+ 1cc:	80 93 0f 01 	sts	0x010F, r24
+	 if (_counter==0)
+	 {
+		 output_off_all();
+		 _counter = RESOLUTION;
+	 }
+	 while (_pointer<DATA_LEN)
+ 1d0:	80 91 0f 01 	lds	r24, 0x010F
+ 1d4:	86 30       	cpi	r24, 0x06	; 6
+ 1d6:	48 f3       	brcs	.-46     	; 0x1aa <__vector_7+0x40>
+	 {
+		 if ( channel_buff[_pointer]>=_counter) pin_table(_pointer);
+		 _pointer++;
+	 }
+	 _counter--;
+ 1d8:	80 91 07 01 	lds	r24, 0x0107
+ 1dc:	81 50       	subi	r24, 0x01	; 1
+ 1de:	80 93 07 01 	sts	0x0107, r24
+}
+ 1e2:	ff 91       	pop	r31
+ 1e4:	ef 91       	pop	r30
+ 1e6:	bf 91       	pop	r27
+ 1e8:	af 91       	pop	r26
+ 1ea:	9f 91       	pop	r25
+ 1ec:	8f 91       	pop	r24
+ 1ee:	7f 91       	pop	r23
+ 1f0:	6f 91       	pop	r22
+ 1f2:	5f 91       	pop	r21
+ 1f4:	4f 91       	pop	r20
+ 1f6:	3f 91       	pop	r19
+ 1f8:	2f 91       	pop	r18
+ 1fa:	0f 90       	pop	r0
+ 1fc:	0f be       	out	0x3f, r0	; 63
+ 1fe:	0f 90       	pop	r0
+ 200:	1f 90       	pop	r1
+ 202:	18 95       	reti
+
+00000204 <map_maker>:
+}
+
+
+void map_maker(unsigned _mux)
+{
+	switch (_mux)
+ 204:	82 30       	cpi	r24, 0x02	; 2
+ 206:	91 05       	cpc	r25, r1
+ 208:	c1 f0       	breq	.+48     	; 0x23a <map_maker+0x36>
+ 20a:	28 f4       	brcc	.+10     	; 0x216 <map_maker+0x12>
+ 20c:	00 97       	sbiw	r24, 0x00	; 0
+ 20e:	49 f0       	breq	.+18     	; 0x222 <map_maker+0x1e>
+ 210:	01 97       	sbiw	r24, 0x01	; 1
+ 212:	69 f0       	breq	.+26     	; 0x22e <map_maker+0x2a>
+ 214:	24 c0       	rjmp	.+72     	; 0x25e <map_maker+0x5a>
+ 216:	83 30       	cpi	r24, 0x03	; 3
+ 218:	91 05       	cpc	r25, r1
+ 21a:	a9 f0       	breq	.+42     	; 0x246 <map_maker+0x42>
+ 21c:	04 97       	sbiw	r24, 0x04	; 4
+ 21e:	c9 f0       	breq	.+50     	; 0x252 <map_maker+0x4e>
+ 220:	1e c0       	rjmp	.+60     	; 0x25e <map_maker+0x5a>
+	{
+		case 0:
+		_mapB |=S_MASK_1;
+ 222:	80 91 06 01 	lds	r24, 0x0106
+ 226:	82 60       	ori	r24, 0x02	; 2
+ 228:	80 93 06 01 	sts	0x0106, r24
+		return;
+ 22c:	08 95       	ret
+		case 1:
+		_mapB |=S_MASK_2;
+ 22e:	80 91 06 01 	lds	r24, 0x0106
+ 232:	84 60       	ori	r24, 0x04	; 4
+ 234:	80 93 06 01 	sts	0x0106, r24
+		return;
+ 238:	08 95       	ret
+		case 2:
+		_mapB |=S_MASK_3;
+ 23a:	80 91 06 01 	lds	r24, 0x0106
+ 23e:	88 60       	ori	r24, 0x08	; 8
+ 240:	80 93 06 01 	sts	0x0106, r24
+		return;
+ 244:	08 95       	ret
+		case 3:
+		_mapD |=S_MASK_3;
+ 246:	80 91 08 01 	lds	r24, 0x0108
+ 24a:	88 60       	ori	r24, 0x08	; 8
+ 24c:	80 93 08 01 	sts	0x0108, r24
+		return;
+ 250:	08 95       	ret
+		case 4:
+		_mapD |=S_MASK_5;
+ 252:	80 91 08 01 	lds	r24, 0x0108
+ 256:	80 62       	ori	r24, 0x20	; 32
+ 258:	80 93 08 01 	sts	0x0108, r24
+		return;
+ 25c:	08 95       	ret
+		default:
+		_mapD |=S_MASK_6;
+ 25e:	80 91 08 01 	lds	r24, 0x0108
+ 262:	80 64       	ori	r24, 0x40	; 64
+ 264:	80 93 08 01 	sts	0x0108, r24
+ 268:	08 95       	ret
+
+0000026a <PWM_updata>:
+volatile uint8_t _mapB;
+volatile uint8_t _mapD;
+
+
+void PWM_updata(unsigned char *_data)
+{
+ 26a:	0f 93       	push	r16
+ 26c:	1f 93       	push	r17
+ 26e:	cf 93       	push	r28
+ 270:	df 93       	push	r29
+	_mapB=0;
+ 272:	10 92 06 01 	sts	0x0106, r1
+	_mapD=0;
+ 276:	10 92 08 01 	sts	0x0108, r1
+ 27a:	8c 01       	movw	r16, r24
+ 27c:	c0 e0       	ldi	r28, 0x00	; 0
+ 27e:	d0 e0       	ldi	r29, 0x00	; 0
+	for (unsigned char i= 0;i<DATA_LEN;i++)
+	{
+		 channel_buff[i]= _data[i];
+ 280:	f8 01       	movw	r30, r16
+ 282:	81 91       	ld	r24, Z+
+ 284:	8f 01       	movw	r16, r30
+ 286:	fe 01       	movw	r30, r28
+ 288:	e7 5f       	subi	r30, 0xF7	; 247
+ 28a:	fe 4f       	sbci	r31, 0xFE	; 254
+ 28c:	80 83       	st	Z, r24
+		 if (channel_buff[i]==RESOLUTION) map_maker(i);
+ 28e:	80 81       	ld	r24, Z
+ 290:	8f 3f       	cpi	r24, 0xFF	; 255
+ 292:	19 f4       	brne	.+6      	; 0x29a <PWM_updata+0x30>
+ 294:	ce 01       	movw	r24, r28
+ 296:	0e 94 02 01 	call	0x204	; 0x204 <map_maker>
+ 29a:	21 96       	adiw	r28, 0x01	; 1
+
+void PWM_updata(unsigned char *_data)
+{
+	_mapB=0;
+	_mapD=0;
+	for (unsigned char i= 0;i<DATA_LEN;i++)
+ 29c:	c6 30       	cpi	r28, 0x06	; 6
+ 29e:	d1 05       	cpc	r29, r1
+ 2a0:	79 f7       	brne	.-34     	; 0x280 <PWM_updata+0x16>
+	{
+		 channel_buff[i]= _data[i];
+		 if (channel_buff[i]==RESOLUTION) map_maker(i);
+	}
+}
+ 2a2:	df 91       	pop	r29
+ 2a4:	cf 91       	pop	r28
+ 2a6:	1f 91       	pop	r17
+ 2a8:	0f 91       	pop	r16
+ 2aa:	08 95       	ret
+
+000002ac <_exit>:
+ 2ac:	f8 94       	cli
+
+000002ae <__stop_program>:
+ 2ae:	ff cf       	rjmp	.-2      	; 0x2ae <__stop_program>

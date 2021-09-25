@@ -1,0 +1,778 @@
+
+main.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  0000043a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000003c6  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000080  00800100  00800100  0000043a  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000043a  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000046c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000088  00000000  00000000  000004ac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000783  00000000  00000000  00000534  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000413  00000000  00000000  00000cb7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000003bb  00000000  00000000  000010ca  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000124  00000000  00000000  00001488  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000002f1  00000000  00000000  000015ac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000529  00000000  00000000  0000189d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000148  00000000  00000000  00001dc6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   8:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  10:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  14:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  18:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  1c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  20:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  24:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  28:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  2c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  30:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  34:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  38:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  3c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  40:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  44:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  48:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  4c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  50:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  54:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  58:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  5c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  60:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  64:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_clear_bss>:
+  74:	21 e0       	ldi	r18, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	01 c0       	rjmp	.+2      	; 0x7e <.do_clear_bss_start>
+
+0000007c <.do_clear_bss_loop>:
+  7c:	1d 92       	st	X+, r1
+
+0000007e <.do_clear_bss_start>:
+  7e:	a0 38       	cpi	r26, 0x80	; 128
+  80:	b2 07       	cpc	r27, r18
+  82:	e1 f7       	brne	.-8      	; 0x7c <.do_clear_bss_loop>
+  84:	0e 94 06 01 	call	0x20c	; 0x20c <main>
+  88:	0c 94 e1 01 	jmp	0x3c2	; 0x3c2 <_exit>
+
+0000008c <__bad_interrupt>:
+  8c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000090 <_Z8DMX_Initj>:
+extern volatile uint8_t channel_buff[16][8];
+volatile uint16_t _pointer;
+volatile bool _complete;
+void DMX_Init( unsigned int ubrr)
+{
+	DDRD |= 1<<PORTD7;
+  90:	57 9a       	sbi	0x0a, 7	; 10
+	PORTD |= 1<<PORTD7;
+  92:	5f 9a       	sbi	0x0b, 7	; 11
+	/* Set baud rate */
+	UBRR0H = (unsigned char)(ubrr>>8);
+  94:	90 93 c5 00 	sts	0x00C5, r25
+	UBRR0L = (unsigned char)ubrr;
+  98:	80 93 c4 00 	sts	0x00C4, r24
+	/* Enable transmitter */
+	UCSR0B = (1<<TXEN0);
+  9c:	88 e0       	ldi	r24, 0x08	; 8
+  9e:	80 93 c1 00 	sts	0x00C1, r24
+	//UCSRA = (1<<U2X);
+	/* Set frame format: 8data, 2stop bit */
+	UCSR0C =(1<<USBS0)|(3<<UCSZ00);
+  a2:	8e e0       	ldi	r24, 0x0E	; 14
+  a4:	80 93 c2 00 	sts	0x00C2, r24
+  a8:	08 95       	ret
+
+000000aa <_Z22DMX_BREAK_MAB_Transmitv>:
+}
+
+void DMX_BREAK_MAB_Transmit(void)
+{
+	//while ( !( UCSR0A & (1<<UDRE0)) );//* Wait for empty transmit buffer */
+	UCSR0B &=~(1<<TXEN0);	// TXEN disable
+  aa:	e1 ec       	ldi	r30, 0xC1	; 193
+  ac:	f0 e0       	ldi	r31, 0x00	; 0
+  ae:	80 81       	ld	r24, Z
+  b0:	87 7f       	andi	r24, 0xF7	; 247
+  b2:	80 83       	st	Z, r24
+	TXD_DDR |=1<<TXD_PIN; // TXD config output port
+  b4:	51 9a       	sbi	0x0a, 1	; 10
+	TXD_PORT &=~(1<<TXD_PIN);	// TXD pin pull low
+  b6:	59 98       	cbi	0x0b, 1	; 11
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  b8:	8f ed       	ldi	r24, 0xDF	; 223
+  ba:	91 e0       	ldi	r25, 0x01	; 1
+  bc:	01 97       	sbiw	r24, 0x01	; 1
+  be:	f1 f7       	brne	.-4      	; 0xbc <_Z22DMX_BREAK_MAB_Transmitv+0x12>
+  c0:	00 c0       	rjmp	.+0      	; 0xc2 <_Z22DMX_BREAK_MAB_Transmitv+0x18>
+  c2:	00 00       	nop
+	_delay_us(120);				//170us
+	TXD_PORT |=(1<<TXD_PIN);	//TXD pin pull high
+  c4:	59 9a       	sbi	0x0b, 1	; 11
+  c6:	90 e4       	ldi	r25, 0x40	; 64
+  c8:	9a 95       	dec	r25
+  ca:	f1 f7       	brne	.-4      	; 0xc8 <_Z22DMX_BREAK_MAB_Transmitv+0x1e>
+	_delay_us(12);				// 8us
+	UCSR0B |=(1<<TXEN0);	//TXEN enable
+  cc:	80 81       	ld	r24, Z
+  ce:	88 60       	ori	r24, 0x08	; 8
+  d0:	80 83       	st	Z, r24
+  d2:	08 95       	ret
+
+000000d4 <_Z12DMX_transmitv>:
+	/* Set frame format: 8data, 2stop bit */
+	UCSR0C =(1<<USBS0)|(3<<UCSZ00);
+}
+
+void DMX_transmit(void)
+{
+  d4:	ff 92       	push	r15
+  d6:	0f 93       	push	r16
+  d8:	1f 93       	push	r17
+  da:	cf 93       	push	r28
+  dc:	df 93       	push	r29
+	UCSR0B &=~(1<<UDRIE0);
+  de:	e1 ec       	ldi	r30, 0xC1	; 193
+  e0:	f0 e0       	ldi	r31, 0x00	; 0
+  e2:	80 81       	ld	r24, Z
+  e4:	8f 7d       	andi	r24, 0xDF	; 223
+  e6:	80 83       	st	Z, r24
+	DMX_BREAK_MAB_Transmit();
+  e8:	0e 94 55 00 	call	0xaa	; 0xaa <_Z22DMX_BREAK_MAB_Transmitv>
+	UDR0 =0;
+  ec:	10 92 c6 00 	sts	0x00C6, r1
+  f0:	41 e0       	ldi	r20, 0x01	; 1
+  f2:	50 e0       	ldi	r21, 0x00	; 0
+	/* Set frame format: 8data, 2stop bit */
+	UCSR0C =(1<<USBS0)|(3<<UCSZ00);
+}
+
+void DMX_transmit(void)
+{
+  f4:	17 e0       	ldi	r17, 0x07	; 7
+  f6:	90 e0       	ldi	r25, 0x00	; 0
+	
+	for (unsigned char i = 0; i <4; i++)
+	{
+		for (unsigned char j= 0;j<8;j++)
+		{
+				UDR0 = channel_buff[7-j][i*2];
+  f8:	c6 ec       	ldi	r28, 0xC6	; 198
+  fa:	d0 e0       	ldi	r29, 0x00	; 0
+				while ( !( UCSR0A & (1<<UDRE0)) );//* Wait for empty transmit buffer */
+  fc:	e0 ec       	ldi	r30, 0xC0	; 192
+  fe:	f0 e0       	ldi	r31, 0x00	; 0
+		
+		}
+	for (unsigned char j= 0;j<8;j++)
+		{
+				UDR0 = channel_buff[j][i*2+1];
+ 100:	f1 2c       	mov	r15, r1
+ 102:	00 e0       	ldi	r16, 0x00	; 0
+ 104:	30 c0       	rjmp	.+96     	; 0x166 <_Z12DMX_transmitv+0x92>
+	
+	for (unsigned char i = 0; i <4; i++)
+	{
+		for (unsigned char j= 0;j<8;j++)
+		{
+				UDR0 = channel_buff[7-j][i*2];
+ 106:	d9 01       	movw	r26, r18
+ 108:	aa 0f       	add	r26, r26
+ 10a:	bb 1f       	adc	r27, r27
+ 10c:	aa 0f       	add	r26, r26
+ 10e:	bb 1f       	adc	r27, r27
+ 110:	aa 0f       	add	r26, r26
+ 112:	bb 1f       	adc	r27, r27
+ 114:	a6 0f       	add	r26, r22
+ 116:	b7 1f       	adc	r27, r23
+ 118:	a0 50       	subi	r26, 0x00	; 0
+ 11a:	bf 4f       	sbci	r27, 0xFF	; 255
+ 11c:	8c 91       	ld	r24, X
+ 11e:	88 83       	st	Y, r24
+				while ( !( UCSR0A & (1<<UDRE0)) );//* Wait for empty transmit buffer */
+ 120:	80 81       	ld	r24, Z
+ 122:	85 ff       	sbrs	r24, 5
+ 124:	fd cf       	rjmp	.-6      	; 0x120 <_Z12DMX_transmitv+0x4c>
+ 126:	21 50       	subi	r18, 0x01	; 1
+ 128:	31 09       	sbc	r19, r1
+ 12a:	68 f7       	brcc	.-38     	; 0x106 <_Z12DMX_transmitv+0x32>
+		
+		}
+	for (unsigned char j= 0;j<8;j++)
+		{
+				UDR0 = channel_buff[j][i*2+1];
+ 12c:	ba 01       	movw	r22, r20
+ 12e:	2f 2d       	mov	r18, r15
+ 130:	30 2f       	mov	r19, r16
+ 132:	d9 01       	movw	r26, r18
+ 134:	aa 0f       	add	r26, r26
+ 136:	bb 1f       	adc	r27, r27
+ 138:	aa 0f       	add	r26, r26
+ 13a:	bb 1f       	adc	r27, r27
+ 13c:	aa 0f       	add	r26, r26
+ 13e:	bb 1f       	adc	r27, r27
+ 140:	a6 0f       	add	r26, r22
+ 142:	b7 1f       	adc	r27, r23
+ 144:	a0 50       	subi	r26, 0x00	; 0
+ 146:	bf 4f       	sbci	r27, 0xFF	; 255
+ 148:	8c 91       	ld	r24, X
+ 14a:	88 83       	st	Y, r24
+				while ( !( UCSR0A & (1<<UDRE0)) );//* Wait for empty transmit buffer */
+ 14c:	80 81       	ld	r24, Z
+ 14e:	85 ff       	sbrs	r24, 5
+ 150:	fd cf       	rjmp	.-6      	; 0x14c <_Z12DMX_transmitv+0x78>
+ 152:	2f 5f       	subi	r18, 0xFF	; 255
+ 154:	3f 4f       	sbci	r19, 0xFF	; 255
+		{
+				UDR0 = channel_buff[7-j][i*2];
+				while ( !( UCSR0A & (1<<UDRE0)) );//* Wait for empty transmit buffer */
+		
+		}
+	for (unsigned char j= 0;j<8;j++)
+ 156:	28 30       	cpi	r18, 0x08	; 8
+ 158:	31 05       	cpc	r19, r1
+ 15a:	59 f7       	brne	.-42     	; 0x132 <_Z12DMX_transmitv+0x5e>
+ 15c:	4e 5f       	subi	r20, 0xFE	; 254
+ 15e:	5f 4f       	sbci	r21, 0xFF	; 255
+{
+	UCSR0B &=~(1<<UDRIE0);
+	DMX_BREAK_MAB_Transmit();
+	UDR0 =0;
+	
+	for (unsigned char i = 0; i <4; i++)
+ 160:	49 30       	cpi	r20, 0x09	; 9
+ 162:	51 05       	cpc	r21, r1
+ 164:	d1 f1       	breq	.+116    	; 0x1da <_Z12DMX_transmitv+0x106>
+ 166:	ba 01       	movw	r22, r20
+ 168:	61 50       	subi	r22, 0x01	; 1
+ 16a:	71 09       	sbc	r23, r1
+	/* Set frame format: 8data, 2stop bit */
+	UCSR0C =(1<<USBS0)|(3<<UCSZ00);
+}
+
+void DMX_transmit(void)
+{
+ 16c:	21 2f       	mov	r18, r17
+ 16e:	39 2f       	mov	r19, r25
+ 170:	ca cf       	rjmp	.-108    	; 0x106 <_Z12DMX_transmitv+0x32>
+	{
+		
+		
+	for (unsigned char j= 0;j<8;j++)
+		{
+				UDR0 = channel_buff[8+j][(3-i)*2+1];
+ 172:	d9 01       	movw	r26, r18
+ 174:	aa 0f       	add	r26, r26
+ 176:	bb 1f       	adc	r27, r27
+ 178:	aa 0f       	add	r26, r26
+ 17a:	bb 1f       	adc	r27, r27
+ 17c:	aa 0f       	add	r26, r26
+ 17e:	bb 1f       	adc	r27, r27
+ 180:	a6 0f       	add	r26, r22
+ 182:	b7 1f       	adc	r27, r23
+ 184:	a0 50       	subi	r26, 0x00	; 0
+ 186:	bf 4f       	sbci	r27, 0xFF	; 255
+ 188:	8c 91       	ld	r24, X
+ 18a:	88 83       	st	Y, r24
+				while ( !( UCSR0A & (1<<UDRE0)) );//* Wait for empty transmit buffer */
+ 18c:	80 81       	ld	r24, Z
+ 18e:	85 ff       	sbrs	r24, 5
+ 190:	fd cf       	rjmp	.-6      	; 0x18c <_Z12DMX_transmitv+0xb8>
+ 192:	2f 5f       	subi	r18, 0xFF	; 255
+ 194:	3f 4f       	sbci	r19, 0xFF	; 255
+	}
+	for (unsigned char i = 0; i <4; i++)
+	{
+		
+		
+	for (unsigned char j= 0;j<8;j++)
+ 196:	20 31       	cpi	r18, 0x10	; 16
+ 198:	31 05       	cpc	r19, r1
+ 19a:	59 f7       	brne	.-42     	; 0x172 <_Z12DMX_transmitv+0x9e>
+				while ( !( UCSR0A & (1<<UDRE0)) );//* Wait for empty transmit buffer */
+		}
+		
+		for (unsigned char j= 0;j<8;j++)
+		{
+				UDR0 = channel_buff[8+7-j][(3-i)*2];
+ 19c:	ba 01       	movw	r22, r20
+ 19e:	2f 2d       	mov	r18, r15
+ 1a0:	30 2f       	mov	r19, r16
+ 1a2:	d9 01       	movw	r26, r18
+ 1a4:	aa 0f       	add	r26, r26
+ 1a6:	bb 1f       	adc	r27, r27
+ 1a8:	aa 0f       	add	r26, r26
+ 1aa:	bb 1f       	adc	r27, r27
+ 1ac:	aa 0f       	add	r26, r26
+ 1ae:	bb 1f       	adc	r27, r27
+ 1b0:	a6 0f       	add	r26, r22
+ 1b2:	b7 1f       	adc	r27, r23
+ 1b4:	a0 50       	subi	r26, 0x00	; 0
+ 1b6:	bf 4f       	sbci	r27, 0xFF	; 255
+ 1b8:	8c 91       	ld	r24, X
+ 1ba:	88 83       	st	Y, r24
+				while ( !( UCSR0A & (1<<UDRE0)) );//* Wait for empty transmit buffer */
+ 1bc:	80 81       	ld	r24, Z
+ 1be:	85 ff       	sbrs	r24, 5
+ 1c0:	fd cf       	rjmp	.-6      	; 0x1bc <_Z12DMX_transmitv+0xe8>
+ 1c2:	21 50       	subi	r18, 0x01	; 1
+ 1c4:	31 09       	sbc	r19, r1
+		{
+				UDR0 = channel_buff[8+j][(3-i)*2+1];
+				while ( !( UCSR0A & (1<<UDRE0)) );//* Wait for empty transmit buffer */
+		}
+		
+		for (unsigned char j= 0;j<8;j++)
+ 1c6:	27 30       	cpi	r18, 0x07	; 7
+ 1c8:	31 05       	cpc	r19, r1
+ 1ca:	59 f7       	brne	.-42     	; 0x1a2 <_Z12DMX_transmitv+0xce>
+ 1cc:	42 50       	subi	r20, 0x02	; 2
+ 1ce:	51 09       	sbc	r21, r1
+				UDR0 = channel_buff[j][i*2+1];
+				while ( !( UCSR0A & (1<<UDRE0)) );//* Wait for empty transmit buffer */
+		
+		}
+	}
+	for (unsigned char i = 0; i <4; i++)
+ 1d0:	4e 3f       	cpi	r20, 0xFE	; 254
+ 1d2:	8f ef       	ldi	r24, 0xFF	; 255
+ 1d4:	58 07       	cpc	r21, r24
+ 1d6:	71 f4       	brne	.+28     	; 0x1f4 <_Z12DMX_transmitv+0x120>
+ 1d8:	13 c0       	rjmp	.+38     	; 0x200 <_Z12DMX_transmitv+0x12c>
+ 1da:	46 e0       	ldi	r20, 0x06	; 6
+ 1dc:	50 e0       	ldi	r21, 0x00	; 0
+
+void DMX_transmit(void)
+{
+	UCSR0B &=~(1<<UDRIE0);
+	DMX_BREAK_MAB_Transmit();
+	UDR0 =0;
+ 1de:	12 2f       	mov	r17, r18
+ 1e0:	93 2f       	mov	r25, r19
+	{
+		
+		
+	for (unsigned char j= 0;j<8;j++)
+		{
+				UDR0 = channel_buff[8+j][(3-i)*2+1];
+ 1e2:	c6 ec       	ldi	r28, 0xC6	; 198
+ 1e4:	d0 e0       	ldi	r29, 0x00	; 0
+				while ( !( UCSR0A & (1<<UDRE0)) );//* Wait for empty transmit buffer */
+ 1e6:	e0 ec       	ldi	r30, 0xC0	; 192
+ 1e8:	f0 e0       	ldi	r31, 0x00	; 0
+		}
+		
+		for (unsigned char j= 0;j<8;j++)
+		{
+				UDR0 = channel_buff[8+7-j][(3-i)*2];
+ 1ea:	0f 2e       	mov	r0, r31
+ 1ec:	ff e0       	ldi	r31, 0x0F	; 15
+ 1ee:	ff 2e       	mov	r15, r31
+ 1f0:	f0 2d       	mov	r31, r0
+ 1f2:	00 e0       	ldi	r16, 0x00	; 0
+ 1f4:	ba 01       	movw	r22, r20
+ 1f6:	6f 5f       	subi	r22, 0xFF	; 255
+ 1f8:	7f 4f       	sbci	r23, 0xFF	; 255
+
+void DMX_transmit(void)
+{
+	UCSR0B &=~(1<<UDRIE0);
+	DMX_BREAK_MAB_Transmit();
+	UDR0 =0;
+ 1fa:	21 2f       	mov	r18, r17
+ 1fc:	39 2f       	mov	r19, r25
+ 1fe:	b9 cf       	rjmp	.-142    	; 0x172 <_Z12DMX_transmitv+0x9e>
+				while ( !( UCSR0A & (1<<UDRE0)) );//* Wait for empty transmit buffer */
+		
+		}
+		
+	}
+}
+ 200:	df 91       	pop	r29
+ 202:	cf 91       	pop	r28
+ 204:	1f 91       	pop	r17
+ 206:	0f 91       	pop	r16
+ 208:	ff 90       	pop	r15
+ 20a:	08 95       	ret
+
+0000020c <main>:
+
+int main(void)
+{
+    /* Replace with your application code */
+	
+	DMX_Init(MYUBRR);
+ 20c:	83 e0       	ldi	r24, 0x03	; 3
+ 20e:	90 e0       	ldi	r25, 0x00	; 0
+ 210:	0e 94 48 00 	call	0x90	; 0x90 <_Z8DMX_Initj>
+	
+	mt_set_all(0);
+ 214:	80 e0       	ldi	r24, 0x00	; 0
+ 216:	0e 94 42 01 	call	0x284	; 0x284 <_Z10mt_set_allh>
+	DMX_transmit();
+ 21a:	0e 94 6a 00 	call	0xd4	; 0xd4 <_Z12DMX_transmitv>
+	
+    while (1) 
+    {
+		for (unsigned char i = 0;i<8;i++)
+ 21e:	d0 e0       	ldi	r29, 0x00	; 0
+ 220:	cd 2f       	mov	r28, r29
+		{
+			 mt_set_all(0);
+ 222:	8d 2f       	mov	r24, r29
+ 224:	0e 94 42 01 	call	0x284	; 0x284 <_Z10mt_set_allh>
+			 DMX_transmit();
+ 228:	0e 94 6a 00 	call	0xd4	; 0xd4 <_Z12DMX_transmitv>
+			 mt_draw_round(7, 3, i);
+ 22c:	4c 2f       	mov	r20, r28
+ 22e:	63 e0       	ldi	r22, 0x03	; 3
+ 230:	87 e0       	ldi	r24, 0x07	; 7
+ 232:	0e 94 62 01 	call	0x2c4	; 0x2c4 <_Z13mt_draw_roundhhh>
+			 DMX_transmit();
+ 236:	0e 94 6a 00 	call	0xd4	; 0xd4 <_Z12DMX_transmitv>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 23a:	2f ef       	ldi	r18, 0xFF	; 255
+ 23c:	80 e7       	ldi	r24, 0x70	; 112
+ 23e:	92 e0       	ldi	r25, 0x02	; 2
+ 240:	21 50       	subi	r18, 0x01	; 1
+ 242:	80 40       	sbci	r24, 0x00	; 0
+ 244:	90 40       	sbci	r25, 0x00	; 0
+ 246:	e1 f7       	brne	.-8      	; 0x240 <main+0x34>
+ 248:	00 c0       	rjmp	.+0      	; 0x24a <main+0x3e>
+ 24a:	00 00       	nop
+	mt_set_all(0);
+	DMX_transmit();
+	
+    while (1) 
+    {
+		for (unsigned char i = 0;i<8;i++)
+ 24c:	cf 5f       	subi	r28, 0xFF	; 255
+ 24e:	c8 30       	cpi	r28, 0x08	; 8
+ 250:	41 f7       	brne	.-48     	; 0x222 <main+0x16>
+ 252:	c7 e0       	ldi	r28, 0x07	; 7
+			 _delay_ms(50);
+			
+		}
+		for (unsigned char i = 0;i<8;i++)
+		{
+			 mt_set_all(0);
+ 254:	8d 2f       	mov	r24, r29
+ 256:	0e 94 42 01 	call	0x284	; 0x284 <_Z10mt_set_allh>
+			 DMX_transmit();
+ 25a:	0e 94 6a 00 	call	0xd4	; 0xd4 <_Z12DMX_transmitv>
+			mt_draw_round(7, 3, 7-i);
+ 25e:	4c 2f       	mov	r20, r28
+ 260:	63 e0       	ldi	r22, 0x03	; 3
+ 262:	87 e0       	ldi	r24, 0x07	; 7
+ 264:	0e 94 62 01 	call	0x2c4	; 0x2c4 <_Z13mt_draw_roundhhh>
+			DMX_transmit();
+ 268:	0e 94 6a 00 	call	0xd4	; 0xd4 <_Z12DMX_transmitv>
+ 26c:	2f ef       	ldi	r18, 0xFF	; 255
+ 26e:	80 e7       	ldi	r24, 0x70	; 112
+ 270:	92 e0       	ldi	r25, 0x02	; 2
+ 272:	21 50       	subi	r18, 0x01	; 1
+ 274:	80 40       	sbci	r24, 0x00	; 0
+ 276:	90 40       	sbci	r25, 0x00	; 0
+ 278:	e1 f7       	brne	.-8      	; 0x272 <main+0x66>
+ 27a:	00 c0       	rjmp	.+0      	; 0x27c <main+0x70>
+ 27c:	00 00       	nop
+ 27e:	c1 50       	subi	r28, 0x01	; 1
+ 280:	48 f7       	brcc	.-46     	; 0x254 <main+0x48>
+ 282:	ce cf       	rjmp	.-100    	; 0x220 <main+0x14>
+
+00000284 <_Z10mt_set_allh>:
+
+volatile uint8_t channel_buff[16][8];
+
+
+void mt_set_all(unsigned char val)
+{
+ 284:	60 e0       	ldi	r22, 0x00	; 0
+ 286:	70 e0       	ldi	r23, 0x00	; 0
+ 288:	a0 e0       	ldi	r26, 0x00	; 0
+ 28a:	90 e0       	ldi	r25, 0x00	; 0
+ 28c:	10 c0       	rjmp	.+32     	; 0x2ae <_Z10mt_set_allh+0x2a>
+	for (unsigned char i = 0; i < 16; i++)
+	{
+		for (unsigned char j = 0;j<8;j++)
+		{
+			channel_buff[i][j] = val;
+ 28e:	fa 01       	movw	r30, r20
+ 290:	e2 0f       	add	r30, r18
+ 292:	f3 1f       	adc	r31, r19
+ 294:	e0 50       	subi	r30, 0x00	; 0
+ 296:	ff 4f       	sbci	r31, 0xFF	; 255
+ 298:	80 83       	st	Z, r24
+ 29a:	2f 5f       	subi	r18, 0xFF	; 255
+ 29c:	3f 4f       	sbci	r19, 0xFF	; 255
+
+void mt_set_all(unsigned char val)
+{
+	for (unsigned char i = 0; i < 16; i++)
+	{
+		for (unsigned char j = 0;j<8;j++)
+ 29e:	28 30       	cpi	r18, 0x08	; 8
+ 2a0:	31 05       	cpc	r19, r1
+ 2a2:	a9 f7       	brne	.-22     	; 0x28e <_Z10mt_set_allh+0xa>
+ 2a4:	6f 5f       	subi	r22, 0xFF	; 255
+ 2a6:	7f 4f       	sbci	r23, 0xFF	; 255
+volatile uint8_t channel_buff[16][8];
+
+
+void mt_set_all(unsigned char val)
+{
+	for (unsigned char i = 0; i < 16; i++)
+ 2a8:	60 31       	cpi	r22, 0x10	; 16
+ 2aa:	71 05       	cpc	r23, r1
+ 2ac:	51 f0       	breq	.+20     	; 0x2c2 <_Z10mt_set_allh+0x3e>
+
+volatile uint8_t channel_buff[16][8];
+
+
+void mt_set_all(unsigned char val)
+{
+ 2ae:	2a 2f       	mov	r18, r26
+ 2b0:	39 2f       	mov	r19, r25
+	for (unsigned char i = 0; i < 16; i++)
+	{
+		for (unsigned char j = 0;j<8;j++)
+		{
+			channel_buff[i][j] = val;
+ 2b2:	ab 01       	movw	r20, r22
+ 2b4:	44 0f       	add	r20, r20
+ 2b6:	55 1f       	adc	r21, r21
+ 2b8:	44 0f       	add	r20, r20
+ 2ba:	55 1f       	adc	r21, r21
+ 2bc:	44 0f       	add	r20, r20
+ 2be:	55 1f       	adc	r21, r21
+ 2c0:	e6 cf       	rjmp	.-52     	; 0x28e <_Z10mt_set_allh+0xa>
+ 2c2:	08 95       	ret
+
+000002c4 <_Z13mt_draw_roundhhh>:
+
+void mt_set_xy(unsigned char x, unsigned char y,unsigned char val){channel_buff[x][y] = val;}
+unsigned char mt_get_xy(unsigned char x, unsigned char y){return channel_buff[x][y];}
+	
+void mt_draw_round(unsigned char a, unsigned char b, unsigned char r)
+{
+ 2c4:	4f 92       	push	r4
+ 2c6:	5f 92       	push	r5
+ 2c8:	7f 92       	push	r7
+ 2ca:	8f 92       	push	r8
+ 2cc:	9f 92       	push	r9
+ 2ce:	af 92       	push	r10
+ 2d0:	bf 92       	push	r11
+ 2d2:	cf 92       	push	r12
+ 2d4:	df 92       	push	r13
+ 2d6:	ef 92       	push	r14
+ 2d8:	ff 92       	push	r15
+ 2da:	0f 93       	push	r16
+ 2dc:	1f 93       	push	r17
+ 2de:	cf 93       	push	r28
+ 2e0:	df 93       	push	r29
+	int c;
+	int res;
+	c= a*a + b*b - r*r;
+ 2e2:	26 2f       	mov	r18, r22
+ 2e4:	30 e0       	ldi	r19, 0x00	; 0
+ 2e6:	68 2f       	mov	r22, r24
+ 2e8:	70 e0       	ldi	r23, 0x00	; 0
+ 2ea:	22 9f       	mul	r18, r18
+ 2ec:	d0 01       	movw	r26, r0
+ 2ee:	23 9f       	mul	r18, r19
+ 2f0:	b0 0d       	add	r27, r0
+ 2f2:	b0 0d       	add	r27, r0
+ 2f4:	11 24       	eor	r1, r1
+ 2f6:	88 9f       	mul	r24, r24
+ 2f8:	a0 0d       	add	r26, r0
+ 2fa:	b1 1d       	adc	r27, r1
+ 2fc:	11 24       	eor	r1, r1
+ 2fe:	2d 01       	movw	r4, r26
+ 300:	44 9f       	mul	r20, r20
+ 302:	40 18       	sub	r4, r0
+ 304:	51 08       	sbc	r5, r1
+ 306:	11 24       	eor	r1, r1
+	for (unsigned char i = 0;i<8;i++)
+	{
+		for (unsigned char j=0;j<16;j++)
+		{
+			res = (i*i+j*j-(2*a*j)-(2*b*i)+c);
+ 308:	81 2c       	mov	r8, r1
+ 30a:	91 2c       	mov	r9, r1
+ 30c:	e4 01       	movw	r28, r8
+ 30e:	c6 1b       	sub	r28, r22
+ 310:	d7 0b       	sbc	r29, r23
+ 312:	82 1a       	sub	r8, r18
+ 314:	93 0a       	sbc	r9, r19
+ 316:	88 0c       	add	r8, r8
+ 318:	99 1c       	adc	r9, r9
+ 31a:	a1 2c       	mov	r10, r1
+ 31c:	b1 2c       	mov	r11, r1
+ 31e:	00 e0       	ldi	r16, 0x00	; 0
+ 320:	10 e0       	ldi	r17, 0x00	; 0
+ 322:	cc 0f       	add	r28, r28
+ 324:	dd 1f       	adc	r29, r29
+ 326:	c1 2c       	mov	r12, r1
+ 328:	71 2c       	mov	r7, r1
+			channel_buff[i][j] = val;
+		}
+	}
+}
+
+void mt_set_xy(unsigned char x, unsigned char y,unsigned char val){channel_buff[x][y] = val;}
+ 32a:	dd 24       	eor	r13, r13
+ 32c:	da 94       	dec	r13
+ 32e:	2c c0       	rjmp	.+88     	; 0x388 <_Z13mt_draw_roundhhh+0xc4>
+	c= a*a + b*b - r*r;
+	for (unsigned char i = 0;i<8;i++)
+	{
+		for (unsigned char j=0;j<16;j++)
+		{
+			res = (i*i+j*j-(2*a*j)-(2*b*i)+c);
+ 330:	22 9f       	mul	r18, r18
+ 332:	c0 01       	movw	r24, r0
+ 334:	23 9f       	mul	r18, r19
+ 336:	90 0d       	add	r25, r0
+ 338:	90 0d       	add	r25, r0
+ 33a:	11 24       	eor	r1, r1
+ 33c:	8e 0f       	add	r24, r30
+ 33e:	9f 1f       	adc	r25, r31
+ 340:	84 0f       	add	r24, r20
+ 342:	95 1f       	adc	r25, r21
+ 344:	86 0f       	add	r24, r22
+ 346:	97 1f       	adc	r25, r23
+ 348:	84 0d       	add	r24, r4
+ 34a:	95 1d       	adc	r25, r5
+			if (res==0||res==1||res==-1)
+ 34c:	01 96       	adiw	r24, 0x01	; 1
+ 34e:	03 97       	sbiw	r24, 0x03	; 3
+ 350:	68 f4       	brcc	.+26     	; 0x36c <_Z13mt_draw_roundhhh+0xa8>
+			channel_buff[i][j] = val;
+		}
+	}
+}
+
+void mt_set_xy(unsigned char x, unsigned char y,unsigned char val){channel_buff[x][y] = val;}
+ 352:	c9 01       	movw	r24, r18
+ 354:	88 0f       	add	r24, r24
+ 356:	99 1f       	adc	r25, r25
+ 358:	88 0f       	add	r24, r24
+ 35a:	99 1f       	adc	r25, r25
+ 35c:	88 0f       	add	r24, r24
+ 35e:	99 1f       	adc	r25, r25
+ 360:	8e 0d       	add	r24, r14
+ 362:	9f 1d       	adc	r25, r15
+ 364:	80 50       	subi	r24, 0x00	; 0
+ 366:	9f 4f       	sbci	r25, 0xFF	; 255
+ 368:	dc 01       	movw	r26, r24
+ 36a:	dc 92       	st	X, r13
+ 36c:	2f 5f       	subi	r18, 0xFF	; 255
+ 36e:	3f 4f       	sbci	r19, 0xFF	; 255
+ 370:	4c 0f       	add	r20, r28
+ 372:	5d 1f       	adc	r21, r29
+	int c;
+	int res;
+	c= a*a + b*b - r*r;
+	for (unsigned char i = 0;i<8;i++)
+	{
+		for (unsigned char j=0;j<16;j++)
+ 374:	20 31       	cpi	r18, 0x10	; 16
+ 376:	31 05       	cpc	r19, r1
+ 378:	d9 f6       	brne	.-74     	; 0x330 <_Z13mt_draw_roundhhh+0x6c>
+ 37a:	0f 5f       	subi	r16, 0xFF	; 255
+ 37c:	1f 4f       	sbci	r17, 0xFF	; 255
+ 37e:	a8 0c       	add	r10, r8
+ 380:	b9 1c       	adc	r11, r9
+void mt_draw_round(unsigned char a, unsigned char b, unsigned char r)
+{
+	int c;
+	int res;
+	c= a*a + b*b - r*r;
+	for (unsigned char i = 0;i<8;i++)
+ 382:	08 30       	cpi	r16, 0x08	; 8
+ 384:	11 05       	cpc	r17, r1
+ 386:	69 f0       	breq	.+26     	; 0x3a2 <_Z13mt_draw_roundhhh+0xde>
+	{
+		for (unsigned char j=0;j<16;j++)
+		{
+			res = (i*i+j*j-(2*a*j)-(2*b*i)+c);
+ 388:	78 01       	movw	r14, r16
+ 38a:	00 9f       	mul	r16, r16
+ 38c:	f0 01       	movw	r30, r0
+ 38e:	01 9f       	mul	r16, r17
+ 390:	f0 0d       	add	r31, r0
+ 392:	f0 0d       	add	r31, r0
+ 394:	11 24       	eor	r1, r1
+ 396:	b5 01       	movw	r22, r10
+ 398:	4c 2d       	mov	r20, r12
+ 39a:	57 2d       	mov	r21, r7
+ 39c:	2c 2d       	mov	r18, r12
+ 39e:	37 2d       	mov	r19, r7
+ 3a0:	c7 cf       	rjmp	.-114    	; 0x330 <_Z13mt_draw_roundhhh+0x6c>
+				mt_set_xy(j,i,255);
+				
+			}
+		}
+	}
+ 3a2:	df 91       	pop	r29
+ 3a4:	cf 91       	pop	r28
+ 3a6:	1f 91       	pop	r17
+ 3a8:	0f 91       	pop	r16
+ 3aa:	ff 90       	pop	r15
+ 3ac:	ef 90       	pop	r14
+ 3ae:	df 90       	pop	r13
+ 3b0:	cf 90       	pop	r12
+ 3b2:	bf 90       	pop	r11
+ 3b4:	af 90       	pop	r10
+ 3b6:	9f 90       	pop	r9
+ 3b8:	8f 90       	pop	r8
+ 3ba:	7f 90       	pop	r7
+ 3bc:	5f 90       	pop	r5
+ 3be:	4f 90       	pop	r4
+ 3c0:	08 95       	ret
+
+000003c2 <_exit>:
+ 3c2:	f8 94       	cli
+
+000003c4 <__stop_program>:
+ 3c4:	ff cf       	rjmp	.-2      	; 0x3c4 <__stop_program>

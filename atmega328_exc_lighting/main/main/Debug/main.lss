@@ -1,0 +1,3918 @@
+
+main.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000004  00800100  000016dc  00001770  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000016dc  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000012c  00800104  00800104  00001774  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00001774  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000017a4  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000000d0  00000000  00000000  000017e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00002341  00000000  00000000  000018b4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000005b4  00000000  00000000  00003bf5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000908  00000000  00000000  000041a9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  0000045c  00000000  00000000  00004ab4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000005c4  00000000  00000000  00004f10  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000026f5  00000000  00000000  000054d4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000002e8  00000000  00000000  00007bc9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 3c 00 	jmp	0x78	; 0x78 <__ctors_end>
+       4:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+       8:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+       c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      10:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      14:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      18:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      1c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      20:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      24:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      28:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      2c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      30:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      34:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      38:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      3c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      40:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      44:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      48:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      4c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      50:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      54:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      58:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      5c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      60:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      64:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+      68:	af 00       	.word	0x00af	; ????
+      6a:	b3 00       	.word	0x00b3	; ????
+      6c:	b7 00       	.word	0x00b7	; ????
+      6e:	bb 00       	.word	0x00bb	; ????
+      70:	bf 00       	.word	0x00bf	; ????
+      72:	ca 00       	.word	0x00ca	; ????
+      74:	c3 00       	.word	0x00c3	; ????
+      76:	c7 00       	.word	0x00c7	; ????
+
+00000078 <__ctors_end>:
+      78:	11 24       	eor	r1, r1
+      7a:	1f be       	out	0x3f, r1	; 63
+      7c:	cf ef       	ldi	r28, 0xFF	; 255
+      7e:	d8 e0       	ldi	r29, 0x08	; 8
+      80:	de bf       	out	0x3e, r29	; 62
+      82:	cd bf       	out	0x3d, r28	; 61
+
+00000084 <__do_clear_bss>:
+      84:	22 e0       	ldi	r18, 0x02	; 2
+      86:	a4 e0       	ldi	r26, 0x04	; 4
+      88:	b1 e0       	ldi	r27, 0x01	; 1
+      8a:	01 c0       	rjmp	.+2      	; 0x8e <.do_clear_bss_start>
+
+0000008c <.do_clear_bss_loop>:
+      8c:	1d 92       	st	X+, r1
+
+0000008e <.do_clear_bss_start>:
+      8e:	a0 33       	cpi	r26, 0x30	; 48
+      90:	b2 07       	cpc	r27, r18
+      92:	e1 f7       	brne	.-8      	; 0x8c <.do_clear_bss_loop>
+
+00000094 <__do_copy_data>:
+      94:	11 e0       	ldi	r17, 0x01	; 1
+      96:	a0 e0       	ldi	r26, 0x00	; 0
+      98:	b1 e0       	ldi	r27, 0x01	; 1
+      9a:	ec ed       	ldi	r30, 0xDC	; 220
+      9c:	f6 e1       	ldi	r31, 0x16	; 22
+      9e:	02 c0       	rjmp	.+4      	; 0xa4 <__do_copy_data+0x10>
+      a0:	05 90       	lpm	r0, Z+
+      a2:	0d 92       	st	X+, r0
+      a4:	a4 30       	cpi	r26, 0x04	; 4
+      a6:	b1 07       	cpc	r27, r17
+      a8:	d9 f7       	brne	.-10     	; 0xa0 <__do_copy_data+0xc>
+      aa:	0e 94 34 09 	call	0x1268	; 0x1268 <main>
+      ae:	0c 94 6c 0b 	jmp	0x16d8	; 0x16d8 <_exit>
+
+000000b2 <__bad_interrupt>:
+      b2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000b6 <_Z10out_to_lpdP10Color_packj>:
+	k = (double)_temp/_num;
+	switch (style)
+	{
+		case 0:
+		to_color = pack_convert(0,0,0);
+		for (uint16_t i = 0; i <(_num+1); i++)
+      b6:	cf 92       	push	r12
+      b8:	df 92       	push	r13
+		{
+			cur_color = _color;
+      ba:	ef 92       	push	r14
+      bc:	ff 92       	push	r15
+      be:	0f 93       	push	r16
+			color_change(&cur_color,&to_color,round(k*i));
+      c0:	1f 93       	push	r17
+      c2:	cf 93       	push	r28
+      c4:	df 93       	push	r29
+      c6:	6c 01       	movw	r12, r24
+      c8:	7b 01       	movw	r14, r22
+      ca:	0e 94 18 09 	call	0x1230	; 0x1230 <_Z22DMX_BREAK_MAB_Transmitv>
+      ce:	e1 14       	cp	r14, r1
+      d0:	f1 04       	cpc	r15, r1
+      d2:	b1 f0       	breq	.+44     	; 0x100 <_Z10out_to_lpdP10Color_packj+0x4a>
+      d4:	e6 01       	movw	r28, r12
+      d6:	87 01       	movw	r16, r14
+      d8:	00 0f       	add	r16, r16
+      da:	11 1f       	adc	r17, r17
+      dc:	e0 0e       	add	r14, r16
+      de:	f1 1e       	adc	r15, r17
+      e0:	86 01       	movw	r16, r12
+      e2:	0e 0d       	add	r16, r14
+      e4:	1f 1d       	adc	r17, r15
+      e6:	88 81       	ld	r24, Y
+      e8:	0e 94 10 09 	call	0x1220	; 0x1220 <_Z12DMX_transmith>
+			rgb[first_point+i].Color.Red |= cur_color.Color.Red;
+      ec:	89 81       	ldd	r24, Y+1	; 0x01
+      ee:	0e 94 10 09 	call	0x1220	; 0x1220 <_Z12DMX_transmith>
+      f2:	8a 81       	ldd	r24, Y+2	; 0x02
+			rgb[first_point+i].Color.Green |= cur_color.Color.Green;
+      f4:	0e 94 10 09 	call	0x1220	; 0x1220 <_Z12DMX_transmith>
+      f8:	23 96       	adiw	r28, 0x03	; 3
+      fa:	c0 17       	cp	r28, r16
+			rgb[first_point+i].Color.Blue |= cur_color.Color.Blue;
+      fc:	d1 07       	cpc	r29, r17
+      fe:	99 f7       	brne	.-26     	; 0xe6 <_Z10out_to_lpdP10Color_packj+0x30>
+     100:	df 91       	pop	r29
+     102:	cf 91       	pop	r28
+	k = (double)_temp/_num;
+	switch (style)
+	{
+		case 0:
+		to_color = pack_convert(0,0,0);
+		for (uint16_t i = 0; i <(_num+1); i++)
+     104:	1f 91       	pop	r17
+     106:	0f 91       	pop	r16
+     108:	ff 90       	pop	r15
+     10a:	ef 90       	pop	r14
+     10c:	df 90       	pop	r13
+     10e:	cf 90       	pop	r12
+     110:	08 95       	ret
+
+00000112 <_Z14set_base_colorP10Color_packjjhhh>:
+     112:	ef 92       	push	r14
+     114:	0f 93       	push	r16
+			rgb[first_point+i].Color.Green |= cur_color.Color.Green;
+			rgb[first_point+i].Color.Blue |= cur_color.Color.Blue;
+		}
+		break;
+		case 1:
+		to_color = _color ;
+     116:	46 17       	cp	r20, r22
+     118:	57 07       	cpc	r21, r23
+     11a:	a0 f0       	brcs	.+40     	; 0x144 <_Z14set_base_colorP10Color_packjjhhh+0x32>
+     11c:	fb 01       	movw	r30, r22
+		for (uint16_t i = 0; i <(_num+1); i++)
+     11e:	ee 0f       	add	r30, r30
+     120:	ff 1f       	adc	r31, r31
+     122:	e6 0f       	add	r30, r22
+     124:	f7 1f       	adc	r31, r23
+     126:	32 96       	adiw	r30, 0x02	; 2
+     128:	e8 0f       	add	r30, r24
+     12a:	f9 1f       	adc	r31, r25
+     12c:	df 01       	movw	r26, r30
+     12e:	12 97       	sbiw	r26, 0x02	; 2
+     130:	2c 93       	st	X, r18
+     132:	11 96       	adiw	r26, 0x01	; 1
+     134:	0c 93       	st	X, r16
+     136:	e0 82       	st	Z, r14
+     138:	6f 5f       	subi	r22, 0xFF	; 255
+		{
+			cur_color =pack_convert(0,0,0);
+     13a:	7f 4f       	sbci	r23, 0xFF	; 255
+     13c:	33 96       	adiw	r30, 0x03	; 3
+     13e:	46 17       	cp	r20, r22
+			color_change(&cur_color,&to_color,round(k*i));
+     140:	57 07       	cpc	r21, r23
+     142:	a0 f7       	brcc	.-24     	; 0x12c <_Z14set_base_colorP10Color_packjjhhh+0x1a>
+     144:	0f 91       	pop	r16
+     146:	ef 90       	pop	r14
+     148:	08 95       	ret
+
+0000014a <_Z12base_convert6colors>:
+     14a:	48 2f       	mov	r20, r24
+     14c:	50 e0       	ldi	r21, 0x00	; 0
+     14e:	48 30       	cpi	r20, 0x08	; 8
+     150:	51 05       	cpc	r21, r1
+     152:	00 f5       	brcc	.+64     	; 0x194 <_Z12base_convert6colors+0x4a>
+     154:	fa 01       	movw	r30, r20
+     156:	ec 5c       	subi	r30, 0xCC	; 204
+     158:	ff 4f       	sbci	r31, 0xFF	; 255
+     15a:	0c 94 93 0a 	jmp	0x1526	; 0x1526 <__tablejump2__>
+     15e:	90 e0       	ldi	r25, 0x00	; 0
+     160:	20 e0       	ldi	r18, 0x00	; 0
+     162:	30 e0       	ldi	r19, 0x00	; 0
+     164:	17 c0       	rjmp	.+46     	; 0x194 <_Z12base_convert6colors+0x4a>
+     166:	90 e0       	ldi	r25, 0x00	; 0
+     168:	20 e0       	ldi	r18, 0x00	; 0
+			rgb[first_point+i].Color.Red |= cur_color.Color.Red;
+     16a:	3f ef       	ldi	r19, 0xFF	; 255
+     16c:	13 c0       	rjmp	.+38     	; 0x194 <_Z12base_convert6colors+0x4a>
+     16e:	90 e0       	ldi	r25, 0x00	; 0
+     170:	2f ef       	ldi	r18, 0xFF	; 255
+     172:	30 e0       	ldi	r19, 0x00	; 0
+			rgb[first_point+i].Color.Green |= cur_color.Color.Green;
+     174:	0f c0       	rjmp	.+30     	; 0x194 <_Z12base_convert6colors+0x4a>
+     176:	9f ef       	ldi	r25, 0xFF	; 255
+     178:	20 e0       	ldi	r18, 0x00	; 0
+     17a:	30 e0       	ldi	r19, 0x00	; 0
+			rgb[first_point+i].Color.Blue |= cur_color.Color.Blue;
+     17c:	0b c0       	rjmp	.+22     	; 0x194 <_Z12base_convert6colors+0x4a>
+     17e:	90 e0       	ldi	r25, 0x00	; 0
+     180:	2f ef       	ldi	r18, 0xFF	; 255
+     182:	3f ef       	ldi	r19, 0xFF	; 255
+			rgb[first_point+i].Color.Blue |= cur_color.Color.Blue;
+		}
+		break;
+		case 1:
+		to_color = _color ;
+		for (uint16_t i = 0; i <(_num+1); i++)
+     184:	07 c0       	rjmp	.+14     	; 0x194 <_Z12base_convert6colors+0x4a>
+     186:	9f ef       	ldi	r25, 0xFF	; 255
+     188:	20 e0       	ldi	r18, 0x00	; 0
+     18a:	3f ef       	ldi	r19, 0xFF	; 255
+     18c:	03 c0       	rjmp	.+6      	; 0x194 <_Z12base_convert6colors+0x4a>
+     18e:	9f ef       	ldi	r25, 0xFF	; 255
+     190:	2f ef       	ldi	r18, 0xFF	; 255
+     192:	3f ef       	ldi	r19, 0xFF	; 255
+		}
+		break;
+		default:
+		break;
+	}
+}
+     194:	63 2f       	mov	r22, r19
+     196:	72 2f       	mov	r23, r18
+     198:	89 2f       	mov	r24, r25
+     19a:	08 95       	ret
+
+0000019c <_Z7rotatalP10Color_packjjh>:
+     19c:	6f 92       	push	r6
+     19e:	7f 92       	push	r7
+     1a0:	8f 92       	push	r8
+     1a2:	cf 92       	push	r12
+     1a4:	df 92       	push	r13
+     1a6:	ef 92       	push	r14
+     1a8:	da 01       	movw	r26, r20
+     1aa:	a6 1b       	sub	r26, r22
+     1ac:	b7 0b       	sbc	r27, r23
+     1ae:	21 11       	cpse	r18, r1
+     1b0:	29 c0       	rjmp	.+82     	; 0x204 <_Z7rotatalP10Color_packjjh+0x68>
+     1b2:	9b 01       	movw	r18, r22
+     1b4:	22 0f       	add	r18, r18
+     1b6:	33 1f       	adc	r19, r19
+     1b8:	f9 01       	movw	r30, r18
+     1ba:	e6 0f       	add	r30, r22
+     1bc:	f7 1f       	adc	r31, r23
+     1be:	e8 0f       	add	r30, r24
+     1c0:	f9 1f       	adc	r31, r25
+     1c2:	60 80       	ld	r6, Z
+     1c4:	71 80       	ldd	r7, Z+1	; 0x01
+	uint16_t _num = last_point - first_point;
+	
+	if (direct==0)
+	{
+		
+		_buff=rgb[first_point];
+     1c6:	82 80       	ldd	r8, Z+2	; 0x02
+		for (uint16_t i = 0;i<_num;i++)
+     1c8:	ab 2b       	or	r26, r27
+     1ca:	81 f0       	breq	.+32     	; 0x1ec <_Z7rotatalP10Color_packjjh+0x50>
+     1cc:	9a 01       	movw	r18, r20
+     1ce:	22 0f       	add	r18, r18
+     1d0:	33 1f       	adc	r19, r19
+     1d2:	24 0f       	add	r18, r20
+     1d4:	35 1f       	adc	r19, r21
+     1d6:	28 0f       	add	r18, r24
+     1d8:	39 1f       	adc	r19, r25
+		{
+			rgb[first_point]= rgb[first_point+1];
+     1da:	c3 80       	ldd	r12, Z+3	; 0x03
+     1dc:	d4 80       	ldd	r13, Z+4	; 0x04
+     1de:	e5 80       	ldd	r14, Z+5	; 0x05
+     1e0:	c1 92       	st	Z+, r12
+     1e2:	d1 92       	st	Z+, r13
+     1e4:	e1 92       	st	Z+, r14
+	
+	if (direct==0)
+	{
+		
+		_buff=rgb[first_point];
+		for (uint16_t i = 0;i<_num;i++)
+     1e6:	e2 17       	cp	r30, r18
+     1e8:	f3 07       	cpc	r31, r19
+     1ea:	b9 f7       	brne	.-18     	; 0x1da <_Z7rotatalP10Color_packjjh+0x3e>
+		{
+			rgb[first_point]= rgb[first_point+1];
+			first_point++;
+		}
+		rgb[last_point] = _buff;
+     1ec:	fa 01       	movw	r30, r20
+     1ee:	ee 0f       	add	r30, r30
+     1f0:	ff 1f       	adc	r31, r31
+     1f2:	4e 0f       	add	r20, r30
+     1f4:	5f 1f       	adc	r21, r31
+     1f6:	fc 01       	movw	r30, r24
+     1f8:	e4 0f       	add	r30, r20
+     1fa:	f5 1f       	adc	r31, r21
+     1fc:	60 82       	st	Z, r6
+     1fe:	71 82       	std	Z+1, r7	; 0x01
+     200:	82 82       	std	Z+2, r8	; 0x02
+     202:	26 c0       	rjmp	.+76     	; 0x250 <_Z7rotatalP10Color_packjjh+0xb4>
+	}
+	
+	else
+	{
+		_buff=rgb[last_point];
+     204:	fa 01       	movw	r30, r20
+     206:	ee 0f       	add	r30, r30
+     208:	ff 1f       	adc	r31, r31
+     20a:	e4 0f       	add	r30, r20
+     20c:	f5 1f       	adc	r31, r21
+     20e:	e8 0f       	add	r30, r24
+     210:	f9 1f       	adc	r31, r25
+     212:	60 80       	ld	r6, Z
+     214:	71 80       	ldd	r7, Z+1	; 0x01
+     216:	82 80       	ldd	r8, Z+2	; 0x02
+		
+		for (uint16_t i = 0;i<_num;i++)
+     218:	ab 2b       	or	r26, r27
+     21a:	81 f0       	breq	.+32     	; 0x23c <_Z7rotatalP10Color_packjjh+0xa0>
+     21c:	db 01       	movw	r26, r22
+     21e:	aa 0f       	add	r26, r26
+     220:	bb 1f       	adc	r27, r27
+     222:	a6 0f       	add	r26, r22
+     224:	b7 1f       	adc	r27, r23
+     226:	a8 0f       	add	r26, r24
+     228:	b9 1f       	adc	r27, r25
+		{
+			rgb[last_point]= rgb[last_point-1];
+     22a:	42 91       	ld	r20, -Z
+     22c:	32 91       	ld	r19, -Z
+     22e:	22 91       	ld	r18, -Z
+     230:	23 83       	std	Z+3, r18	; 0x03
+     232:	34 83       	std	Z+4, r19	; 0x04
+     234:	45 83       	std	Z+5, r20	; 0x05
+	
+	else
+	{
+		_buff=rgb[last_point];
+		
+		for (uint16_t i = 0;i<_num;i++)
+     236:	ea 17       	cp	r30, r26
+     238:	fb 07       	cpc	r31, r27
+     23a:	b9 f7       	brne	.-18     	; 0x22a <_Z7rotatalP10Color_packjjh+0x8e>
+		{
+			rgb[last_point]= rgb[last_point-1];
+			last_point--;
+		}
+		rgb[first_point] = _buff;
+     23c:	fb 01       	movw	r30, r22
+     23e:	ee 0f       	add	r30, r30
+     240:	ff 1f       	adc	r31, r31
+     242:	e6 0f       	add	r30, r22
+     244:	f7 1f       	adc	r31, r23
+     246:	e8 0f       	add	r30, r24
+     248:	f9 1f       	adc	r31, r25
+     24a:	60 82       	st	Z, r6
+     24c:	71 82       	std	Z+1, r7	; 0x01
+     24e:	82 82       	std	Z+2, r8	; 0x02
+	}
+}
+     250:	ef 90       	pop	r14
+     252:	df 90       	pop	r13
+     254:	cf 90       	pop	r12
+     256:	8f 90       	pop	r8
+     258:	7f 90       	pop	r7
+     25a:	6f 90       	pop	r6
+     25c:	08 95       	ret
+
+0000025e <_Z13gen_two_colorP10Color_packjjS_S_hhjh>:
+}
+
+
+
+void gen_two_color(Color_pack *rgb,uint16_t first_point,uint16_t last_point,Color_pack cl1,Color_pack cl2,uint8_t speed, uint8_t len,uint16_t loop,uint8_t style)
+{
+     25e:	2f 92       	push	r2
+     260:	3f 92       	push	r3
+     262:	4f 92       	push	r4
+     264:	5f 92       	push	r5
+     266:	6f 92       	push	r6
+     268:	7f 92       	push	r7
+     26a:	8f 92       	push	r8
+     26c:	9f 92       	push	r9
+     26e:	af 92       	push	r10
+     270:	bf 92       	push	r11
+     272:	cf 92       	push	r12
+     274:	df 92       	push	r13
+     276:	ef 92       	push	r14
+     278:	ff 92       	push	r15
+     27a:	0f 93       	push	r16
+     27c:	1f 93       	push	r17
+     27e:	cf 93       	push	r28
+     280:	df 93       	push	r29
+     282:	cd b7       	in	r28, 0x3d	; 61
+     284:	de b7       	in	r29, 0x3e	; 62
+     286:	2c 97       	sbiw	r28, 0x0c	; 12
+     288:	0f b6       	in	r0, 0x3f	; 63
+     28a:	f8 94       	cli
+     28c:	de bf       	out	0x3e, r29	; 62
+     28e:	0f be       	out	0x3f, r0	; 63
+     290:	cd bf       	out	0x3d, r28	; 61
+     292:	3b a1       	ldd	r19, Y+35	; 0x23
+	uint16_t _num = last_point - first_point;
+     294:	fa 01       	movw	r30, r20
+     296:	e6 1b       	sub	r30, r22
+     298:	f7 0b       	sbc	r31, r23
+	
+	if ((cl1.Color.Blue==cl2.Color.Blue)&&(cl1.Color.Red==cl2.Color.Red)&&(cl1.Color.Green==cl2.Color.Green)) return;
+     29a:	2e 11       	cpse	r18, r14
+     29c:	05 c0       	rjmp	.+10     	; 0x2a8 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x4a>
+     29e:	0c 11       	cpse	r16, r12
+     2a0:	03 c0       	rjmp	.+6      	; 0x2a8 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x4a>
+     2a2:	1d 15       	cp	r17, r13
+     2a4:	09 f4       	brne	.+2      	; 0x2a8 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x4a>
+     2a6:	f7 c1       	rjmp	.+1006   	; 0x696 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x438>
+     2a8:	f2 2e       	mov	r15, r18
+     2aa:	5c 83       	std	Y+4, r21	; 0x04
+     2ac:	4b 83       	std	Y+3, r20	; 0x03
+     2ae:	7a 83       	std	Y+2, r23	; 0x02
+     2b0:	69 83       	std	Y+1, r22	; 0x01
+     2b2:	2c 01       	movw	r4, r24
+	
+	switch (style)
+     2b4:	31 30       	cpi	r19, 0x01	; 1
+     2b6:	61 f1       	breq	.+88     	; 0x310 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0xb2>
+     2b8:	08 f4       	brcc	.+2      	; 0x2bc <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x5e>
+     2ba:	41 c0       	rjmp	.+130    	; 0x33e <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0xe0>
+     2bc:	32 30       	cpi	r19, 0x02	; 2
+     2be:	09 f0       	breq	.+2      	; 0x2c2 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x64>
+     2c0:	55 c0       	rjmp	.+170    	; 0x36c <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x10e>
+			}
+		}
+		break;
+		case 2:
+		
+		for (uint16_t j = 0; j <loop; j++)
+     2c2:	29 a1       	ldd	r18, Y+33	; 0x21
+     2c4:	3a a1       	ldd	r19, Y+34	; 0x22
+     2c6:	23 2b       	or	r18, r19
+     2c8:	09 f4       	brne	.+2      	; 0x2cc <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x6e>
+     2ca:	e5 c1       	rjmp	.+970    	; 0x696 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x438>
+		{
+			for (uint8_t k = 0; k < len; k++)
+			{
+				rgb[last_point] = cl1;
+     2cc:	3a 01       	movw	r6, r20
+     2ce:	66 0c       	add	r6, r6
+     2d0:	77 1c       	adc	r7, r7
+     2d2:	64 0e       	add	r6, r20
+     2d4:	75 1e       	adc	r7, r21
+     2d6:	64 0c       	add	r6, r4
+     2d8:	75 1c       	adc	r7, r5
+				rgb[first_point] = cl1;
+     2da:	1b 01       	movw	r2, r22
+     2dc:	22 0c       	add	r2, r2
+     2de:	33 1c       	adc	r3, r3
+     2e0:	9b 01       	movw	r18, r22
+     2e2:	26 0e       	add	r2, r22
+     2e4:	37 1e       	adc	r3, r23
+     2e6:	24 0c       	add	r2, r4
+     2e8:	35 1c       	adc	r3, r5
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,0);
+     2ea:	cf 01       	movw	r24, r30
+     2ec:	96 95       	lsr	r25
+     2ee:	87 95       	ror	r24
+     2f0:	28 0f       	add	r18, r24
+     2f2:	39 1f       	adc	r19, r25
+     2f4:	3e 83       	std	Y+6, r19	; 0x06
+     2f6:	2d 83       	std	Y+5, r18	; 0x05
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,1);
+     2f8:	2f 5f       	subi	r18, 0xFF	; 255
+     2fa:	3f 4f       	sbci	r19, 0xFF	; 255
+     2fc:	38 87       	std	Y+8, r19	; 0x08
+     2fe:	2f 83       	std	Y+7, r18	; 0x07
+     300:	1c 86       	std	Y+12, r1	; 0x0c
+     302:	1b 86       	std	Y+11, r1	; 0x0b
+		break;
+		case 2:
+		
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			for (uint8_t k = 0; k < len; k++)
+     304:	b1 2c       	mov	r11, r1
+			{
+				rgb[last_point] = cl1;
+				rgb[first_point] = cl1;
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,0);
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,1);
+				out_to_lpd(rgb,_num+1);
+     306:	cf 01       	movw	r24, r30
+     308:	01 96       	adiw	r24, 0x01	; 1
+     30a:	9a 87       	std	Y+10, r25	; 0x0a
+     30c:	89 87       	std	Y+9, r24	; 0x09
+     30e:	58 c1       	rjmp	.+688    	; 0x5c0 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x362>
+			}
+		}
+		break;
+		
+		case 1:
+		for (uint16_t j = 0; j <loop; j++)
+     310:	29 a1       	ldd	r18, Y+33	; 0x21
+     312:	3a a1       	ldd	r19, Y+34	; 0x22
+     314:	23 2b       	or	r18, r19
+     316:	09 f4       	brne	.+2      	; 0x31a <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0xbc>
+     318:	be c1       	rjmp	.+892    	; 0x696 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x438>
+		{
+			for (uint8_t k = 0; k < len; k++)
+			{
+				rgb[last_point] = cl1;
+     31a:	6b 80       	ldd	r6, Y+3	; 0x03
+     31c:	7c 80       	ldd	r7, Y+4	; 0x04
+     31e:	66 0c       	add	r6, r6
+     320:	77 1c       	adc	r7, r7
+     322:	8b 81       	ldd	r24, Y+3	; 0x03
+     324:	9c 81       	ldd	r25, Y+4	; 0x04
+     326:	68 0e       	add	r6, r24
+     328:	79 1e       	adc	r7, r25
+     32a:	64 0c       	add	r6, r4
+     32c:	75 1c       	adc	r7, r5
+     32e:	1e 82       	std	Y+6, r1	; 0x06
+     330:	1d 82       	std	Y+5, r1	; 0x05
+				rotatal(rgb,first_point,last_point,1);
+				out_to_lpd(rgb,_num+1);
+     332:	1f 01       	movw	r2, r30
+     334:	9f ef       	ldi	r25, 0xFF	; 255
+     336:	29 1a       	sub	r2, r25
+     338:	39 0a       	sbc	r3, r25
+			for (uint8_t k = 0; k < len; k++)
+			{
+				rgb[last_point] = cl2;
+				rotatal(rgb,first_point,last_point,1);
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     33a:	91 2c       	mov	r9, r1
+     33c:	d8 c0       	rjmp	.+432    	; 0x4ee <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x290>
+	if ((cl1.Color.Blue==cl2.Color.Blue)&&(cl1.Color.Red==cl2.Color.Red)&&(cl1.Color.Green==cl2.Color.Green)) return;
+	
+	switch (style)
+	{
+		case 0:
+		for (uint16_t j = 0; j <loop; j++)
+     33e:	29 a1       	ldd	r18, Y+33	; 0x21
+     340:	3a a1       	ldd	r19, Y+34	; 0x22
+     342:	23 2b       	or	r18, r19
+     344:	09 f4       	brne	.+2      	; 0x348 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0xea>
+     346:	a7 c1       	rjmp	.+846    	; 0x696 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x438>
+		{
+			for (uint8_t k = 0; k < len; k++)
+			{
+				rgb[first_point] = cl1;
+     348:	69 80       	ldd	r6, Y+1	; 0x01
+     34a:	7a 80       	ldd	r7, Y+2	; 0x02
+     34c:	66 0c       	add	r6, r6
+     34e:	77 1c       	adc	r7, r7
+     350:	89 81       	ldd	r24, Y+1	; 0x01
+     352:	9a 81       	ldd	r25, Y+2	; 0x02
+     354:	68 0e       	add	r6, r24
+     356:	79 1e       	adc	r7, r25
+     358:	64 0c       	add	r6, r4
+     35a:	75 1c       	adc	r7, r5
+     35c:	1e 82       	std	Y+6, r1	; 0x06
+     35e:	1d 82       	std	Y+5, r1	; 0x05
+	switch (style)
+	{
+		case 0:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			for (uint8_t k = 0; k < len; k++)
+     360:	b1 2c       	mov	r11, r1
+			{
+				rgb[first_point] = cl1;
+				rotatal(rgb,first_point,last_point,0);
+				out_to_lpd(rgb,_num+1);
+     362:	1f 01       	movw	r2, r30
+     364:	9f ef       	ldi	r25, 0xFF	; 255
+     366:	29 1a       	sub	r2, r25
+     368:	39 0a       	sbc	r3, r25
+     36a:	72 c0       	rjmp	.+228    	; 0x450 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x1f2>
+		}
+		
+		break;
+		
+		default:
+		for (uint16_t j = 0; j <loop; j++)
+     36c:	29 a1       	ldd	r18, Y+33	; 0x21
+     36e:	3a a1       	ldd	r19, Y+34	; 0x22
+     370:	23 2b       	or	r18, r19
+     372:	09 f4       	brne	.+2      	; 0x376 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x118>
+     374:	90 c1       	rjmp	.+800    	; 0x696 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x438>
+		{
+			for (uint8_t k = 0; k < len; k++)
+			{
+				rgb[((last_point-first_point)/2)+first_point] = cl1;
+     376:	cf 01       	movw	r24, r30
+     378:	96 95       	lsr	r25
+     37a:	87 95       	ror	r24
+     37c:	29 81       	ldd	r18, Y+1	; 0x01
+     37e:	3a 81       	ldd	r19, Y+2	; 0x02
+     380:	28 0f       	add	r18, r24
+     382:	39 1f       	adc	r19, r25
+     384:	3e 83       	std	Y+6, r19	; 0x06
+     386:	2d 83       	std	Y+5, r18	; 0x05
+     388:	c9 01       	movw	r24, r18
+     38a:	88 0f       	add	r24, r24
+     38c:	99 1f       	adc	r25, r25
+     38e:	82 0f       	add	r24, r18
+     390:	93 1f       	adc	r25, r19
+     392:	32 01       	movw	r6, r4
+     394:	68 0e       	add	r6, r24
+     396:	79 1e       	adc	r7, r25
+				rgb[((last_point-first_point)/2)+first_point+1] = cl1;
+     398:	2f 5f       	subi	r18, 0xFF	; 255
+     39a:	3f 4f       	sbci	r19, 0xFF	; 255
+     39c:	38 87       	std	Y+8, r19	; 0x08
+     39e:	2f 83       	std	Y+7, r18	; 0x07
+     3a0:	03 96       	adiw	r24, 0x03	; 3
+     3a2:	12 01       	movw	r2, r4
+     3a4:	28 0e       	add	r2, r24
+     3a6:	39 1e       	adc	r3, r25
+     3a8:	1c 86       	std	Y+12, r1	; 0x0c
+     3aa:	1b 86       	std	Y+11, r1	; 0x0b
+		break;
+		
+		default:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			for (uint8_t k = 0; k < len; k++)
+     3ac:	b1 2c       	mov	r11, r1
+			{
+				rgb[((last_point-first_point)/2)+first_point] = cl1;
+				rgb[((last_point-first_point)/2)+first_point+1] = cl1;
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,1);
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,0);
+				out_to_lpd(rgb,_num+1);
+     3ae:	cf 01       	movw	r24, r30
+     3b0:	01 96       	adiw	r24, 0x01	; 1
+     3b2:	9a 87       	std	Y+10, r25	; 0x0a
+     3b4:	89 87       	std	Y+9, r24	; 0x09
+     3b6:	6c c1       	rjmp	.+728    	; 0x690 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x432>
+	switch (style)
+	{
+		case 0:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			for (uint8_t k = 0; k < len; k++)
+     3b8:	9b 2c       	mov	r9, r11
+			{
+				rgb[first_point] = cl1;
+     3ba:	f3 01       	movw	r30, r6
+     3bc:	00 83       	st	Z, r16
+     3be:	11 83       	std	Z+1, r17	; 0x01
+     3c0:	f2 82       	std	Z+2, r15	; 0x02
+				rotatal(rgb,first_point,last_point,0);
+     3c2:	2b 2d       	mov	r18, r11
+     3c4:	4b 81       	ldd	r20, Y+3	; 0x03
+     3c6:	5c 81       	ldd	r21, Y+4	; 0x04
+     3c8:	69 81       	ldd	r22, Y+1	; 0x01
+     3ca:	7a 81       	ldd	r23, Y+2	; 0x02
+     3cc:	c2 01       	movw	r24, r4
+     3ce:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     3d2:	b1 01       	movw	r22, r2
+     3d4:	c2 01       	movw	r24, r4
+     3d6:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     3da:	aa 20       	and	r10, r10
+     3dc:	51 f0       	breq	.+20     	; 0x3f2 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x194>
+     3de:	8b 2d       	mov	r24, r11
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+     3e0:	ef e9       	ldi	r30, 0x9F	; 159
+     3e2:	ff e0       	ldi	r31, 0x0F	; 15
+     3e4:	31 97       	sbiw	r30, 0x01	; 1
+     3e6:	f1 f7       	brne	.-4      	; 0x3e4 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x186>
+     3e8:	00 c0       	rjmp	.+0      	; 0x3ea <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x18c>
+     3ea:	00 00       	nop
+     3ec:	8f 5f       	subi	r24, 0xFF	; 255
+     3ee:	8a 11       	cpse	r24, r10
+     3f0:	f7 cf       	rjmp	.-18     	; 0x3e0 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x182>
+	switch (style)
+	{
+		case 0:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			for (uint8_t k = 0; k < len; k++)
+     3f2:	93 94       	inc	r9
+     3f4:	98 10       	cpse	r9, r8
+     3f6:	e1 cf       	rjmp	.-62     	; 0x3ba <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x15c>
+     3f8:	9b 2c       	mov	r9, r11
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			for (uint8_t k = 0; k < len; k++)
+			{
+				rgb[first_point] = cl2;
+     3fa:	f3 01       	movw	r30, r6
+     3fc:	c0 82       	st	Z, r12
+     3fe:	d1 82       	std	Z+1, r13	; 0x01
+     400:	e2 82       	std	Z+2, r14	; 0x02
+				rotatal(rgb,first_point,last_point,0);
+     402:	2b 2d       	mov	r18, r11
+     404:	4b 81       	ldd	r20, Y+3	; 0x03
+     406:	5c 81       	ldd	r21, Y+4	; 0x04
+     408:	69 81       	ldd	r22, Y+1	; 0x01
+     40a:	7a 81       	ldd	r23, Y+2	; 0x02
+     40c:	c2 01       	movw	r24, r4
+     40e:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     412:	b1 01       	movw	r22, r2
+     414:	c2 01       	movw	r24, r4
+     416:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     41a:	aa 20       	and	r10, r10
+     41c:	51 f0       	breq	.+20     	; 0x432 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x1d4>
+     41e:	8b 2d       	mov	r24, r11
+     420:	ef e9       	ldi	r30, 0x9F	; 159
+     422:	ff e0       	ldi	r31, 0x0F	; 15
+     424:	31 97       	sbiw	r30, 0x01	; 1
+     426:	f1 f7       	brne	.-4      	; 0x424 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x1c6>
+     428:	00 c0       	rjmp	.+0      	; 0x42a <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x1cc>
+     42a:	00 00       	nop
+     42c:	8f 5f       	subi	r24, 0xFF	; 255
+     42e:	8a 11       	cpse	r24, r10
+     430:	f7 cf       	rjmp	.-18     	; 0x420 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x1c2>
+				rgb[first_point] = cl1;
+				rotatal(rgb,first_point,last_point,0);
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			for (uint8_t k = 0; k < len; k++)
+     432:	93 94       	inc	r9
+     434:	98 10       	cpse	r9, r8
+     436:	e1 cf       	rjmp	.-62     	; 0x3fa <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x19c>
+	if ((cl1.Color.Blue==cl2.Color.Blue)&&(cl1.Color.Red==cl2.Color.Red)&&(cl1.Color.Green==cl2.Color.Green)) return;
+	
+	switch (style)
+	{
+		case 0:
+		for (uint16_t j = 0; j <loop; j++)
+     438:	2d 81       	ldd	r18, Y+5	; 0x05
+     43a:	3e 81       	ldd	r19, Y+6	; 0x06
+     43c:	2f 5f       	subi	r18, 0xFF	; 255
+     43e:	3f 4f       	sbci	r19, 0xFF	; 255
+     440:	3e 83       	std	Y+6, r19	; 0x06
+     442:	2d 83       	std	Y+5, r18	; 0x05
+     444:	89 a1       	ldd	r24, Y+33	; 0x21
+     446:	9a a1       	ldd	r25, Y+34	; 0x22
+     448:	28 17       	cp	r18, r24
+     44a:	39 07       	cpc	r19, r25
+     44c:	09 f4       	brne	.+2      	; 0x450 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x1f2>
+     44e:	23 c1       	rjmp	.+582    	; 0x696 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x438>
+		{
+			for (uint8_t k = 0; k < len; k++)
+     450:	81 10       	cpse	r8, r1
+     452:	b2 cf       	rjmp	.-156    	; 0x3b8 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x15a>
+     454:	f1 cf       	rjmp	.-30     	; 0x438 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x1da>
+		break;
+		
+		case 1:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			for (uint8_t k = 0; k < len; k++)
+     456:	b1 2c       	mov	r11, r1
+			{
+				rgb[last_point] = cl1;
+     458:	f3 01       	movw	r30, r6
+     45a:	00 83       	st	Z, r16
+     45c:	11 83       	std	Z+1, r17	; 0x01
+     45e:	f2 82       	std	Z+2, r15	; 0x02
+				rotatal(rgb,first_point,last_point,1);
+     460:	21 e0       	ldi	r18, 0x01	; 1
+     462:	4b 81       	ldd	r20, Y+3	; 0x03
+     464:	5c 81       	ldd	r21, Y+4	; 0x04
+     466:	69 81       	ldd	r22, Y+1	; 0x01
+     468:	7a 81       	ldd	r23, Y+2	; 0x02
+     46a:	c2 01       	movw	r24, r4
+     46c:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     470:	b1 01       	movw	r22, r2
+     472:	c2 01       	movw	r24, r4
+     474:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     478:	aa 20       	and	r10, r10
+     47a:	51 f0       	breq	.+20     	; 0x490 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x232>
+     47c:	89 2d       	mov	r24, r9
+     47e:	ef e9       	ldi	r30, 0x9F	; 159
+     480:	ff e0       	ldi	r31, 0x0F	; 15
+     482:	31 97       	sbiw	r30, 0x01	; 1
+     484:	f1 f7       	brne	.-4      	; 0x482 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x224>
+     486:	00 c0       	rjmp	.+0      	; 0x488 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x22a>
+     488:	00 00       	nop
+     48a:	8f 5f       	subi	r24, 0xFF	; 255
+     48c:	8a 11       	cpse	r24, r10
+     48e:	f7 cf       	rjmp	.-18     	; 0x47e <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x220>
+		break;
+		
+		case 1:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			for (uint8_t k = 0; k < len; k++)
+     490:	b3 94       	inc	r11
+     492:	b8 10       	cpse	r11, r8
+     494:	e1 cf       	rjmp	.-62     	; 0x458 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x1fa>
+     496:	b1 2c       	mov	r11, r1
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			for (uint8_t k = 0; k < len; k++)
+			{
+				rgb[last_point] = cl2;
+     498:	f3 01       	movw	r30, r6
+     49a:	c0 82       	st	Z, r12
+     49c:	d1 82       	std	Z+1, r13	; 0x01
+     49e:	e2 82       	std	Z+2, r14	; 0x02
+				rotatal(rgb,first_point,last_point,1);
+     4a0:	21 e0       	ldi	r18, 0x01	; 1
+     4a2:	4b 81       	ldd	r20, Y+3	; 0x03
+     4a4:	5c 81       	ldd	r21, Y+4	; 0x04
+     4a6:	69 81       	ldd	r22, Y+1	; 0x01
+     4a8:	7a 81       	ldd	r23, Y+2	; 0x02
+     4aa:	c2 01       	movw	r24, r4
+     4ac:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     4b0:	b1 01       	movw	r22, r2
+     4b2:	c2 01       	movw	r24, r4
+     4b4:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     4b8:	aa 20       	and	r10, r10
+     4ba:	51 f0       	breq	.+20     	; 0x4d0 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x272>
+     4bc:	89 2d       	mov	r24, r9
+     4be:	ef e9       	ldi	r30, 0x9F	; 159
+     4c0:	ff e0       	ldi	r31, 0x0F	; 15
+     4c2:	31 97       	sbiw	r30, 0x01	; 1
+     4c4:	f1 f7       	brne	.-4      	; 0x4c2 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x264>
+     4c6:	00 c0       	rjmp	.+0      	; 0x4c8 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x26a>
+     4c8:	00 00       	nop
+     4ca:	8f 5f       	subi	r24, 0xFF	; 255
+     4cc:	8a 11       	cpse	r24, r10
+     4ce:	f7 cf       	rjmp	.-18     	; 0x4be <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x260>
+				rgb[last_point] = cl1;
+				rotatal(rgb,first_point,last_point,1);
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			for (uint8_t k = 0; k < len; k++)
+     4d0:	b3 94       	inc	r11
+     4d2:	b8 10       	cpse	r11, r8
+     4d4:	e1 cf       	rjmp	.-62     	; 0x498 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x23a>
+			}
+		}
+		break;
+		
+		case 1:
+		for (uint16_t j = 0; j <loop; j++)
+     4d6:	2d 81       	ldd	r18, Y+5	; 0x05
+     4d8:	3e 81       	ldd	r19, Y+6	; 0x06
+     4da:	2f 5f       	subi	r18, 0xFF	; 255
+     4dc:	3f 4f       	sbci	r19, 0xFF	; 255
+     4de:	3e 83       	std	Y+6, r19	; 0x06
+     4e0:	2d 83       	std	Y+5, r18	; 0x05
+     4e2:	89 a1       	ldd	r24, Y+33	; 0x21
+     4e4:	9a a1       	ldd	r25, Y+34	; 0x22
+     4e6:	28 17       	cp	r18, r24
+     4e8:	39 07       	cpc	r19, r25
+     4ea:	09 f4       	brne	.+2      	; 0x4ee <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x290>
+     4ec:	d4 c0       	rjmp	.+424    	; 0x696 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x438>
+		{
+			for (uint8_t k = 0; k < len; k++)
+     4ee:	81 10       	cpse	r8, r1
+     4f0:	b2 cf       	rjmp	.-156    	; 0x456 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x1f8>
+     4f2:	f1 cf       	rjmp	.-30     	; 0x4d6 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x278>
+		break;
+		case 2:
+		
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			for (uint8_t k = 0; k < len; k++)
+     4f4:	9b 2c       	mov	r9, r11
+			{
+				rgb[last_point] = cl1;
+     4f6:	f3 01       	movw	r30, r6
+     4f8:	00 83       	st	Z, r16
+     4fa:	11 83       	std	Z+1, r17	; 0x01
+     4fc:	f2 82       	std	Z+2, r15	; 0x02
+				rgb[first_point] = cl1;
+     4fe:	f1 01       	movw	r30, r2
+     500:	00 83       	st	Z, r16
+     502:	11 83       	std	Z+1, r17	; 0x01
+     504:	f2 82       	std	Z+2, r15	; 0x02
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,0);
+     506:	2b 2d       	mov	r18, r11
+     508:	4d 81       	ldd	r20, Y+5	; 0x05
+     50a:	5e 81       	ldd	r21, Y+6	; 0x06
+     50c:	69 81       	ldd	r22, Y+1	; 0x01
+     50e:	7a 81       	ldd	r23, Y+2	; 0x02
+     510:	c2 01       	movw	r24, r4
+     512:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,1);
+     516:	21 e0       	ldi	r18, 0x01	; 1
+     518:	4b 81       	ldd	r20, Y+3	; 0x03
+     51a:	5c 81       	ldd	r21, Y+4	; 0x04
+     51c:	6f 81       	ldd	r22, Y+7	; 0x07
+     51e:	78 85       	ldd	r23, Y+8	; 0x08
+     520:	c2 01       	movw	r24, r4
+     522:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     526:	69 85       	ldd	r22, Y+9	; 0x09
+     528:	7a 85       	ldd	r23, Y+10	; 0x0a
+     52a:	c2 01       	movw	r24, r4
+     52c:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     530:	aa 20       	and	r10, r10
+     532:	51 f0       	breq	.+20     	; 0x548 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x2ea>
+     534:	8b 2d       	mov	r24, r11
+     536:	ef e9       	ldi	r30, 0x9F	; 159
+     538:	ff e0       	ldi	r31, 0x0F	; 15
+     53a:	31 97       	sbiw	r30, 0x01	; 1
+     53c:	f1 f7       	brne	.-4      	; 0x53a <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x2dc>
+     53e:	00 c0       	rjmp	.+0      	; 0x540 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x2e2>
+     540:	00 00       	nop
+     542:	8f 5f       	subi	r24, 0xFF	; 255
+     544:	8a 11       	cpse	r24, r10
+     546:	f7 cf       	rjmp	.-18     	; 0x536 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x2d8>
+		break;
+		case 2:
+		
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			for (uint8_t k = 0; k < len; k++)
+     548:	93 94       	inc	r9
+     54a:	98 10       	cpse	r9, r8
+     54c:	d4 cf       	rjmp	.-88     	; 0x4f6 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x298>
+     54e:	9b 2c       	mov	r9, r11
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			for (uint8_t k = 0; k < len; k++)
+			{
+				rgb[last_point] =cl2;
+     550:	f3 01       	movw	r30, r6
+     552:	c0 82       	st	Z, r12
+     554:	d1 82       	std	Z+1, r13	; 0x01
+     556:	e2 82       	std	Z+2, r14	; 0x02
+				rgb[first_point] = cl2;
+     558:	f1 01       	movw	r30, r2
+     55a:	c0 82       	st	Z, r12
+     55c:	d1 82       	std	Z+1, r13	; 0x01
+     55e:	e2 82       	std	Z+2, r14	; 0x02
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,0);
+     560:	2b 2d       	mov	r18, r11
+     562:	4d 81       	ldd	r20, Y+5	; 0x05
+     564:	5e 81       	ldd	r21, Y+6	; 0x06
+     566:	69 81       	ldd	r22, Y+1	; 0x01
+     568:	7a 81       	ldd	r23, Y+2	; 0x02
+     56a:	c2 01       	movw	r24, r4
+     56c:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,1);
+     570:	21 e0       	ldi	r18, 0x01	; 1
+     572:	4b 81       	ldd	r20, Y+3	; 0x03
+     574:	5c 81       	ldd	r21, Y+4	; 0x04
+     576:	6f 81       	ldd	r22, Y+7	; 0x07
+     578:	78 85       	ldd	r23, Y+8	; 0x08
+     57a:	c2 01       	movw	r24, r4
+     57c:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     580:	69 85       	ldd	r22, Y+9	; 0x09
+     582:	7a 85       	ldd	r23, Y+10	; 0x0a
+     584:	c2 01       	movw	r24, r4
+     586:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     58a:	aa 20       	and	r10, r10
+     58c:	51 f0       	breq	.+20     	; 0x5a2 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x344>
+     58e:	8b 2d       	mov	r24, r11
+     590:	ef e9       	ldi	r30, 0x9F	; 159
+     592:	ff e0       	ldi	r31, 0x0F	; 15
+     594:	31 97       	sbiw	r30, 0x01	; 1
+     596:	f1 f7       	brne	.-4      	; 0x594 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x336>
+     598:	00 c0       	rjmp	.+0      	; 0x59a <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x33c>
+     59a:	00 00       	nop
+     59c:	8f 5f       	subi	r24, 0xFF	; 255
+     59e:	8a 11       	cpse	r24, r10
+     5a0:	f7 cf       	rjmp	.-18     	; 0x590 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x332>
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,0);
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,1);
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			for (uint8_t k = 0; k < len; k++)
+     5a2:	93 94       	inc	r9
+     5a4:	98 10       	cpse	r9, r8
+     5a6:	d4 cf       	rjmp	.-88     	; 0x550 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x2f2>
+			}
+		}
+		break;
+		case 2:
+		
+		for (uint16_t j = 0; j <loop; j++)
+     5a8:	2b 85       	ldd	r18, Y+11	; 0x0b
+     5aa:	3c 85       	ldd	r19, Y+12	; 0x0c
+     5ac:	2f 5f       	subi	r18, 0xFF	; 255
+     5ae:	3f 4f       	sbci	r19, 0xFF	; 255
+     5b0:	3c 87       	std	Y+12, r19	; 0x0c
+     5b2:	2b 87       	std	Y+11, r18	; 0x0b
+     5b4:	89 a1       	ldd	r24, Y+33	; 0x21
+     5b6:	9a a1       	ldd	r25, Y+34	; 0x22
+     5b8:	28 17       	cp	r18, r24
+     5ba:	39 07       	cpc	r19, r25
+     5bc:	09 f4       	brne	.+2      	; 0x5c0 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x362>
+     5be:	6b c0       	rjmp	.+214    	; 0x696 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x438>
+		{
+			for (uint8_t k = 0; k < len; k++)
+     5c0:	81 10       	cpse	r8, r1
+     5c2:	98 cf       	rjmp	.-208    	; 0x4f4 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x296>
+     5c4:	f1 cf       	rjmp	.-30     	; 0x5a8 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x34a>
+		break;
+		
+		default:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			for (uint8_t k = 0; k < len; k++)
+     5c6:	9b 2c       	mov	r9, r11
+			{
+				rgb[((last_point-first_point)/2)+first_point] = cl1;
+     5c8:	f3 01       	movw	r30, r6
+     5ca:	00 83       	st	Z, r16
+     5cc:	11 83       	std	Z+1, r17	; 0x01
+     5ce:	f2 82       	std	Z+2, r15	; 0x02
+				rgb[((last_point-first_point)/2)+first_point+1] = cl1;
+     5d0:	f1 01       	movw	r30, r2
+     5d2:	00 83       	st	Z, r16
+     5d4:	11 83       	std	Z+1, r17	; 0x01
+     5d6:	f2 82       	std	Z+2, r15	; 0x02
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,1);
+     5d8:	21 e0       	ldi	r18, 0x01	; 1
+     5da:	4d 81       	ldd	r20, Y+5	; 0x05
+     5dc:	5e 81       	ldd	r21, Y+6	; 0x06
+     5de:	69 81       	ldd	r22, Y+1	; 0x01
+     5e0:	7a 81       	ldd	r23, Y+2	; 0x02
+     5e2:	c2 01       	movw	r24, r4
+     5e4:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,0);
+     5e8:	2b 2d       	mov	r18, r11
+     5ea:	4b 81       	ldd	r20, Y+3	; 0x03
+     5ec:	5c 81       	ldd	r21, Y+4	; 0x04
+     5ee:	6f 81       	ldd	r22, Y+7	; 0x07
+     5f0:	78 85       	ldd	r23, Y+8	; 0x08
+     5f2:	c2 01       	movw	r24, r4
+     5f4:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     5f8:	69 85       	ldd	r22, Y+9	; 0x09
+     5fa:	7a 85       	ldd	r23, Y+10	; 0x0a
+     5fc:	c2 01       	movw	r24, r4
+     5fe:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     602:	aa 20       	and	r10, r10
+     604:	51 f0       	breq	.+20     	; 0x61a <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x3bc>
+     606:	8b 2d       	mov	r24, r11
+     608:	ef e9       	ldi	r30, 0x9F	; 159
+     60a:	ff e0       	ldi	r31, 0x0F	; 15
+     60c:	31 97       	sbiw	r30, 0x01	; 1
+     60e:	f1 f7       	brne	.-4      	; 0x60c <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x3ae>
+     610:	00 c0       	rjmp	.+0      	; 0x612 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x3b4>
+     612:	00 00       	nop
+     614:	8f 5f       	subi	r24, 0xFF	; 255
+     616:	8a 11       	cpse	r24, r10
+     618:	f7 cf       	rjmp	.-18     	; 0x608 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x3aa>
+		break;
+		
+		default:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			for (uint8_t k = 0; k < len; k++)
+     61a:	93 94       	inc	r9
+     61c:	98 10       	cpse	r9, r8
+     61e:	d4 cf       	rjmp	.-88     	; 0x5c8 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x36a>
+     620:	9b 2c       	mov	r9, r11
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			for (uint8_t k = 0; k < len; k++)
+			{
+				rgb[((last_point-first_point)/2)+first_point] = cl2;
+     622:	f3 01       	movw	r30, r6
+     624:	c0 82       	st	Z, r12
+     626:	d1 82       	std	Z+1, r13	; 0x01
+     628:	e2 82       	std	Z+2, r14	; 0x02
+				rgb[((last_point-first_point)/2)+first_point+1] = cl2;
+     62a:	f1 01       	movw	r30, r2
+     62c:	c0 82       	st	Z, r12
+     62e:	d1 82       	std	Z+1, r13	; 0x01
+     630:	e2 82       	std	Z+2, r14	; 0x02
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,1);
+     632:	21 e0       	ldi	r18, 0x01	; 1
+     634:	4d 81       	ldd	r20, Y+5	; 0x05
+     636:	5e 81       	ldd	r21, Y+6	; 0x06
+     638:	69 81       	ldd	r22, Y+1	; 0x01
+     63a:	7a 81       	ldd	r23, Y+2	; 0x02
+     63c:	c2 01       	movw	r24, r4
+     63e:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,0);
+     642:	2b 2d       	mov	r18, r11
+     644:	4b 81       	ldd	r20, Y+3	; 0x03
+     646:	5c 81       	ldd	r21, Y+4	; 0x04
+     648:	6f 81       	ldd	r22, Y+7	; 0x07
+     64a:	78 85       	ldd	r23, Y+8	; 0x08
+     64c:	c2 01       	movw	r24, r4
+     64e:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     652:	69 85       	ldd	r22, Y+9	; 0x09
+     654:	7a 85       	ldd	r23, Y+10	; 0x0a
+     656:	c2 01       	movw	r24, r4
+     658:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     65c:	aa 20       	and	r10, r10
+     65e:	51 f0       	breq	.+20     	; 0x674 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x416>
+     660:	8b 2d       	mov	r24, r11
+     662:	ef e9       	ldi	r30, 0x9F	; 159
+     664:	ff e0       	ldi	r31, 0x0F	; 15
+     666:	31 97       	sbiw	r30, 0x01	; 1
+     668:	f1 f7       	brne	.-4      	; 0x666 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x408>
+     66a:	00 c0       	rjmp	.+0      	; 0x66c <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x40e>
+     66c:	00 00       	nop
+     66e:	8f 5f       	subi	r24, 0xFF	; 255
+     670:	8a 11       	cpse	r24, r10
+     672:	f7 cf       	rjmp	.-18     	; 0x662 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x404>
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,1);
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,0);
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			for (uint8_t k = 0; k < len; k++)
+     674:	93 94       	inc	r9
+     676:	98 10       	cpse	r9, r8
+     678:	d4 cf       	rjmp	.-88     	; 0x622 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x3c4>
+		}
+		
+		break;
+		
+		default:
+		for (uint16_t j = 0; j <loop; j++)
+     67a:	2b 85       	ldd	r18, Y+11	; 0x0b
+     67c:	3c 85       	ldd	r19, Y+12	; 0x0c
+     67e:	2f 5f       	subi	r18, 0xFF	; 255
+     680:	3f 4f       	sbci	r19, 0xFF	; 255
+     682:	3c 87       	std	Y+12, r19	; 0x0c
+     684:	2b 87       	std	Y+11, r18	; 0x0b
+     686:	89 a1       	ldd	r24, Y+33	; 0x21
+     688:	9a a1       	ldd	r25, Y+34	; 0x22
+     68a:	28 17       	cp	r18, r24
+     68c:	39 07       	cpc	r19, r25
+     68e:	19 f0       	breq	.+6      	; 0x696 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x438>
+		{
+			for (uint8_t k = 0; k < len; k++)
+     690:	81 10       	cpse	r8, r1
+     692:	99 cf       	rjmp	.-206    	; 0x5c6 <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x368>
+     694:	f2 cf       	rjmp	.-28     	; 0x67a <_Z13gen_two_colorP10Color_packjjS_S_hhjh+0x41c>
+			}
+		}
+		
+		break;
+	}
+}
+     696:	2c 96       	adiw	r28, 0x0c	; 12
+     698:	0f b6       	in	r0, 0x3f	; 63
+     69a:	f8 94       	cli
+     69c:	de bf       	out	0x3e, r29	; 62
+     69e:	0f be       	out	0x3f, r0	; 63
+     6a0:	cd bf       	out	0x3d, r28	; 61
+     6a2:	df 91       	pop	r29
+     6a4:	cf 91       	pop	r28
+     6a6:	1f 91       	pop	r17
+     6a8:	0f 91       	pop	r16
+     6aa:	ff 90       	pop	r15
+     6ac:	ef 90       	pop	r14
+     6ae:	df 90       	pop	r13
+     6b0:	cf 90       	pop	r12
+     6b2:	bf 90       	pop	r11
+     6b4:	af 90       	pop	r10
+     6b6:	9f 90       	pop	r9
+     6b8:	8f 90       	pop	r8
+     6ba:	7f 90       	pop	r7
+     6bc:	6f 90       	pop	r6
+     6be:	5f 90       	pop	r5
+     6c0:	4f 90       	pop	r4
+     6c2:	3f 90       	pop	r3
+     6c4:	2f 90       	pop	r2
+     6c6:	08 95       	ret
+
+000006c8 <_Z12color_changeP10Color_packS0_h>:
+}
+
+
+
+uint8_t color_change(Color_pack *color1,Color_pack *color2,uint8_t ratio)
+{
+     6c8:	fc 01       	movw	r30, r24
+     6ca:	db 01       	movw	r26, r22
+	
+	if ((color1->Color.Blue==color2->Color.Blue) &&(color1->Color.Green==color2->Color.Green) &&(color1->Color.Red ==color2->Color.Red)) return 1;
+     6cc:	92 81       	ldd	r25, Z+2	; 0x02
+     6ce:	12 96       	adiw	r26, 0x02	; 2
+     6d0:	8c 91       	ld	r24, X
+     6d2:	12 97       	sbiw	r26, 0x02	; 2
+     6d4:	98 13       	cpse	r25, r24
+     6d6:	0a c0       	rjmp	.+20     	; 0x6ec <_Z12color_changeP10Color_packS0_h+0x24>
+     6d8:	91 81       	ldd	r25, Z+1	; 0x01
+     6da:	11 96       	adiw	r26, 0x01	; 1
+     6dc:	8c 91       	ld	r24, X
+     6de:	11 97       	sbiw	r26, 0x01	; 1
+     6e0:	98 13       	cpse	r25, r24
+     6e2:	04 c0       	rjmp	.+8      	; 0x6ec <_Z12color_changeP10Color_packS0_h+0x24>
+     6e4:	90 81       	ld	r25, Z
+     6e6:	8c 91       	ld	r24, X
+     6e8:	98 17       	cp	r25, r24
+     6ea:	69 f1       	breq	.+90     	; 0x746 <_Z12color_changeP10Color_packS0_h+0x7e>
+	for (uint8_t i =0;i<ratio;i++)
+     6ec:	44 23       	and	r20, r20
+     6ee:	69 f1       	breq	.+90     	; 0x74a <_Z12color_changeP10Color_packS0_h+0x82>
+     6f0:	90 e0       	ldi	r25, 0x00	; 0
+	{
+		
+		if (color1->Color.Red>color2->Color.Red)  color1->Color.Red-=1;
+     6f2:	80 81       	ld	r24, Z
+     6f4:	2c 91       	ld	r18, X
+     6f6:	28 17       	cp	r18, r24
+     6f8:	18 f4       	brcc	.+6      	; 0x700 <_Z12color_changeP10Color_packS0_h+0x38>
+     6fa:	81 50       	subi	r24, 0x01	; 1
+     6fc:	80 83       	st	Z, r24
+     6fe:	04 c0       	rjmp	.+8      	; 0x708 <_Z12color_changeP10Color_packS0_h+0x40>
+		else if (color1->Color.Red<color2->Color.Red)  color1->Color.Red+= 1;
+     700:	82 17       	cp	r24, r18
+     702:	10 f4       	brcc	.+4      	; 0x708 <_Z12color_changeP10Color_packS0_h+0x40>
+     704:	8f 5f       	subi	r24, 0xFF	; 255
+     706:	80 83       	st	Z, r24
+		
+		if (color1->Color.Green>color2->Color.Green) color1->Color.Green -=1;
+     708:	81 81       	ldd	r24, Z+1	; 0x01
+     70a:	11 96       	adiw	r26, 0x01	; 1
+     70c:	2c 91       	ld	r18, X
+     70e:	11 97       	sbiw	r26, 0x01	; 1
+     710:	28 17       	cp	r18, r24
+     712:	18 f4       	brcc	.+6      	; 0x71a <_Z12color_changeP10Color_packS0_h+0x52>
+     714:	81 50       	subi	r24, 0x01	; 1
+     716:	81 83       	std	Z+1, r24	; 0x01
+     718:	04 c0       	rjmp	.+8      	; 0x722 <_Z12color_changeP10Color_packS0_h+0x5a>
+		else if (color1->Color.Green<color2->Color.Green) color1->Color.Green  += 1;
+     71a:	82 17       	cp	r24, r18
+     71c:	10 f4       	brcc	.+4      	; 0x722 <_Z12color_changeP10Color_packS0_h+0x5a>
+     71e:	8f 5f       	subi	r24, 0xFF	; 255
+     720:	81 83       	std	Z+1, r24	; 0x01
+		
+		if (color1->Color.Blue>color2->Color.Blue) color1->Color.Blue -=1;
+     722:	82 81       	ldd	r24, Z+2	; 0x02
+     724:	12 96       	adiw	r26, 0x02	; 2
+     726:	2c 91       	ld	r18, X
+     728:	12 97       	sbiw	r26, 0x02	; 2
+     72a:	28 17       	cp	r18, r24
+     72c:	18 f4       	brcc	.+6      	; 0x734 <_Z12color_changeP10Color_packS0_h+0x6c>
+     72e:	81 50       	subi	r24, 0x01	; 1
+     730:	82 83       	std	Z+2, r24	; 0x02
+     732:	04 c0       	rjmp	.+8      	; 0x73c <_Z12color_changeP10Color_packS0_h+0x74>
+		else if (color1->Color.Blue<color2->Color.Blue) color1->Color.Blue  += 1;
+     734:	82 17       	cp	r24, r18
+     736:	10 f4       	brcc	.+4      	; 0x73c <_Z12color_changeP10Color_packS0_h+0x74>
+     738:	8f 5f       	subi	r24, 0xFF	; 255
+     73a:	82 83       	std	Z+2, r24	; 0x02
+
+uint8_t color_change(Color_pack *color1,Color_pack *color2,uint8_t ratio)
+{
+	
+	if ((color1->Color.Blue==color2->Color.Blue) &&(color1->Color.Green==color2->Color.Green) &&(color1->Color.Red ==color2->Color.Red)) return 1;
+	for (uint8_t i =0;i<ratio;i++)
+     73c:	9f 5f       	subi	r25, 0xFF	; 255
+     73e:	94 13       	cpse	r25, r20
+     740:	d8 cf       	rjmp	.-80     	; 0x6f2 <_Z12color_changeP10Color_packS0_h+0x2a>
+		
+		if (color1->Color.Blue>color2->Color.Blue) color1->Color.Blue -=1;
+		else if (color1->Color.Blue<color2->Color.Blue) color1->Color.Blue  += 1;
+		
+	}
+	return 0;
+     742:	80 e0       	ldi	r24, 0x00	; 0
+     744:	08 95       	ret
+
+
+uint8_t color_change(Color_pack *color1,Color_pack *color2,uint8_t ratio)
+{
+	
+	if ((color1->Color.Blue==color2->Color.Blue) &&(color1->Color.Green==color2->Color.Green) &&(color1->Color.Red ==color2->Color.Red)) return 1;
+     746:	81 e0       	ldi	r24, 0x01	; 1
+     748:	08 95       	ret
+		
+		if (color1->Color.Blue>color2->Color.Blue) color1->Color.Blue -=1;
+		else if (color1->Color.Blue<color2->Color.Blue) color1->Color.Blue  += 1;
+		
+	}
+	return 0;
+     74a:	80 e0       	ldi	r24, 0x00	; 0
+}
+     74c:	08 95       	ret
+
+0000074e <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh>:
+}
+
+
+
+void gen_soft_two_color(Color_pack *rgb,uint16_t first_point,uint16_t last_point,Color_pack cl1,Color_pack cl2,uint8_t speed, uint8_t div,uint16_t loop,uint8_t style)
+{
+     74e:	2f 92       	push	r2
+     750:	3f 92       	push	r3
+     752:	4f 92       	push	r4
+     754:	5f 92       	push	r5
+     756:	6f 92       	push	r6
+     758:	7f 92       	push	r7
+     75a:	8f 92       	push	r8
+     75c:	9f 92       	push	r9
+     75e:	af 92       	push	r10
+     760:	bf 92       	push	r11
+     762:	cf 92       	push	r12
+     764:	df 92       	push	r13
+     766:	ef 92       	push	r14
+     768:	ff 92       	push	r15
+     76a:	0f 93       	push	r16
+     76c:	1f 93       	push	r17
+     76e:	cf 93       	push	r28
+     770:	df 93       	push	r29
+     772:	cd b7       	in	r28, 0x3d	; 61
+     774:	de b7       	in	r29, 0x3e	; 62
+     776:	62 97       	sbiw	r28, 0x12	; 18
+     778:	0f b6       	in	r0, 0x3f	; 63
+     77a:	f8 94       	cli
+     77c:	de bf       	out	0x3e, r29	; 62
+     77e:	0f be       	out	0x3f, r0	; 63
+     780:	cd bf       	out	0x3d, r28	; 61
+     782:	39 a5       	ldd	r19, Y+41	; 0x29
+	uint16_t _num = last_point - first_point;
+     784:	fa 01       	movw	r30, r20
+     786:	e6 1b       	sub	r30, r22
+     788:	f7 0b       	sbc	r31, r23
+	
+	if ((cl1.Color.Blue==cl2.Color.Blue)&&(cl1.Color.Red==cl2.Color.Red)&&(cl1.Color.Green==cl2.Color.Green)) return;
+     78a:	2e 11       	cpse	r18, r14
+     78c:	05 c0       	rjmp	.+10     	; 0x798 <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0x4a>
+     78e:	0c 11       	cpse	r16, r12
+     790:	03 c0       	rjmp	.+6      	; 0x798 <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0x4a>
+     792:	1d 15       	cp	r17, r13
+     794:	09 f4       	brne	.+2      	; 0x798 <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0x4a>
+     796:	75 c2       	rjmp	.+1258   	; 0xc82 <__stack+0x383>
+     798:	be 2c       	mov	r11, r14
+     79a:	dd 86       	std	Y+13, r13	; 0x0d
+     79c:	cc 86       	std	Y+12, r12	; 0x0c
+     79e:	2b 87       	std	Y+11, r18	; 0x0b
+     7a0:	1a 87       	std	Y+10, r17	; 0x0a
+     7a2:	09 87       	std	Y+9, r16	; 0x09
+     7a4:	1a 01       	movw	r2, r20
+     7a6:	2b 01       	movw	r4, r22
+     7a8:	8c 01       	movw	r16, r24
+	
+	Color_pack cur_color =cl1;
+     7aa:	29 85       	ldd	r18, Y+9	; 0x09
+     7ac:	2c 83       	std	Y+4, r18	; 0x04
+     7ae:	8a 85       	ldd	r24, Y+10	; 0x0a
+     7b0:	8d 83       	std	Y+5, r24	; 0x05
+     7b2:	9b 85       	ldd	r25, Y+11	; 0x0b
+     7b4:	9e 83       	std	Y+6, r25	; 0x06
+	Color_pack to_color = cl2;
+     7b6:	c9 82       	std	Y+1, r12	; 0x01
+     7b8:	da 82       	std	Y+2, r13	; 0x02
+     7ba:	eb 82       	std	Y+3, r14	; 0x03
+	switch (style)
+     7bc:	31 30       	cpi	r19, 0x01	; 1
+     7be:	49 f0       	breq	.+18     	; 0x7d2 <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0x84>
+     7c0:	70 f0       	brcs	.+28     	; 0x7de <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0x90>
+     7c2:	32 30       	cpi	r19, 0x02	; 2
+     7c4:	89 f4       	brne	.+34     	; 0x7e8 <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0x9a>
+			
+		}
+		break;
+		case 2:
+		
+		for (uint16_t j = 0; j <loop; j++)
+     7c6:	2f a1       	ldd	r18, Y+39	; 0x27
+     7c8:	38 a5       	ldd	r19, Y+40	; 0x28
+     7ca:	23 2b       	or	r18, r19
+     7cc:	09 f0       	breq	.+2      	; 0x7d0 <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0x82>
+     7ce:	08 c1       	rjmp	.+528    	; 0x9e0 <__stack+0xe1>
+     7d0:	58 c2       	rjmp	.+1200   	; 0xc82 <__stack+0x383>
+			
+			
+		}
+		break;
+		case 1:
+		for (uint16_t j = 0; j <loop; j++)
+     7d2:	8f a1       	ldd	r24, Y+39	; 0x27
+     7d4:	98 a5       	ldd	r25, Y+40	; 0x28
+     7d6:	89 2b       	or	r24, r25
+     7d8:	09 f0       	breq	.+2      	; 0x7dc <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0x8e>
+     7da:	86 c0       	rjmp	.+268    	; 0x8e8 <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0x19a>
+     7dc:	52 c2       	rjmp	.+1188   	; 0xc82 <__stack+0x383>
+	Color_pack cur_color =cl1;
+	Color_pack to_color = cl2;
+	switch (style)
+	{
+		case 0:
+		for (uint16_t j = 0; j <loop; j++)
+     7de:	2f a1       	ldd	r18, Y+39	; 0x27
+     7e0:	38 a5       	ldd	r19, Y+40	; 0x28
+     7e2:	23 2b       	or	r18, r19
+     7e4:	39 f4       	brne	.+14     	; 0x7f4 <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0xa6>
+     7e6:	4d c2       	rjmp	.+1178   	; 0xc82 <__stack+0x383>
+		}
+		
+		break;
+		
+		default:
+		for (uint16_t j = 0; j <loop; j++)
+     7e8:	8f a1       	ldd	r24, Y+39	; 0x27
+     7ea:	98 a5       	ldd	r25, Y+40	; 0x28
+     7ec:	89 2b       	or	r24, r25
+     7ee:	09 f0       	breq	.+2      	; 0x7f2 <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0xa4>
+     7f0:	a1 c1       	rjmp	.+834    	; 0xb34 <__stack+0x235>
+     7f2:	47 c2       	rjmp	.+1166   	; 0xc82 <__stack+0x383>
+		case 0:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+			{
+				rgb[first_point] = cur_color;
+     7f4:	6b 01       	movw	r12, r22
+     7f6:	cc 0c       	add	r12, r12
+     7f8:	dd 1c       	adc	r13, r13
+     7fa:	c6 0e       	add	r12, r22
+     7fc:	d7 1e       	adc	r13, r23
+     7fe:	c0 0e       	add	r12, r16
+     800:	d1 1e       	adc	r13, r17
+     802:	61 2c       	mov	r6, r1
+     804:	71 2c       	mov	r7, r1
+				rotatal(rgb,first_point,last_point,0);
+				out_to_lpd(rgb,_num+1);
+     806:	9f 01       	movw	r18, r30
+     808:	2f 5f       	subi	r18, 0xFF	; 255
+     80a:	3f 4f       	sbci	r19, 0xFF	; 255
+     80c:	79 01       	movw	r14, r18
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+     80e:	9d 84       	ldd	r9, Y+13	; 0x0d
+		case 0:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+			{
+				rgb[first_point] = cur_color;
+     810:	8c 81       	ldd	r24, Y+4	; 0x04
+     812:	9d 81       	ldd	r25, Y+5	; 0x05
+     814:	ae 81       	ldd	r26, Y+6	; 0x06
+     816:	f6 01       	movw	r30, r12
+     818:	80 83       	st	Z, r24
+     81a:	91 83       	std	Z+1, r25	; 0x01
+     81c:	a2 83       	std	Z+2, r26	; 0x02
+				rotatal(rgb,first_point,last_point,0);
+     81e:	20 e0       	ldi	r18, 0x00	; 0
+     820:	a1 01       	movw	r20, r2
+     822:	b2 01       	movw	r22, r4
+     824:	c8 01       	movw	r24, r16
+     826:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     82a:	b7 01       	movw	r22, r14
+     82c:	c8 01       	movw	r24, r16
+     82e:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     832:	aa 20       	and	r10, r10
+     834:	51 f0       	breq	.+20     	; 0x84a <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0xfc>
+     836:	80 e0       	ldi	r24, 0x00	; 0
+     838:	ef e9       	ldi	r30, 0x9F	; 159
+     83a:	ff e0       	ldi	r31, 0x0F	; 15
+     83c:	31 97       	sbiw	r30, 0x01	; 1
+     83e:	f1 f7       	brne	.-4      	; 0x83c <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0xee>
+     840:	00 c0       	rjmp	.+0      	; 0x842 <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0xf4>
+     842:	00 00       	nop
+     844:	8f 5f       	subi	r24, 0xFF	; 255
+     846:	8a 11       	cpse	r24, r10
+     848:	f7 cf       	rjmp	.-18     	; 0x838 <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0xea>
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+     84a:	48 2d       	mov	r20, r8
+     84c:	be 01       	movw	r22, r28
+     84e:	6f 5f       	subi	r22, 0xFF	; 255
+     850:	7f 4f       	sbci	r23, 0xFF	; 255
+     852:	ce 01       	movw	r24, r28
+     854:	04 96       	adiw	r24, 0x04	; 4
+     856:	0e 94 64 03 	call	0x6c8	; 0x6c8 <_Z12color_changeP10Color_packS0_h>
+	switch (style)
+	{
+		case 0:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+     85a:	88 23       	and	r24, r24
+     85c:	c9 f2       	breq	.-78     	; 0x810 <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0xc2>
+				rotatal(rgb,first_point,last_point,0);
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+			cur_color = cl2;
+     85e:	fc 85       	ldd	r31, Y+12	; 0x0c
+     860:	fc 83       	std	Y+4, r31	; 0x04
+     862:	9d 82       	std	Y+5, r9	; 0x05
+     864:	be 82       	std	Y+6, r11	; 0x06
+			to_color =  cl1;
+     866:	29 85       	ldd	r18, Y+9	; 0x09
+     868:	29 83       	std	Y+1, r18	; 0x01
+     86a:	3a 85       	ldd	r19, Y+10	; 0x0a
+     86c:	3a 83       	std	Y+2, r19	; 0x02
+     86e:	8b 85       	ldd	r24, Y+11	; 0x0b
+     870:	8b 83       	std	Y+3, r24	; 0x03
+		
+			do
+			{
+				rgb[first_point] = cur_color;
+     872:	8c 81       	ldd	r24, Y+4	; 0x04
+     874:	9d 81       	ldd	r25, Y+5	; 0x05
+     876:	ae 81       	ldd	r26, Y+6	; 0x06
+     878:	f6 01       	movw	r30, r12
+     87a:	80 83       	st	Z, r24
+     87c:	91 83       	std	Z+1, r25	; 0x01
+     87e:	a2 83       	std	Z+2, r26	; 0x02
+				rotatal(rgb,first_point,last_point,0);
+     880:	20 e0       	ldi	r18, 0x00	; 0
+     882:	a1 01       	movw	r20, r2
+     884:	b2 01       	movw	r22, r4
+     886:	c8 01       	movw	r24, r16
+     888:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     88c:	b7 01       	movw	r22, r14
+     88e:	c8 01       	movw	r24, r16
+     890:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     894:	aa 20       	and	r10, r10
+     896:	51 f0       	breq	.+20     	; 0x8ac <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0x15e>
+     898:	80 e0       	ldi	r24, 0x00	; 0
+     89a:	ef e9       	ldi	r30, 0x9F	; 159
+     89c:	ff e0       	ldi	r31, 0x0F	; 15
+     89e:	31 97       	sbiw	r30, 0x01	; 1
+     8a0:	f1 f7       	brne	.-4      	; 0x89e <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0x150>
+     8a2:	00 c0       	rjmp	.+0      	; 0x8a4 <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0x156>
+     8a4:	00 00       	nop
+     8a6:	8f 5f       	subi	r24, 0xFF	; 255
+     8a8:	8a 11       	cpse	r24, r10
+     8aa:	f7 cf       	rjmp	.-18     	; 0x89a <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0x14c>
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+     8ac:	48 2d       	mov	r20, r8
+     8ae:	be 01       	movw	r22, r28
+     8b0:	6f 5f       	subi	r22, 0xFF	; 255
+     8b2:	7f 4f       	sbci	r23, 0xFF	; 255
+     8b4:	ce 01       	movw	r24, r28
+     8b6:	04 96       	adiw	r24, 0x04	; 4
+     8b8:	0e 94 64 03 	call	0x6c8	; 0x6c8 <_Z12color_changeP10Color_packS0_h>
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+			cur_color = cl2;
+			to_color =  cl1;
+		
+			do
+     8bc:	88 23       	and	r24, r24
+     8be:	c9 f2       	breq	.-78     	; 0x872 <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0x124>
+				rotatal(rgb,first_point,last_point,0);
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+			cur_color = cl1;
+     8c0:	f9 85       	ldd	r31, Y+9	; 0x09
+     8c2:	fc 83       	std	Y+4, r31	; 0x04
+     8c4:	2a 85       	ldd	r18, Y+10	; 0x0a
+     8c6:	2d 83       	std	Y+5, r18	; 0x05
+     8c8:	3b 85       	ldd	r19, Y+11	; 0x0b
+     8ca:	3e 83       	std	Y+6, r19	; 0x06
+			to_color =  cl2;
+     8cc:	8c 85       	ldd	r24, Y+12	; 0x0c
+     8ce:	89 83       	std	Y+1, r24	; 0x01
+     8d0:	9a 82       	std	Y+2, r9	; 0x02
+     8d2:	bb 82       	std	Y+3, r11	; 0x03
+	Color_pack cur_color =cl1;
+	Color_pack to_color = cl2;
+	switch (style)
+	{
+		case 0:
+		for (uint16_t j = 0; j <loop; j++)
+     8d4:	9f ef       	ldi	r25, 0xFF	; 255
+     8d6:	69 1a       	sub	r6, r25
+     8d8:	79 0a       	sbc	r7, r25
+     8da:	ef a1       	ldd	r30, Y+39	; 0x27
+     8dc:	f8 a5       	ldd	r31, Y+40	; 0x28
+     8de:	6e 16       	cp	r6, r30
+     8e0:	7f 06       	cpc	r7, r31
+     8e2:	09 f0       	breq	.+2      	; 0x8e6 <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0x198>
+     8e4:	95 cf       	rjmp	.-214    	; 0x810 <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh+0xc2>
+     8e6:	cd c1       	rjmp	.+922    	; 0xc82 <__stack+0x383>
+		case 1:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+			{
+				rgb[last_point] = cur_color;
+     8e8:	6a 01       	movw	r12, r20
+     8ea:	cc 0c       	add	r12, r12
+     8ec:	dd 1c       	adc	r13, r13
+     8ee:	c4 0e       	add	r12, r20
+     8f0:	d5 1e       	adc	r13, r21
+     8f2:	c0 0e       	add	r12, r16
+     8f4:	d1 1e       	adc	r13, r17
+     8f6:	61 2c       	mov	r6, r1
+     8f8:	71 2c       	mov	r7, r1
+				rotatal(rgb,first_point,last_point,1);
+				out_to_lpd(rgb,_num+1);
+     8fa:	9f 01       	movw	r18, r30
+     8fc:	2f 5f       	subi	r18, 0xFF	; 255
+     8fe:	3f 4f       	sbci	r19, 0xFF	; 255
+     900:	79 01       	movw	r14, r18
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     902:	91 2c       	mov	r9, r1
+		case 1:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+			{
+				rgb[last_point] = cur_color;
+     904:	8c 81       	ldd	r24, Y+4	; 0x04
+     906:	9d 81       	ldd	r25, Y+5	; 0x05
+     908:	ae 81       	ldd	r26, Y+6	; 0x06
+     90a:	f6 01       	movw	r30, r12
+     90c:	80 83       	st	Z, r24
+     90e:	91 83       	std	Z+1, r25	; 0x01
+     910:	a2 83       	std	Z+2, r26	; 0x02
+				rotatal(rgb,first_point,last_point,1);
+     912:	21 e0       	ldi	r18, 0x01	; 1
+     914:	a1 01       	movw	r20, r2
+     916:	b2 01       	movw	r22, r4
+     918:	c8 01       	movw	r24, r16
+     91a:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     91e:	b7 01       	movw	r22, r14
+     920:	c8 01       	movw	r24, r16
+     922:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     926:	aa 20       	and	r10, r10
+     928:	51 f0       	breq	.+20     	; 0x93e <__stack+0x3f>
+     92a:	89 2d       	mov	r24, r9
+     92c:	ef e9       	ldi	r30, 0x9F	; 159
+     92e:	ff e0       	ldi	r31, 0x0F	; 15
+     930:	31 97       	sbiw	r30, 0x01	; 1
+     932:	f1 f7       	brne	.-4      	; 0x930 <__stack+0x31>
+     934:	00 c0       	rjmp	.+0      	; 0x936 <__stack+0x37>
+     936:	00 00       	nop
+     938:	8f 5f       	subi	r24, 0xFF	; 255
+     93a:	8a 11       	cpse	r24, r10
+     93c:	f7 cf       	rjmp	.-18     	; 0x92c <__stack+0x2d>
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+     93e:	48 2d       	mov	r20, r8
+     940:	be 01       	movw	r22, r28
+     942:	6f 5f       	subi	r22, 0xFF	; 255
+     944:	7f 4f       	sbci	r23, 0xFF	; 255
+     946:	ce 01       	movw	r24, r28
+     948:	04 96       	adiw	r24, 0x04	; 4
+     94a:	0e 94 64 03 	call	0x6c8	; 0x6c8 <_Z12color_changeP10Color_packS0_h>
+		}
+		break;
+		case 1:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+     94e:	88 23       	and	r24, r24
+     950:	c9 f2       	breq	.-78     	; 0x904 <__stack+0x5>
+				rotatal(rgb,first_point,last_point,1);
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+			cur_color = cl2;
+     952:	fc 85       	ldd	r31, Y+12	; 0x0c
+     954:	fc 83       	std	Y+4, r31	; 0x04
+     956:	2d 85       	ldd	r18, Y+13	; 0x0d
+     958:	2d 83       	std	Y+5, r18	; 0x05
+     95a:	be 82       	std	Y+6, r11	; 0x06
+			to_color =  cl1;
+     95c:	39 85       	ldd	r19, Y+9	; 0x09
+     95e:	39 83       	std	Y+1, r19	; 0x01
+     960:	8a 85       	ldd	r24, Y+10	; 0x0a
+     962:	8a 83       	std	Y+2, r24	; 0x02
+     964:	9b 85       	ldd	r25, Y+11	; 0x0b
+     966:	9b 83       	std	Y+3, r25	; 0x03
+			
+			do
+			{
+				rgb[last_point] = cur_color;
+     968:	8c 81       	ldd	r24, Y+4	; 0x04
+     96a:	9d 81       	ldd	r25, Y+5	; 0x05
+     96c:	ae 81       	ldd	r26, Y+6	; 0x06
+     96e:	f6 01       	movw	r30, r12
+     970:	80 83       	st	Z, r24
+     972:	91 83       	std	Z+1, r25	; 0x01
+     974:	a2 83       	std	Z+2, r26	; 0x02
+				rotatal(rgb,first_point,last_point,1);
+     976:	21 e0       	ldi	r18, 0x01	; 1
+     978:	a1 01       	movw	r20, r2
+     97a:	b2 01       	movw	r22, r4
+     97c:	c8 01       	movw	r24, r16
+     97e:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     982:	b7 01       	movw	r22, r14
+     984:	c8 01       	movw	r24, r16
+     986:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     98a:	aa 20       	and	r10, r10
+     98c:	51 f0       	breq	.+20     	; 0x9a2 <__stack+0xa3>
+     98e:	89 2d       	mov	r24, r9
+     990:	ef e9       	ldi	r30, 0x9F	; 159
+     992:	ff e0       	ldi	r31, 0x0F	; 15
+     994:	31 97       	sbiw	r30, 0x01	; 1
+     996:	f1 f7       	brne	.-4      	; 0x994 <__stack+0x95>
+     998:	00 c0       	rjmp	.+0      	; 0x99a <__stack+0x9b>
+     99a:	00 00       	nop
+     99c:	8f 5f       	subi	r24, 0xFF	; 255
+     99e:	8a 11       	cpse	r24, r10
+     9a0:	f7 cf       	rjmp	.-18     	; 0x990 <__stack+0x91>
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+     9a2:	48 2d       	mov	r20, r8
+     9a4:	be 01       	movw	r22, r28
+     9a6:	6f 5f       	subi	r22, 0xFF	; 255
+     9a8:	7f 4f       	sbci	r23, 0xFF	; 255
+     9aa:	ce 01       	movw	r24, r28
+     9ac:	04 96       	adiw	r24, 0x04	; 4
+     9ae:	0e 94 64 03 	call	0x6c8	; 0x6c8 <_Z12color_changeP10Color_packS0_h>
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+			cur_color = cl2;
+			to_color =  cl1;
+			
+			do
+     9b2:	88 23       	and	r24, r24
+     9b4:	c9 f2       	breq	.-78     	; 0x968 <__stack+0x69>
+				rotatal(rgb,first_point,last_point,1);
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+			cur_color = cl1;
+     9b6:	f9 85       	ldd	r31, Y+9	; 0x09
+     9b8:	fc 83       	std	Y+4, r31	; 0x04
+     9ba:	2a 85       	ldd	r18, Y+10	; 0x0a
+     9bc:	2d 83       	std	Y+5, r18	; 0x05
+     9be:	3b 85       	ldd	r19, Y+11	; 0x0b
+     9c0:	3e 83       	std	Y+6, r19	; 0x06
+			to_color =  cl2;
+     9c2:	8c 85       	ldd	r24, Y+12	; 0x0c
+     9c4:	89 83       	std	Y+1, r24	; 0x01
+     9c6:	9d 85       	ldd	r25, Y+13	; 0x0d
+     9c8:	9a 83       	std	Y+2, r25	; 0x02
+     9ca:	bb 82       	std	Y+3, r11	; 0x03
+			
+			
+		}
+		break;
+		case 1:
+		for (uint16_t j = 0; j <loop; j++)
+     9cc:	ef ef       	ldi	r30, 0xFF	; 255
+     9ce:	6e 1a       	sub	r6, r30
+     9d0:	7e 0a       	sbc	r7, r30
+     9d2:	2f a1       	ldd	r18, Y+39	; 0x27
+     9d4:	38 a5       	ldd	r19, Y+40	; 0x28
+     9d6:	62 16       	cp	r6, r18
+     9d8:	73 06       	cpc	r7, r19
+     9da:	09 f0       	breq	.+2      	; 0x9de <__stack+0xdf>
+     9dc:	93 cf       	rjmp	.-218    	; 0x904 <__stack+0x5>
+     9de:	51 c1       	rjmp	.+674    	; 0xc82 <__stack+0x383>
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+			{
+				
+				rgb[last_point] = cur_color;
+     9e0:	6a 01       	movw	r12, r20
+     9e2:	cc 0c       	add	r12, r12
+     9e4:	dd 1c       	adc	r13, r13
+     9e6:	c4 0e       	add	r12, r20
+     9e8:	d5 1e       	adc	r13, r21
+     9ea:	c0 0e       	add	r12, r16
+     9ec:	d1 1e       	adc	r13, r17
+				rgb[first_point] = cur_color;
+     9ee:	3b 01       	movw	r6, r22
+     9f0:	66 0c       	add	r6, r6
+     9f2:	77 1c       	adc	r7, r7
+     9f4:	66 0e       	add	r6, r22
+     9f6:	77 1e       	adc	r7, r23
+     9f8:	60 0e       	add	r6, r16
+     9fa:	71 1e       	adc	r7, r17
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,0);
+     9fc:	7f 01       	movw	r14, r30
+     9fe:	f6 94       	lsr	r15
+     a00:	e7 94       	ror	r14
+     a02:	e6 0e       	add	r14, r22
+     a04:	f7 1e       	adc	r15, r23
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,1);
+     a06:	c7 01       	movw	r24, r14
+     a08:	01 96       	adiw	r24, 0x01	; 1
+     a0a:	98 87       	std	Y+8, r25	; 0x08
+     a0c:	8f 83       	std	Y+7, r24	; 0x07
+     a0e:	1f 86       	std	Y+15, r1	; 0x0f
+     a10:	1e 86       	std	Y+14, r1	; 0x0e
+				out_to_lpd(rgb,_num+1);
+     a12:	9f 01       	movw	r18, r30
+     a14:	2f 5f       	subi	r18, 0xFF	; 255
+     a16:	3f 4f       	sbci	r19, 0xFF	; 255
+     a18:	3a 8b       	std	Y+18, r19	; 0x12
+     a1a:	29 8b       	std	Y+17, r18	; 0x11
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+     a1c:	b8 8a       	std	Y+16, r11	; 0x10
+     a1e:	9a 2c       	mov	r9, r10
+     a20:	59 01       	movw	r10, r18
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+			{
+				
+				rgb[last_point] = cur_color;
+     a22:	8c 81       	ldd	r24, Y+4	; 0x04
+     a24:	9d 81       	ldd	r25, Y+5	; 0x05
+     a26:	ae 81       	ldd	r26, Y+6	; 0x06
+     a28:	f6 01       	movw	r30, r12
+     a2a:	80 83       	st	Z, r24
+     a2c:	91 83       	std	Z+1, r25	; 0x01
+     a2e:	a2 83       	std	Z+2, r26	; 0x02
+				rgb[first_point] = cur_color;
+     a30:	f3 01       	movw	r30, r6
+     a32:	80 83       	st	Z, r24
+     a34:	91 83       	std	Z+1, r25	; 0x01
+     a36:	a2 83       	std	Z+2, r26	; 0x02
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,0);
+     a38:	20 e0       	ldi	r18, 0x00	; 0
+     a3a:	a7 01       	movw	r20, r14
+     a3c:	b2 01       	movw	r22, r4
+     a3e:	c8 01       	movw	r24, r16
+     a40:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,1);
+     a44:	21 e0       	ldi	r18, 0x01	; 1
+     a46:	a1 01       	movw	r20, r2
+     a48:	6f 81       	ldd	r22, Y+7	; 0x07
+     a4a:	78 85       	ldd	r23, Y+8	; 0x08
+     a4c:	c8 01       	movw	r24, r16
+     a4e:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     a52:	b5 01       	movw	r22, r10
+     a54:	c8 01       	movw	r24, r16
+     a56:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     a5a:	99 20       	and	r9, r9
+     a5c:	51 f0       	breq	.+20     	; 0xa72 <__stack+0x173>
+     a5e:	80 e0       	ldi	r24, 0x00	; 0
+     a60:	ef e9       	ldi	r30, 0x9F	; 159
+     a62:	ff e0       	ldi	r31, 0x0F	; 15
+     a64:	31 97       	sbiw	r30, 0x01	; 1
+     a66:	f1 f7       	brne	.-4      	; 0xa64 <__stack+0x165>
+     a68:	00 c0       	rjmp	.+0      	; 0xa6a <__stack+0x16b>
+     a6a:	00 00       	nop
+     a6c:	8f 5f       	subi	r24, 0xFF	; 255
+     a6e:	89 11       	cpse	r24, r9
+     a70:	f7 cf       	rjmp	.-18     	; 0xa60 <__stack+0x161>
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+     a72:	48 2d       	mov	r20, r8
+     a74:	be 01       	movw	r22, r28
+     a76:	6f 5f       	subi	r22, 0xFF	; 255
+     a78:	7f 4f       	sbci	r23, 0xFF	; 255
+     a7a:	ce 01       	movw	r24, r28
+     a7c:	04 96       	adiw	r24, 0x04	; 4
+     a7e:	0e 94 64 03 	call	0x6c8	; 0x6c8 <_Z12color_changeP10Color_packS0_h>
+		break;
+		case 2:
+		
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+     a82:	88 23       	and	r24, r24
+     a84:	71 f2       	breq	.-100    	; 0xa22 <__stack+0x123>
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,1);
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+			cur_color = cl2;
+     a86:	fc 85       	ldd	r31, Y+12	; 0x0c
+     a88:	fc 83       	std	Y+4, r31	; 0x04
+     a8a:	2d 85       	ldd	r18, Y+13	; 0x0d
+     a8c:	2d 83       	std	Y+5, r18	; 0x05
+     a8e:	38 89       	ldd	r19, Y+16	; 0x10
+     a90:	3e 83       	std	Y+6, r19	; 0x06
+			to_color =  cl1;
+     a92:	89 85       	ldd	r24, Y+9	; 0x09
+     a94:	89 83       	std	Y+1, r24	; 0x01
+     a96:	9a 85       	ldd	r25, Y+10	; 0x0a
+     a98:	9a 83       	std	Y+2, r25	; 0x02
+     a9a:	eb 85       	ldd	r30, Y+11	; 0x0b
+     a9c:	eb 83       	std	Y+3, r30	; 0x03
+			
+			do
+			{
+				rgb[last_point] = cur_color;
+     a9e:	8c 81       	ldd	r24, Y+4	; 0x04
+     aa0:	9d 81       	ldd	r25, Y+5	; 0x05
+     aa2:	ae 81       	ldd	r26, Y+6	; 0x06
+     aa4:	f6 01       	movw	r30, r12
+     aa6:	80 83       	st	Z, r24
+     aa8:	91 83       	std	Z+1, r25	; 0x01
+     aaa:	a2 83       	std	Z+2, r26	; 0x02
+				rgb[first_point] = cur_color;
+     aac:	f3 01       	movw	r30, r6
+     aae:	80 83       	st	Z, r24
+     ab0:	91 83       	std	Z+1, r25	; 0x01
+     ab2:	a2 83       	std	Z+2, r26	; 0x02
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,0);
+     ab4:	20 e0       	ldi	r18, 0x00	; 0
+     ab6:	a7 01       	movw	r20, r14
+     ab8:	b2 01       	movw	r22, r4
+     aba:	c8 01       	movw	r24, r16
+     abc:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,1);
+     ac0:	21 e0       	ldi	r18, 0x01	; 1
+     ac2:	a1 01       	movw	r20, r2
+     ac4:	6f 81       	ldd	r22, Y+7	; 0x07
+     ac6:	78 85       	ldd	r23, Y+8	; 0x08
+     ac8:	c8 01       	movw	r24, r16
+     aca:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     ace:	b5 01       	movw	r22, r10
+     ad0:	c8 01       	movw	r24, r16
+     ad2:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     ad6:	99 20       	and	r9, r9
+     ad8:	51 f0       	breq	.+20     	; 0xaee <__stack+0x1ef>
+     ada:	80 e0       	ldi	r24, 0x00	; 0
+     adc:	ef e9       	ldi	r30, 0x9F	; 159
+     ade:	ff e0       	ldi	r31, 0x0F	; 15
+     ae0:	31 97       	sbiw	r30, 0x01	; 1
+     ae2:	f1 f7       	brne	.-4      	; 0xae0 <__stack+0x1e1>
+     ae4:	00 c0       	rjmp	.+0      	; 0xae6 <__stack+0x1e7>
+     ae6:	00 00       	nop
+     ae8:	8f 5f       	subi	r24, 0xFF	; 255
+     aea:	89 11       	cpse	r24, r9
+     aec:	f7 cf       	rjmp	.-18     	; 0xadc <__stack+0x1dd>
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+     aee:	48 2d       	mov	r20, r8
+     af0:	be 01       	movw	r22, r28
+     af2:	6f 5f       	subi	r22, 0xFF	; 255
+     af4:	7f 4f       	sbci	r23, 0xFF	; 255
+     af6:	ce 01       	movw	r24, r28
+     af8:	04 96       	adiw	r24, 0x04	; 4
+     afa:	0e 94 64 03 	call	0x6c8	; 0x6c8 <_Z12color_changeP10Color_packS0_h>
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+			cur_color = cl2;
+			to_color =  cl1;
+			
+			do
+     afe:	88 23       	and	r24, r24
+     b00:	71 f2       	breq	.-100    	; 0xa9e <__stack+0x19f>
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+			
+			cur_color = cl1;
+     b02:	f9 85       	ldd	r31, Y+9	; 0x09
+     b04:	fc 83       	std	Y+4, r31	; 0x04
+     b06:	2a 85       	ldd	r18, Y+10	; 0x0a
+     b08:	2d 83       	std	Y+5, r18	; 0x05
+     b0a:	3b 85       	ldd	r19, Y+11	; 0x0b
+     b0c:	3e 83       	std	Y+6, r19	; 0x06
+			to_color =  cl2;
+     b0e:	8c 85       	ldd	r24, Y+12	; 0x0c
+     b10:	89 83       	std	Y+1, r24	; 0x01
+     b12:	9d 85       	ldd	r25, Y+13	; 0x0d
+     b14:	9a 83       	std	Y+2, r25	; 0x02
+     b16:	e8 89       	ldd	r30, Y+16	; 0x10
+     b18:	eb 83       	std	Y+3, r30	; 0x03
+			
+		}
+		break;
+		case 2:
+		
+		for (uint16_t j = 0; j <loop; j++)
+     b1a:	2e 85       	ldd	r18, Y+14	; 0x0e
+     b1c:	3f 85       	ldd	r19, Y+15	; 0x0f
+     b1e:	2f 5f       	subi	r18, 0xFF	; 255
+     b20:	3f 4f       	sbci	r19, 0xFF	; 255
+     b22:	3f 87       	std	Y+15, r19	; 0x0f
+     b24:	2e 87       	std	Y+14, r18	; 0x0e
+     b26:	8f a1       	ldd	r24, Y+39	; 0x27
+     b28:	98 a5       	ldd	r25, Y+40	; 0x28
+     b2a:	28 17       	cp	r18, r24
+     b2c:	39 07       	cpc	r19, r25
+     b2e:	09 f0       	breq	.+2      	; 0xb32 <__stack+0x233>
+     b30:	78 cf       	rjmp	.-272    	; 0xa22 <__stack+0x123>
+     b32:	a7 c0       	rjmp	.+334    	; 0xc82 <__stack+0x383>
+		default:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+			{
+				rgb[((last_point-first_point)/2)+first_point] = cur_color;
+     b34:	7f 01       	movw	r14, r30
+     b36:	f6 94       	lsr	r15
+     b38:	e7 94       	ror	r14
+     b3a:	e6 0e       	add	r14, r22
+     b3c:	f7 1e       	adc	r15, r23
+     b3e:	c7 01       	movw	r24, r14
+     b40:	88 0f       	add	r24, r24
+     b42:	99 1f       	adc	r25, r25
+     b44:	8e 0d       	add	r24, r14
+     b46:	9f 1d       	adc	r25, r15
+     b48:	68 01       	movw	r12, r16
+     b4a:	c8 0e       	add	r12, r24
+     b4c:	d9 1e       	adc	r13, r25
+				rgb[((last_point-first_point)/2)+first_point+1] = cur_color;
+     b4e:	97 01       	movw	r18, r14
+     b50:	2f 5f       	subi	r18, 0xFF	; 255
+     b52:	3f 4f       	sbci	r19, 0xFF	; 255
+     b54:	38 87       	std	Y+8, r19	; 0x08
+     b56:	2f 83       	std	Y+7, r18	; 0x07
+     b58:	03 96       	adiw	r24, 0x03	; 3
+     b5a:	38 01       	movw	r6, r16
+     b5c:	68 0e       	add	r6, r24
+     b5e:	79 1e       	adc	r7, r25
+     b60:	1f 86       	std	Y+15, r1	; 0x0f
+     b62:	1e 86       	std	Y+14, r1	; 0x0e
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,1);
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,0);
+				out_to_lpd(rgb,_num+1);
+     b64:	cf 01       	movw	r24, r30
+     b66:	01 96       	adiw	r24, 0x01	; 1
+     b68:	9a 8b       	std	Y+18, r25	; 0x12
+     b6a:	89 8b       	std	Y+17, r24	; 0x11
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+     b6c:	b8 8a       	std	Y+16, r11	; 0x10
+     b6e:	9a 2c       	mov	r9, r10
+     b70:	5c 01       	movw	r10, r24
+		default:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+			{
+				rgb[((last_point-first_point)/2)+first_point] = cur_color;
+     b72:	8c 81       	ldd	r24, Y+4	; 0x04
+     b74:	9d 81       	ldd	r25, Y+5	; 0x05
+     b76:	ae 81       	ldd	r26, Y+6	; 0x06
+     b78:	f6 01       	movw	r30, r12
+     b7a:	80 83       	st	Z, r24
+     b7c:	91 83       	std	Z+1, r25	; 0x01
+     b7e:	a2 83       	std	Z+2, r26	; 0x02
+				rgb[((last_point-first_point)/2)+first_point+1] = cur_color;
+     b80:	f3 01       	movw	r30, r6
+     b82:	80 83       	st	Z, r24
+     b84:	91 83       	std	Z+1, r25	; 0x01
+     b86:	a2 83       	std	Z+2, r26	; 0x02
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,1);
+     b88:	21 e0       	ldi	r18, 0x01	; 1
+     b8a:	a7 01       	movw	r20, r14
+     b8c:	b2 01       	movw	r22, r4
+     b8e:	c8 01       	movw	r24, r16
+     b90:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,0);
+     b94:	20 e0       	ldi	r18, 0x00	; 0
+     b96:	a1 01       	movw	r20, r2
+     b98:	6f 81       	ldd	r22, Y+7	; 0x07
+     b9a:	78 85       	ldd	r23, Y+8	; 0x08
+     b9c:	c8 01       	movw	r24, r16
+     b9e:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     ba2:	b5 01       	movw	r22, r10
+     ba4:	c8 01       	movw	r24, r16
+     ba6:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     baa:	99 20       	and	r9, r9
+     bac:	51 f0       	breq	.+20     	; 0xbc2 <__stack+0x2c3>
+     bae:	80 e0       	ldi	r24, 0x00	; 0
+     bb0:	ef e9       	ldi	r30, 0x9F	; 159
+     bb2:	ff e0       	ldi	r31, 0x0F	; 15
+     bb4:	31 97       	sbiw	r30, 0x01	; 1
+     bb6:	f1 f7       	brne	.-4      	; 0xbb4 <__stack+0x2b5>
+     bb8:	00 c0       	rjmp	.+0      	; 0xbba <__stack+0x2bb>
+     bba:	00 00       	nop
+     bbc:	8f 5f       	subi	r24, 0xFF	; 255
+     bbe:	89 11       	cpse	r24, r9
+     bc0:	f7 cf       	rjmp	.-18     	; 0xbb0 <__stack+0x2b1>
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+     bc2:	48 2d       	mov	r20, r8
+     bc4:	be 01       	movw	r22, r28
+     bc6:	6f 5f       	subi	r22, 0xFF	; 255
+     bc8:	7f 4f       	sbci	r23, 0xFF	; 255
+     bca:	ce 01       	movw	r24, r28
+     bcc:	04 96       	adiw	r24, 0x04	; 4
+     bce:	0e 94 64 03 	call	0x6c8	; 0x6c8 <_Z12color_changeP10Color_packS0_h>
+		break;
+		
+		default:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+     bd2:	88 23       	and	r24, r24
+     bd4:	71 f2       	breq	.-100    	; 0xb72 <__stack+0x273>
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+			
+			cur_color = cl2;
+     bd6:	fc 85       	ldd	r31, Y+12	; 0x0c
+     bd8:	fc 83       	std	Y+4, r31	; 0x04
+     bda:	2d 85       	ldd	r18, Y+13	; 0x0d
+     bdc:	2d 83       	std	Y+5, r18	; 0x05
+     bde:	38 89       	ldd	r19, Y+16	; 0x10
+     be0:	3e 83       	std	Y+6, r19	; 0x06
+			to_color =  cl1;
+     be2:	89 85       	ldd	r24, Y+9	; 0x09
+     be4:	89 83       	std	Y+1, r24	; 0x01
+     be6:	9a 85       	ldd	r25, Y+10	; 0x0a
+     be8:	9a 83       	std	Y+2, r25	; 0x02
+     bea:	eb 85       	ldd	r30, Y+11	; 0x0b
+     bec:	eb 83       	std	Y+3, r30	; 0x03
+			
+			do
+			{
+				rgb[((last_point-first_point)/2)+first_point] = cur_color;
+     bee:	8c 81       	ldd	r24, Y+4	; 0x04
+     bf0:	9d 81       	ldd	r25, Y+5	; 0x05
+     bf2:	ae 81       	ldd	r26, Y+6	; 0x06
+     bf4:	f6 01       	movw	r30, r12
+     bf6:	80 83       	st	Z, r24
+     bf8:	91 83       	std	Z+1, r25	; 0x01
+     bfa:	a2 83       	std	Z+2, r26	; 0x02
+				rgb[((last_point-first_point)/2)+first_point+1] = cur_color;
+     bfc:	f3 01       	movw	r30, r6
+     bfe:	80 83       	st	Z, r24
+     c00:	91 83       	std	Z+1, r25	; 0x01
+     c02:	a2 83       	std	Z+2, r26	; 0x02
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,1);
+     c04:	21 e0       	ldi	r18, 0x01	; 1
+     c06:	a7 01       	movw	r20, r14
+     c08:	b2 01       	movw	r22, r4
+     c0a:	c8 01       	movw	r24, r16
+     c0c:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,0);
+     c10:	20 e0       	ldi	r18, 0x00	; 0
+     c12:	a1 01       	movw	r20, r2
+     c14:	6f 81       	ldd	r22, Y+7	; 0x07
+     c16:	78 85       	ldd	r23, Y+8	; 0x08
+     c18:	c8 01       	movw	r24, r16
+     c1a:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     c1e:	b5 01       	movw	r22, r10
+     c20:	c8 01       	movw	r24, r16
+     c22:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     c26:	99 20       	and	r9, r9
+     c28:	51 f0       	breq	.+20     	; 0xc3e <__stack+0x33f>
+     c2a:	80 e0       	ldi	r24, 0x00	; 0
+     c2c:	ef e9       	ldi	r30, 0x9F	; 159
+     c2e:	ff e0       	ldi	r31, 0x0F	; 15
+     c30:	31 97       	sbiw	r30, 0x01	; 1
+     c32:	f1 f7       	brne	.-4      	; 0xc30 <__stack+0x331>
+     c34:	00 c0       	rjmp	.+0      	; 0xc36 <__stack+0x337>
+     c36:	00 00       	nop
+     c38:	8f 5f       	subi	r24, 0xFF	; 255
+     c3a:	89 11       	cpse	r24, r9
+     c3c:	f7 cf       	rjmp	.-18     	; 0xc2c <__stack+0x32d>
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+     c3e:	48 2d       	mov	r20, r8
+     c40:	be 01       	movw	r22, r28
+     c42:	6f 5f       	subi	r22, 0xFF	; 255
+     c44:	7f 4f       	sbci	r23, 0xFF	; 255
+     c46:	ce 01       	movw	r24, r28
+     c48:	04 96       	adiw	r24, 0x04	; 4
+     c4a:	0e 94 64 03 	call	0x6c8	; 0x6c8 <_Z12color_changeP10Color_packS0_h>
+			while (color_change(&cur_color,&to_color,div)==0);
+			
+			cur_color = cl2;
+			to_color =  cl1;
+			
+			do
+     c4e:	88 23       	and	r24, r24
+     c50:	71 f2       	breq	.-100    	; 0xbee <__stack+0x2ef>
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,0);
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+			cur_color = cl1;
+     c52:	f9 85       	ldd	r31, Y+9	; 0x09
+     c54:	fc 83       	std	Y+4, r31	; 0x04
+     c56:	2a 85       	ldd	r18, Y+10	; 0x0a
+     c58:	2d 83       	std	Y+5, r18	; 0x05
+     c5a:	3b 85       	ldd	r19, Y+11	; 0x0b
+     c5c:	3e 83       	std	Y+6, r19	; 0x06
+			to_color =  cl2;
+     c5e:	8c 85       	ldd	r24, Y+12	; 0x0c
+     c60:	89 83       	std	Y+1, r24	; 0x01
+     c62:	9d 85       	ldd	r25, Y+13	; 0x0d
+     c64:	9a 83       	std	Y+2, r25	; 0x02
+     c66:	e8 89       	ldd	r30, Y+16	; 0x10
+     c68:	eb 83       	std	Y+3, r30	; 0x03
+		}
+		
+		break;
+		
+		default:
+		for (uint16_t j = 0; j <loop; j++)
+     c6a:	2e 85       	ldd	r18, Y+14	; 0x0e
+     c6c:	3f 85       	ldd	r19, Y+15	; 0x0f
+     c6e:	2f 5f       	subi	r18, 0xFF	; 255
+     c70:	3f 4f       	sbci	r19, 0xFF	; 255
+     c72:	3f 87       	std	Y+15, r19	; 0x0f
+     c74:	2e 87       	std	Y+14, r18	; 0x0e
+     c76:	8f a1       	ldd	r24, Y+39	; 0x27
+     c78:	98 a5       	ldd	r25, Y+40	; 0x28
+     c7a:	28 17       	cp	r18, r24
+     c7c:	39 07       	cpc	r19, r25
+     c7e:	09 f0       	breq	.+2      	; 0xc82 <__stack+0x383>
+     c80:	78 cf       	rjmp	.-272    	; 0xb72 <__stack+0x273>
+			to_color =  cl2;
+			
+		}
+		break;
+	}
+}
+     c82:	62 96       	adiw	r28, 0x12	; 18
+     c84:	0f b6       	in	r0, 0x3f	; 63
+     c86:	f8 94       	cli
+     c88:	de bf       	out	0x3e, r29	; 62
+     c8a:	0f be       	out	0x3f, r0	; 63
+     c8c:	cd bf       	out	0x3d, r28	; 61
+     c8e:	df 91       	pop	r29
+     c90:	cf 91       	pop	r28
+     c92:	1f 91       	pop	r17
+     c94:	0f 91       	pop	r16
+     c96:	ff 90       	pop	r15
+     c98:	ef 90       	pop	r14
+     c9a:	df 90       	pop	r13
+     c9c:	cf 90       	pop	r12
+     c9e:	bf 90       	pop	r11
+     ca0:	af 90       	pop	r10
+     ca2:	9f 90       	pop	r9
+     ca4:	8f 90       	pop	r8
+     ca6:	7f 90       	pop	r7
+     ca8:	6f 90       	pop	r6
+     caa:	5f 90       	pop	r5
+     cac:	4f 90       	pop	r4
+     cae:	3f 90       	pop	r3
+     cb0:	2f 90       	pop	r2
+     cb2:	08 95       	ret
+
+00000cb4 <_Z16gen_color_linearP10Color_packjjhhjh>:
+}
+
+
+
+void gen_color_linear(Color_pack *rgb,uint16_t first_point,uint16_t last_point,uint8_t speed, uint8_t div,uint16_t loop,uint8_t style)
+{
+     cb4:	2f 92       	push	r2
+     cb6:	3f 92       	push	r3
+     cb8:	4f 92       	push	r4
+     cba:	5f 92       	push	r5
+     cbc:	6f 92       	push	r6
+     cbe:	7f 92       	push	r7
+     cc0:	8f 92       	push	r8
+     cc2:	9f 92       	push	r9
+     cc4:	af 92       	push	r10
+     cc6:	bf 92       	push	r11
+     cc8:	cf 92       	push	r12
+     cca:	df 92       	push	r13
+     ccc:	ef 92       	push	r14
+     cce:	ff 92       	push	r15
+     cd0:	0f 93       	push	r16
+     cd2:	1f 93       	push	r17
+     cd4:	cf 93       	push	r28
+     cd6:	df 93       	push	r29
+     cd8:	cd b7       	in	r28, 0x3d	; 61
+     cda:	de b7       	in	r29, 0x3e	; 62
+     cdc:	2c 97       	sbiw	r28, 0x0c	; 12
+     cde:	0f b6       	in	r0, 0x3f	; 63
+     ce0:	f8 94       	cli
+     ce2:	de bf       	out	0x3e, r29	; 62
+     ce4:	0f be       	out	0x3f, r0	; 63
+     ce6:	cd bf       	out	0x3d, r28	; 61
+     ce8:	5c 01       	movw	r10, r24
+     cea:	3b 01       	movw	r6, r22
+     cec:	2a 01       	movw	r4, r20
+     cee:	12 2f       	mov	r17, r18
+     cf0:	fc 86       	std	Y+12, r15	; 0x0c
+     cf2:	eb 86       	std	Y+11, r14	; 0x0b
+	uint16_t _num = last_point - first_point;
+     cf4:	7a 01       	movw	r14, r20
+     cf6:	e6 1a       	sub	r14, r22
+     cf8:	f7 0a       	sbc	r15, r23
+	Color_pack cur_color =base_convert(Mycolors(rand()%7+1));
+     cfa:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+     cfe:	67 e0       	ldi	r22, 0x07	; 7
+     d00:	70 e0       	ldi	r23, 0x00	; 0
+     d02:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+     d06:	8f 5f       	subi	r24, 0xFF	; 255
+     d08:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+     d0c:	6c 83       	std	Y+4, r22	; 0x04
+     d0e:	7d 83       	std	Y+5, r23	; 0x05
+     d10:	8e 83       	std	Y+6, r24	; 0x06
+	Color_pack to_color;
+	while (1)
+	{
+		 to_color= base_convert(Mycolors(rand()%7+1));
+     d12:	0f 2e       	mov	r0, r31
+     d14:	f7 e0       	ldi	r31, 0x07	; 7
+     d16:	8f 2e       	mov	r8, r31
+     d18:	91 2c       	mov	r9, r1
+     d1a:	f0 2d       	mov	r31, r0
+     d1c:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+     d20:	b4 01       	movw	r22, r8
+     d22:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+     d26:	8f 5f       	subi	r24, 0xFF	; 255
+     d28:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+     d2c:	69 83       	std	Y+1, r22	; 0x01
+     d2e:	7a 83       	std	Y+2, r23	; 0x02
+     d30:	8b 83       	std	Y+3, r24	; 0x03
+		 if ((to_color.Color.Blue!=cur_color.Color.Blue)||(to_color.Color.Green!=cur_color.Color.Green)||(to_color.Color.Red !=cur_color.Color.Red)) break;
+     d32:	9b 81       	ldd	r25, Y+3	; 0x03
+     d34:	8e 81       	ldd	r24, Y+6	; 0x06
+     d36:	98 13       	cpse	r25, r24
+     d38:	08 c0       	rjmp	.+16     	; 0xd4a <_Z16gen_color_linearP10Color_packjjhhjh+0x96>
+     d3a:	9a 81       	ldd	r25, Y+2	; 0x02
+     d3c:	8d 81       	ldd	r24, Y+5	; 0x05
+     d3e:	98 13       	cpse	r25, r24
+     d40:	04 c0       	rjmp	.+8      	; 0xd4a <_Z16gen_color_linearP10Color_packjjhhjh+0x96>
+     d42:	99 81       	ldd	r25, Y+1	; 0x01
+     d44:	8c 81       	ldd	r24, Y+4	; 0x04
+     d46:	98 17       	cp	r25, r24
+     d48:	49 f3       	breq	.-46     	; 0xd1c <_Z16gen_color_linearP10Color_packjjhhjh+0x68>
+	}
+	
+	switch (style)
+     d4a:	21 e0       	ldi	r18, 0x01	; 1
+     d4c:	c2 16       	cp	r12, r18
+     d4e:	59 f0       	breq	.+22     	; 0xd66 <_Z16gen_color_linearP10Color_packjjhhjh+0xb2>
+     d50:	c2 16       	cp	r12, r18
+     d52:	78 f0       	brcs	.+30     	; 0xd72 <_Z16gen_color_linearP10Color_packjjhhjh+0xbe>
+     d54:	32 e0       	ldi	r19, 0x02	; 2
+     d56:	c3 12       	cpse	r12, r19
+     d58:	11 c0       	rjmp	.+34     	; 0xd7c <_Z16gen_color_linearP10Color_packjjhhjh+0xc8>
+			to_color = base_convert(Mycolors(rand()%7+1));
+		}
+		break;
+		case 2:
+		
+		for (uint16_t j = 0; j <loop; j++)
+     d5a:	8b 85       	ldd	r24, Y+11	; 0x0b
+     d5c:	9c 85       	ldd	r25, Y+12	; 0x0c
+     d5e:	89 2b       	or	r24, r25
+     d60:	09 f0       	breq	.+2      	; 0xd64 <_Z16gen_color_linearP10Color_packjjhhjh+0xb0>
+     d62:	b5 c0       	rjmp	.+362    	; 0xece <_Z16gen_color_linearP10Color_packjjhhjh+0x21a>
+     d64:	8c c1       	rjmp	.+792    	; 0x107e <_Z16gen_color_linearP10Color_packjjhhjh+0x3ca>
+			to_color = base_convert(Mycolors(rand()%7+1));
+		}
+		break;
+		
+		case 1:
+		for (uint16_t j = 0; j <loop; j++)
+     d66:	eb 85       	ldd	r30, Y+11	; 0x0b
+     d68:	fc 85       	ldd	r31, Y+12	; 0x0c
+     d6a:	ef 2b       	or	r30, r31
+     d6c:	09 f0       	breq	.+2      	; 0xd70 <_Z16gen_color_linearP10Color_packjjhhjh+0xbc>
+     d6e:	5f c0       	rjmp	.+190    	; 0xe2e <_Z16gen_color_linearP10Color_packjjhhjh+0x17a>
+     d70:	86 c1       	rjmp	.+780    	; 0x107e <_Z16gen_color_linearP10Color_packjjhhjh+0x3ca>
+	}
+	
+	switch (style)
+	{
+		case 0:
+		for (uint16_t j = 0; j <loop; j++)
+     d72:	2b 85       	ldd	r18, Y+11	; 0x0b
+     d74:	3c 85       	ldd	r19, Y+12	; 0x0c
+     d76:	23 2b       	or	r18, r19
+     d78:	39 f4       	brne	.+14     	; 0xd88 <_Z16gen_color_linearP10Color_packjjhhjh+0xd4>
+     d7a:	81 c1       	rjmp	.+770    	; 0x107e <_Z16gen_color_linearP10Color_packjjhhjh+0x3ca>
+		}
+		
+		break;
+		
+		default:
+		for (uint16_t j = 0; j <loop; j++)
+     d7c:	8b 85       	ldd	r24, Y+11	; 0x0b
+     d7e:	9c 85       	ldd	r25, Y+12	; 0x0c
+     d80:	89 2b       	or	r24, r25
+     d82:	09 f0       	breq	.+2      	; 0xd86 <_Z16gen_color_linearP10Color_packjjhhjh+0xd2>
+     d84:	11 c1       	rjmp	.+546    	; 0xfa8 <_Z16gen_color_linearP10Color_packjjhhjh+0x2f4>
+     d86:	7b c1       	rjmp	.+758    	; 0x107e <_Z16gen_color_linearP10Color_packjjhhjh+0x3ca>
+		case 0:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+			{
+				rgb[first_point] = cur_color;
+     d88:	63 01       	movw	r12, r6
+     d8a:	cc 0c       	add	r12, r12
+     d8c:	dd 1c       	adc	r13, r13
+     d8e:	c6 0c       	add	r12, r6
+     d90:	d7 1c       	adc	r13, r7
+     d92:	ca 0c       	add	r12, r10
+     d94:	db 1c       	adc	r13, r11
+     d96:	81 2c       	mov	r8, r1
+     d98:	91 2c       	mov	r9, r1
+				rotatal(rgb,first_point,last_point,0);
+				out_to_lpd(rgb,_num+1);
+     d9a:	f7 01       	movw	r30, r14
+     d9c:	31 96       	adiw	r30, 0x01	; 1
+     d9e:	7f 01       	movw	r14, r30
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+			cur_color = to_color;
+			to_color = base_convert(Mycolors(rand()%7+1));
+     da0:	0f 2e       	mov	r0, r31
+     da2:	f7 e0       	ldi	r31, 0x07	; 7
+     da4:	2f 2e       	mov	r2, r31
+     da6:	31 2c       	mov	r3, r1
+     da8:	f0 2d       	mov	r31, r0
+		case 0:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+			{
+				rgb[first_point] = cur_color;
+     daa:	8c 81       	ldd	r24, Y+4	; 0x04
+     dac:	9d 81       	ldd	r25, Y+5	; 0x05
+     dae:	ae 81       	ldd	r26, Y+6	; 0x06
+     db0:	f6 01       	movw	r30, r12
+     db2:	80 83       	st	Z, r24
+     db4:	91 83       	std	Z+1, r25	; 0x01
+     db6:	a2 83       	std	Z+2, r26	; 0x02
+				rotatal(rgb,first_point,last_point,0);
+     db8:	20 e0       	ldi	r18, 0x00	; 0
+     dba:	a2 01       	movw	r20, r4
+     dbc:	b3 01       	movw	r22, r6
+     dbe:	c5 01       	movw	r24, r10
+     dc0:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     dc4:	b7 01       	movw	r22, r14
+     dc6:	c5 01       	movw	r24, r10
+     dc8:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     dcc:	11 23       	and	r17, r17
+     dce:	51 f0       	breq	.+20     	; 0xde4 <_Z16gen_color_linearP10Color_packjjhhjh+0x130>
+     dd0:	80 e0       	ldi	r24, 0x00	; 0
+     dd2:	ef e9       	ldi	r30, 0x9F	; 159
+     dd4:	ff e0       	ldi	r31, 0x0F	; 15
+     dd6:	31 97       	sbiw	r30, 0x01	; 1
+     dd8:	f1 f7       	brne	.-4      	; 0xdd6 <_Z16gen_color_linearP10Color_packjjhhjh+0x122>
+     dda:	00 c0       	rjmp	.+0      	; 0xddc <_Z16gen_color_linearP10Color_packjjhhjh+0x128>
+     ddc:	00 00       	nop
+     dde:	8f 5f       	subi	r24, 0xFF	; 255
+     de0:	81 13       	cpse	r24, r17
+     de2:	f7 cf       	rjmp	.-18     	; 0xdd2 <_Z16gen_color_linearP10Color_packjjhhjh+0x11e>
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+     de4:	40 2f       	mov	r20, r16
+     de6:	be 01       	movw	r22, r28
+     de8:	6f 5f       	subi	r22, 0xFF	; 255
+     dea:	7f 4f       	sbci	r23, 0xFF	; 255
+     dec:	ce 01       	movw	r24, r28
+     dee:	04 96       	adiw	r24, 0x04	; 4
+     df0:	0e 94 64 03 	call	0x6c8	; 0x6c8 <_Z12color_changeP10Color_packS0_h>
+	switch (style)
+	{
+		case 0:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+     df4:	88 23       	and	r24, r24
+     df6:	c9 f2       	breq	.-78     	; 0xdaa <_Z16gen_color_linearP10Color_packjjhhjh+0xf6>
+				rotatal(rgb,first_point,last_point,0);
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+			cur_color = to_color;
+     df8:	89 81       	ldd	r24, Y+1	; 0x01
+     dfa:	9a 81       	ldd	r25, Y+2	; 0x02
+     dfc:	ab 81       	ldd	r26, Y+3	; 0x03
+     dfe:	8c 83       	std	Y+4, r24	; 0x04
+     e00:	9d 83       	std	Y+5, r25	; 0x05
+     e02:	ae 83       	std	Y+6, r26	; 0x06
+			to_color = base_convert(Mycolors(rand()%7+1));
+     e04:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+     e08:	b1 01       	movw	r22, r2
+     e0a:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+     e0e:	8f 5f       	subi	r24, 0xFF	; 255
+     e10:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+     e14:	69 83       	std	Y+1, r22	; 0x01
+     e16:	7a 83       	std	Y+2, r23	; 0x02
+     e18:	8b 83       	std	Y+3, r24	; 0x03
+	}
+	
+	switch (style)
+	{
+		case 0:
+		for (uint16_t j = 0; j <loop; j++)
+     e1a:	ff ef       	ldi	r31, 0xFF	; 255
+     e1c:	8f 1a       	sub	r8, r31
+     e1e:	9f 0a       	sbc	r9, r31
+     e20:	2b 85       	ldd	r18, Y+11	; 0x0b
+     e22:	3c 85       	ldd	r19, Y+12	; 0x0c
+     e24:	82 16       	cp	r8, r18
+     e26:	93 06       	cpc	r9, r19
+     e28:	09 f0       	breq	.+2      	; 0xe2c <_Z16gen_color_linearP10Color_packjjhhjh+0x178>
+     e2a:	bf cf       	rjmp	.-130    	; 0xdaa <_Z16gen_color_linearP10Color_packjjhhjh+0xf6>
+     e2c:	28 c1       	rjmp	.+592    	; 0x107e <_Z16gen_color_linearP10Color_packjjhhjh+0x3ca>
+		case 1:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+			{
+				rgb[last_point] = cur_color;
+     e2e:	62 01       	movw	r12, r4
+     e30:	cc 0c       	add	r12, r12
+     e32:	dd 1c       	adc	r13, r13
+     e34:	c4 0c       	add	r12, r4
+     e36:	d5 1c       	adc	r13, r5
+     e38:	ca 0c       	add	r12, r10
+     e3a:	db 1c       	adc	r13, r11
+     e3c:	81 2c       	mov	r8, r1
+     e3e:	91 2c       	mov	r9, r1
+				rotatal(rgb,first_point,last_point,1);
+				out_to_lpd(rgb,_num+1);
+     e40:	c7 01       	movw	r24, r14
+     e42:	01 96       	adiw	r24, 0x01	; 1
+     e44:	7c 01       	movw	r14, r24
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     e46:	31 2c       	mov	r3, r1
+		case 1:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+			{
+				rgb[last_point] = cur_color;
+     e48:	8c 81       	ldd	r24, Y+4	; 0x04
+     e4a:	9d 81       	ldd	r25, Y+5	; 0x05
+     e4c:	ae 81       	ldd	r26, Y+6	; 0x06
+     e4e:	f6 01       	movw	r30, r12
+     e50:	80 83       	st	Z, r24
+     e52:	91 83       	std	Z+1, r25	; 0x01
+     e54:	a2 83       	std	Z+2, r26	; 0x02
+				rotatal(rgb,first_point,last_point,1);
+     e56:	21 e0       	ldi	r18, 0x01	; 1
+     e58:	a2 01       	movw	r20, r4
+     e5a:	b3 01       	movw	r22, r6
+     e5c:	c5 01       	movw	r24, r10
+     e5e:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     e62:	b7 01       	movw	r22, r14
+     e64:	c5 01       	movw	r24, r10
+     e66:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     e6a:	11 23       	and	r17, r17
+     e6c:	51 f0       	breq	.+20     	; 0xe82 <_Z16gen_color_linearP10Color_packjjhhjh+0x1ce>
+     e6e:	83 2d       	mov	r24, r3
+     e70:	ef e9       	ldi	r30, 0x9F	; 159
+     e72:	ff e0       	ldi	r31, 0x0F	; 15
+     e74:	31 97       	sbiw	r30, 0x01	; 1
+     e76:	f1 f7       	brne	.-4      	; 0xe74 <_Z16gen_color_linearP10Color_packjjhhjh+0x1c0>
+     e78:	00 c0       	rjmp	.+0      	; 0xe7a <_Z16gen_color_linearP10Color_packjjhhjh+0x1c6>
+     e7a:	00 00       	nop
+     e7c:	8f 5f       	subi	r24, 0xFF	; 255
+     e7e:	81 13       	cpse	r24, r17
+     e80:	f7 cf       	rjmp	.-18     	; 0xe70 <_Z16gen_color_linearP10Color_packjjhhjh+0x1bc>
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+     e82:	40 2f       	mov	r20, r16
+     e84:	be 01       	movw	r22, r28
+     e86:	6f 5f       	subi	r22, 0xFF	; 255
+     e88:	7f 4f       	sbci	r23, 0xFF	; 255
+     e8a:	ce 01       	movw	r24, r28
+     e8c:	04 96       	adiw	r24, 0x04	; 4
+     e8e:	0e 94 64 03 	call	0x6c8	; 0x6c8 <_Z12color_changeP10Color_packS0_h>
+		break;
+		
+		case 1:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+     e92:	88 23       	and	r24, r24
+     e94:	c9 f2       	breq	.-78     	; 0xe48 <_Z16gen_color_linearP10Color_packjjhhjh+0x194>
+				rotatal(rgb,first_point,last_point,1);
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+			cur_color = to_color;
+     e96:	89 81       	ldd	r24, Y+1	; 0x01
+     e98:	9a 81       	ldd	r25, Y+2	; 0x02
+     e9a:	ab 81       	ldd	r26, Y+3	; 0x03
+     e9c:	8c 83       	std	Y+4, r24	; 0x04
+     e9e:	9d 83       	std	Y+5, r25	; 0x05
+     ea0:	ae 83       	std	Y+6, r26	; 0x06
+			to_color = base_convert(Mycolors(rand()%7+1));
+     ea2:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+     ea6:	67 e0       	ldi	r22, 0x07	; 7
+     ea8:	70 e0       	ldi	r23, 0x00	; 0
+     eaa:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+     eae:	8f 5f       	subi	r24, 0xFF	; 255
+     eb0:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+     eb4:	69 83       	std	Y+1, r22	; 0x01
+     eb6:	7a 83       	std	Y+2, r23	; 0x02
+     eb8:	8b 83       	std	Y+3, r24	; 0x03
+			to_color = base_convert(Mycolors(rand()%7+1));
+		}
+		break;
+		
+		case 1:
+		for (uint16_t j = 0; j <loop; j++)
+     eba:	ff ef       	ldi	r31, 0xFF	; 255
+     ebc:	8f 1a       	sub	r8, r31
+     ebe:	9f 0a       	sbc	r9, r31
+     ec0:	2b 85       	ldd	r18, Y+11	; 0x0b
+     ec2:	3c 85       	ldd	r19, Y+12	; 0x0c
+     ec4:	82 16       	cp	r8, r18
+     ec6:	93 06       	cpc	r9, r19
+     ec8:	09 f0       	breq	.+2      	; 0xecc <_Z16gen_color_linearP10Color_packjjhhjh+0x218>
+     eca:	be cf       	rjmp	.-132    	; 0xe48 <_Z16gen_color_linearP10Color_packjjhhjh+0x194>
+     ecc:	d8 c0       	rjmp	.+432    	; 0x107e <_Z16gen_color_linearP10Color_packjjhhjh+0x3ca>
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+			{
+				
+				rgb[last_point] = cur_color;
+     ece:	62 01       	movw	r12, r4
+     ed0:	cc 0c       	add	r12, r12
+     ed2:	dd 1c       	adc	r13, r13
+     ed4:	c4 0c       	add	r12, r4
+     ed6:	d5 1c       	adc	r13, r5
+     ed8:	ca 0c       	add	r12, r10
+     eda:	db 1c       	adc	r13, r11
+				rgb[first_point] = cur_color;
+     edc:	43 01       	movw	r8, r6
+     ede:	88 0c       	add	r8, r8
+     ee0:	99 1c       	adc	r9, r9
+     ee2:	86 0c       	add	r8, r6
+     ee4:	97 1c       	adc	r9, r7
+     ee6:	8a 0c       	add	r8, r10
+     ee8:	9b 1c       	adc	r9, r11
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,0);
+     eea:	17 01       	movw	r2, r14
+     eec:	36 94       	lsr	r3
+     eee:	27 94       	ror	r2
+     ef0:	26 0c       	add	r2, r6
+     ef2:	37 1c       	adc	r3, r7
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,1);
+     ef4:	c1 01       	movw	r24, r2
+     ef6:	01 96       	adiw	r24, 0x01	; 1
+     ef8:	98 87       	std	Y+8, r25	; 0x08
+     efa:	8f 83       	std	Y+7, r24	; 0x07
+     efc:	1a 86       	std	Y+10, r1	; 0x0a
+     efe:	19 86       	std	Y+9, r1	; 0x09
+				out_to_lpd(rgb,_num+1);
+     f00:	f7 01       	movw	r30, r14
+     f02:	31 96       	adiw	r30, 0x01	; 1
+     f04:	7f 01       	movw	r14, r30
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+			{
+				
+				rgb[last_point] = cur_color;
+     f06:	8c 81       	ldd	r24, Y+4	; 0x04
+     f08:	9d 81       	ldd	r25, Y+5	; 0x05
+     f0a:	ae 81       	ldd	r26, Y+6	; 0x06
+     f0c:	f6 01       	movw	r30, r12
+     f0e:	80 83       	st	Z, r24
+     f10:	91 83       	std	Z+1, r25	; 0x01
+     f12:	a2 83       	std	Z+2, r26	; 0x02
+				rgb[first_point] = cur_color;
+     f14:	f4 01       	movw	r30, r8
+     f16:	80 83       	st	Z, r24
+     f18:	91 83       	std	Z+1, r25	; 0x01
+     f1a:	a2 83       	std	Z+2, r26	; 0x02
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,0);
+     f1c:	20 e0       	ldi	r18, 0x00	; 0
+     f1e:	a1 01       	movw	r20, r2
+     f20:	b3 01       	movw	r22, r6
+     f22:	c5 01       	movw	r24, r10
+     f24:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,1);
+     f28:	21 e0       	ldi	r18, 0x01	; 1
+     f2a:	a2 01       	movw	r20, r4
+     f2c:	6f 81       	ldd	r22, Y+7	; 0x07
+     f2e:	78 85       	ldd	r23, Y+8	; 0x08
+     f30:	c5 01       	movw	r24, r10
+     f32:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+     f36:	b7 01       	movw	r22, r14
+     f38:	c5 01       	movw	r24, r10
+     f3a:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+     f3e:	11 23       	and	r17, r17
+     f40:	51 f0       	breq	.+20     	; 0xf56 <_Z16gen_color_linearP10Color_packjjhhjh+0x2a2>
+     f42:	80 e0       	ldi	r24, 0x00	; 0
+     f44:	ef e9       	ldi	r30, 0x9F	; 159
+     f46:	ff e0       	ldi	r31, 0x0F	; 15
+     f48:	31 97       	sbiw	r30, 0x01	; 1
+     f4a:	f1 f7       	brne	.-4      	; 0xf48 <_Z16gen_color_linearP10Color_packjjhhjh+0x294>
+     f4c:	00 c0       	rjmp	.+0      	; 0xf4e <_Z16gen_color_linearP10Color_packjjhhjh+0x29a>
+     f4e:	00 00       	nop
+     f50:	8f 5f       	subi	r24, 0xFF	; 255
+     f52:	81 13       	cpse	r24, r17
+     f54:	f7 cf       	rjmp	.-18     	; 0xf44 <_Z16gen_color_linearP10Color_packjjhhjh+0x290>
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+     f56:	40 2f       	mov	r20, r16
+     f58:	be 01       	movw	r22, r28
+     f5a:	6f 5f       	subi	r22, 0xFF	; 255
+     f5c:	7f 4f       	sbci	r23, 0xFF	; 255
+     f5e:	ce 01       	movw	r24, r28
+     f60:	04 96       	adiw	r24, 0x04	; 4
+     f62:	0e 94 64 03 	call	0x6c8	; 0x6c8 <_Z12color_changeP10Color_packS0_h>
+		break;
+		case 2:
+		
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+     f66:	88 23       	and	r24, r24
+     f68:	71 f2       	breq	.-100    	; 0xf06 <_Z16gen_color_linearP10Color_packjjhhjh+0x252>
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,1);
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			while (color_change(&cur_color,&to_color,div)==0);
+			cur_color = to_color;
+     f6a:	89 81       	ldd	r24, Y+1	; 0x01
+     f6c:	9a 81       	ldd	r25, Y+2	; 0x02
+     f6e:	ab 81       	ldd	r26, Y+3	; 0x03
+     f70:	8c 83       	std	Y+4, r24	; 0x04
+     f72:	9d 83       	std	Y+5, r25	; 0x05
+     f74:	ae 83       	std	Y+6, r26	; 0x06
+			to_color = base_convert(Mycolors(rand()%7+1));
+     f76:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+     f7a:	67 e0       	ldi	r22, 0x07	; 7
+     f7c:	70 e0       	ldi	r23, 0x00	; 0
+     f7e:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+     f82:	8f 5f       	subi	r24, 0xFF	; 255
+     f84:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+     f88:	69 83       	std	Y+1, r22	; 0x01
+     f8a:	7a 83       	std	Y+2, r23	; 0x02
+     f8c:	8b 83       	std	Y+3, r24	; 0x03
+			to_color = base_convert(Mycolors(rand()%7+1));
+		}
+		break;
+		case 2:
+		
+		for (uint16_t j = 0; j <loop; j++)
+     f8e:	29 85       	ldd	r18, Y+9	; 0x09
+     f90:	3a 85       	ldd	r19, Y+10	; 0x0a
+     f92:	2f 5f       	subi	r18, 0xFF	; 255
+     f94:	3f 4f       	sbci	r19, 0xFF	; 255
+     f96:	3a 87       	std	Y+10, r19	; 0x0a
+     f98:	29 87       	std	Y+9, r18	; 0x09
+     f9a:	8b 85       	ldd	r24, Y+11	; 0x0b
+     f9c:	9c 85       	ldd	r25, Y+12	; 0x0c
+     f9e:	28 17       	cp	r18, r24
+     fa0:	39 07       	cpc	r19, r25
+     fa2:	09 f0       	breq	.+2      	; 0xfa6 <_Z16gen_color_linearP10Color_packjjhhjh+0x2f2>
+     fa4:	b0 cf       	rjmp	.-160    	; 0xf06 <_Z16gen_color_linearP10Color_packjjhhjh+0x252>
+     fa6:	6b c0       	rjmp	.+214    	; 0x107e <_Z16gen_color_linearP10Color_packjjhhjh+0x3ca>
+		default:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+			{
+				rgb[((last_point-first_point)/2)+first_point] = cur_color;
+     fa8:	17 01       	movw	r2, r14
+     faa:	36 94       	lsr	r3
+     fac:	27 94       	ror	r2
+     fae:	26 0c       	add	r2, r6
+     fb0:	37 1c       	adc	r3, r7
+     fb2:	c1 01       	movw	r24, r2
+     fb4:	88 0f       	add	r24, r24
+     fb6:	99 1f       	adc	r25, r25
+     fb8:	82 0d       	add	r24, r2
+     fba:	93 1d       	adc	r25, r3
+     fbc:	65 01       	movw	r12, r10
+     fbe:	c8 0e       	add	r12, r24
+     fc0:	d9 1e       	adc	r13, r25
+				rgb[((last_point-first_point)/2)+first_point+1] = cur_color;
+     fc2:	f1 01       	movw	r30, r2
+     fc4:	31 96       	adiw	r30, 0x01	; 1
+     fc6:	f8 87       	std	Y+8, r31	; 0x08
+     fc8:	ef 83       	std	Y+7, r30	; 0x07
+     fca:	03 96       	adiw	r24, 0x03	; 3
+     fcc:	45 01       	movw	r8, r10
+     fce:	88 0e       	add	r8, r24
+     fd0:	99 1e       	adc	r9, r25
+     fd2:	1a 86       	std	Y+10, r1	; 0x0a
+     fd4:	19 86       	std	Y+9, r1	; 0x09
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,1);
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,0);
+				out_to_lpd(rgb,_num+1);
+     fd6:	97 01       	movw	r18, r14
+     fd8:	2f 5f       	subi	r18, 0xFF	; 255
+     fda:	3f 4f       	sbci	r19, 0xFF	; 255
+     fdc:	79 01       	movw	r14, r18
+		default:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+			{
+				rgb[((last_point-first_point)/2)+first_point] = cur_color;
+     fde:	8c 81       	ldd	r24, Y+4	; 0x04
+     fe0:	9d 81       	ldd	r25, Y+5	; 0x05
+     fe2:	ae 81       	ldd	r26, Y+6	; 0x06
+     fe4:	f6 01       	movw	r30, r12
+     fe6:	80 83       	st	Z, r24
+     fe8:	91 83       	std	Z+1, r25	; 0x01
+     fea:	a2 83       	std	Z+2, r26	; 0x02
+				rgb[((last_point-first_point)/2)+first_point+1] = cur_color;
+     fec:	f4 01       	movw	r30, r8
+     fee:	80 83       	st	Z, r24
+     ff0:	91 83       	std	Z+1, r25	; 0x01
+     ff2:	a2 83       	std	Z+2, r26	; 0x02
+				rotatal(rgb,first_point,((last_point-first_point)/2)+first_point,1);
+     ff4:	21 e0       	ldi	r18, 0x01	; 1
+     ff6:	a1 01       	movw	r20, r2
+     ff8:	b3 01       	movw	r22, r6
+     ffa:	c5 01       	movw	r24, r10
+     ffc:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				rotatal(rgb,((last_point-first_point)/2)+first_point+1,last_point,0);
+    1000:	20 e0       	ldi	r18, 0x00	; 0
+    1002:	a2 01       	movw	r20, r4
+    1004:	6f 81       	ldd	r22, Y+7	; 0x07
+    1006:	78 85       	ldd	r23, Y+8	; 0x08
+    1008:	c5 01       	movw	r24, r10
+    100a:	0e 94 ce 00 	call	0x19c	; 0x19c <_Z7rotatalP10Color_packjjh>
+				out_to_lpd(rgb,_num+1);
+    100e:	b7 01       	movw	r22, r14
+    1010:	c5 01       	movw	r24, r10
+    1012:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+    1016:	11 23       	and	r17, r17
+    1018:	51 f0       	breq	.+20     	; 0x102e <_Z16gen_color_linearP10Color_packjjhhjh+0x37a>
+    101a:	80 e0       	ldi	r24, 0x00	; 0
+    101c:	ef e9       	ldi	r30, 0x9F	; 159
+    101e:	ff e0       	ldi	r31, 0x0F	; 15
+    1020:	31 97       	sbiw	r30, 0x01	; 1
+    1022:	f1 f7       	brne	.-4      	; 0x1020 <_Z16gen_color_linearP10Color_packjjhhjh+0x36c>
+    1024:	00 c0       	rjmp	.+0      	; 0x1026 <_Z16gen_color_linearP10Color_packjjhhjh+0x372>
+    1026:	00 00       	nop
+    1028:	8f 5f       	subi	r24, 0xFF	; 255
+    102a:	81 13       	cpse	r24, r17
+    102c:	f7 cf       	rjmp	.-18     	; 0x101c <_Z16gen_color_linearP10Color_packjjhhjh+0x368>
+			}
+			
+			while (color_change(&cur_color,&to_color,div)==0);
+    102e:	40 2f       	mov	r20, r16
+    1030:	be 01       	movw	r22, r28
+    1032:	6f 5f       	subi	r22, 0xFF	; 255
+    1034:	7f 4f       	sbci	r23, 0xFF	; 255
+    1036:	ce 01       	movw	r24, r28
+    1038:	04 96       	adiw	r24, 0x04	; 4
+    103a:	0e 94 64 03 	call	0x6c8	; 0x6c8 <_Z12color_changeP10Color_packS0_h>
+		break;
+		
+		default:
+		for (uint16_t j = 0; j <loop; j++)
+		{
+			do
+    103e:	88 23       	and	r24, r24
+    1040:	71 f2       	breq	.-100    	; 0xfde <_Z16gen_color_linearP10Color_packjjhhjh+0x32a>
+				out_to_lpd(rgb,_num+1);
+				for (uint8_t i = 0; i<speed;i++) _delay_ms(1);
+			}
+			
+			while (color_change(&cur_color,&to_color,div)==0);
+			cur_color = to_color;
+    1042:	89 81       	ldd	r24, Y+1	; 0x01
+    1044:	9a 81       	ldd	r25, Y+2	; 0x02
+    1046:	ab 81       	ldd	r26, Y+3	; 0x03
+    1048:	8c 83       	std	Y+4, r24	; 0x04
+    104a:	9d 83       	std	Y+5, r25	; 0x05
+    104c:	ae 83       	std	Y+6, r26	; 0x06
+			to_color = base_convert(Mycolors(rand()%7+1));
+    104e:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+    1052:	67 e0       	ldi	r22, 0x07	; 7
+    1054:	70 e0       	ldi	r23, 0x00	; 0
+    1056:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+    105a:	8f 5f       	subi	r24, 0xFF	; 255
+    105c:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+    1060:	69 83       	std	Y+1, r22	; 0x01
+    1062:	7a 83       	std	Y+2, r23	; 0x02
+    1064:	8b 83       	std	Y+3, r24	; 0x03
+		}
+		
+		break;
+		
+		default:
+		for (uint16_t j = 0; j <loop; j++)
+    1066:	29 85       	ldd	r18, Y+9	; 0x09
+    1068:	3a 85       	ldd	r19, Y+10	; 0x0a
+    106a:	2f 5f       	subi	r18, 0xFF	; 255
+    106c:	3f 4f       	sbci	r19, 0xFF	; 255
+    106e:	3a 87       	std	Y+10, r19	; 0x0a
+    1070:	29 87       	std	Y+9, r18	; 0x09
+    1072:	8b 85       	ldd	r24, Y+11	; 0x0b
+    1074:	9c 85       	ldd	r25, Y+12	; 0x0c
+    1076:	28 17       	cp	r18, r24
+    1078:	39 07       	cpc	r19, r25
+    107a:	09 f0       	breq	.+2      	; 0x107e <_Z16gen_color_linearP10Color_packjjhhjh+0x3ca>
+    107c:	b0 cf       	rjmp	.-160    	; 0xfde <_Z16gen_color_linearP10Color_packjjhhjh+0x32a>
+			cur_color = to_color;
+			to_color = base_convert(Mycolors(rand()%7+1));
+		}
+		break;
+	}
+}
+    107e:	2c 96       	adiw	r28, 0x0c	; 12
+    1080:	0f b6       	in	r0, 0x3f	; 63
+    1082:	f8 94       	cli
+    1084:	de bf       	out	0x3e, r29	; 62
+    1086:	0f be       	out	0x3f, r0	; 63
+    1088:	cd bf       	out	0x3d, r28	; 61
+    108a:	df 91       	pop	r29
+    108c:	cf 91       	pop	r28
+    108e:	1f 91       	pop	r17
+    1090:	0f 91       	pop	r16
+    1092:	ff 90       	pop	r15
+    1094:	ef 90       	pop	r14
+    1096:	df 90       	pop	r13
+    1098:	cf 90       	pop	r12
+    109a:	bf 90       	pop	r11
+    109c:	af 90       	pop	r10
+    109e:	9f 90       	pop	r9
+    10a0:	8f 90       	pop	r8
+    10a2:	7f 90       	pop	r7
+    10a4:	6f 90       	pop	r6
+    10a6:	5f 90       	pop	r5
+    10a8:	4f 90       	pop	r4
+    10aa:	3f 90       	pop	r3
+    10ac:	2f 90       	pop	r2
+    10ae:	08 95       	ret
+
+000010b0 <_Z16color_change_sysP10Color_packjjS_hhj>:
+	}
+	return 0;
+}
+
+void color_change_sys(Color_pack *rgb,uint16_t first_point,uint16_t last_point,Color_pack to_color,uint8_t speed,uint8_t ratio,uint16_t wait)
+{
+    10b0:	2f 92       	push	r2
+    10b2:	3f 92       	push	r3
+    10b4:	4f 92       	push	r4
+    10b6:	5f 92       	push	r5
+    10b8:	6f 92       	push	r6
+    10ba:	7f 92       	push	r7
+    10bc:	8f 92       	push	r8
+    10be:	9f 92       	push	r9
+    10c0:	af 92       	push	r10
+    10c2:	bf 92       	push	r11
+    10c4:	cf 92       	push	r12
+    10c6:	df 92       	push	r13
+    10c8:	ef 92       	push	r14
+    10ca:	ff 92       	push	r15
+    10cc:	0f 93       	push	r16
+    10ce:	1f 93       	push	r17
+    10d0:	cf 93       	push	r28
+    10d2:	df 93       	push	r29
+    10d4:	00 d0       	rcall	.+0      	; 0x10d6 <_Z16color_change_sysP10Color_packjjS_hhj+0x26>
+    10d6:	00 d0       	rcall	.+0      	; 0x10d8 <_Z16color_change_sysP10Color_packjjS_hhj+0x28>
+    10d8:	00 d0       	rcall	.+0      	; 0x10da <_Z16color_change_sysP10Color_packjjS_hhj+0x2a>
+    10da:	cd b7       	in	r28, 0x3d	; 61
+    10dc:	de b7       	in	r29, 0x3e	; 62
+    10de:	0c 83       	std	Y+4, r16	; 0x04
+    10e0:	1d 83       	std	Y+5, r17	; 0x05
+    10e2:	2e 83       	std	Y+6, r18	; 0x06
+	Color_pack _cur_color=rgb[first_point];
+    10e4:	fb 01       	movw	r30, r22
+    10e6:	ee 0f       	add	r30, r30
+    10e8:	ff 1f       	adc	r31, r31
+    10ea:	e6 0f       	add	r30, r22
+    10ec:	f7 1f       	adc	r31, r23
+    10ee:	e8 0f       	add	r30, r24
+    10f0:	f9 1f       	adc	r31, r25
+    10f2:	60 80       	ld	r6, Z
+    10f4:	71 80       	ldd	r7, Z+1	; 0x01
+    10f6:	82 80       	ldd	r8, Z+2	; 0x02
+    10f8:	69 82       	std	Y+1, r6	; 0x01
+    10fa:	7a 82       	std	Y+2, r7	; 0x02
+    10fc:	8b 82       	std	Y+3, r8	; 0x03
+	if ((_cur_color.Color.Blue==to_color.Color.Blue)&&(_cur_color.Color.Red==to_color.Color.Red)&&(_cur_color.Color.Green==to_color.Color.Green)) return;
+    10fe:	3b 81       	ldd	r19, Y+3	; 0x03
+    1100:	2e 81       	ldd	r18, Y+6	; 0x06
+    1102:	32 17       	cp	r19, r18
+    1104:	f1 f0       	breq	.+60     	; 0x1142 <_Z16color_change_sysP10Color_packjjS_hhj+0x92>
+	do
+	{
+		for (uint16_t i=0;i<(last_point-first_point)+1;i++) rgb[first_point+i]=_cur_color;
+    1106:	46 1b       	sub	r20, r22
+    1108:	57 0b       	sbc	r21, r23
+    110a:	2a 01       	movw	r4, r20
+    110c:	2f ef       	ldi	r18, 0xFF	; 255
+    110e:	42 1a       	sub	r4, r18
+    1110:	52 0a       	sbc	r5, r18
+    1112:	19 f0       	breq	.+6      	; 0x111a <_Z16color_change_sysP10Color_packjjS_hhj+0x6a>
+    1114:	d4 2c       	mov	r13, r4
+    1116:	f5 2c       	mov	r15, r5
+    1118:	02 c0       	rjmp	.+4      	; 0x111e <_Z16color_change_sysP10Color_packjjS_hhj+0x6e>
+    111a:	d1 2c       	mov	r13, r1
+    111c:	f1 2c       	mov	r15, r1
+    111e:	3c 01       	movw	r6, r24
+    1120:	6f 5f       	subi	r22, 0xFF	; 255
+    1122:	7f 4f       	sbci	r23, 0xFF	; 255
+    1124:	46 0f       	add	r20, r22
+    1126:	57 1f       	adc	r21, r23
+    1128:	4a 01       	movw	r8, r20
+    112a:	88 0c       	add	r8, r8
+    112c:	99 1c       	adc	r9, r9
+    112e:	84 0e       	add	r8, r20
+    1130:	95 1e       	adc	r9, r21
+    1132:	88 0e       	add	r8, r24
+    1134:	99 1e       	adc	r9, r25
+    1136:	2e 2e       	mov	r2, r30
+    1138:	3f 2e       	mov	r3, r31
+		out_to_lpd(rgb,(last_point-first_point)+1);
+		for (uint16_t i = 0;i<speed;i++) _delay_ms(1);
+    113a:	0e 2d       	mov	r16, r14
+    113c:	10 e0       	ldi	r17, 0x00	; 0
+    113e:	e1 2c       	mov	r14, r1
+    1140:	09 c0       	rjmp	.+18     	; 0x1154 <_Z16color_change_sysP10Color_packjjS_hhj+0xa4>
+}
+
+void color_change_sys(Color_pack *rgb,uint16_t first_point,uint16_t last_point,Color_pack to_color,uint8_t speed,uint8_t ratio,uint16_t wait)
+{
+	Color_pack _cur_color=rgb[first_point];
+	if ((_cur_color.Color.Blue==to_color.Color.Blue)&&(_cur_color.Color.Red==to_color.Color.Red)&&(_cur_color.Color.Green==to_color.Color.Green)) return;
+    1142:	39 81       	ldd	r19, Y+1	; 0x01
+    1144:	2c 81       	ldd	r18, Y+4	; 0x04
+    1146:	32 13       	cpse	r19, r18
+    1148:	de cf       	rjmp	.-68     	; 0x1106 <_Z16color_change_sysP10Color_packjjS_hhj+0x56>
+    114a:	3a 81       	ldd	r19, Y+2	; 0x02
+    114c:	2d 81       	ldd	r18, Y+5	; 0x05
+    114e:	32 13       	cpse	r19, r18
+    1150:	da cf       	rjmp	.-76     	; 0x1106 <_Z16color_change_sysP10Color_packjjS_hhj+0x56>
+    1152:	40 c0       	rjmp	.+128    	; 0x11d4 <_Z16color_change_sysP10Color_packjjS_hhj+0x124>
+	do
+	{
+		for (uint16_t i=0;i<(last_point-first_point)+1;i++) rgb[first_point+i]=_cur_color;
+    1154:	41 14       	cp	r4, r1
+    1156:	51 04       	cpc	r5, r1
+    1158:	59 f0       	breq	.+22     	; 0x1170 <_Z16color_change_sysP10Color_packjjS_hhj+0xc0>
+    115a:	e2 2d       	mov	r30, r2
+    115c:	f3 2d       	mov	r31, r3
+    115e:	89 81       	ldd	r24, Y+1	; 0x01
+    1160:	9a 81       	ldd	r25, Y+2	; 0x02
+    1162:	ab 81       	ldd	r26, Y+3	; 0x03
+    1164:	81 93       	st	Z+, r24
+    1166:	91 93       	st	Z+, r25
+    1168:	a1 93       	st	Z+, r26
+    116a:	e8 15       	cp	r30, r8
+    116c:	f9 05       	cpc	r31, r9
+    116e:	b9 f7       	brne	.-18     	; 0x115e <_Z16color_change_sysP10Color_packjjS_hhj+0xae>
+		out_to_lpd(rgb,(last_point-first_point)+1);
+    1170:	6d 2d       	mov	r22, r13
+    1172:	7f 2d       	mov	r23, r15
+    1174:	c3 01       	movw	r24, r6
+    1176:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+		for (uint16_t i = 0;i<speed;i++) _delay_ms(1);
+    117a:	01 15       	cp	r16, r1
+    117c:	11 05       	cpc	r17, r1
+    117e:	61 f0       	breq	.+24     	; 0x1198 <_Z16color_change_sysP10Color_packjjS_hhj+0xe8>
+    1180:	8e 2d       	mov	r24, r14
+    1182:	90 e0       	ldi	r25, 0x00	; 0
+    1184:	ef e9       	ldi	r30, 0x9F	; 159
+    1186:	ff e0       	ldi	r31, 0x0F	; 15
+    1188:	31 97       	sbiw	r30, 0x01	; 1
+    118a:	f1 f7       	brne	.-4      	; 0x1188 <_Z16color_change_sysP10Color_packjjS_hhj+0xd8>
+    118c:	00 c0       	rjmp	.+0      	; 0x118e <_Z16color_change_sysP10Color_packjjS_hhj+0xde>
+    118e:	00 00       	nop
+    1190:	01 96       	adiw	r24, 0x01	; 1
+    1192:	80 17       	cp	r24, r16
+    1194:	91 07       	cpc	r25, r17
+    1196:	b1 f7       	brne	.-20     	; 0x1184 <_Z16color_change_sysP10Color_packjjS_hhj+0xd4>
+	} while (color_change(&_cur_color,&to_color,ratio)==0);
+    1198:	4c 2d       	mov	r20, r12
+    119a:	be 01       	movw	r22, r28
+    119c:	6c 5f       	subi	r22, 0xFC	; 252
+    119e:	7f 4f       	sbci	r23, 0xFF	; 255
+    11a0:	ce 01       	movw	r24, r28
+    11a2:	01 96       	adiw	r24, 0x01	; 1
+    11a4:	0e 94 64 03 	call	0x6c8	; 0x6c8 <_Z12color_changeP10Color_packS0_h>
+
+void color_change_sys(Color_pack *rgb,uint16_t first_point,uint16_t last_point,Color_pack to_color,uint8_t speed,uint8_t ratio,uint16_t wait)
+{
+	Color_pack _cur_color=rgb[first_point];
+	if ((_cur_color.Color.Blue==to_color.Color.Blue)&&(_cur_color.Color.Red==to_color.Color.Red)&&(_cur_color.Color.Green==to_color.Color.Green)) return;
+	do
+    11a8:	88 23       	and	r24, r24
+    11aa:	a1 f2       	breq	.-88     	; 0x1154 <_Z16color_change_sysP10Color_packjjS_hhj+0xa4>
+	{
+		for (uint16_t i=0;i<(last_point-first_point)+1;i++) rgb[first_point+i]=_cur_color;
+		out_to_lpd(rgb,(last_point-first_point)+1);
+		for (uint16_t i = 0;i<speed;i++) _delay_ms(1);
+	} while (color_change(&_cur_color,&to_color,ratio)==0);
+	out_to_lpd(rgb,(last_point-first_point)+1);
+    11ac:	6d 2d       	mov	r22, r13
+    11ae:	7f 2d       	mov	r23, r15
+    11b0:	c3 01       	movw	r24, r6
+    11b2:	0e 94 5b 00 	call	0xb6	; 0xb6 <_Z10out_to_lpdP10Color_packj>
+	for (uint16_t i = 0;i<wait;i++)
+    11b6:	a1 14       	cp	r10, r1
+    11b8:	b1 04       	cpc	r11, r1
+    11ba:	61 f0       	breq	.+24     	; 0x11d4 <_Z16color_change_sysP10Color_packjjS_hhj+0x124>
+    11bc:	80 e0       	ldi	r24, 0x00	; 0
+    11be:	90 e0       	ldi	r25, 0x00	; 0
+    11c0:	ef e9       	ldi	r30, 0x9F	; 159
+    11c2:	ff e0       	ldi	r31, 0x0F	; 15
+    11c4:	31 97       	sbiw	r30, 0x01	; 1
+    11c6:	f1 f7       	brne	.-4      	; 0x11c4 <_Z16color_change_sysP10Color_packjjS_hhj+0x114>
+    11c8:	00 c0       	rjmp	.+0      	; 0x11ca <_Z16color_change_sysP10Color_packjjS_hhj+0x11a>
+    11ca:	00 00       	nop
+    11cc:	01 96       	adiw	r24, 0x01	; 1
+    11ce:	8a 15       	cp	r24, r10
+    11d0:	9b 05       	cpc	r25, r11
+    11d2:	b1 f7       	brne	.-20     	; 0x11c0 <_Z16color_change_sysP10Color_packjjS_hhj+0x110>
+	_delay_ms(1);
+	
+}
+    11d4:	26 96       	adiw	r28, 0x06	; 6
+    11d6:	0f b6       	in	r0, 0x3f	; 63
+    11d8:	f8 94       	cli
+    11da:	de bf       	out	0x3e, r29	; 62
+    11dc:	0f be       	out	0x3f, r0	; 63
+    11de:	cd bf       	out	0x3d, r28	; 61
+    11e0:	df 91       	pop	r29
+    11e2:	cf 91       	pop	r28
+    11e4:	1f 91       	pop	r17
+    11e6:	0f 91       	pop	r16
+    11e8:	ff 90       	pop	r15
+    11ea:	ef 90       	pop	r14
+    11ec:	df 90       	pop	r13
+    11ee:	cf 90       	pop	r12
+    11f0:	bf 90       	pop	r11
+    11f2:	af 90       	pop	r10
+    11f4:	9f 90       	pop	r9
+    11f6:	8f 90       	pop	r8
+    11f8:	7f 90       	pop	r7
+    11fa:	6f 90       	pop	r6
+    11fc:	5f 90       	pop	r5
+    11fe:	4f 90       	pop	r4
+    1200:	3f 90       	pop	r3
+    1202:	2f 90       	pop	r2
+    1204:	08 95       	ret
+
+00001206 <_Z8DMX_Initj>:
+ */ 
+
+#include "DMX_standard.h"
+void DMX_Init( unsigned int ubrr)
+{
+	DDRD |= 1<<PORTD7;
+    1206:	57 9a       	sbi	0x0a, 7	; 10
+	PORTD |= 1<<PORTD7;
+    1208:	5f 9a       	sbi	0x0b, 7	; 11
+	/* Set baud rate */
+	UBRR0H = (unsigned char)(ubrr>>8);
+    120a:	90 93 c5 00 	sts	0x00C5, r25
+	UBRR0L = (unsigned char)ubrr;
+    120e:	80 93 c4 00 	sts	0x00C4, r24
+	/* Enable transmitter */
+	UCSR0B = (1<<TXEN0);
+    1212:	88 e0       	ldi	r24, 0x08	; 8
+    1214:	80 93 c1 00 	sts	0x00C1, r24
+	//UCSRA = (1<<U2X);
+	/* Set frame format: 8data, 2stop bit */
+	UCSR0C =(1<<USBS0)|(3<<UCSZ00);
+    1218:	8e e0       	ldi	r24, 0x0E	; 14
+    121a:	80 93 c2 00 	sts	0x00C2, r24
+    121e:	08 95       	ret
+
+00001220 <_Z12DMX_transmith>:
+}
+
+void DMX_transmit(unsigned char val)
+{
+		UDR0 =val;
+    1220:	80 93 c6 00 	sts	0x00C6, r24
+		while ( !( UCSR0A & (1<<UDRE0)) );//* Wait for empty transmit buffer */
+    1224:	e0 ec       	ldi	r30, 0xC0	; 192
+    1226:	f0 e0       	ldi	r31, 0x00	; 0
+    1228:	80 81       	ld	r24, Z
+    122a:	85 ff       	sbrs	r24, 5
+    122c:	fd cf       	rjmp	.-6      	; 0x1228 <_Z12DMX_transmith+0x8>
+}
+    122e:	08 95       	ret
+
+00001230 <_Z22DMX_BREAK_MAB_Transmitv>:
+void DMX_BREAK_MAB_Transmit(void)
+{
+	//while ( !( UCSR0A & (1<<UDRE0)) );//* Wait for empty transmit buffer */
+	UCSR0B &=~(1<<TXEN0);	// TXEN disable
+    1230:	e1 ec       	ldi	r30, 0xC1	; 193
+    1232:	f0 e0       	ldi	r31, 0x00	; 0
+    1234:	80 81       	ld	r24, Z
+    1236:	87 7f       	andi	r24, 0xF7	; 247
+    1238:	80 83       	st	Z, r24
+	TXD_DDR |=1<<TXD_PIN; // TXD config output port
+    123a:	51 9a       	sbi	0x0a, 1	; 10
+	TXD_PORT &=~(1<<TXD_PIN);	// TXD pin pull low
+    123c:	59 98       	cbi	0x0b, 1	; 11
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+    123e:	8f ed       	ldi	r24, 0xDF	; 223
+    1240:	91 e0       	ldi	r25, 0x01	; 1
+    1242:	01 97       	sbiw	r24, 0x01	; 1
+    1244:	f1 f7       	brne	.-4      	; 0x1242 <_Z22DMX_BREAK_MAB_Transmitv+0x12>
+    1246:	00 c0       	rjmp	.+0      	; 0x1248 <_Z22DMX_BREAK_MAB_Transmitv+0x18>
+    1248:	00 00       	nop
+	_delay_us(120);				//170us
+	TXD_PORT |=(1<<TXD_PIN);	//TXD pin pull high
+    124a:	59 9a       	sbi	0x0b, 1	; 11
+    124c:	90 e4       	ldi	r25, 0x40	; 64
+    124e:	9a 95       	dec	r25
+    1250:	f1 f7       	brne	.-4      	; 0x124e <_Z22DMX_BREAK_MAB_Transmitv+0x1e>
+	_delay_us(12);				// 8us
+	UCSR0B |=(1<<TXEN0);	//TXEN enable
+    1252:	80 81       	ld	r24, Z
+    1254:	88 60       	ori	r24, 0x08	; 8
+    1256:	80 83       	st	Z, r24
+	UDR0 =0;
+    1258:	10 92 c6 00 	sts	0x00C6, r1
+	while ( !( UCSR0A & (1<<UDRE0)) );//* Wait for empty transmit buffer */
+    125c:	e0 ec       	ldi	r30, 0xC0	; 192
+    125e:	f0 e0       	ldi	r31, 0x00	; 0
+    1260:	80 81       	ld	r24, Z
+    1262:	85 ff       	sbrs	r24, 5
+    1264:	fd cf       	rjmp	.-6      	; 0x1260 <_Z22DMX_BREAK_MAB_Transmitv+0x30>
+}
+    1266:	08 95       	ret
+
+00001268 <main>:
+#include "DMX_effect.h"
+#include "DMX_standard.h"
+Color_pack RGB[max_led];
+int main(void)
+{
+	DMX_Init(MYUBRR);
+    1268:	83 e0       	ldi	r24, 0x03	; 3
+    126a:	90 e0       	ldi	r25, 0x00	; 0
+    126c:	0e 94 03 09 	call	0x1206	; 0x1206 <_Z8DMX_Initj>
+    /* Replace with your application code */
+	set_base_color(RGB,_BOT,_TOP,255,255,255);
+    1270:	ee 24       	eor	r14, r14
+    1272:	ea 94       	dec	r14
+    1274:	0f ef       	ldi	r16, 0xFF	; 255
+    1276:	2f ef       	ldi	r18, 0xFF	; 255
+    1278:	43 e6       	ldi	r20, 0x63	; 99
+    127a:	50 e0       	ldi	r21, 0x00	; 0
+    127c:	60 e0       	ldi	r22, 0x00	; 0
+    127e:	70 e0       	ldi	r23, 0x00	; 0
+    1280:	84 e0       	ldi	r24, 0x04	; 4
+    1282:	91 e0       	ldi	r25, 0x01	; 1
+    1284:	0e 94 89 00 	call	0x112	; 0x112 <_Z14set_base_colorP10Color_packjjhhh>
+		gen_color_linear(RGB,_BOT,_TOP,30,10,30,2);
+		gen_color_linear(RGB,_BOT,_TOP,30,10,30,0);
+		gen_color_linear(RGB,_BOT,_TOP,30,10,30,3);
+		
+	
+	gen_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),80,1,100,0);
+    1288:	0f 2e       	mov	r0, r31
+    128a:	f7 e0       	ldi	r31, 0x07	; 7
+    128c:	6f 2e       	mov	r6, r31
+    128e:	71 2c       	mov	r7, r1
+    1290:	f0 2d       	mov	r31, r0
+    1292:	d4 e6       	ldi	r29, 0x64	; 100
+	gen_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),80,1,100,1);
+	//
+	//gen_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),200,2,50,3);
+	//gen_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),200,2,50,2);
+	
+	gen_soft_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%6+1)),20,15,10,0);
+    1294:	0f 2e       	mov	r0, r31
+    1296:	f6 e0       	ldi	r31, 0x06	; 6
+    1298:	4f 2e       	mov	r4, r31
+    129a:	51 2c       	mov	r5, r1
+    129c:	f0 2d       	mov	r31, r0
+	gen_soft_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),20,15,10,3);
+	gen_soft_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),20,15,10,1);
+	gen_soft_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),20,15,10,2);
+    129e:	0f 2e       	mov	r0, r31
+    12a0:	f7 e0       	ldi	r31, 0x07	; 7
+    12a2:	9f 2e       	mov	r9, r31
+    12a4:	f0 2d       	mov	r31, r0
+	//	soft_paint(RGB,25,49,pack_convert(0,31,0),pack_convert(31,31,31));
+
+    while (1) 
+    {
+		
+		gen_color_linear(RGB,_BOT,_TOP,30,15,30,1);
+    12a6:	cc 24       	eor	r12, r12
+    12a8:	c3 94       	inc	r12
+    12aa:	0f 2e       	mov	r0, r31
+    12ac:	fe e1       	ldi	r31, 0x1E	; 30
+    12ae:	ef 2e       	mov	r14, r31
+    12b0:	f1 2c       	mov	r15, r1
+    12b2:	f0 2d       	mov	r31, r0
+    12b4:	0f e0       	ldi	r16, 0x0F	; 15
+    12b6:	2e e1       	ldi	r18, 0x1E	; 30
+    12b8:	43 e6       	ldi	r20, 0x63	; 99
+    12ba:	50 e0       	ldi	r21, 0x00	; 0
+    12bc:	60 e0       	ldi	r22, 0x00	; 0
+    12be:	70 e0       	ldi	r23, 0x00	; 0
+    12c0:	84 e0       	ldi	r24, 0x04	; 4
+    12c2:	91 e0       	ldi	r25, 0x01	; 1
+    12c4:	0e 94 5a 06 	call	0xcb4	; 0xcb4 <_Z16gen_color_linearP10Color_packjjhhjh>
+		gen_color_linear(RGB,_BOT,_TOP,30,10,30,2);
+    12c8:	68 94       	set
+    12ca:	cc 24       	eor	r12, r12
+    12cc:	c1 f8       	bld	r12, 1
+    12ce:	0a e0       	ldi	r16, 0x0A	; 10
+    12d0:	2e e1       	ldi	r18, 0x1E	; 30
+    12d2:	43 e6       	ldi	r20, 0x63	; 99
+    12d4:	50 e0       	ldi	r21, 0x00	; 0
+    12d6:	60 e0       	ldi	r22, 0x00	; 0
+    12d8:	70 e0       	ldi	r23, 0x00	; 0
+    12da:	84 e0       	ldi	r24, 0x04	; 4
+    12dc:	91 e0       	ldi	r25, 0x01	; 1
+    12de:	0e 94 5a 06 	call	0xcb4	; 0xcb4 <_Z16gen_color_linearP10Color_packjjhhjh>
+		gen_color_linear(RGB,_BOT,_TOP,30,10,30,0);
+    12e2:	c1 2c       	mov	r12, r1
+    12e4:	2e e1       	ldi	r18, 0x1E	; 30
+    12e6:	43 e6       	ldi	r20, 0x63	; 99
+    12e8:	50 e0       	ldi	r21, 0x00	; 0
+    12ea:	60 e0       	ldi	r22, 0x00	; 0
+    12ec:	70 e0       	ldi	r23, 0x00	; 0
+    12ee:	84 e0       	ldi	r24, 0x04	; 4
+    12f0:	91 e0       	ldi	r25, 0x01	; 1
+    12f2:	0e 94 5a 06 	call	0xcb4	; 0xcb4 <_Z16gen_color_linearP10Color_packjjhhjh>
+		gen_color_linear(RGB,_BOT,_TOP,30,10,30,3);
+    12f6:	0f 2e       	mov	r0, r31
+    12f8:	f3 e0       	ldi	r31, 0x03	; 3
+    12fa:	cf 2e       	mov	r12, r31
+    12fc:	f0 2d       	mov	r31, r0
+    12fe:	2e e1       	ldi	r18, 0x1E	; 30
+    1300:	43 e6       	ldi	r20, 0x63	; 99
+    1302:	50 e0       	ldi	r21, 0x00	; 0
+    1304:	60 e0       	ldi	r22, 0x00	; 0
+    1306:	70 e0       	ldi	r23, 0x00	; 0
+    1308:	84 e0       	ldi	r24, 0x04	; 4
+    130a:	91 e0       	ldi	r25, 0x01	; 1
+    130c:	0e 94 5a 06 	call	0xcb4	; 0xcb4 <_Z16gen_color_linearP10Color_packjjhhjh>
+		
+	
+	gen_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),80,1,100,0);
+    1310:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+    1314:	b3 01       	movw	r22, r6
+    1316:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+    131a:	8f 5f       	subi	r24, 0xFF	; 255
+    131c:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+    1320:	6b 01       	movw	r12, r22
+    1322:	e8 2e       	mov	r14, r24
+    1324:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+    1328:	b3 01       	movw	r22, r6
+    132a:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+    132e:	8f 5f       	subi	r24, 0xFF	; 255
+    1330:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+    1334:	8b 01       	movw	r16, r22
+    1336:	28 2f       	mov	r18, r24
+    1338:	1f 92       	push	r1
+    133a:	1f 92       	push	r1
+    133c:	df 93       	push	r29
+    133e:	88 24       	eor	r8, r8
+    1340:	83 94       	inc	r8
+    1342:	0f 2e       	mov	r0, r31
+    1344:	f0 e5       	ldi	r31, 0x50	; 80
+    1346:	af 2e       	mov	r10, r31
+    1348:	f0 2d       	mov	r31, r0
+    134a:	43 e6       	ldi	r20, 0x63	; 99
+    134c:	50 e0       	ldi	r21, 0x00	; 0
+    134e:	60 e0       	ldi	r22, 0x00	; 0
+    1350:	70 e0       	ldi	r23, 0x00	; 0
+    1352:	84 e0       	ldi	r24, 0x04	; 4
+    1354:	91 e0       	ldi	r25, 0x01	; 1
+    1356:	0e 94 2f 01 	call	0x25e	; 0x25e <_Z13gen_two_colorP10Color_packjjS_S_hhjh>
+	gen_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),80,1,100,1);
+    135a:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+    135e:	b3 01       	movw	r22, r6
+    1360:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+    1364:	8f 5f       	subi	r24, 0xFF	; 255
+    1366:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+    136a:	6b 01       	movw	r12, r22
+    136c:	e8 2e       	mov	r14, r24
+    136e:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+    1372:	b3 01       	movw	r22, r6
+    1374:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+    1378:	8f 5f       	subi	r24, 0xFF	; 255
+    137a:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+    137e:	ff 24       	eor	r15, r15
+    1380:	f3 94       	inc	r15
+    1382:	ff 92       	push	r15
+    1384:	1f 92       	push	r1
+    1386:	df 93       	push	r29
+    1388:	8b 01       	movw	r16, r22
+    138a:	28 2f       	mov	r18, r24
+    138c:	43 e6       	ldi	r20, 0x63	; 99
+    138e:	50 e0       	ldi	r21, 0x00	; 0
+    1390:	60 e0       	ldi	r22, 0x00	; 0
+    1392:	70 e0       	ldi	r23, 0x00	; 0
+    1394:	84 e0       	ldi	r24, 0x04	; 4
+    1396:	91 e0       	ldi	r25, 0x01	; 1
+    1398:	0e 94 2f 01 	call	0x25e	; 0x25e <_Z13gen_two_colorP10Color_packjjS_S_hhjh>
+	//
+	//gen_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),200,2,50,3);
+	//gen_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),200,2,50,2);
+	
+	gen_soft_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%6+1)),20,15,10,0);
+    139c:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+    13a0:	b2 01       	movw	r22, r4
+    13a2:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+    13a6:	8f 5f       	subi	r24, 0xFF	; 255
+    13a8:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+    13ac:	6b 01       	movw	r12, r22
+    13ae:	e8 2e       	mov	r14, r24
+    13b0:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+    13b4:	b3 01       	movw	r22, r6
+    13b6:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+    13ba:	8f 5f       	subi	r24, 0xFF	; 255
+    13bc:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+    13c0:	1f 92       	push	r1
+    13c2:	1f 92       	push	r1
+    13c4:	ca e0       	ldi	r28, 0x0A	; 10
+    13c6:	cf 93       	push	r28
+    13c8:	0f 2e       	mov	r0, r31
+    13ca:	ff e0       	ldi	r31, 0x0F	; 15
+    13cc:	8f 2e       	mov	r8, r31
+    13ce:	f0 2d       	mov	r31, r0
+    13d0:	0f 2e       	mov	r0, r31
+    13d2:	f4 e1       	ldi	r31, 0x14	; 20
+    13d4:	af 2e       	mov	r10, r31
+    13d6:	f0 2d       	mov	r31, r0
+    13d8:	8b 01       	movw	r16, r22
+    13da:	28 2f       	mov	r18, r24
+    13dc:	43 e6       	ldi	r20, 0x63	; 99
+    13de:	50 e0       	ldi	r21, 0x00	; 0
+    13e0:	60 e0       	ldi	r22, 0x00	; 0
+    13e2:	70 e0       	ldi	r23, 0x00	; 0
+    13e4:	84 e0       	ldi	r24, 0x04	; 4
+    13e6:	91 e0       	ldi	r25, 0x01	; 1
+    13e8:	0e 94 a7 03 	call	0x74e	; 0x74e <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh>
+	gen_soft_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),20,15,10,3);
+    13ec:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+    13f0:	b3 01       	movw	r22, r6
+    13f2:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+    13f6:	8f 5f       	subi	r24, 0xFF	; 255
+    13f8:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+    13fc:	6b 01       	movw	r12, r22
+    13fe:	e8 2e       	mov	r14, r24
+    1400:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+    1404:	b3 01       	movw	r22, r6
+    1406:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+    140a:	8f 5f       	subi	r24, 0xFF	; 255
+    140c:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+    1410:	93 e0       	ldi	r25, 0x03	; 3
+    1412:	9f 93       	push	r25
+    1414:	1f 92       	push	r1
+    1416:	cf 93       	push	r28
+    1418:	8b 01       	movw	r16, r22
+    141a:	28 2f       	mov	r18, r24
+    141c:	43 e6       	ldi	r20, 0x63	; 99
+    141e:	50 e0       	ldi	r21, 0x00	; 0
+    1420:	60 e0       	ldi	r22, 0x00	; 0
+    1422:	70 e0       	ldi	r23, 0x00	; 0
+    1424:	84 e0       	ldi	r24, 0x04	; 4
+    1426:	91 e0       	ldi	r25, 0x01	; 1
+    1428:	0e 94 a7 03 	call	0x74e	; 0x74e <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh>
+	gen_soft_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),20,15,10,1);
+    142c:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+    1430:	b3 01       	movw	r22, r6
+    1432:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+    1436:	8f 5f       	subi	r24, 0xFF	; 255
+    1438:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+    143c:	6b 01       	movw	r12, r22
+    143e:	e8 2e       	mov	r14, r24
+    1440:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+    1444:	b3 01       	movw	r22, r6
+    1446:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+    144a:	8f 5f       	subi	r24, 0xFF	; 255
+    144c:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+    1450:	ff 92       	push	r15
+    1452:	1f 92       	push	r1
+    1454:	cf 93       	push	r28
+    1456:	8b 01       	movw	r16, r22
+    1458:	28 2f       	mov	r18, r24
+    145a:	43 e6       	ldi	r20, 0x63	; 99
+    145c:	50 e0       	ldi	r21, 0x00	; 0
+    145e:	60 e0       	ldi	r22, 0x00	; 0
+    1460:	70 e0       	ldi	r23, 0x00	; 0
+    1462:	84 e0       	ldi	r24, 0x04	; 4
+    1464:	91 e0       	ldi	r25, 0x01	; 1
+    1466:	0e 94 a7 03 	call	0x74e	; 0x74e <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh>
+	gen_soft_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),20,15,10,2);
+    146a:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+    146e:	b3 01       	movw	r22, r6
+    1470:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+    1474:	8f 5f       	subi	r24, 0xFF	; 255
+    1476:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+    147a:	6b 01       	movw	r12, r22
+    147c:	e8 2e       	mov	r14, r24
+    147e:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+    1482:	b3 01       	movw	r22, r6
+    1484:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+    1488:	8f 5f       	subi	r24, 0xFF	; 255
+    148a:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+    148e:	92 e0       	ldi	r25, 0x02	; 2
+    1490:	9f 93       	push	r25
+    1492:	1f 92       	push	r1
+    1494:	cf 93       	push	r28
+    1496:	8b 01       	movw	r16, r22
+    1498:	28 2f       	mov	r18, r24
+    149a:	43 e6       	ldi	r20, 0x63	; 99
+    149c:	50 e0       	ldi	r21, 0x00	; 0
+    149e:	60 e0       	ldi	r22, 0x00	; 0
+    14a0:	70 e0       	ldi	r23, 0x00	; 0
+    14a2:	84 e0       	ldi	r24, 0x04	; 4
+    14a4:	91 e0       	ldi	r25, 0x01	; 1
+    14a6:	0e 94 a7 03 	call	0x74e	; 0x74e <_Z18gen_soft_two_colorP10Color_packjjS_S_hhjh>
+    14aa:	8d b7       	in	r24, 0x3d	; 61
+    14ac:	9e b7       	in	r25, 0x3e	; 62
+    14ae:	42 96       	adiw	r24, 0x12	; 18
+    14b0:	0f b6       	in	r0, 0x3f	; 63
+    14b2:	f8 94       	cli
+    14b4:	9e bf       	out	0x3e, r25	; 62
+    14b6:	0f be       	out	0x3f, r0	; 63
+    14b8:	8d bf       	out	0x3d, r24	; 61
+    14ba:	c9 2d       	mov	r28, r9
+	
+	for (uint8_t i = 0; i < 7; i++)
+	{
+		color_change_sys(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),3,1,2000);
+    14bc:	0e 94 f9 0a 	call	0x15f2	; 0x15f2 <rand>
+    14c0:	b3 01       	movw	r22, r6
+    14c2:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <__divmodhi4>
+    14c6:	8f 5f       	subi	r24, 0xFF	; 255
+    14c8:	0e 94 a5 00 	call	0x14a	; 0x14a <_Z12base_convert6colors>
+    14cc:	0f 2e       	mov	r0, r31
+    14ce:	f0 ed       	ldi	r31, 0xD0	; 208
+    14d0:	af 2e       	mov	r10, r31
+    14d2:	f7 e0       	ldi	r31, 0x07	; 7
+    14d4:	bf 2e       	mov	r11, r31
+    14d6:	f0 2d       	mov	r31, r0
+    14d8:	cc 24       	eor	r12, r12
+    14da:	c3 94       	inc	r12
+    14dc:	0f 2e       	mov	r0, r31
+    14de:	f3 e0       	ldi	r31, 0x03	; 3
+    14e0:	ef 2e       	mov	r14, r31
+    14e2:	f0 2d       	mov	r31, r0
+    14e4:	8b 01       	movw	r16, r22
+    14e6:	28 2f       	mov	r18, r24
+    14e8:	43 e6       	ldi	r20, 0x63	; 99
+    14ea:	50 e0       	ldi	r21, 0x00	; 0
+    14ec:	60 e0       	ldi	r22, 0x00	; 0
+    14ee:	70 e0       	ldi	r23, 0x00	; 0
+    14f0:	84 e0       	ldi	r24, 0x04	; 4
+    14f2:	91 e0       	ldi	r25, 0x01	; 1
+    14f4:	0e 94 58 08 	call	0x10b0	; 0x10b0 <_Z16color_change_sysP10Color_packjjS_hhj>
+    14f8:	c1 50       	subi	r28, 0x01	; 1
+	gen_soft_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%6+1)),20,15,10,0);
+	gen_soft_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),20,15,10,3);
+	gen_soft_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),20,15,10,1);
+	gen_soft_two_color(RGB,_BOT,_TOP,base_convert((Mycolors)(rand()%7+1)),base_convert((Mycolors)(rand()%7+1)),20,15,10,2);
+	
+	for (uint8_t i = 0; i < 7; i++)
+    14fa:	01 f7       	brne	.-64     	; 0x14bc <main+0x254>
+    14fc:	d4 ce       	rjmp	.-600    	; 0x12a6 <main+0x3e>
+
+000014fe <__divmodhi4>:
+    14fe:	97 fb       	bst	r25, 7
+    1500:	07 2e       	mov	r0, r23
+    1502:	16 f4       	brtc	.+4      	; 0x1508 <__divmodhi4+0xa>
+    1504:	00 94       	com	r0
+    1506:	07 d0       	rcall	.+14     	; 0x1516 <__divmodhi4_neg1>
+    1508:	77 fd       	sbrc	r23, 7
+    150a:	09 d0       	rcall	.+18     	; 0x151e <__divmodhi4_neg2>
+    150c:	0e 94 99 0a 	call	0x1532	; 0x1532 <__udivmodhi4>
+    1510:	07 fc       	sbrc	r0, 7
+    1512:	05 d0       	rcall	.+10     	; 0x151e <__divmodhi4_neg2>
+    1514:	3e f4       	brtc	.+14     	; 0x1524 <__divmodhi4_exit>
+
+00001516 <__divmodhi4_neg1>:
+    1516:	90 95       	com	r25
+    1518:	81 95       	neg	r24
+    151a:	9f 4f       	sbci	r25, 0xFF	; 255
+    151c:	08 95       	ret
+
+0000151e <__divmodhi4_neg2>:
+    151e:	70 95       	com	r23
+    1520:	61 95       	neg	r22
+    1522:	7f 4f       	sbci	r23, 0xFF	; 255
+
+00001524 <__divmodhi4_exit>:
+    1524:	08 95       	ret
+
+00001526 <__tablejump2__>:
+    1526:	ee 0f       	add	r30, r30
+    1528:	ff 1f       	adc	r31, r31
+    152a:	05 90       	lpm	r0, Z+
+    152c:	f4 91       	lpm	r31, Z
+    152e:	e0 2d       	mov	r30, r0
+    1530:	09 94       	ijmp
+
+00001532 <__udivmodhi4>:
+    1532:	aa 1b       	sub	r26, r26
+    1534:	bb 1b       	sub	r27, r27
+    1536:	51 e1       	ldi	r21, 0x11	; 17
+    1538:	07 c0       	rjmp	.+14     	; 0x1548 <__udivmodhi4_ep>
+
+0000153a <__udivmodhi4_loop>:
+    153a:	aa 1f       	adc	r26, r26
+    153c:	bb 1f       	adc	r27, r27
+    153e:	a6 17       	cp	r26, r22
+    1540:	b7 07       	cpc	r27, r23
+    1542:	10 f0       	brcs	.+4      	; 0x1548 <__udivmodhi4_ep>
+    1544:	a6 1b       	sub	r26, r22
+    1546:	b7 0b       	sbc	r27, r23
+
+00001548 <__udivmodhi4_ep>:
+    1548:	88 1f       	adc	r24, r24
+    154a:	99 1f       	adc	r25, r25
+    154c:	5a 95       	dec	r21
+    154e:	a9 f7       	brne	.-22     	; 0x153a <__udivmodhi4_loop>
+    1550:	80 95       	com	r24
+    1552:	90 95       	com	r25
+    1554:	bc 01       	movw	r22, r24
+    1556:	cd 01       	movw	r24, r26
+    1558:	08 95       	ret
+
+0000155a <do_rand>:
+    155a:	8f 92       	push	r8
+    155c:	9f 92       	push	r9
+    155e:	af 92       	push	r10
+    1560:	bf 92       	push	r11
+    1562:	cf 92       	push	r12
+    1564:	df 92       	push	r13
+    1566:	ef 92       	push	r14
+    1568:	ff 92       	push	r15
+    156a:	cf 93       	push	r28
+    156c:	df 93       	push	r29
+    156e:	ec 01       	movw	r28, r24
+    1570:	68 81       	ld	r22, Y
+    1572:	79 81       	ldd	r23, Y+1	; 0x01
+    1574:	8a 81       	ldd	r24, Y+2	; 0x02
+    1576:	9b 81       	ldd	r25, Y+3	; 0x03
+    1578:	61 15       	cp	r22, r1
+    157a:	71 05       	cpc	r23, r1
+    157c:	81 05       	cpc	r24, r1
+    157e:	91 05       	cpc	r25, r1
+    1580:	21 f4       	brne	.+8      	; 0x158a <do_rand+0x30>
+    1582:	64 e2       	ldi	r22, 0x24	; 36
+    1584:	79 ed       	ldi	r23, 0xD9	; 217
+    1586:	8b e5       	ldi	r24, 0x5B	; 91
+    1588:	97 e0       	ldi	r25, 0x07	; 7
+    158a:	2d e1       	ldi	r18, 0x1D	; 29
+    158c:	33 ef       	ldi	r19, 0xF3	; 243
+    158e:	41 e0       	ldi	r20, 0x01	; 1
+    1590:	50 e0       	ldi	r21, 0x00	; 0
+    1592:	0e 94 09 0b 	call	0x1612	; 0x1612 <__divmodsi4>
+    1596:	49 01       	movw	r8, r18
+    1598:	5a 01       	movw	r10, r20
+    159a:	9b 01       	movw	r18, r22
+    159c:	ac 01       	movw	r20, r24
+    159e:	a7 ea       	ldi	r26, 0xA7	; 167
+    15a0:	b1 e4       	ldi	r27, 0x41	; 65
+    15a2:	0e 94 28 0b 	call	0x1650	; 0x1650 <__muluhisi3>
+    15a6:	6b 01       	movw	r12, r22
+    15a8:	7c 01       	movw	r14, r24
+    15aa:	ac ee       	ldi	r26, 0xEC	; 236
+    15ac:	b4 ef       	ldi	r27, 0xF4	; 244
+    15ae:	a5 01       	movw	r20, r10
+    15b0:	94 01       	movw	r18, r8
+    15b2:	0e 94 36 0b 	call	0x166c	; 0x166c <__mulohisi3>
+    15b6:	dc 01       	movw	r26, r24
+    15b8:	cb 01       	movw	r24, r22
+    15ba:	8c 0d       	add	r24, r12
+    15bc:	9d 1d       	adc	r25, r13
+    15be:	ae 1d       	adc	r26, r14
+    15c0:	bf 1d       	adc	r27, r15
+    15c2:	b7 ff       	sbrs	r27, 7
+    15c4:	03 c0       	rjmp	.+6      	; 0x15cc <do_rand+0x72>
+    15c6:	01 97       	sbiw	r24, 0x01	; 1
+    15c8:	a1 09       	sbc	r26, r1
+    15ca:	b0 48       	sbci	r27, 0x80	; 128
+    15cc:	88 83       	st	Y, r24
+    15ce:	99 83       	std	Y+1, r25	; 0x01
+    15d0:	aa 83       	std	Y+2, r26	; 0x02
+    15d2:	bb 83       	std	Y+3, r27	; 0x03
+    15d4:	9f 77       	andi	r25, 0x7F	; 127
+    15d6:	df 91       	pop	r29
+    15d8:	cf 91       	pop	r28
+    15da:	ff 90       	pop	r15
+    15dc:	ef 90       	pop	r14
+    15de:	df 90       	pop	r13
+    15e0:	cf 90       	pop	r12
+    15e2:	bf 90       	pop	r11
+    15e4:	af 90       	pop	r10
+    15e6:	9f 90       	pop	r9
+    15e8:	8f 90       	pop	r8
+    15ea:	08 95       	ret
+
+000015ec <rand_r>:
+    15ec:	0e 94 ad 0a 	call	0x155a	; 0x155a <do_rand>
+    15f0:	08 95       	ret
+
+000015f2 <rand>:
+    15f2:	80 e0       	ldi	r24, 0x00	; 0
+    15f4:	91 e0       	ldi	r25, 0x01	; 1
+    15f6:	0e 94 ad 0a 	call	0x155a	; 0x155a <do_rand>
+    15fa:	08 95       	ret
+
+000015fc <srand>:
+    15fc:	a0 e0       	ldi	r26, 0x00	; 0
+    15fe:	b0 e0       	ldi	r27, 0x00	; 0
+    1600:	80 93 00 01 	sts	0x0100, r24
+    1604:	90 93 01 01 	sts	0x0101, r25
+    1608:	a0 93 02 01 	sts	0x0102, r26
+    160c:	b0 93 03 01 	sts	0x0103, r27
+    1610:	08 95       	ret
+
+00001612 <__divmodsi4>:
+    1612:	05 2e       	mov	r0, r21
+    1614:	97 fb       	bst	r25, 7
+    1616:	1e f4       	brtc	.+6      	; 0x161e <__divmodsi4+0xc>
+    1618:	00 94       	com	r0
+    161a:	0e 94 20 0b 	call	0x1640	; 0x1640 <__negsi2>
+    161e:	57 fd       	sbrc	r21, 7
+    1620:	07 d0       	rcall	.+14     	; 0x1630 <__divmodsi4_neg2>
+    1622:	0e 94 3b 0b 	call	0x1676	; 0x1676 <__udivmodsi4>
+    1626:	07 fc       	sbrc	r0, 7
+    1628:	03 d0       	rcall	.+6      	; 0x1630 <__divmodsi4_neg2>
+    162a:	4e f4       	brtc	.+18     	; 0x163e <__divmodsi4_exit>
+    162c:	0c 94 20 0b 	jmp	0x1640	; 0x1640 <__negsi2>
+
+00001630 <__divmodsi4_neg2>:
+    1630:	50 95       	com	r21
+    1632:	40 95       	com	r20
+    1634:	30 95       	com	r19
+    1636:	21 95       	neg	r18
+    1638:	3f 4f       	sbci	r19, 0xFF	; 255
+    163a:	4f 4f       	sbci	r20, 0xFF	; 255
+    163c:	5f 4f       	sbci	r21, 0xFF	; 255
+
+0000163e <__divmodsi4_exit>:
+    163e:	08 95       	ret
+
+00001640 <__negsi2>:
+    1640:	90 95       	com	r25
+    1642:	80 95       	com	r24
+    1644:	70 95       	com	r23
+    1646:	61 95       	neg	r22
+    1648:	7f 4f       	sbci	r23, 0xFF	; 255
+    164a:	8f 4f       	sbci	r24, 0xFF	; 255
+    164c:	9f 4f       	sbci	r25, 0xFF	; 255
+    164e:	08 95       	ret
+
+00001650 <__muluhisi3>:
+    1650:	0e 94 5d 0b 	call	0x16ba	; 0x16ba <__umulhisi3>
+    1654:	a5 9f       	mul	r26, r21
+    1656:	90 0d       	add	r25, r0
+    1658:	b4 9f       	mul	r27, r20
+    165a:	90 0d       	add	r25, r0
+    165c:	a4 9f       	mul	r26, r20
+    165e:	80 0d       	add	r24, r0
+    1660:	91 1d       	adc	r25, r1
+    1662:	11 24       	eor	r1, r1
+    1664:	08 95       	ret
+
+00001666 <__mulshisi3>:
+    1666:	b7 ff       	sbrs	r27, 7
+    1668:	0c 94 28 0b 	jmp	0x1650	; 0x1650 <__muluhisi3>
+
+0000166c <__mulohisi3>:
+    166c:	0e 94 28 0b 	call	0x1650	; 0x1650 <__muluhisi3>
+    1670:	82 1b       	sub	r24, r18
+    1672:	93 0b       	sbc	r25, r19
+    1674:	08 95       	ret
+
+00001676 <__udivmodsi4>:
+    1676:	a1 e2       	ldi	r26, 0x21	; 33
+    1678:	1a 2e       	mov	r1, r26
+    167a:	aa 1b       	sub	r26, r26
+    167c:	bb 1b       	sub	r27, r27
+    167e:	fd 01       	movw	r30, r26
+    1680:	0d c0       	rjmp	.+26     	; 0x169c <__udivmodsi4_ep>
+
+00001682 <__udivmodsi4_loop>:
+    1682:	aa 1f       	adc	r26, r26
+    1684:	bb 1f       	adc	r27, r27
+    1686:	ee 1f       	adc	r30, r30
+    1688:	ff 1f       	adc	r31, r31
+    168a:	a2 17       	cp	r26, r18
+    168c:	b3 07       	cpc	r27, r19
+    168e:	e4 07       	cpc	r30, r20
+    1690:	f5 07       	cpc	r31, r21
+    1692:	20 f0       	brcs	.+8      	; 0x169c <__udivmodsi4_ep>
+    1694:	a2 1b       	sub	r26, r18
+    1696:	b3 0b       	sbc	r27, r19
+    1698:	e4 0b       	sbc	r30, r20
+    169a:	f5 0b       	sbc	r31, r21
+
+0000169c <__udivmodsi4_ep>:
+    169c:	66 1f       	adc	r22, r22
+    169e:	77 1f       	adc	r23, r23
+    16a0:	88 1f       	adc	r24, r24
+    16a2:	99 1f       	adc	r25, r25
+    16a4:	1a 94       	dec	r1
+    16a6:	69 f7       	brne	.-38     	; 0x1682 <__udivmodsi4_loop>
+    16a8:	60 95       	com	r22
+    16aa:	70 95       	com	r23
+    16ac:	80 95       	com	r24
+    16ae:	90 95       	com	r25
+    16b0:	9b 01       	movw	r18, r22
+    16b2:	ac 01       	movw	r20, r24
+    16b4:	bd 01       	movw	r22, r26
+    16b6:	cf 01       	movw	r24, r30
+    16b8:	08 95       	ret
+
+000016ba <__umulhisi3>:
+    16ba:	a2 9f       	mul	r26, r18
+    16bc:	b0 01       	movw	r22, r0
+    16be:	b3 9f       	mul	r27, r19
+    16c0:	c0 01       	movw	r24, r0
+    16c2:	a3 9f       	mul	r26, r19
+    16c4:	70 0d       	add	r23, r0
+    16c6:	81 1d       	adc	r24, r1
+    16c8:	11 24       	eor	r1, r1
+    16ca:	91 1d       	adc	r25, r1
+    16cc:	b2 9f       	mul	r27, r18
+    16ce:	70 0d       	add	r23, r0
+    16d0:	81 1d       	adc	r24, r1
+    16d2:	11 24       	eor	r1, r1
+    16d4:	91 1d       	adc	r25, r1
+    16d6:	08 95       	ret
+
+000016d8 <_exit>:
+    16d8:	f8 94       	cli
+
+000016da <__stop_program>:
+    16da:	ff cf       	rjmp	.-2      	; 0x16da <__stop_program>

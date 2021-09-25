@@ -1,0 +1,841 @@
+/*
+ * main.cpp
+ *
+ * Created: 10/13/2015 1:48:12 PM
+ * Author : RnD
+ */ 
+
+#include <avr/io.h>
+#include "DMX_addr.h"
+#include "DMX_standard.h"
+#include "DMX_pro.h"
+#include "effect_classic.h"
+ volatile uint8_t channel_buff[MAX_DMX_CHANNEL];
+
+
+int main(void)
+{
+	wdt_reset();
+	wdt_enable(WDTO_4S);
+	DMX_Init(MYUBRR);
+	timer0_init();
+	dmxcontrol_default();
+	rota_group_default();
+	dmxctr_using(A1,B16);
+	dmxctr_close();
+	rota_disable();
+	DMX_start_transmit(0);
+	sei();
+	
+    ///* Replace with your application code */
+	//for (uint8_t i = 0;i<16;i++) channel_buff[i] = i*2;
+	
+	///DMX_reset_device(1,0x1010);
+	//_delay_ms(50);
+	//	_delay_ms(500);
+
+	//DMX_sleep_device(0x01,0x1010);
+		//sleep(100);
+		
+	//DMX_set_addr(0x01,101,1);
+	//sleep(100);
+	//DMX_set_addr(0x01,102,17);
+	//sleep(100);
+	//DMX_set_addr(0x01,103,33);
+	//sleep(100);
+	//DMX_set_addr(0x01,104,49);
+	//sleep(100);
+	//DMX_set_addr(0x01,105,65);
+	//sleep(100);
+	//DMX_set_addr(0x01,106,81);
+	//sleep(100);
+	
+	//DMX_set_addr(0x01,207,97);
+	//sleep(100);
+	//DMX_set_addr(0x01,208,113);
+	//sleep(100);
+	//DMX_set_addr(0x01,201,1);
+	//sleep(100);
+	//DMX_set_addr(0x01,202,17);
+	//sleep(100);
+	//DMX_set_addr(0x01,203,33);
+	//sleep(100);
+	//DMX_set_addr(0x01,204,49);
+	//sleep(100);
+	//DMX_set_addr(0x01,205,49);
+	//sleep(100);
+	//DMX_set_addr(0x01,206,33);
+	//sleep(100);
+	//DMX_set_addr(0x01,207,17);
+	//sleep(100);
+	//DMX_set_addr(0x01,208,1);
+	
+//sleep(100);
+//DMX_fixed_soft_flash(1,0x1010,5,3,0,50,10);
+//sleep(10000);
+//DMX_fixed_close(1,0x1010);
+//DMX_fixed_filldrop(1,0x1010,5,10,2,100);
+//sleep(10000);
+//DMX_fixed_close(1,0x1010);
+//DMX_fixed_shooting(1,0,10,8,2,20);
+//sleep(10000);
+
+//DMX_fixed_close(1,0);
+//DMX_fixed_random(1,0x1010,10,150,10000,1000);
+//sleep(10000);
+//DMX_fixed_close(1,0x1010);
+
+    while (1) 
+    {
+		
+		
+		
+		dmxctr_open();
+		//HIEU UNG KHOI DONG
+		//Block_init(A1,A14,0,RESOLUS);
+		//Block_gray(0,RESOLUS);
+		//Block_delay(1000,1000,1000,1000);
+		//Block_fade(10,10,10,10);
+		//Block_loop(1,1,mode_one);
+		//Block_output(output_normal);
+		//Block_Run();
+		//Block_wait();
+		//
+		//Block_init(A1,A14,0,RESOLUS);
+		//Block_gray(RESOLUS,0);
+		//Block_delay(1000,1000,1000,1000);
+		//Block_fade(10,10,10,10);
+		//Block_loop(1,1,mode_one	);
+		//Block_output(output_normal);
+		//Block_Run();
+		//Block_wait();
+// QUA CAU
+			rota_enable();
+			rota_init(0,A1,A16);
+			rota_pattern_fill(4,left,255,5,5,5,0,0,0);
+			rota_run(200,left);
+			delay_ms(15000);
+			
+			rota_enable();
+			rota_init(0,A1,A16);
+			rota_pattern_fill(4,left,255,0,255,0,0,0,0);
+			rota_run(200,left);
+			delay_ms(15000);
+			
+			
+			//rota_init(1,B1,B12);
+			//rota_pattern_fill(3,left,5,255,5,0,0,0,0);
+			//rota_run(200,left);
+//// VONG TRON1
+		//
+			//Block_init(B13,B13,RESOLUS/8,RESOLUS);
+			//Block_gray(RESOLUS/8,RESOLUS/8);
+			//Block_delay(0,0,0,0);
+			//Block_fade(7,7,7,7);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+//// VONG TRON2
+			//Block_init(A13,A13,RESOLUS/8,RESOLUS);
+			//Block_gray(RESOLUS,RESOLUS);
+			//Block_delay(0,0,0,0);
+			//Block_fade(7,7,7,7);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+		//
+////  CANH SEN		
+			//Block_init(C1,C3,RESOLUS/4,RESOLUS);
+			//Block_gray(RESOLUS/4,RESOLUS);
+			//Block_delay(0,0,0,0);
+			//Block_fade(7,7,7,7);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+			//
+			//Block_init(C4,C6,RESOLUS/4,RESOLUS);
+			//Block_gray(RESOLUS/4,RESOLUS);
+			//Block_delay(0,0,0,0);
+			//Block_fade(7,7,7,7);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+			//
+			//Block_init(C7,C9,RESOLUS/4,RESOLUS);
+			//Block_gray(RESOLUS,RESOLUS/4);
+			//Block_delay(0,0,0,0);
+			//Block_fade(7,7,7,7);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+			//
+			//Block_init(C10,C12,RESOLUS/4,RESOLUS);
+			//Block_gray(RESOLUS,RESOLUS/4);
+			//Block_delay(0,0,0,0);
+			//Block_fade(7,7,7,7);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+			//
+			//Block_wait();
+		//
+		//
+////QUA CAU
+		//rota_disable();
+//
+			//Block_init(A1,A3,RESOLUS/8,RESOLUS);
+			//Block_gray(RESOLUS/8,RESOLUS);
+			//Block_delay(0,0,0,0);
+			//Block_fade(10,10,10,10);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+			//Block_init(A4,A6,RESOLUS/8,RESOLUS);
+			//Block_gray(RESOLUS/8,RESOLUS);
+			//Block_delay(0,0,0,0);
+		//Block_fade(10,10,10,10);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+			//Block_init(A7,A9,RESOLUS/8,RESOLUS);
+			//Block_gray(RESOLUS/8,RESOLUS);
+			//Block_delay(0,0,0,0);
+			//Block_fade(10,10,10,10);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+			//Block_init(A10,A12,RESOLUS/8,RESOLUS);
+			//Block_gray(RESOLUS/8,RESOLUS);
+			//Block_delay(0,0,0,0);
+			//Block_fade(10,10,10,10);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+			//
+			//
+			//
+			//
+			//
+			//
+			//
+			//
+			//Block_init(B1,B3,RESOLUS/8,RESOLUS);
+			//Block_gray(RESOLUS/8,RESOLUS);
+			//Block_delay(0,0,0,0);
+			//Block_fade(10,10,10,10);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+			//Block_init(B4,B6,RESOLUS/8,RESOLUS);
+			//Block_gray(RESOLUS/8,RESOLUS);
+			//Block_delay(0,0,0,0);
+			//Block_fade(10,10,10,10);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+			//Block_init(B7,B9,RESOLUS/8,RESOLUS);
+			//Block_gray(RESOLUS/8,RESOLUS);
+			//Block_delay(0,0,0,0);
+			//Block_fade(10,10,10,10);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+			//Block_init(B10,B12,RESOLUS/8,RESOLUS);
+			//Block_gray(RESOLUS/8,RESOLUS);
+			//Block_delay(0,0,0,0);
+			//Block_fade(10,10,10,10);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+			//
+		//
+//// VONG TRON1
+		//
+			//Block_init(B13,B13,RESOLUS/8,RESOLUS);
+			//Block_gray(RESOLUS/8,RESOLUS/8);
+			//Block_delay(0,0,0,0);
+			//Block_fade(7,7,7,7);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+//// VONG TRON2
+			//Block_init(A13,A13,RESOLUS/8,RESOLUS);
+			//Block_gray(RESOLUS,RESOLUS);
+			//Block_delay(0,0,0,0);
+			//Block_fade(20,20,20,20);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+////  CANH SEN		
+//
+						//
+			//Block_init(C1,C6,RESOLUS/8,RESOLUS);
+			//Block_gray(RESOLUS/8,RESOLUS/8);
+			//Block_delay(0,0,0,0);
+			//Block_fade(20,20,20,20);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+	//
+			//Block_init(C7,C12,RESOLUS/8,RESOLUS);
+			//Block_gray(RESOLUS,RESOLUS);
+			//Block_delay(0,0,0,0);
+			//Block_fade(20,20,20,20);
+			//Block_loop(50,50,mode_repon);
+			//Block_output(output_normal);
+			//Block_Run();
+			//delay_ms(15000);
+			
+			
+//
+////
+			////Block_init(C1,C3,RESOLUS/3,RESOLUS);
+			////Block_gray(RESOLUS/3,RESOLUS);
+			////Block_delay(0,0,0,0);
+			////Block_fade(7,7,7,7);
+			////Block_loop(50,50,mode_repon);
+			////Block_output(output_normal);
+			////Block_Run();
+			////
+			//
+			////
+			////Block_init(C4,C6,RESOLUS/3,RESOLUS);
+			////Block_gray(RESOLUS/3,RESOLUS);
+			////Block_delay(0,0,0,0);
+			////Block_fade(7,7,7,7);
+			////Block_loop(50,50,mode_repon);
+			////Block_output(output_normal);
+			////Block_Run();
+			////
+			////Block_init(C7,C9,RESOLUS/3,RESOLUS);
+			////Block_gray(RESOLUS,RESOLUS/3);
+			////Block_delay(0,0,0,0);
+			////Block_fade(7,7,7,7);
+			////Block_loop(50,50,mode_repon);
+			////Block_output(output_normal);
+			////Block_Run();
+			////
+			////Block_init(C10,C12,RESOLUS/3,RESOLUS);
+			////Block_gray(RESOLUS,RESOLUS/3);
+			////Block_delay(0,0,0,0);
+			////Block_fade(7,7,7,7);
+			////Block_loop(50,50,mode_repon);
+			////Block_output(output_normal);
+			////Block_Run();
+			//
+			//delay_ms(20000);
+		//
+			//
+			//
+			//
+		////
+		////Block_init(A4,A6,0,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(0,0,0,0);
+		////Block_fade(5,5,5,5);
+		////Block_loop(50,50,mode_repon);
+		////Block_output(output_logic);
+		////Block_Run();
+		////Block_init(A7,A9,0,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(0,0,0,0);
+		////Block_fade(5,5,5,5);
+		////Block_loop(50,50,mode_repon);
+		////Block_output(output_logic);
+		////Block_Run();
+		////
+		////Block_wait();
+		//
+		////
+		////
+		////Block_init(A3,A4,0,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(0,0,0,0);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_repon);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////Block_init(A5,A6,0,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(0,0,0,0);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_repon);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////
+		////Block_init(A7,A8,0,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(0,0,0,0);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_repon);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////Block_init(A9,A10,0,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(0,0,0,0);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_repon);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////
+		////
+		////
+		////Block_init(A13,A14,5,RESOLUS);
+		////Block_gray(5,RESOLUS);
+		////Block_delay(0,0,0,0);
+		////Block_fade(20,20,20,20);
+		////Block_loop(50,50,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+	////Block_init(A11,A12,0,RESOLUS);
+	////Block_gray(0,RESOLUS);
+	////Block_delay(0,0,0,0);
+	////Block_fade(10,10,10,10);
+	////Block_loop(50,50,mode_repon);
+	////Block_output(output_normal);
+	////Block_Run();
+	////
+		////
+		////Block_wait();
+		//
+		//
+		////
+		////Block_init(A1,D10,0,RESOLUS);
+		////Block_gray(0,0);
+		////Block_delay(5000,1,1,1000);
+		////Block_fade(10,10,30,30);
+		////Block_loop(10,10,mode_one);
+		////Block_output(output_normal);
+		////Block_Run();
+		////Block_wait();
+		////rota_enable();
+		////
+		//////QUAY 1
+		////
+		////
+		////Block_init(A9,A14,5,RESOLUS);
+		////Block_gray(0,0);
+		////Block_delay(1,2000,1000,1);
+		////Block_fade(10,10,30,30);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////
+	////
+		//////CHIM 1 BAY
+		////Block_init(D10,D10,2,RESOLUS);
+		////Block_gray(25,25);
+		////Block_delay(100,100,500,500);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+////
+////
+		////Block_init(B16,B16,2,RESOLUS);
+		////Block_gray(25,25);
+		////Block_delay(100,100,500,500);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////Block_init(C1,C1,2,RESOLUS);
+		////Block_gray(0,0);
+		////Block_delay(100,100,500,500);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////
+		//////CHIM 2 BAY
+		////Block_init(C5,C5,2,RESOLUS);
+		////Block_gray(25,25);
+		////Block_delay(100,100,500,500);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////Block_init(C6,C6,2,RESOLUS);
+		////Block_gray(0,0);
+		////Block_delay(100,100,500,500);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////
+		//////NGOI SAO + DE
+		////Block_init(C2,C2,0,RESOLUS);
+		////Block_gray(0,0);
+		////Block_delay(20,20,100,100);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////Block_init(C3,C4,2,RESOLUS);
+		////Block_gray(2,RESOLUS);
+		////Block_delay(100,100,1000,1000);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////
+		//////HOA NO 1
+		////Block_init(C7,C9,0,RESOLUS);
+		////Block_gray(0,0);
+		////Block_delay(1000,1,1000,2000);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////Block_init(B13,B15,0,RESOLUS);
+		////Block_gray(0,0);
+		////Block_delay(1000,1,1000,2000);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////Block_init(D7,D10,0,RESOLUS);
+		////Block_gray(0,0);
+		////Block_delay(1000,1,1000,2000);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		//////HOA NO 2
+		////
+		////Block_init(C10,C12,0,RESOLUS);
+		////Block_gray(25,25);
+		////Block_delay(1000,1,1000,2000);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////Block_init(B10,B12,0,RESOLUS);
+		////Block_gray(25,25);
+		////Block_delay(1000,1,1000,2000);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////Block_init(D4,D6,0,RESOLUS);
+		////Block_gray(25,25);
+		////Block_delay(1000,1,1000,2000);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		//////HOA NO 3
+		////
+		////Block_init(C13,C15,0,RESOLUS);
+		////Block_gray(RESOLUS,RESOLUS);
+		////Block_delay(1000,1,1000,2000);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////Block_init(B7,B9,0,RESOLUS);
+		////Block_gray(RESOLUS,RESOLUS);
+		////Block_delay(1000,1,1000,2000);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////Block_init(D1,D3,0,RESOLUS);
+		////Block_gray(RESOLUS,RESOLUS);
+		////Block_delay(1000,1,1000,2000);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////delay_ms(60000);
+		////
+		////
+		////
+		////
+		//////QUAY 1
+		////Block_init(A9,A14,5,RESOLUS);
+		////Block_gray(0,0);
+		////Block_delay(1,2000,1000,1);
+		////Block_fade(10,10,30,30);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+	////
+		////
+		//////CHIM 1 BAY
+		////Block_init(D10,D10,2,RESOLUS);
+		////Block_gray(25,25);
+		////Block_delay(100,100,500,500);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+////
+////
+		////Block_init(B16,B16,2,RESOLUS);
+		////Block_gray(25,25);
+		////Block_delay(100,100,500,500);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////Block_init(C1,C1,2,RESOLUS);
+		////Block_gray(0,0);
+		////Block_delay(100,100,500,500);
+		////Block_fade(10,10,10,10);
+		////Block_loop(10,10,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		//////CHIM 2 BAY
+		////
+		////Block_init(C5,C5,2,RESOLUS);
+		////Block_gray(25,25);
+		////Block_delay(100,100,100,100);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////Block_init(C6,C6,2,RESOLUS);
+		////Block_gray(0,0);
+		////Block_delay(100,100,100,100);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////
+		//////NGOI SAO + DE
+		////Block_init(C2,C2,0,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(100,100,100,100);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////Block_init(C3,C4,2,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(100,100,100,100);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////
+		//////LUNG LINH 1
+		////Block_init(C7,C9,0,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(100,100,100,100);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////Block_init(B13,B15,0,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(100,100,100,100);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////Block_init(D7,D10,0,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(100,100,100,100);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		//////LUNG LINH 2
+		////
+		////Block_init(C10,C12,0,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(100,100,100,100);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////Block_init(B10,B12,0,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(100,100,100,100);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////Block_init(D4,D6,0,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(100,100,100,100);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		//////LUNG LINH 3
+		////
+		////Block_init(C13,C15,0,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(100,100,100,100);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////Block_init(B7,B9,0,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(100,100,100,100);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////
+		////Block_init(D1,D3,0,RESOLUS);
+		////Block_gray(0,RESOLUS);
+		////Block_delay(100,100,100,100);
+		////Block_fade(10,10,10,10);
+		////Block_loop(50,50,mode_minus);
+		////Block_output(output_normal);
+		////Block_Run();
+		////delay_ms(60000);
+		////dmxctr_open();
+		////Block_init(A1,F16,0,RESOLUS);
+		////Block_gray(0,0);
+		////Block_delay(1,5000,500,1);
+		////Block_fade(10,10,30,30);
+		////Block_loop(10,10,mode_one);
+		////Block_output(output_normal);
+		////Block_Run();
+		////Block_wait();
+		////
+		////
+		////Block_init(A1,F16,0,RESOLUS);
+		////Block_gray(0,0);
+		////Block_delay(5000,1,1,500);
+		////Block_fade(10,10,30,30);
+		////Block_loop(10,10,mode_one);
+		////Block_output(output_normal);
+		//////Block_soft_fade(1);
+		////Block_Run();
+		////Block_wait();
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		
+		
+		//
+		//
+//// hieu ung 32 kenh////
+		//light_appear(A1,B16,channel_buff,50,2,0);
+		//light_appear(A1,B16,channel_buff,50,2,1);
+		//
+		//random_light_st1(A1,B16,channel_buff,2,1000,100);
+		//
+		//shooting_star(A1,B16,channel_buff,25,25,0);
+		//shooting_star(A1,B16,channel_buff,25,25,1);
+		//shooting_star(A1,B16,channel_buff,25,25,0);
+		//shooting_star(A1,B16,channel_buff,25,25,1);
+		//shooting_star(A1,B16,channel_buff,25,25,0);
+		//shooting_star(A1,B16,channel_buff,25,25,1);
+		//seed(A1,B16,channel_buff,1,1,0);
+		//seed(A1,B16,channel_buff,1,1,1);
+		//
+		//combine(A1,B16,channel_buff,25,5,RESOLUS,2);
+//
+		//running_flash(A1,B16,channel_buff,5,3,10,0);
+		//running_flash(A1,B16,channel_buff,5,3,10,1);
+		//
+		//fill_combine(A1,B16,channel_buff,20,10,1);
+		//fill_combine(A1,B16,channel_buff,2,10,0);
+		//light_appear(A1,B16,channel_buff,50,2,1);
+		//light_appear(A1,B16,channel_buff,50,2,2);
+		//growing(A1,B16,channel_buff,30,5,16,0);
+		//downing(A1,B16,channel_buff,30,5,16,0);
+		//growing(A1,B16,channel_buff,30,5,16,1);
+		//downing(A1,B16,channel_buff,30,5,16,1);
+		//growing(A1,B16,channel_buff,30,5,16,2);
+		//downing(A1,B16,channel_buff,30,5,16,2);
+		//growing(A1,B16,channel_buff,30,5,16,3);
+		//downing(A1,B16,channel_buff,30,5,16,3);
+		//light_appear(A1,B16,channel_buff,50,2,2);
+		//light_appear(A1,B16,channel_buff,50,2,3);
+//////////////////////////////////////////////////////////	
+		
+		
+		//random_light_st1(0,15,channel_buff,30,1000,200);
+		//channel_buff[0] = 255;
+		
+	//	if (DMX_Is_Ready()) DMX_start_transmit();
+	
+	//	DMX_start_transmit();
+		//_delay_ms(250);
+	//	channel_buff[0] = 0;
+		//
+		//_delay_ms(250);
+		
+	//	shooting_star(0,15,channel_buff,20,16,0);
+	//for (uint8_t i = 50;i>=1;i--)
+	//{
+		//shooting_star(A1,D16,channel_buff,i,16,0);
+		//shooting_star(A1,D16,channel_buff,i,16,1);
+	//}
+	//
+	//for (uint8_t i = 1;i<50;i++)
+	//{
+		//shooting_star(A1,D16,channel_buff,i,16,0);
+		//shooting_star(A1,D16,channel_buff,i,16,1);
+	//}
+		
+		//
+		//Block_init(A1,A16,0,RESOLUS);
+		//Block_gray(0,0);
+		//Block_delay(1,5000,1000,1);
+		//Block_fade(10,10,30,30);
+		//Block_loop(10,10,mode_one);
+		//Block_output(output_normal);
+		//Block_Run();
+		//Block_wait();
+		//
+//
+		//Block_init(A1,A16,0,RESOLUS);
+		//Block_gray(0,0);
+		//Block_delay(5000,1,1,1000);
+		//Block_fade(10,10,30,30);
+		//Block_loop(10,10,mode_one);
+		//Block_output(output_normal);
+		//Block_soft_fade(1);
+		//Block_Run();
+		//Block_wait();
+
+		
+		
+		
+    }
+}
+
+

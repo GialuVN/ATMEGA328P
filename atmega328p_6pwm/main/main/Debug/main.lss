@@ -1,0 +1,446 @@
+
+main.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  000002cc  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000278  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  000002cc  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000002fc  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000088  00000000  00000000  00000338  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000009e6  00000000  00000000  000003c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000202  00000000  00000000  00000da6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000044b  00000000  00000000  00000fa8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000e4  00000000  00000000  000013f4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000002e9  00000000  00000000  000014d8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000000af  00000000  00000000  000017c1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000068  00000000  00000000  00001870  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	19 c0       	rjmp	.+50     	; 0x34 <__ctors_end>
+   2:	20 c0       	rjmp	.+64     	; 0x44 <__bad_interrupt>
+   4:	1f c0       	rjmp	.+62     	; 0x44 <__bad_interrupt>
+   6:	1e c0       	rjmp	.+60     	; 0x44 <__bad_interrupt>
+   8:	1d c0       	rjmp	.+58     	; 0x44 <__bad_interrupt>
+   a:	1c c0       	rjmp	.+56     	; 0x44 <__bad_interrupt>
+   c:	1b c0       	rjmp	.+54     	; 0x44 <__bad_interrupt>
+   e:	1a c0       	rjmp	.+52     	; 0x44 <__bad_interrupt>
+  10:	19 c0       	rjmp	.+50     	; 0x44 <__bad_interrupt>
+  12:	18 c0       	rjmp	.+48     	; 0x44 <__bad_interrupt>
+  14:	17 c0       	rjmp	.+46     	; 0x44 <__bad_interrupt>
+  16:	16 c0       	rjmp	.+44     	; 0x44 <__bad_interrupt>
+  18:	15 c0       	rjmp	.+42     	; 0x44 <__bad_interrupt>
+  1a:	14 c0       	rjmp	.+40     	; 0x44 <__bad_interrupt>
+  1c:	13 c0       	rjmp	.+38     	; 0x44 <__bad_interrupt>
+  1e:	12 c0       	rjmp	.+36     	; 0x44 <__bad_interrupt>
+  20:	11 c0       	rjmp	.+34     	; 0x44 <__bad_interrupt>
+  22:	10 c0       	rjmp	.+32     	; 0x44 <__bad_interrupt>
+  24:	0f c0       	rjmp	.+30     	; 0x44 <__bad_interrupt>
+  26:	0e c0       	rjmp	.+28     	; 0x44 <__bad_interrupt>
+  28:	0d c0       	rjmp	.+26     	; 0x44 <__bad_interrupt>
+  2a:	0c c0       	rjmp	.+24     	; 0x44 <__bad_interrupt>
+  2c:	0b c0       	rjmp	.+22     	; 0x44 <__bad_interrupt>
+  2e:	0a c0       	rjmp	.+20     	; 0x44 <__bad_interrupt>
+  30:	09 c0       	rjmp	.+18     	; 0x44 <__bad_interrupt>
+  32:	08 c0       	rjmp	.+16     	; 0x44 <__bad_interrupt>
+
+00000034 <__ctors_end>:
+  34:	11 24       	eor	r1, r1
+  36:	1f be       	out	0x3f, r1	; 63
+  38:	cf ef       	ldi	r28, 0xFF	; 255
+  3a:	d4 e0       	ldi	r29, 0x04	; 4
+  3c:	de bf       	out	0x3e, r29	; 62
+  3e:	cd bf       	out	0x3d, r28	; 61
+  40:	02 d0       	rcall	.+4      	; 0x46 <main>
+  42:	18 c1       	rjmp	.+560    	; 0x274 <_exit>
+
+00000044 <__bad_interrupt>:
+  44:	dd cf       	rjmp	.-70     	; 0x0 <__vectors>
+
+00000046 <main>:
+
+#include "pwm6ch.h"
+int main(void)
+{
+	
+	pwm_phasecorrect_timer0_initial(clk_timer0_div64);
+  46:	83 e0       	ldi	r24, 0x03	; 3
+  48:	d3 d0       	rcall	.+422    	; 0x1f0 <pwm_phasecorrect_timer0_initial>
+	pwm_phasecorrect_timer1_initial(clk_timer1_div64);
+  4a:	83 e0       	ldi	r24, 0x03	; 3
+  4c:	db d0       	rcall	.+438    	; 0x204 <pwm_phasecorrect_timer1_initial>
+	pwm_phasecorrect_timer2_initial(clk_timer2_div64);
+  4e:	84 e0       	ldi	r24, 0x04	; 4
+  50:	ee d0       	rcall	.+476    	; 0x22e <pwm_phasecorrect_timer2_initial>
+	
+	pwm_phasecorrect_6ch_updata(1,15,31,63,127,255);
+  52:	ee 24       	eor	r14, r14
+  54:	ea 94       	dec	r14
+  56:	0f e7       	ldi	r16, 0x7F	; 127
+  58:	2f e3       	ldi	r18, 0x3F	; 63
+  5a:	4f e1       	ldi	r20, 0x1F	; 31
+  5c:	6f e0       	ldi	r22, 0x0F	; 15
+  5e:	81 e0       	ldi	r24, 0x01	; 1
+  60:	f4 d0       	rcall	.+488    	; 0x24a <pwm_phasecorrect_6ch_updata>
+	
+	
+	
+    while(1)
+    {
+		pwm_phasecorrect_6ch_updata(255,0,0,0,0,0);
+  62:	e1 2c       	mov	r14, r1
+  64:	00 e0       	ldi	r16, 0x00	; 0
+  66:	20 e0       	ldi	r18, 0x00	; 0
+  68:	40 e0       	ldi	r20, 0x00	; 0
+  6a:	60 e0       	ldi	r22, 0x00	; 0
+  6c:	8f ef       	ldi	r24, 0xFF	; 255
+  6e:	ed d0       	rcall	.+474    	; 0x24a <pwm_phasecorrect_6ch_updata>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  70:	2f ef       	ldi	r18, 0xFF	; 255
+  72:	80 e7       	ldi	r24, 0x70	; 112
+  74:	92 e0       	ldi	r25, 0x02	; 2
+  76:	21 50       	subi	r18, 0x01	; 1
+  78:	80 40       	sbci	r24, 0x00	; 0
+  7a:	90 40       	sbci	r25, 0x00	; 0
+  7c:	e1 f7       	brne	.-8      	; 0x76 <main+0x30>
+  7e:	00 c0       	rjmp	.+0      	; 0x80 <main+0x3a>
+  80:	00 00       	nop
+		_delay_ms(50);
+		pwm_phasecorrect_6ch_updata(127,255,0,0,0,0);
+  82:	20 e0       	ldi	r18, 0x00	; 0
+  84:	40 e0       	ldi	r20, 0x00	; 0
+  86:	6f ef       	ldi	r22, 0xFF	; 255
+  88:	8f e7       	ldi	r24, 0x7F	; 127
+  8a:	df d0       	rcall	.+446    	; 0x24a <pwm_phasecorrect_6ch_updata>
+  8c:	2f ef       	ldi	r18, 0xFF	; 255
+  8e:	80 e7       	ldi	r24, 0x70	; 112
+  90:	92 e0       	ldi	r25, 0x02	; 2
+  92:	21 50       	subi	r18, 0x01	; 1
+  94:	80 40       	sbci	r24, 0x00	; 0
+  96:	90 40       	sbci	r25, 0x00	; 0
+  98:	e1 f7       	brne	.-8      	; 0x92 <main+0x4c>
+  9a:	00 c0       	rjmp	.+0      	; 0x9c <main+0x56>
+  9c:	00 00       	nop
+		_delay_ms(50);
+		pwm_phasecorrect_6ch_updata(63,127,255,0,0,0);
+  9e:	20 e0       	ldi	r18, 0x00	; 0
+  a0:	4f ef       	ldi	r20, 0xFF	; 255
+  a2:	6f e7       	ldi	r22, 0x7F	; 127
+  a4:	8f e3       	ldi	r24, 0x3F	; 63
+  a6:	d1 d0       	rcall	.+418    	; 0x24a <pwm_phasecorrect_6ch_updata>
+  a8:	2f ef       	ldi	r18, 0xFF	; 255
+  aa:	80 e7       	ldi	r24, 0x70	; 112
+  ac:	92 e0       	ldi	r25, 0x02	; 2
+  ae:	21 50       	subi	r18, 0x01	; 1
+  b0:	80 40       	sbci	r24, 0x00	; 0
+  b2:	90 40       	sbci	r25, 0x00	; 0
+  b4:	e1 f7       	brne	.-8      	; 0xae <main+0x68>
+  b6:	00 c0       	rjmp	.+0      	; 0xb8 <main+0x72>
+  b8:	00 00       	nop
+		_delay_ms(50);
+		pwm_phasecorrect_6ch_updata(31,63,127,255,0,0);
+  ba:	2f ef       	ldi	r18, 0xFF	; 255
+  bc:	4f e7       	ldi	r20, 0x7F	; 127
+  be:	6f e3       	ldi	r22, 0x3F	; 63
+  c0:	8f e1       	ldi	r24, 0x1F	; 31
+  c2:	c3 d0       	rcall	.+390    	; 0x24a <pwm_phasecorrect_6ch_updata>
+  c4:	2f ef       	ldi	r18, 0xFF	; 255
+  c6:	80 e7       	ldi	r24, 0x70	; 112
+  c8:	92 e0       	ldi	r25, 0x02	; 2
+  ca:	21 50       	subi	r18, 0x01	; 1
+  cc:	80 40       	sbci	r24, 0x00	; 0
+  ce:	90 40       	sbci	r25, 0x00	; 0
+  d0:	e1 f7       	brne	.-8      	; 0xca <main+0x84>
+  d2:	00 c0       	rjmp	.+0      	; 0xd4 <main+0x8e>
+  d4:	00 00       	nop
+		_delay_ms(50);
+		pwm_phasecorrect_6ch_updata(15,31,63,127,255,0);
+  d6:	0f ef       	ldi	r16, 0xFF	; 255
+  d8:	2f e7       	ldi	r18, 0x7F	; 127
+  da:	4f e3       	ldi	r20, 0x3F	; 63
+  dc:	6f e1       	ldi	r22, 0x1F	; 31
+  de:	8f e0       	ldi	r24, 0x0F	; 15
+  e0:	b4 d0       	rcall	.+360    	; 0x24a <pwm_phasecorrect_6ch_updata>
+  e2:	2f ef       	ldi	r18, 0xFF	; 255
+  e4:	80 e7       	ldi	r24, 0x70	; 112
+  e6:	92 e0       	ldi	r25, 0x02	; 2
+  e8:	21 50       	subi	r18, 0x01	; 1
+  ea:	80 40       	sbci	r24, 0x00	; 0
+  ec:	90 40       	sbci	r25, 0x00	; 0
+  ee:	e1 f7       	brne	.-8      	; 0xe8 <main+0xa2>
+  f0:	00 c0       	rjmp	.+0      	; 0xf2 <main+0xac>
+  f2:	00 00       	nop
+		_delay_ms(50);
+		pwm_phasecorrect_6ch_updata(1,15,31,63,127,255);
+  f4:	ee 24       	eor	r14, r14
+  f6:	ea 94       	dec	r14
+  f8:	0f e7       	ldi	r16, 0x7F	; 127
+  fa:	2f e3       	ldi	r18, 0x3F	; 63
+  fc:	4f e1       	ldi	r20, 0x1F	; 31
+  fe:	6f e0       	ldi	r22, 0x0F	; 15
+ 100:	81 e0       	ldi	r24, 0x01	; 1
+ 102:	a3 d0       	rcall	.+326    	; 0x24a <pwm_phasecorrect_6ch_updata>
+ 104:	2f ef       	ldi	r18, 0xFF	; 255
+ 106:	80 e7       	ldi	r24, 0x70	; 112
+ 108:	92 e0       	ldi	r25, 0x02	; 2
+ 10a:	21 50       	subi	r18, 0x01	; 1
+ 10c:	80 40       	sbci	r24, 0x00	; 0
+ 10e:	90 40       	sbci	r25, 0x00	; 0
+ 110:	e1 f7       	brne	.-8      	; 0x10a <main+0xc4>
+ 112:	00 c0       	rjmp	.+0      	; 0x114 <main+0xce>
+ 114:	00 00       	nop
+		_delay_ms(50);
+		pwm_phasecorrect_6ch_updata(0,1,15,31,63,127);
+ 116:	0f 2e       	mov	r0, r31
+ 118:	ff e7       	ldi	r31, 0x7F	; 127
+ 11a:	ef 2e       	mov	r14, r31
+ 11c:	f0 2d       	mov	r31, r0
+ 11e:	0f e3       	ldi	r16, 0x3F	; 63
+ 120:	2f e1       	ldi	r18, 0x1F	; 31
+ 122:	4f e0       	ldi	r20, 0x0F	; 15
+ 124:	61 e0       	ldi	r22, 0x01	; 1
+ 126:	80 e0       	ldi	r24, 0x00	; 0
+ 128:	90 d0       	rcall	.+288    	; 0x24a <pwm_phasecorrect_6ch_updata>
+ 12a:	2f ef       	ldi	r18, 0xFF	; 255
+ 12c:	80 e7       	ldi	r24, 0x70	; 112
+ 12e:	92 e0       	ldi	r25, 0x02	; 2
+ 130:	21 50       	subi	r18, 0x01	; 1
+ 132:	80 40       	sbci	r24, 0x00	; 0
+ 134:	90 40       	sbci	r25, 0x00	; 0
+ 136:	e1 f7       	brne	.-8      	; 0x130 <main+0xea>
+ 138:	00 c0       	rjmp	.+0      	; 0x13a <main+0xf4>
+ 13a:	00 00       	nop
+		_delay_ms(50);
+		pwm_phasecorrect_6ch_updata(0,0,1,15,31,63);
+ 13c:	0f 2e       	mov	r0, r31
+ 13e:	ff e3       	ldi	r31, 0x3F	; 63
+ 140:	ef 2e       	mov	r14, r31
+ 142:	f0 2d       	mov	r31, r0
+ 144:	0f e1       	ldi	r16, 0x1F	; 31
+ 146:	2f e0       	ldi	r18, 0x0F	; 15
+ 148:	41 e0       	ldi	r20, 0x01	; 1
+ 14a:	60 e0       	ldi	r22, 0x00	; 0
+ 14c:	80 e0       	ldi	r24, 0x00	; 0
+ 14e:	7d d0       	rcall	.+250    	; 0x24a <pwm_phasecorrect_6ch_updata>
+ 150:	2f ef       	ldi	r18, 0xFF	; 255
+ 152:	80 e7       	ldi	r24, 0x70	; 112
+ 154:	92 e0       	ldi	r25, 0x02	; 2
+ 156:	21 50       	subi	r18, 0x01	; 1
+ 158:	80 40       	sbci	r24, 0x00	; 0
+ 15a:	90 40       	sbci	r25, 0x00	; 0
+ 15c:	e1 f7       	brne	.-8      	; 0x156 <main+0x110>
+ 15e:	00 c0       	rjmp	.+0      	; 0x160 <main+0x11a>
+ 160:	00 00       	nop
+		_delay_ms(50);
+		pwm_phasecorrect_6ch_updata(0,0,0,1,15,31);
+ 162:	0f 2e       	mov	r0, r31
+ 164:	ff e1       	ldi	r31, 0x1F	; 31
+ 166:	ef 2e       	mov	r14, r31
+ 168:	f0 2d       	mov	r31, r0
+ 16a:	0f e0       	ldi	r16, 0x0F	; 15
+ 16c:	21 e0       	ldi	r18, 0x01	; 1
+ 16e:	40 e0       	ldi	r20, 0x00	; 0
+ 170:	60 e0       	ldi	r22, 0x00	; 0
+ 172:	80 e0       	ldi	r24, 0x00	; 0
+ 174:	6a d0       	rcall	.+212    	; 0x24a <pwm_phasecorrect_6ch_updata>
+ 176:	2f ef       	ldi	r18, 0xFF	; 255
+ 178:	80 e7       	ldi	r24, 0x70	; 112
+ 17a:	92 e0       	ldi	r25, 0x02	; 2
+ 17c:	21 50       	subi	r18, 0x01	; 1
+ 17e:	80 40       	sbci	r24, 0x00	; 0
+ 180:	90 40       	sbci	r25, 0x00	; 0
+ 182:	e1 f7       	brne	.-8      	; 0x17c <main+0x136>
+ 184:	00 c0       	rjmp	.+0      	; 0x186 <main+0x140>
+ 186:	00 00       	nop
+		_delay_ms(50);
+		pwm_phasecorrect_6ch_updata(0,0,0,0,1,15);
+ 188:	0f 2e       	mov	r0, r31
+ 18a:	ff e0       	ldi	r31, 0x0F	; 15
+ 18c:	ef 2e       	mov	r14, r31
+ 18e:	f0 2d       	mov	r31, r0
+ 190:	01 e0       	ldi	r16, 0x01	; 1
+ 192:	20 e0       	ldi	r18, 0x00	; 0
+ 194:	40 e0       	ldi	r20, 0x00	; 0
+ 196:	60 e0       	ldi	r22, 0x00	; 0
+ 198:	80 e0       	ldi	r24, 0x00	; 0
+ 19a:	57 d0       	rcall	.+174    	; 0x24a <pwm_phasecorrect_6ch_updata>
+ 19c:	2f ef       	ldi	r18, 0xFF	; 255
+ 19e:	80 e7       	ldi	r24, 0x70	; 112
+ 1a0:	92 e0       	ldi	r25, 0x02	; 2
+ 1a2:	21 50       	subi	r18, 0x01	; 1
+ 1a4:	80 40       	sbci	r24, 0x00	; 0
+ 1a6:	90 40       	sbci	r25, 0x00	; 0
+ 1a8:	e1 f7       	brne	.-8      	; 0x1a2 <main+0x15c>
+ 1aa:	00 c0       	rjmp	.+0      	; 0x1ac <main+0x166>
+ 1ac:	00 00       	nop
+		_delay_ms(50);
+		pwm_phasecorrect_6ch_updata(0,0,0,0,0,1);
+ 1ae:	ee 24       	eor	r14, r14
+ 1b0:	e3 94       	inc	r14
+ 1b2:	00 e0       	ldi	r16, 0x00	; 0
+ 1b4:	20 e0       	ldi	r18, 0x00	; 0
+ 1b6:	40 e0       	ldi	r20, 0x00	; 0
+ 1b8:	60 e0       	ldi	r22, 0x00	; 0
+ 1ba:	80 e0       	ldi	r24, 0x00	; 0
+ 1bc:	46 d0       	rcall	.+140    	; 0x24a <pwm_phasecorrect_6ch_updata>
+ 1be:	2f ef       	ldi	r18, 0xFF	; 255
+ 1c0:	80 e7       	ldi	r24, 0x70	; 112
+ 1c2:	92 e0       	ldi	r25, 0x02	; 2
+ 1c4:	21 50       	subi	r18, 0x01	; 1
+ 1c6:	80 40       	sbci	r24, 0x00	; 0
+ 1c8:	90 40       	sbci	r25, 0x00	; 0
+ 1ca:	e1 f7       	brne	.-8      	; 0x1c4 <main+0x17e>
+ 1cc:	00 c0       	rjmp	.+0      	; 0x1ce <main+0x188>
+ 1ce:	00 00       	nop
+		_delay_ms(50);
+		pwm_phasecorrect_6ch_updata(0,0,0,0,0,0);
+ 1d0:	e1 2c       	mov	r14, r1
+ 1d2:	20 e0       	ldi	r18, 0x00	; 0
+ 1d4:	40 e0       	ldi	r20, 0x00	; 0
+ 1d6:	60 e0       	ldi	r22, 0x00	; 0
+ 1d8:	80 e0       	ldi	r24, 0x00	; 0
+ 1da:	37 d0       	rcall	.+110    	; 0x24a <pwm_phasecorrect_6ch_updata>
+ 1dc:	2f ef       	ldi	r18, 0xFF	; 255
+ 1de:	80 e7       	ldi	r24, 0x70	; 112
+ 1e0:	92 e0       	ldi	r25, 0x02	; 2
+ 1e2:	21 50       	subi	r18, 0x01	; 1
+ 1e4:	80 40       	sbci	r24, 0x00	; 0
+ 1e6:	90 40       	sbci	r25, 0x00	; 0
+ 1e8:	e1 f7       	brne	.-8      	; 0x1e2 <main+0x19c>
+ 1ea:	00 c0       	rjmp	.+0      	; 0x1ec <main+0x1a6>
+ 1ec:	00 00       	nop
+ 1ee:	39 cf       	rjmp	.-398    	; 0x62 <main+0x1c>
+
+000001f0 <pwm_phasecorrect_timer0_initial>:
+	OCR2A = val;	
+}
+
+void pwm_phasecorrect_timer2_OCR2B_updata(unsigned char val)
+{
+	OCR2B =val;
+ 1f0:	9a b1       	in	r25, 0x0a	; 10
+ 1f2:	90 66       	ori	r25, 0x60	; 96
+ 1f4:	9a b9       	out	0x0a, r25	; 10
+ 1f6:	91 ea       	ldi	r25, 0xA1	; 161
+ 1f8:	94 bd       	out	0x24, r25	; 36
+ 1fa:	85 bd       	out	0x25, r24	; 37
+ 1fc:	16 bc       	out	0x26, r1	; 38
+ 1fe:	17 bc       	out	0x27, r1	; 39
+ 200:	18 bc       	out	0x28, r1	; 40
+ 202:	08 95       	ret
+
+00000204 <pwm_phasecorrect_timer1_initial>:
+ 204:	94 b1       	in	r25, 0x04	; 4
+ 206:	96 60       	ori	r25, 0x06	; 6
+ 208:	94 b9       	out	0x04, r25	; 4
+ 20a:	91 ea       	ldi	r25, 0xA1	; 161
+ 20c:	90 93 80 00 	sts	0x0080, r25
+ 210:	80 93 81 00 	sts	0x0081, r24
+ 214:	10 92 85 00 	sts	0x0085, r1
+ 218:	10 92 84 00 	sts	0x0084, r1
+ 21c:	10 92 89 00 	sts	0x0089, r1
+ 220:	10 92 88 00 	sts	0x0088, r1
+ 224:	10 92 8b 00 	sts	0x008B, r1
+ 228:	10 92 8a 00 	sts	0x008A, r1
+ 22c:	08 95       	ret
+
+0000022e <pwm_phasecorrect_timer2_initial>:
+ 22e:	23 9a       	sbi	0x04, 3	; 4
+ 230:	53 9a       	sbi	0x0a, 3	; 10
+ 232:	91 ea       	ldi	r25, 0xA1	; 161
+ 234:	90 93 b0 00 	sts	0x00B0, r25
+ 238:	80 93 b1 00 	sts	0x00B1, r24
+ 23c:	10 92 b2 00 	sts	0x00B2, r1
+ 240:	10 92 b3 00 	sts	0x00B3, r1
+ 244:	10 92 b4 00 	sts	0x00B4, r1
+ 248:	08 95       	ret
+
+0000024a <pwm_phasecorrect_6ch_updata>:
+}
+
+
+
+void pwm_phasecorrect_6ch_updata(unsigned char ch1,unsigned char ch2,unsigned char ch3,unsigned char ch4,unsigned char ch5,unsigned char ch6)
+{
+ 24a:	ef 92       	push	r14
+ 24c:	0f 93       	push	r16
+	OCR2B = 0;
+}
+
+void pwm_phasecorrect_timer2_OCR2A_updata(unsigned char	val)
+{
+	OCR2A = val;	
+ 24e:	80 93 b3 00 	sts	0x00B3, r24
+}
+
+void pwm_phasecorrect_timer1_OCR1B_updata(unsigned char val)
+{
+	
+	OCR1B =val;
+ 252:	70 e0       	ldi	r23, 0x00	; 0
+ 254:	70 93 8b 00 	sts	0x008B, r23
+ 258:	60 93 8a 00 	sts	0x008A, r22
+}
+
+
+void pwm_phasecorrect_timer1_OCR1A_updata(unsigned char	val)
+{
+	OCR1A = val;	
+ 25c:	50 e0       	ldi	r21, 0x00	; 0
+ 25e:	50 93 89 00 	sts	0x0089, r21
+ 262:	40 93 88 00 	sts	0x0088, r20
+
+
+
+void pwm_phasecorrect_timer0_OCR0A_updata(unsigned char	val)
+{
+	OCR0A = val;	
+ 266:	27 bd       	out	0x27, r18	; 39
+}
+
+void pwm_phasecorrect_timer0_OCR0B_updata(unsigned char val)
+{
+	
+	OCR0B =val;
+ 268:	08 bd       	out	0x28, r16	; 40
+	OCR2A = val;	
+}
+
+void pwm_phasecorrect_timer2_OCR2B_updata(unsigned char val)
+{
+	OCR2B =val;
+ 26a:	e0 92 b4 00 	sts	0x00B4, r14
+		pwm_phasecorrect_timer1_OCR1B_updata(ch2);
+		pwm_phasecorrect_timer1_OCR1A_updata(ch3);
+		pwm_phasecorrect_timer0_OCR0A_updata(ch4);
+		pwm_phasecorrect_timer0_OCR0B_updata(ch5);
+		pwm_phasecorrect_timer2_OCR2B_updata(ch6);
+}
+ 26e:	0f 91       	pop	r16
+ 270:	ef 90       	pop	r14
+ 272:	08 95       	ret
+
+00000274 <_exit>:
+ 274:	f8 94       	cli
+
+00000276 <__stop_program>:
+ 276:	ff cf       	rjmp	.-2      	; 0x276 <__stop_program>

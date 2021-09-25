@@ -1,0 +1,1329 @@
+
+main.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000006b0  00000000  00000000  000000b4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000008  00800060  000006b0  00000764  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000006  00800068  00800068  0000076c  2**0
+                  ALLOC
+  3 .eeprom       00000003  00810000  00810000  0000076c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  4 .comment      00000030  00000000  00000000  0000076f  2**0
+                  CONTENTS, READONLY
+  5 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000007a0  2**2
+                  CONTENTS, READONLY
+  6 .debug_aranges 00000100  00000000  00000000  000007dc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   000015d0  00000000  00000000  000008dc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 000004b2  00000000  00000000  00001eac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   0000073b  00000000  00000000  0000235e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_frame  000001ec  00000000  00000000  00002a9c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    000005b5  00000000  00000000  00002c88  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc    00001108  00000000  00000000  0000323d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_ranges 000001c0  00000000  00000000  00004345  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	2c c0       	rjmp	.+88     	; 0x5c <__bad_interrupt>
+   4:	2b c0       	rjmp	.+86     	; 0x5c <__bad_interrupt>
+   6:	2a c0       	rjmp	.+84     	; 0x5c <__bad_interrupt>
+   8:	29 c0       	rjmp	.+82     	; 0x5c <__bad_interrupt>
+   a:	28 c0       	rjmp	.+80     	; 0x5c <__bad_interrupt>
+   c:	27 c0       	rjmp	.+78     	; 0x5c <__bad_interrupt>
+   e:	26 c0       	rjmp	.+76     	; 0x5c <__bad_interrupt>
+  10:	25 c0       	rjmp	.+74     	; 0x5c <__bad_interrupt>
+  12:	24 c0       	rjmp	.+72     	; 0x5c <__bad_interrupt>
+  14:	23 c0       	rjmp	.+70     	; 0x5c <__bad_interrupt>
+  16:	22 c0       	rjmp	.+68     	; 0x5c <__bad_interrupt>
+  18:	21 c0       	rjmp	.+66     	; 0x5c <__bad_interrupt>
+  1a:	20 c0       	rjmp	.+64     	; 0x5c <__bad_interrupt>
+  1c:	1f c0       	rjmp	.+62     	; 0x5c <__bad_interrupt>
+  1e:	1e c0       	rjmp	.+60     	; 0x5c <__bad_interrupt>
+  20:	1d c0       	rjmp	.+58     	; 0x5c <__bad_interrupt>
+  22:	1c c0       	rjmp	.+56     	; 0x5c <__bad_interrupt>
+  24:	1b c0       	rjmp	.+54     	; 0x5c <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf e5       	ldi	r28, 0x5F	; 95
+  2c:	d4 e0       	ldi	r29, 0x04	; 4
+  2e:	de bf       	out	0x3e, r29	; 62
+  30:	cd bf       	out	0x3d, r28	; 61
+
+00000032 <__do_copy_data>:
+  32:	10 e0       	ldi	r17, 0x00	; 0
+  34:	a0 e6       	ldi	r26, 0x60	; 96
+  36:	b0 e0       	ldi	r27, 0x00	; 0
+  38:	e0 eb       	ldi	r30, 0xB0	; 176
+  3a:	f6 e0       	ldi	r31, 0x06	; 6
+  3c:	02 c0       	rjmp	.+4      	; 0x42 <__SREG__+0x3>
+  3e:	05 90       	lpm	r0, Z+
+  40:	0d 92       	st	X+, r0
+  42:	a8 36       	cpi	r26, 0x68	; 104
+  44:	b1 07       	cpc	r27, r17
+  46:	d9 f7       	brne	.-10     	; 0x3e <__SP_H__>
+
+00000048 <__do_clear_bss>:
+  48:	20 e0       	ldi	r18, 0x00	; 0
+  4a:	a8 e6       	ldi	r26, 0x68	; 104
+  4c:	b0 e0       	ldi	r27, 0x00	; 0
+  4e:	01 c0       	rjmp	.+2      	; 0x52 <.do_clear_bss_start>
+
+00000050 <.do_clear_bss_loop>:
+  50:	1d 92       	st	X+, r1
+
+00000052 <.do_clear_bss_start>:
+  52:	ae 36       	cpi	r26, 0x6E	; 110
+  54:	b2 07       	cpc	r27, r18
+  56:	e1 f7       	brne	.-8      	; 0x50 <.do_clear_bss_loop>
+  58:	25 d0       	rcall	.+74     	; 0xa4 <main>
+  5a:	28 c3       	rjmp	.+1616   	; 0x6ac <_exit>
+
+0000005c <__bad_interrupt>:
+  5c:	d1 cf       	rjmp	.-94     	; 0x0 <__vectors>
+
+0000005e <_Z9out_color5color>:
+	
+	if ((rgb.Blue==to_color.Blue)&&(rgb.Red==to_color.Red)&&(rgb.Green==to_color.Green)) return;
+	do
+	{
+		out_color(rgb);
+		for (uint16_t i = 0;i<speed;i++) _delay_ms(1);
+  5e:	cf 93       	push	r28
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  60:	df 93       	push	r29
+  62:	d7 2f       	mov	r29, r23
+  64:	c8 2f       	mov	r28, r24
+  66:	86 2f       	mov	r24, r22
+  68:	90 e0       	ldi	r25, 0x00	; 0
+  6a:	01 d3       	rcall	.+1538   	; 0x66e <_Z13timer1PWMASetj>
+  6c:	8d 2f       	mov	r24, r29
+  6e:	90 e0       	ldi	r25, 0x00	; 0
+  70:	01 d3       	rcall	.+1538   	; 0x674 <_Z13timer1PWMBSetj>
+  72:	8c 2f       	mov	r24, r28
+	} while (color_change(&rgb,&to_color,ratio)==0);
+  74:	c6 d2       	rcall	.+1420   	; 0x602 <_Z12timer2PWMSeth>
+  76:	df 91       	pop	r29
+  78:	cf 91       	pop	r28
+  7a:	08 95       	ret
+
+0000007c <_Z13color_converthhh>:
+  7c:	76 2f       	mov	r23, r22
+  7e:	68 2f       	mov	r22, r24
+  80:	84 2f       	mov	r24, r20
+
+void color_change_sys(Color to_color,uint8_t speed,uint8_t ratio,uint16_t wait)
+{
+	
+	if ((rgb.Blue==to_color.Blue)&&(rgb.Red==to_color.Red)&&(rgb.Green==to_color.Green)) return;
+	do
+  82:	08 95       	ret
+
+00000084 <_Z7delaymsj>:
+}
+
+
+void delayms(unsigned int val)
+{
+	for (unsigned int i = 0; i < val; i++)
+  84:	00 97       	sbiw	r24, 0x00	; 0
+  86:	69 f0       	breq	.+26     	; 0xa2 <_Z7delaymsj+0x1e>
+  88:	20 e0       	ldi	r18, 0x00	; 0
+  8a:	30 e0       	ldi	r19, 0x00	; 0
+  8c:	ef ec       	ldi	r30, 0xCF	; 207
+  8e:	f7 e0       	ldi	r31, 0x07	; 7
+  90:	31 97       	sbiw	r30, 0x01	; 1
+  92:	f1 f7       	brne	.-4      	; 0x90 <_Z7delaymsj+0xc>
+  94:	00 c0       	rjmp	.+0      	; 0x96 <_Z7delaymsj+0x12>
+  96:	00 00       	nop
+  98:	2f 5f       	subi	r18, 0xFF	; 255
+  9a:	3f 4f       	sbci	r19, 0xFF	; 255
+  9c:	28 17       	cp	r18, r24
+  9e:	39 07       	cpc	r19, r25
+  a0:	a9 f7       	brne	.-22     	; 0x8c <_Z7delaymsj+0x8>
+  a2:	08 95       	ret
+
+000000a4 <main>:
+		out_color(rgb);
+		for (uint16_t i = 0;i<speed;i++) _delay_ms(1);
+	} while (color_change(&rgb,&to_color,ratio)==0);
+	for (uint16_t i = 0;i<wait;i++)
+	_delay_ms(1);
+}
+  a4:	83 e0       	ldi	r24, 0x03	; 3
+  a6:	8f d2       	rcall	.+1310   	; 0x5c6 <_Z18timer1SetPrescalerh>
+  a8:	b6 d2       	rcall	.+1388   	; 0x616 <_Z13timer1PWMInitv>
+  aa:	8f ef       	ldi	r24, 0xFF	; 255
+  ac:	90 e0       	ldi	r25, 0x00	; 0
+  ae:	be d2       	rcall	.+1404   	; 0x62c <_Z16timer1PWMInitICRj>
+  b0:	d6 d2       	rcall	.+1452   	; 0x65e <_Z12timer1PWMBOnv>
+  b2:	cd d2       	rcall	.+1434   	; 0x64e <_Z12timer1PWMAOnv>
+  b4:	83 e0       	ldi	r24, 0x03	; 3
+  b6:	8e d2       	rcall	.+1308   	; 0x5d4 <_Z18timer2SetPrescalerh>
+  b8:	94 d2       	rcall	.+1320   	; 0x5e2 <_Z13timer2PWMInitv>
+  ba:	9b d2       	rcall	.+1334   	; 0x5f2 <_Z16timer2PWMInitICRv>
+  bc:	a4 d2       	rcall	.+1352   	; 0x606 <_Z11timer2PWMOnv>
+	timer1PWMAOn();
+	timer2SetPrescaler(TIMER_CLK_DIV64);
+	timer2PWMInit();
+	timer2PWMInitICR();
+	timer2PWMOn();
+	timer1PWMASet(0);
+  be:	80 e0       	ldi	r24, 0x00	; 0
+  c0:	90 e0       	ldi	r25, 0x00	; 0
+  c2:	d5 d2       	rcall	.+1450   	; 0x66e <_Z13timer1PWMASetj>
+	timer1PWMBSet(0);
+  c4:	80 e0       	ldi	r24, 0x00	; 0
+  c6:	90 e0       	ldi	r25, 0x00	; 0
+  c8:	d5 d2       	rcall	.+1450   	; 0x674 <_Z13timer1PWMBSetj>
+	timer2PWMSet(0);
+  ca:	80 e0       	ldi	r24, 0x00	; 0
+  cc:	9a d2       	rcall	.+1332   	; 0x602 <_Z12timer2PWMSeth>
+    /* Replace with your application code */
+	
+	
+	DDRC &=~(1<<PORTC5);
+  ce:	a5 98       	cbi	0x14, 5	; 20
+	eeprom_busy_wait();
+  d0:	e1 99       	sbic	0x1c, 1	; 28
+  d2:	fe cf       	rjmp	.-4      	; 0xd0 <main+0x2c>
+	temp1 = eeprom_read_byte(&mode); // read 
+  d4:	82 e0       	ldi	r24, 0x02	; 2
+  d6:	90 e0       	ldi	r25, 0x00	; 0
+  d8:	d0 d2       	rcall	.+1440   	; 0x67a <eeprom_read_byte>
+  da:	80 93 6b 00 	sts	0x006B, r24
+	_mode = temp1;
+  de:	80 93 6a 00 	sts	0x006A, r24
+	if (temp1 ==0xAA)
+  e2:	8a 3a       	cpi	r24, 0xAA	; 170
+  e4:	39 f4       	brne	.+14     	; 0xf4 <main+0x50>
+	{
+		eeprom_busy_wait();
+  e6:	e1 99       	sbic	0x1c, 1	; 28
+  e8:	fe cf       	rjmp	.-4      	; 0xe6 <main+0x42>
+		eeprom_update_byte(&mode,0xCC);
+  ea:	6c ec       	ldi	r22, 0xCC	; 204
+  ec:	82 e0       	ldi	r24, 0x02	; 2
+  ee:	90 e0       	ldi	r25, 0x00	; 0
+  f0:	cc d2       	rcall	.+1432   	; 0x68a <eeprom_update_byte>
+  f2:	06 c0       	rjmp	.+12     	; 0x100 <main+0x5c>
+	}
+	else
+	{
+		eeprom_busy_wait();
+  f4:	e1 99       	sbic	0x1c, 1	; 28
+  f6:	fe cf       	rjmp	.-4      	; 0xf4 <main+0x50>
+		eeprom_update_byte(&mode,0xAA);
+  f8:	6a ea       	ldi	r22, 0xAA	; 170
+  fa:	82 e0       	ldi	r24, 0x02	; 2
+  fc:	90 e0       	ldi	r25, 0x00	; 0
+  fe:	c5 d2       	rcall	.+1418   	; 0x68a <eeprom_update_byte>
+	}
+	
+	eeprom_busy_wait();
+ 100:	e1 99       	sbic	0x1c, 1	; 28
+ 102:	fe cf       	rjmp	.-4      	; 0x100 <main+0x5c>
+	_gray = eeprom_read_byte(&gray); // read 
+ 104:	81 e0       	ldi	r24, 0x01	; 1
+ 106:	90 e0       	ldi	r25, 0x00	; 0
+ 108:	b8 d2       	rcall	.+1392   	; 0x67a <eeprom_read_byte>
+ 10a:	80 93 69 00 	sts	0x0069, r24
+	eeprom_busy_wait();
+ 10e:	e1 99       	sbic	0x1c, 1	; 28
+ 110:	fe cf       	rjmp	.-4      	; 0x10e <main+0x6a>
+	_speed = eeprom_read_byte(&speed); // read 
+ 112:	80 e0       	ldi	r24, 0x00	; 0
+ 114:	90 e0       	ldi	r25, 0x00	; 0
+ 116:	b1 d2       	rcall	.+1378   	; 0x67a <eeprom_read_byte>
+ 118:	80 93 68 00 	sts	0x0068, r24
+ 11c:	c1 2c       	mov	r12, r1
+ 11e:	d1 2c       	mov	r13, r1
+						if (_speed>=20) _speed = 1;
+						else _speed++;
+						i = 0;
+							for (unsigned char j = 0;j<200;j++)
+							{
+								if (PINC&(1<<PINC5)) break;
+ 120:	f1 2c       	mov	r15, r1
+				
+			}
+			
+			delayms(500+_speed*10);
+			
+			for (unsigned int i = 0;i<256;i++)
+ 122:	01 e0       	ldi	r16, 0x01	; 1
+ 124:	10 e0       	ldi	r17, 0x00	; 0
+					if (_speed>=20) _speed = 1;
+					else _speed++;
+					i = 0;
+					for (unsigned char j = 0;j<200;j++)
+					{
+						if (PINC&(1<<PINC5)) break;
+ 126:	cf 2d       	mov	r28, r15
+			{
+				out_color(color_convert(255-i,255-i,255-i));
+				delayms(_speed);
+				if (!(PINC&(1<<PINC5)))
+				{
+					if (_speed>=20) _speed = 1;
+ 128:	ee 24       	eor	r14, r14
+ 12a:	e3 94       	inc	r14
+									out_color(color_convert(0,0,0));
+									_delay_ms(200);
+									eeprom_busy_wait();
+									eeprom_update_byte(&gray,_gray);
+									while (!(PINC&(1<<PINC5))){_delay_ms(250);};
+									_how = 2;
+ 12c:	68 94       	set
+ 12e:	99 24       	eor	r9, r9
+ 130:	91 f8       	bld	r9, 1
+	eeprom_busy_wait();
+	_speed = eeprom_read_byte(&speed); // read 
+	
+    while (1) 
+    {
+		if (_mode==0xAA)
+ 132:	80 91 6a 00 	lds	r24, 0x006A
+ 136:	8a 3a       	cpi	r24, 0xAA	; 170
+ 138:	09 f0       	breq	.+2      	; 0x13c <main+0x98>
+ 13a:	6d c0       	rjmp	.+218    	; 0x216 <main+0x172>
+		{
+			out_color(color_convert(_gray,_gray,_gray));
+ 13c:	80 91 69 00 	lds	r24, 0x0069
+ 140:	48 2f       	mov	r20, r24
+ 142:	68 2f       	mov	r22, r24
+ 144:	9b df       	rcall	.-202    	; 0x7c <_Z13color_converthhh>
+ 146:	8b df       	rcall	.-234    	; 0x5e <_Z9out_color5color>
+			
+			if (!(PINC&(1<<PINC5)))
+ 148:	9d 99       	sbic	0x13, 5	; 19
+ 14a:	f3 cf       	rjmp	.-26     	; 0x132 <main+0x8e>
+			{
+				for (unsigned char i = 0;i<200;i++)
+				{
+					if (PINC&(1<<PINC5)) break;
+ 14c:	9d 99       	sbic	0x13, 5	; 19
+ 14e:	f1 cf       	rjmp	.-30     	; 0x132 <main+0x8e>
+ 150:	8f 2d       	mov	r24, r15
+ 152:	02 c0       	rjmp	.+4      	; 0x158 <main+0xb4>
+ 154:	9d 99       	sbic	0x13, 5	; 19
+ 156:	ed cf       	rjmp	.-38     	; 0x132 <main+0x8e>
+					if ((!(PINC&(1<<PINC5)))&& (i>=20))
+ 158:	9d 99       	sbic	0x13, 5	; 19
+ 15a:	15 c1       	rjmp	.+554    	; 0x386 <main+0x2e2>
+ 15c:	84 31       	cpi	r24, 0x14	; 20
+ 15e:	08 f4       	brcc	.+2      	; 0x162 <main+0xbe>
+ 160:	12 c1       	rjmp	.+548    	; 0x386 <main+0x2e2>
+ 162:	1f c1       	rjmp	.+574    	; 0x3a2 <main+0x2fe>
+ 164:	2f e7       	ldi	r18, 0x7F	; 127
+ 166:	3a e1       	ldi	r19, 0x1A	; 26
+ 168:	86 e0       	ldi	r24, 0x06	; 6
+ 16a:	21 50       	subi	r18, 0x01	; 1
+ 16c:	30 40       	sbci	r19, 0x00	; 0
+ 16e:	80 40       	sbci	r24, 0x00	; 0
+ 170:	e1 f7       	brne	.-8      	; 0x16a <main+0xc6>
+ 172:	00 c0       	rjmp	.+0      	; 0x174 <main+0xd0>
+ 174:	00 00       	nop
+						_delay_ms(500);
+						out_color(color_convert(255,255,255));
+						_delay_ms(500);
+						out_color(color_convert(0,0,0));
+						_delay_ms(500);
+						while (!(PINC&(1<<PINC5))){_delay_ms(250);};
+ 176:	9d 9b       	sbis	0x13, 5	; 19
+ 178:	f5 cf       	rjmp	.-22     	; 0x164 <main+0xc0>
+							
+						_how = 0;
+ 17a:	f0 92 6d 00 	sts	0x006D, r15
+						_inc = 0;
+ 17e:	f0 92 6c 00 	sts	0x006C, r15
+						out_color(color_convert(_inc,_inc,_inc));
+ 182:	4f 2d       	mov	r20, r15
+ 184:	6f 2d       	mov	r22, r15
+ 186:	8f 2d       	mov	r24, r15
+ 188:	79 df       	rcall	.-270    	; 0x7c <_Z13color_converthhh>
+ 18a:	69 df       	rcall	.-302    	; 0x5e <_Z9out_color5color>
+ 18c:	9f e7       	ldi	r25, 0x7F	; 127
+ 18e:	2a e1       	ldi	r18, 0x1A	; 26
+ 190:	36 e0       	ldi	r19, 0x06	; 6
+ 192:	91 50       	subi	r25, 0x01	; 1
+ 194:	20 40       	sbci	r18, 0x00	; 0
+ 196:	30 40       	sbci	r19, 0x00	; 0
+ 198:	e1 f7       	brne	.-8      	; 0x192 <main+0xee>
+ 19a:	00 c0       	rjmp	.+0      	; 0x19c <main+0xf8>
+ 19c:	00 00       	nop
+						while (1)
+						{
+						_delay_ms(250);
+						if (!(PINC&(1<<PINC5)))
+ 19e:	9d 99       	sbic	0x13, 5	; 19
+ 1a0:	34 c0       	rjmp	.+104    	; 0x20a <main+0x166>
+						{
+						_gray = _value[_inc];
+ 1a2:	e0 91 6c 00 	lds	r30, 0x006C
+ 1a6:	f0 e0       	ldi	r31, 0x00	; 0
+ 1a8:	e0 5a       	subi	r30, 0xA0	; 160
+ 1aa:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1ac:	80 81       	ld	r24, Z
+ 1ae:	80 93 69 00 	sts	0x0069, r24
+						out_color(color_convert(_gray,_gray,_gray));
+ 1b2:	48 2f       	mov	r20, r24
+ 1b4:	68 2f       	mov	r22, r24
+ 1b6:	62 df       	rcall	.-316    	; 0x7c <_Z13color_converthhh>
+ 1b8:	52 df       	rcall	.-348    	; 0x5e <_Z9out_color5color>
+						_inc++;
+ 1ba:	80 91 6c 00 	lds	r24, 0x006C
+ 1be:	8f 5f       	subi	r24, 0xFF	; 255
+						if (_inc>=8) _inc=0;
+ 1c0:	88 30       	cpi	r24, 0x08	; 8
+ 1c2:	08 f4       	brcc	.+2      	; 0x1c6 <main+0x122>
+ 1c4:	29 c1       	rjmp	.+594    	; 0x418 <main+0x374>
+ 1c6:	c0 93 6c 00 	sts	0x006C, r28
+ 1ca:	28 c1       	rjmp	.+592    	; 0x41c <main+0x378>
+							for (unsigned char j = 0;j<200;j++)
+							{
+								if (PINC&(1<<PINC5)) break;
+ 1cc:	9d 99       	sbic	0x13, 5	; 19
+ 1ce:	1d c0       	rjmp	.+58     	; 0x20a <main+0x166>
+								if ((!(PINC&(1<<PINC5)))&& (j>=20))
+ 1d0:	9d 99       	sbic	0x13, 5	; 19
+ 1d2:	28 c1       	rjmp	.+592    	; 0x424 <main+0x380>
+ 1d4:	84 31       	cpi	r24, 0x14	; 20
+ 1d6:	08 f4       	brcc	.+2      	; 0x1da <main+0x136>
+ 1d8:	25 c1       	rjmp	.+586    	; 0x424 <main+0x380>
+ 1da:	32 c1       	rjmp	.+612    	; 0x440 <main+0x39c>
+									_delay_ms(200);
+									out_color(color_convert(255,255,255));
+									_delay_ms(200);
+									out_color(color_convert(0,0,0));
+									_delay_ms(200);
+									eeprom_busy_wait();
+ 1dc:	e1 99       	sbic	0x1c, 1	; 28
+ 1de:	fe cf       	rjmp	.-4      	; 0x1dc <main+0x138>
+									eeprom_update_byte(&gray,_gray);
+ 1e0:	60 91 69 00 	lds	r22, 0x0069
+ 1e4:	81 e0       	ldi	r24, 0x01	; 1
+ 1e6:	90 e0       	ldi	r25, 0x00	; 0
+ 1e8:	50 d2       	rcall	.+1184   	; 0x68a <eeprom_update_byte>
+									while (!(PINC&(1<<PINC5))){_delay_ms(250);};
+ 1ea:	9d 99       	sbic	0x13, 5	; 19
+ 1ec:	0b c0       	rjmp	.+22     	; 0x204 <main+0x160>
+ 1ee:	8f e7       	ldi	r24, 0x7F	; 127
+ 1f0:	9a e1       	ldi	r25, 0x1A	; 26
+ 1f2:	26 e0       	ldi	r18, 0x06	; 6
+ 1f4:	81 50       	subi	r24, 0x01	; 1
+ 1f6:	90 40       	sbci	r25, 0x00	; 0
+ 1f8:	20 40       	sbci	r18, 0x00	; 0
+ 1fa:	e1 f7       	brne	.-8      	; 0x1f4 <main+0x150>
+ 1fc:	00 c0       	rjmp	.+0      	; 0x1fe <main+0x15a>
+ 1fe:	00 00       	nop
+ 200:	9d 9b       	sbis	0x13, 5	; 19
+ 202:	f5 cf       	rjmp	.-22     	; 0x1ee <main+0x14a>
+									_how = 2;
+ 204:	90 92 6d 00 	sts	0x006D, r9
+ 208:	94 cf       	rjmp	.-216    	; 0x132 <main+0x8e>
+								}
+								_delay_ms(250);
+							}
+						}
+						
+							if (_how ==2) break;
+ 20a:	80 91 6d 00 	lds	r24, 0x006D
+ 20e:	82 30       	cpi	r24, 0x02	; 2
+ 210:	09 f0       	breq	.+2      	; 0x214 <main+0x170>
+ 212:	bc cf       	rjmp	.-136    	; 0x18c <main+0xe8>
+ 214:	8e cf       	rjmp	.-228    	; 0x132 <main+0x8e>
+ 216:	ac 2c       	mov	r10, r12
+ 218:	bd 2c       	mov	r11, r13
+		else
+		{
+			
+			for (unsigned int i = 0;i<256;i++)
+			{
+					out_color(color_convert(i,i,i));
+ 21a:	4a 2d       	mov	r20, r10
+ 21c:	6a 2d       	mov	r22, r10
+ 21e:	8a 2d       	mov	r24, r10
+ 220:	2d df       	rcall	.-422    	; 0x7c <_Z13color_converthhh>
+ 222:	1d df       	rcall	.-454    	; 0x5e <_Z9out_color5color>
+					delayms(_speed);
+ 224:	80 91 68 00 	lds	r24, 0x0068
+ 228:	90 e0       	ldi	r25, 0x00	; 0
+ 22a:	2c df       	rcall	.-424    	; 0x84 <_Z7delaymsj>
+					if (!(PINC&(1<<PINC5)))
+ 22c:	9d 99       	sbic	0x13, 5	; 19
+ 22e:	34 c0       	rjmp	.+104    	; 0x298 <main+0x1f4>
+					{
+						if (_speed>=20) _speed = 1;
+ 230:	80 91 68 00 	lds	r24, 0x0068
+ 234:	84 31       	cpi	r24, 0x14	; 20
+ 236:	18 f0       	brcs	.+6      	; 0x23e <main+0x19a>
+ 238:	e0 92 68 00 	sts	0x0068, r14
+ 23c:	3a c1       	rjmp	.+628    	; 0x4b2 <__stack+0x53>
+						else _speed++;
+ 23e:	8f 5f       	subi	r24, 0xFF	; 255
+ 240:	80 93 68 00 	sts	0x0068, r24
+ 244:	36 c1       	rjmp	.+620    	; 0x4b2 <__stack+0x53>
+						i = 0;
+							for (unsigned char j = 0;j<200;j++)
+							{
+								if (PINC&(1<<PINC5)) break;
+ 246:	9d 99       	sbic	0x13, 5	; 19
+ 248:	76 c1       	rjmp	.+748    	; 0x536 <__stack+0xd7>
+								if ((!(PINC&(1<<PINC5)))&& (j>=20))
+ 24a:	9d 99       	sbic	0x13, 5	; 19
+ 24c:	18 c0       	rjmp	.+48     	; 0x27e <main+0x1da>
+ 24e:	d4 31       	cpi	r29, 0x14	; 20
+ 250:	08 f0       	brcs	.+2      	; 0x254 <main+0x1b0>
+ 252:	33 c1       	rjmp	.+614    	; 0x4ba <__stack+0x5b>
+ 254:	14 c0       	rjmp	.+40     	; 0x27e <main+0x1da>
+									_delay_ms(200);
+									out_color(color_convert(255,255,255));
+									_delay_ms(200);
+									out_color(color_convert(0,0,0));
+									_delay_ms(200);
+									eeprom_busy_wait();
+ 256:	e1 99       	sbic	0x1c, 1	; 28
+ 258:	fe cf       	rjmp	.-4      	; 0x256 <main+0x1b2>
+									eeprom_update_byte(&speed,_speed);
+ 25a:	60 91 68 00 	lds	r22, 0x0068
+ 25e:	80 e0       	ldi	r24, 0x00	; 0
+ 260:	90 e0       	ldi	r25, 0x00	; 0
+ 262:	13 d2       	rcall	.+1062   	; 0x68a <eeprom_update_byte>
+									while (!(PINC&(1<<PINC5))){_delay_ms(250);};
+ 264:	9d 99       	sbic	0x13, 5	; 19
+ 266:	0b c0       	rjmp	.+22     	; 0x27e <main+0x1da>
+ 268:	3f e7       	ldi	r19, 0x7F	; 127
+ 26a:	8a e1       	ldi	r24, 0x1A	; 26
+ 26c:	96 e0       	ldi	r25, 0x06	; 6
+ 26e:	31 50       	subi	r19, 0x01	; 1
+ 270:	80 40       	sbci	r24, 0x00	; 0
+ 272:	90 40       	sbci	r25, 0x00	; 0
+ 274:	e1 f7       	brne	.-8      	; 0x26e <main+0x1ca>
+ 276:	00 c0       	rjmp	.+0      	; 0x278 <main+0x1d4>
+ 278:	00 00       	nop
+ 27a:	9d 9b       	sbis	0x13, 5	; 19
+ 27c:	f5 cf       	rjmp	.-22     	; 0x268 <main+0x1c4>
+ 27e:	2f e7       	ldi	r18, 0x7F	; 127
+ 280:	3a e1       	ldi	r19, 0x1A	; 26
+ 282:	86 e0       	ldi	r24, 0x06	; 6
+ 284:	21 50       	subi	r18, 0x01	; 1
+ 286:	30 40       	sbci	r19, 0x00	; 0
+ 288:	80 40       	sbci	r24, 0x00	; 0
+ 28a:	e1 f7       	brne	.-8      	; 0x284 <main+0x1e0>
+ 28c:	00 c0       	rjmp	.+0      	; 0x28e <main+0x1ea>
+ 28e:	00 00       	nop
+					if (!(PINC&(1<<PINC5)))
+					{
+						if (_speed>=20) _speed = 1;
+						else _speed++;
+						i = 0;
+							for (unsigned char j = 0;j<200;j++)
+ 290:	df 5f       	subi	r29, 0xFF	; 255
+ 292:	d8 3c       	cpi	r29, 0xC8	; 200
+ 294:	c1 f6       	brne	.-80     	; 0x246 <main+0x1a2>
+ 296:	4f c1       	rjmp	.+670    	; 0x536 <__stack+0xd7>
+			
+		}
+		else
+		{
+			
+			for (unsigned int i = 0;i<256;i++)
+ 298:	9f ef       	ldi	r25, 0xFF	; 255
+ 29a:	a9 1a       	sub	r10, r25
+ 29c:	b9 0a       	sbc	r11, r25
+ 29e:	2f ef       	ldi	r18, 0xFF	; 255
+ 2a0:	a2 16       	cp	r10, r18
+ 2a2:	b1 04       	cpc	r11, r1
+ 2a4:	09 f0       	breq	.+2      	; 0x2a8 <main+0x204>
+ 2a6:	08 f4       	brcc	.+2      	; 0x2aa <main+0x206>
+ 2a8:	b8 cf       	rjmp	.-144    	; 0x21a <main+0x176>
+							}
+					}
+				
+			}
+			
+			delayms(500+_speed*10);
+ 2aa:	20 91 68 00 	lds	r18, 0x0068
+ 2ae:	30 e0       	ldi	r19, 0x00	; 0
+ 2b0:	c9 01       	movw	r24, r18
+ 2b2:	88 0f       	add	r24, r24
+ 2b4:	99 1f       	adc	r25, r25
+ 2b6:	22 0f       	add	r18, r18
+ 2b8:	33 1f       	adc	r19, r19
+ 2ba:	22 0f       	add	r18, r18
+ 2bc:	33 1f       	adc	r19, r19
+ 2be:	22 0f       	add	r18, r18
+ 2c0:	33 1f       	adc	r19, r19
+ 2c2:	82 0f       	add	r24, r18
+ 2c4:	93 1f       	adc	r25, r19
+ 2c6:	8c 50       	subi	r24, 0x0C	; 12
+ 2c8:	9e 4f       	sbci	r25, 0xFE	; 254
+ 2ca:	dc de       	rcall	.-584    	; 0x84 <_Z7delaymsj>
+			
+			for (unsigned int i = 0;i<256;i++)
+ 2cc:	ac 2c       	mov	r10, r12
+ 2ce:	bd 2c       	mov	r11, r13
+			{
+				out_color(color_convert(255-i,255-i,255-i));
+ 2d0:	8a 2d       	mov	r24, r10
+ 2d2:	80 95       	com	r24
+ 2d4:	48 2f       	mov	r20, r24
+ 2d6:	68 2f       	mov	r22, r24
+ 2d8:	d1 de       	rcall	.-606    	; 0x7c <_Z13color_converthhh>
+ 2da:	c1 de       	rcall	.-638    	; 0x5e <_Z9out_color5color>
+				delayms(_speed);
+ 2dc:	80 91 68 00 	lds	r24, 0x0068
+ 2e0:	90 e0       	ldi	r25, 0x00	; 0
+ 2e2:	d0 de       	rcall	.-608    	; 0x84 <_Z7delaymsj>
+				if (!(PINC&(1<<PINC5)))
+ 2e4:	9d 99       	sbic	0x13, 5	; 19
+ 2e6:	34 c0       	rjmp	.+104    	; 0x350 <main+0x2ac>
+				{
+					if (_speed>=20) _speed = 1;
+ 2e8:	80 91 68 00 	lds	r24, 0x0068
+ 2ec:	84 31       	cpi	r24, 0x14	; 20
+ 2ee:	18 f0       	brcs	.+6      	; 0x2f6 <main+0x252>
+ 2f0:	e0 92 68 00 	sts	0x0068, r14
+ 2f4:	23 c1       	rjmp	.+582    	; 0x53c <__stack+0xdd>
+					else _speed++;
+ 2f6:	8f 5f       	subi	r24, 0xFF	; 255
+ 2f8:	80 93 68 00 	sts	0x0068, r24
+ 2fc:	1f c1       	rjmp	.+574    	; 0x53c <__stack+0xdd>
+					i = 0;
+					for (unsigned char j = 0;j<200;j++)
+					{
+						if (PINC&(1<<PINC5)) break;
+ 2fe:	9d 99       	sbic	0x13, 5	; 19
+ 300:	5f c1       	rjmp	.+702    	; 0x5c0 <__stack+0x161>
+						if ((!(PINC&(1<<PINC5)))&& (j>=20))
+ 302:	9d 99       	sbic	0x13, 5	; 19
+ 304:	18 c0       	rjmp	.+48     	; 0x336 <main+0x292>
+ 306:	d4 31       	cpi	r29, 0x14	; 20
+ 308:	08 f0       	brcs	.+2      	; 0x30c <main+0x268>
+ 30a:	1c c1       	rjmp	.+568    	; 0x544 <__stack+0xe5>
+ 30c:	14 c0       	rjmp	.+40     	; 0x336 <main+0x292>
+							_delay_ms(200);
+							out_color(color_convert(255,255,255));
+							_delay_ms(200);
+							out_color(color_convert(0,0,0));
+							_delay_ms(200);
+							eeprom_busy_wait();
+ 30e:	e1 99       	sbic	0x1c, 1	; 28
+ 310:	fe cf       	rjmp	.-4      	; 0x30e <main+0x26a>
+							eeprom_update_byte(&speed,_speed);
+ 312:	60 91 68 00 	lds	r22, 0x0068
+ 316:	80 e0       	ldi	r24, 0x00	; 0
+ 318:	90 e0       	ldi	r25, 0x00	; 0
+ 31a:	b7 d1       	rcall	.+878    	; 0x68a <eeprom_update_byte>
+							while (!(PINC&(1<<PINC5))){_delay_ms(250);};
+ 31c:	9d 99       	sbic	0x13, 5	; 19
+ 31e:	0b c0       	rjmp	.+22     	; 0x336 <main+0x292>
+ 320:	3f e7       	ldi	r19, 0x7F	; 127
+ 322:	8a e1       	ldi	r24, 0x1A	; 26
+ 324:	96 e0       	ldi	r25, 0x06	; 6
+ 326:	31 50       	subi	r19, 0x01	; 1
+ 328:	80 40       	sbci	r24, 0x00	; 0
+ 32a:	90 40       	sbci	r25, 0x00	; 0
+ 32c:	e1 f7       	brne	.-8      	; 0x326 <main+0x282>
+ 32e:	00 c0       	rjmp	.+0      	; 0x330 <main+0x28c>
+ 330:	00 00       	nop
+ 332:	9d 9b       	sbis	0x13, 5	; 19
+ 334:	f5 cf       	rjmp	.-22     	; 0x320 <main+0x27c>
+ 336:	2f e7       	ldi	r18, 0x7F	; 127
+ 338:	3a e1       	ldi	r19, 0x1A	; 26
+ 33a:	86 e0       	ldi	r24, 0x06	; 6
+ 33c:	21 50       	subi	r18, 0x01	; 1
+ 33e:	30 40       	sbci	r19, 0x00	; 0
+ 340:	80 40       	sbci	r24, 0x00	; 0
+ 342:	e1 f7       	brne	.-8      	; 0x33c <main+0x298>
+ 344:	00 c0       	rjmp	.+0      	; 0x346 <main+0x2a2>
+ 346:	00 00       	nop
+				if (!(PINC&(1<<PINC5)))
+				{
+					if (_speed>=20) _speed = 1;
+					else _speed++;
+					i = 0;
+					for (unsigned char j = 0;j<200;j++)
+ 348:	df 5f       	subi	r29, 0xFF	; 255
+ 34a:	d8 3c       	cpi	r29, 0xC8	; 200
+ 34c:	c1 f6       	brne	.-80     	; 0x2fe <main+0x25a>
+ 34e:	38 c1       	rjmp	.+624    	; 0x5c0 <__stack+0x161>
+				
+			}
+			
+			delayms(500+_speed*10);
+			
+			for (unsigned int i = 0;i<256;i++)
+ 350:	9f ef       	ldi	r25, 0xFF	; 255
+ 352:	a9 1a       	sub	r10, r25
+ 354:	b9 0a       	sbc	r11, r25
+ 356:	2f ef       	ldi	r18, 0xFF	; 255
+ 358:	a2 16       	cp	r10, r18
+ 35a:	b1 04       	cpc	r11, r1
+ 35c:	09 f0       	breq	.+2      	; 0x360 <main+0x2bc>
+ 35e:	08 f4       	brcc	.+2      	; 0x362 <main+0x2be>
+ 360:	b7 cf       	rjmp	.-146    	; 0x2d0 <main+0x22c>
+					}
+				}
+				
+			}
+			
+			delayms(500+_speed*10);
+ 362:	20 91 68 00 	lds	r18, 0x0068
+ 366:	30 e0       	ldi	r19, 0x00	; 0
+ 368:	c9 01       	movw	r24, r18
+ 36a:	88 0f       	add	r24, r24
+ 36c:	99 1f       	adc	r25, r25
+ 36e:	22 0f       	add	r18, r18
+ 370:	33 1f       	adc	r19, r19
+ 372:	22 0f       	add	r18, r18
+ 374:	33 1f       	adc	r19, r19
+ 376:	22 0f       	add	r18, r18
+ 378:	33 1f       	adc	r19, r19
+ 37a:	82 0f       	add	r24, r18
+ 37c:	93 1f       	adc	r25, r19
+ 37e:	8c 50       	subi	r24, 0x0C	; 12
+ 380:	9e 4f       	sbci	r25, 0xFE	; 254
+ 382:	80 de       	rcall	.-768    	; 0x84 <_Z7delaymsj>
+ 384:	d6 ce       	rjmp	.-596    	; 0x132 <main+0x8e>
+ 386:	3f e7       	ldi	r19, 0x7F	; 127
+ 388:	9a e1       	ldi	r25, 0x1A	; 26
+ 38a:	26 e0       	ldi	r18, 0x06	; 6
+ 38c:	31 50       	subi	r19, 0x01	; 1
+ 38e:	90 40       	sbci	r25, 0x00	; 0
+ 390:	20 40       	sbci	r18, 0x00	; 0
+ 392:	e1 f7       	brne	.-8      	; 0x38c <main+0x2e8>
+ 394:	00 c0       	rjmp	.+0      	; 0x396 <main+0x2f2>
+ 396:	00 00       	nop
+		{
+			out_color(color_convert(_gray,_gray,_gray));
+			
+			if (!(PINC&(1<<PINC5)))
+			{
+				for (unsigned char i = 0;i<200;i++)
+ 398:	8f 5f       	subi	r24, 0xFF	; 255
+ 39a:	88 3c       	cpi	r24, 0xC8	; 200
+ 39c:	09 f0       	breq	.+2      	; 0x3a0 <main+0x2fc>
+ 39e:	da ce       	rjmp	.-588    	; 0x154 <main+0xb0>
+ 3a0:	c8 ce       	rjmp	.-624    	; 0x132 <main+0x8e>
+				{
+					if (PINC&(1<<PINC5)) break;
+					if ((!(PINC&(1<<PINC5)))&& (i>=20))
+					{
+						out_color(color_convert(255,255,255));
+ 3a2:	4f ef       	ldi	r20, 0xFF	; 255
+ 3a4:	6f ef       	ldi	r22, 0xFF	; 255
+ 3a6:	8f ef       	ldi	r24, 0xFF	; 255
+ 3a8:	69 de       	rcall	.-814    	; 0x7c <_Z13color_converthhh>
+ 3aa:	59 de       	rcall	.-846    	; 0x5e <_Z9out_color5color>
+ 3ac:	3f ef       	ldi	r19, 0xFF	; 255
+ 3ae:	84 e3       	ldi	r24, 0x34	; 52
+ 3b0:	9c e0       	ldi	r25, 0x0C	; 12
+ 3b2:	31 50       	subi	r19, 0x01	; 1
+ 3b4:	80 40       	sbci	r24, 0x00	; 0
+ 3b6:	90 40       	sbci	r25, 0x00	; 0
+ 3b8:	e1 f7       	brne	.-8      	; 0x3b2 <main+0x30e>
+ 3ba:	00 c0       	rjmp	.+0      	; 0x3bc <main+0x318>
+ 3bc:	00 00       	nop
+						_delay_ms(500);
+						out_color(color_convert(0,0,0));
+ 3be:	4f 2d       	mov	r20, r15
+ 3c0:	6f 2d       	mov	r22, r15
+ 3c2:	8f 2d       	mov	r24, r15
+ 3c4:	5b de       	rcall	.-842    	; 0x7c <_Z13color_converthhh>
+ 3c6:	4b de       	rcall	.-874    	; 0x5e <_Z9out_color5color>
+ 3c8:	2f ef       	ldi	r18, 0xFF	; 255
+ 3ca:	34 e3       	ldi	r19, 0x34	; 52
+ 3cc:	8c e0       	ldi	r24, 0x0C	; 12
+ 3ce:	21 50       	subi	r18, 0x01	; 1
+ 3d0:	30 40       	sbci	r19, 0x00	; 0
+ 3d2:	80 40       	sbci	r24, 0x00	; 0
+ 3d4:	e1 f7       	brne	.-8      	; 0x3ce <main+0x32a>
+ 3d6:	00 c0       	rjmp	.+0      	; 0x3d8 <main+0x334>
+ 3d8:	00 00       	nop
+						_delay_ms(500);
+						out_color(color_convert(255,255,255));
+ 3da:	4f ef       	ldi	r20, 0xFF	; 255
+ 3dc:	6f ef       	ldi	r22, 0xFF	; 255
+ 3de:	8f ef       	ldi	r24, 0xFF	; 255
+ 3e0:	4d de       	rcall	.-870    	; 0x7c <_Z13color_converthhh>
+ 3e2:	3d de       	rcall	.-902    	; 0x5e <_Z9out_color5color>
+ 3e4:	9f ef       	ldi	r25, 0xFF	; 255
+ 3e6:	24 e3       	ldi	r18, 0x34	; 52
+ 3e8:	3c e0       	ldi	r19, 0x0C	; 12
+ 3ea:	91 50       	subi	r25, 0x01	; 1
+ 3ec:	20 40       	sbci	r18, 0x00	; 0
+ 3ee:	30 40       	sbci	r19, 0x00	; 0
+ 3f0:	e1 f7       	brne	.-8      	; 0x3ea <main+0x346>
+ 3f2:	00 c0       	rjmp	.+0      	; 0x3f4 <main+0x350>
+ 3f4:	00 00       	nop
+						_delay_ms(500);
+						out_color(color_convert(0,0,0));
+ 3f6:	4f 2d       	mov	r20, r15
+ 3f8:	6f 2d       	mov	r22, r15
+ 3fa:	8f 2d       	mov	r24, r15
+ 3fc:	3f de       	rcall	.-898    	; 0x7c <_Z13color_converthhh>
+ 3fe:	2f de       	rcall	.-930    	; 0x5e <_Z9out_color5color>
+ 400:	8f ef       	ldi	r24, 0xFF	; 255
+ 402:	94 e3       	ldi	r25, 0x34	; 52
+ 404:	2c e0       	ldi	r18, 0x0C	; 12
+ 406:	81 50       	subi	r24, 0x01	; 1
+ 408:	90 40       	sbci	r25, 0x00	; 0
+ 40a:	20 40       	sbci	r18, 0x00	; 0
+ 40c:	e1 f7       	brne	.-8      	; 0x406 <main+0x362>
+ 40e:	00 c0       	rjmp	.+0      	; 0x410 <main+0x36c>
+ 410:	00 00       	nop
+						_delay_ms(500);
+						while (!(PINC&(1<<PINC5))){_delay_ms(250);};
+ 412:	9d 9b       	sbis	0x13, 5	; 19
+ 414:	a7 ce       	rjmp	.-690    	; 0x164 <main+0xc0>
+ 416:	b1 ce       	rjmp	.-670    	; 0x17a <main+0xd6>
+						_delay_ms(250);
+						if (!(PINC&(1<<PINC5)))
+						{
+						_gray = _value[_inc];
+						out_color(color_convert(_gray,_gray,_gray));
+						_inc++;
+ 418:	80 93 6c 00 	sts	0x006C, r24
+						if (_inc>=8) _inc=0;
+							for (unsigned char j = 0;j<200;j++)
+							{
+								if (PINC&(1<<PINC5)) break;
+ 41c:	9d 99       	sbic	0x13, 5	; 19
+ 41e:	f5 ce       	rjmp	.-534    	; 0x20a <main+0x166>
+ 420:	8c 2f       	mov	r24, r28
+ 422:	d6 ce       	rjmp	.-596    	; 0x1d0 <main+0x12c>
+ 424:	3f e7       	ldi	r19, 0x7F	; 127
+ 426:	9a e1       	ldi	r25, 0x1A	; 26
+ 428:	26 e0       	ldi	r18, 0x06	; 6
+ 42a:	31 50       	subi	r19, 0x01	; 1
+ 42c:	90 40       	sbci	r25, 0x00	; 0
+ 42e:	20 40       	sbci	r18, 0x00	; 0
+ 430:	e1 f7       	brne	.-8      	; 0x42a <main+0x386>
+ 432:	00 c0       	rjmp	.+0      	; 0x434 <main+0x390>
+ 434:	00 00       	nop
+						{
+						_gray = _value[_inc];
+						out_color(color_convert(_gray,_gray,_gray));
+						_inc++;
+						if (_inc>=8) _inc=0;
+							for (unsigned char j = 0;j<200;j++)
+ 436:	8f 5f       	subi	r24, 0xFF	; 255
+ 438:	88 3c       	cpi	r24, 0xC8	; 200
+ 43a:	09 f0       	breq	.+2      	; 0x43e <main+0x39a>
+ 43c:	c7 ce       	rjmp	.-626    	; 0x1cc <main+0x128>
+ 43e:	e5 ce       	rjmp	.-566    	; 0x20a <main+0x166>
+							{
+								if (PINC&(1<<PINC5)) break;
+								if ((!(PINC&(1<<PINC5)))&& (j>=20))
+								{
+									
+									out_color(color_convert(255,255,255));
+ 440:	4f ef       	ldi	r20, 0xFF	; 255
+ 442:	6f ef       	ldi	r22, 0xFF	; 255
+ 444:	8f ef       	ldi	r24, 0xFF	; 255
+ 446:	1a de       	rcall	.-972    	; 0x7c <_Z13color_converthhh>
+ 448:	0a de       	rcall	.-1004   	; 0x5e <_Z9out_color5color>
+ 44a:	3f ef       	ldi	r19, 0xFF	; 255
+ 44c:	81 ee       	ldi	r24, 0xE1	; 225
+ 44e:	94 e0       	ldi	r25, 0x04	; 4
+ 450:	31 50       	subi	r19, 0x01	; 1
+ 452:	80 40       	sbci	r24, 0x00	; 0
+ 454:	90 40       	sbci	r25, 0x00	; 0
+ 456:	e1 f7       	brne	.-8      	; 0x450 <main+0x3ac>
+ 458:	00 c0       	rjmp	.+0      	; 0x45a <main+0x3b6>
+ 45a:	00 00       	nop
+									_delay_ms(200);
+									out_color(color_convert(0,0,0));
+ 45c:	4f 2d       	mov	r20, r15
+ 45e:	6f 2d       	mov	r22, r15
+ 460:	8f 2d       	mov	r24, r15
+ 462:	0c de       	rcall	.-1000   	; 0x7c <_Z13color_converthhh>
+ 464:	fc dd       	rcall	.-1032   	; 0x5e <_Z9out_color5color>
+ 466:	2f ef       	ldi	r18, 0xFF	; 255
+ 468:	31 ee       	ldi	r19, 0xE1	; 225
+ 46a:	84 e0       	ldi	r24, 0x04	; 4
+ 46c:	21 50       	subi	r18, 0x01	; 1
+ 46e:	30 40       	sbci	r19, 0x00	; 0
+ 470:	80 40       	sbci	r24, 0x00	; 0
+ 472:	e1 f7       	brne	.-8      	; 0x46c <__stack+0xd>
+ 474:	00 c0       	rjmp	.+0      	; 0x476 <__stack+0x17>
+ 476:	00 00       	nop
+									_delay_ms(200);
+									out_color(color_convert(255,255,255));
+ 478:	4f ef       	ldi	r20, 0xFF	; 255
+ 47a:	6f ef       	ldi	r22, 0xFF	; 255
+ 47c:	8f ef       	ldi	r24, 0xFF	; 255
+ 47e:	fe dd       	rcall	.-1028   	; 0x7c <_Z13color_converthhh>
+ 480:	ee dd       	rcall	.-1060   	; 0x5e <_Z9out_color5color>
+ 482:	9f ef       	ldi	r25, 0xFF	; 255
+ 484:	21 ee       	ldi	r18, 0xE1	; 225
+ 486:	34 e0       	ldi	r19, 0x04	; 4
+ 488:	91 50       	subi	r25, 0x01	; 1
+ 48a:	20 40       	sbci	r18, 0x00	; 0
+ 48c:	30 40       	sbci	r19, 0x00	; 0
+ 48e:	e1 f7       	brne	.-8      	; 0x488 <__stack+0x29>
+ 490:	00 c0       	rjmp	.+0      	; 0x492 <__stack+0x33>
+ 492:	00 00       	nop
+									_delay_ms(200);
+									out_color(color_convert(0,0,0));
+ 494:	4f 2d       	mov	r20, r15
+ 496:	6f 2d       	mov	r22, r15
+ 498:	8f 2d       	mov	r24, r15
+ 49a:	f0 dd       	rcall	.-1056   	; 0x7c <_Z13color_converthhh>
+ 49c:	e0 dd       	rcall	.-1088   	; 0x5e <_Z9out_color5color>
+ 49e:	8f ef       	ldi	r24, 0xFF	; 255
+ 4a0:	91 ee       	ldi	r25, 0xE1	; 225
+ 4a2:	24 e0       	ldi	r18, 0x04	; 4
+ 4a4:	81 50       	subi	r24, 0x01	; 1
+ 4a6:	90 40       	sbci	r25, 0x00	; 0
+ 4a8:	20 40       	sbci	r18, 0x00	; 0
+ 4aa:	e1 f7       	brne	.-8      	; 0x4a4 <__stack+0x45>
+ 4ac:	00 c0       	rjmp	.+0      	; 0x4ae <__stack+0x4f>
+ 4ae:	00 00       	nop
+ 4b0:	95 ce       	rjmp	.-726    	; 0x1dc <main+0x138>
+						if (_speed>=20) _speed = 1;
+						else _speed++;
+						i = 0;
+							for (unsigned char j = 0;j<200;j++)
+							{
+								if (PINC&(1<<PINC5)) break;
+ 4b2:	9d 99       	sbic	0x13, 5	; 19
+ 4b4:	40 c0       	rjmp	.+128    	; 0x536 <__stack+0xd7>
+ 4b6:	dc 2f       	mov	r29, r28
+ 4b8:	c8 ce       	rjmp	.-624    	; 0x24a <main+0x1a6>
+								if ((!(PINC&(1<<PINC5)))&& (j>=20))
+								{
+									_speed--;
+ 4ba:	90 91 68 00 	lds	r25, 0x0068
+ 4be:	91 50       	subi	r25, 0x01	; 1
+ 4c0:	90 93 68 00 	sts	0x0068, r25
+									
+									out_color(color_convert(255,255,255));
+ 4c4:	4f ef       	ldi	r20, 0xFF	; 255
+ 4c6:	6f ef       	ldi	r22, 0xFF	; 255
+ 4c8:	8f ef       	ldi	r24, 0xFF	; 255
+ 4ca:	d8 dd       	rcall	.-1104   	; 0x7c <_Z13color_converthhh>
+ 4cc:	c8 dd       	rcall	.-1136   	; 0x5e <_Z9out_color5color>
+ 4ce:	3f ef       	ldi	r19, 0xFF	; 255
+ 4d0:	81 ee       	ldi	r24, 0xE1	; 225
+ 4d2:	94 e0       	ldi	r25, 0x04	; 4
+ 4d4:	31 50       	subi	r19, 0x01	; 1
+ 4d6:	80 40       	sbci	r24, 0x00	; 0
+ 4d8:	90 40       	sbci	r25, 0x00	; 0
+ 4da:	e1 f7       	brne	.-8      	; 0x4d4 <__stack+0x75>
+ 4dc:	00 c0       	rjmp	.+0      	; 0x4de <__stack+0x7f>
+ 4de:	00 00       	nop
+									_delay_ms(200);
+									out_color(color_convert(0,0,0));
+ 4e0:	4c 2f       	mov	r20, r28
+ 4e2:	6c 2f       	mov	r22, r28
+ 4e4:	8c 2f       	mov	r24, r28
+ 4e6:	ca dd       	rcall	.-1132   	; 0x7c <_Z13color_converthhh>
+ 4e8:	ba dd       	rcall	.-1164   	; 0x5e <_Z9out_color5color>
+ 4ea:	2f ef       	ldi	r18, 0xFF	; 255
+ 4ec:	31 ee       	ldi	r19, 0xE1	; 225
+ 4ee:	84 e0       	ldi	r24, 0x04	; 4
+ 4f0:	21 50       	subi	r18, 0x01	; 1
+ 4f2:	30 40       	sbci	r19, 0x00	; 0
+ 4f4:	80 40       	sbci	r24, 0x00	; 0
+ 4f6:	e1 f7       	brne	.-8      	; 0x4f0 <__stack+0x91>
+ 4f8:	00 c0       	rjmp	.+0      	; 0x4fa <__stack+0x9b>
+ 4fa:	00 00       	nop
+									_delay_ms(200);
+									out_color(color_convert(255,255,255));
+ 4fc:	4f ef       	ldi	r20, 0xFF	; 255
+ 4fe:	6f ef       	ldi	r22, 0xFF	; 255
+ 500:	8f ef       	ldi	r24, 0xFF	; 255
+ 502:	bc dd       	rcall	.-1160   	; 0x7c <_Z13color_converthhh>
+ 504:	ac dd       	rcall	.-1192   	; 0x5e <_Z9out_color5color>
+ 506:	9f ef       	ldi	r25, 0xFF	; 255
+ 508:	21 ee       	ldi	r18, 0xE1	; 225
+ 50a:	34 e0       	ldi	r19, 0x04	; 4
+ 50c:	91 50       	subi	r25, 0x01	; 1
+ 50e:	20 40       	sbci	r18, 0x00	; 0
+ 510:	30 40       	sbci	r19, 0x00	; 0
+ 512:	e1 f7       	brne	.-8      	; 0x50c <__stack+0xad>
+ 514:	00 c0       	rjmp	.+0      	; 0x516 <__stack+0xb7>
+ 516:	00 00       	nop
+									_delay_ms(200);
+									out_color(color_convert(0,0,0));
+ 518:	4c 2f       	mov	r20, r28
+ 51a:	6c 2f       	mov	r22, r28
+ 51c:	8c 2f       	mov	r24, r28
+ 51e:	ae dd       	rcall	.-1188   	; 0x7c <_Z13color_converthhh>
+ 520:	9e dd       	rcall	.-1220   	; 0x5e <_Z9out_color5color>
+ 522:	8f ef       	ldi	r24, 0xFF	; 255
+ 524:	91 ee       	ldi	r25, 0xE1	; 225
+ 526:	24 e0       	ldi	r18, 0x04	; 4
+ 528:	81 50       	subi	r24, 0x01	; 1
+ 52a:	90 40       	sbci	r25, 0x00	; 0
+ 52c:	20 40       	sbci	r18, 0x00	; 0
+ 52e:	e1 f7       	brne	.-8      	; 0x528 <__stack+0xc9>
+ 530:	00 c0       	rjmp	.+0      	; 0x532 <__stack+0xd3>
+ 532:	00 00       	nop
+ 534:	90 ce       	rjmp	.-736    	; 0x256 <main+0x1b2>
+			
+		}
+		else
+		{
+			
+			for (unsigned int i = 0;i<256;i++)
+ 536:	a0 2e       	mov	r10, r16
+ 538:	b1 2e       	mov	r11, r17
+ 53a:	6f ce       	rjmp	.-802    	; 0x21a <main+0x176>
+					if (_speed>=20) _speed = 1;
+					else _speed++;
+					i = 0;
+					for (unsigned char j = 0;j<200;j++)
+					{
+						if (PINC&(1<<PINC5)) break;
+ 53c:	9d 99       	sbic	0x13, 5	; 19
+ 53e:	40 c0       	rjmp	.+128    	; 0x5c0 <__stack+0x161>
+ 540:	dc 2f       	mov	r29, r28
+ 542:	df ce       	rjmp	.-578    	; 0x302 <main+0x25e>
+						if ((!(PINC&(1<<PINC5)))&& (j>=20))
+						{
+							_speed--;
+ 544:	90 91 68 00 	lds	r25, 0x0068
+ 548:	91 50       	subi	r25, 0x01	; 1
+ 54a:	90 93 68 00 	sts	0x0068, r25
+							out_color(color_convert(255,255,255));
+ 54e:	4f ef       	ldi	r20, 0xFF	; 255
+ 550:	6f ef       	ldi	r22, 0xFF	; 255
+ 552:	8f ef       	ldi	r24, 0xFF	; 255
+ 554:	93 dd       	rcall	.-1242   	; 0x7c <_Z13color_converthhh>
+ 556:	83 dd       	rcall	.-1274   	; 0x5e <_Z9out_color5color>
+ 558:	3f ef       	ldi	r19, 0xFF	; 255
+ 55a:	81 ee       	ldi	r24, 0xE1	; 225
+ 55c:	94 e0       	ldi	r25, 0x04	; 4
+ 55e:	31 50       	subi	r19, 0x01	; 1
+ 560:	80 40       	sbci	r24, 0x00	; 0
+ 562:	90 40       	sbci	r25, 0x00	; 0
+ 564:	e1 f7       	brne	.-8      	; 0x55e <__stack+0xff>
+ 566:	00 c0       	rjmp	.+0      	; 0x568 <__stack+0x109>
+ 568:	00 00       	nop
+							_delay_ms(200);
+							out_color(color_convert(0,0,0));
+ 56a:	4c 2f       	mov	r20, r28
+ 56c:	6c 2f       	mov	r22, r28
+ 56e:	8c 2f       	mov	r24, r28
+ 570:	85 dd       	rcall	.-1270   	; 0x7c <_Z13color_converthhh>
+ 572:	75 dd       	rcall	.-1302   	; 0x5e <_Z9out_color5color>
+ 574:	2f ef       	ldi	r18, 0xFF	; 255
+ 576:	31 ee       	ldi	r19, 0xE1	; 225
+ 578:	84 e0       	ldi	r24, 0x04	; 4
+ 57a:	21 50       	subi	r18, 0x01	; 1
+ 57c:	30 40       	sbci	r19, 0x00	; 0
+ 57e:	80 40       	sbci	r24, 0x00	; 0
+ 580:	e1 f7       	brne	.-8      	; 0x57a <__stack+0x11b>
+ 582:	00 c0       	rjmp	.+0      	; 0x584 <__stack+0x125>
+ 584:	00 00       	nop
+							_delay_ms(200);
+							out_color(color_convert(255,255,255));
+ 586:	4f ef       	ldi	r20, 0xFF	; 255
+ 588:	6f ef       	ldi	r22, 0xFF	; 255
+ 58a:	8f ef       	ldi	r24, 0xFF	; 255
+ 58c:	77 dd       	rcall	.-1298   	; 0x7c <_Z13color_converthhh>
+ 58e:	67 dd       	rcall	.-1330   	; 0x5e <_Z9out_color5color>
+ 590:	9f ef       	ldi	r25, 0xFF	; 255
+ 592:	21 ee       	ldi	r18, 0xE1	; 225
+ 594:	34 e0       	ldi	r19, 0x04	; 4
+ 596:	91 50       	subi	r25, 0x01	; 1
+ 598:	20 40       	sbci	r18, 0x00	; 0
+ 59a:	30 40       	sbci	r19, 0x00	; 0
+ 59c:	e1 f7       	brne	.-8      	; 0x596 <__stack+0x137>
+ 59e:	00 c0       	rjmp	.+0      	; 0x5a0 <__stack+0x141>
+ 5a0:	00 00       	nop
+							_delay_ms(200);
+							out_color(color_convert(0,0,0));
+ 5a2:	4c 2f       	mov	r20, r28
+ 5a4:	6c 2f       	mov	r22, r28
+ 5a6:	8c 2f       	mov	r24, r28
+ 5a8:	69 dd       	rcall	.-1326   	; 0x7c <_Z13color_converthhh>
+ 5aa:	59 dd       	rcall	.-1358   	; 0x5e <_Z9out_color5color>
+ 5ac:	8f ef       	ldi	r24, 0xFF	; 255
+ 5ae:	91 ee       	ldi	r25, 0xE1	; 225
+ 5b0:	24 e0       	ldi	r18, 0x04	; 4
+ 5b2:	81 50       	subi	r24, 0x01	; 1
+ 5b4:	90 40       	sbci	r25, 0x00	; 0
+ 5b6:	20 40       	sbci	r18, 0x00	; 0
+ 5b8:	e1 f7       	brne	.-8      	; 0x5b2 <__stack+0x153>
+ 5ba:	00 c0       	rjmp	.+0      	; 0x5bc <__stack+0x15d>
+ 5bc:	00 00       	nop
+ 5be:	a7 ce       	rjmp	.-690    	; 0x30e <main+0x26a>
+				
+			}
+			
+			delayms(500+_speed*10);
+			
+			for (unsigned int i = 0;i<256;i++)
+ 5c0:	a0 2e       	mov	r10, r16
+ 5c2:	b1 2e       	mov	r11, r17
+ 5c4:	85 ce       	rjmp	.-758    	; 0x2d0 <main+0x22c>
+
+000005c6 <_Z18timer1SetPrescalerh>:
+#include "PWM_3.h"
+
+void timer1SetPrescaler(uint8_t prescale)
+{
+	// set prescaler on timer 1
+	TCCR1B &=~TIMER_PRESCALE_MASK;
+ 5c6:	9e b5       	in	r25, 0x2e	; 46
+ 5c8:	98 7f       	andi	r25, 0xF8	; 248
+ 5ca:	9e bd       	out	0x2e, r25	; 46
+	TCCR1B |=prescale;
+ 5cc:	9e b5       	in	r25, 0x2e	; 46
+ 5ce:	89 2b       	or	r24, r25
+ 5d0:	8e bd       	out	0x2e, r24	; 46
+ 5d2:	08 95       	ret
+
+000005d4 <_Z18timer2SetPrescalerh>:
+}
+
+void timer2SetPrescaler(uint8_t prescale)
+{
+	// set prescaler on timer 2
+	TCCR2 &=~TIMER_PRESCALE_MASK;
+ 5d4:	95 b5       	in	r25, 0x25	; 37
+ 5d6:	98 7f       	andi	r25, 0xF8	; 248
+ 5d8:	95 bd       	out	0x25, r25	; 37
+	TCCR2 |=prescale;
+ 5da:	95 b5       	in	r25, 0x25	; 37
+ 5dc:	89 2b       	or	r24, r25
+ 5de:	85 bd       	out	0x25, r24	; 37
+ 5e0:	08 95       	ret
+
+000005e2 <_Z13timer2PWMInitv>:
+}
+
+void timer2PWMInit()
+{
+	// configures timer1 for use with PWM output
+	TCCR2|=1<<COM21;
+ 5e2:	85 b5       	in	r24, 0x25	; 37
+ 5e4:	80 62       	ori	r24, 0x20	; 32
+ 5e6:	85 bd       	out	0x25, r24	; 37
+	TCCR2 &=~(1<<COM20);
+ 5e8:	85 b5       	in	r24, 0x25	; 37
+ 5ea:	8f 7e       	andi	r24, 0xEF	; 239
+ 5ec:	85 bd       	out	0x25, r24	; 37
+	OCR2 = 0;
+ 5ee:	13 bc       	out	0x23, r1	; 35
+ 5f0:	08 95       	ret
+
+000005f2 <_Z16timer2PWMInitICRv>:
+void timer2PWMInitICR()
+
+{
+	// set PWM mode with ICR defalult = 0xff
+	
+	TCCR2|=1<<WGM20;
+ 5f2:	85 b5       	in	r24, 0x25	; 37
+ 5f4:	80 64       	ori	r24, 0x40	; 64
+ 5f6:	85 bd       	out	0x25, r24	; 37
+	TCCR2 &=~(1<<WGM21);
+ 5f8:	85 b5       	in	r24, 0x25	; 37
+ 5fa:	87 7f       	andi	r24, 0xF7	; 247
+ 5fc:	85 bd       	out	0x25, r24	; 37
+	OCR2 = 0;
+ 5fe:	13 bc       	out	0x23, r1	; 35
+ 600:	08 95       	ret
+
+00000602 <_Z12timer2PWMSeth>:
+}
+
+void timer2PWMSet(uint8_t pwmDuty)
+{
+	OCR2 = pwmDuty;
+ 602:	83 bd       	out	0x23, r24	; 35
+ 604:	08 95       	ret
+
+00000606 <_Z11timer2PWMOnv>:
+
+void timer2PWMOn(void)
+{
+	// turn on channel C (OC2) PWM output
+	// set OC2 as non-inverted PWM
+	TCCR2 |=1<<COM21;
+ 606:	85 b5       	in	r24, 0x25	; 37
+ 608:	80 62       	ori	r24, 0x20	; 32
+ 60a:	85 bd       	out	0x25, r24	; 37
+	TCCR2 &=~(1<<COM20);
+ 60c:	85 b5       	in	r24, 0x25	; 37
+ 60e:	8f 7e       	andi	r24, 0xEF	; 239
+ 610:	85 bd       	out	0x25, r24	; 37
+	
+	DDRB |=1<<PB3;
+ 612:	bb 9a       	sbi	0x17, 3	; 23
+ 614:	08 95       	ret
+
+00000616 <_Z13timer1PWMInitv>:
+
+void timer1PWMInit(void)
+{
+	//// configures timer1 for use with PWM output
+	
+	TCCR1A |=1<<WGM11;
+ 616:	8f b5       	in	r24, 0x2f	; 47
+ 618:	82 60       	ori	r24, 0x02	; 2
+ 61a:	8f bd       	out	0x2f, r24	; 47
+	TCCR1A &=~(1<<WGM10);
+ 61c:	8f b5       	in	r24, 0x2f	; 47
+ 61e:	8e 7f       	andi	r24, 0xFE	; 254
+ 620:	8f bd       	out	0x2f, r24	; 47
+	
+	OCR1AH = 0;
+ 622:	1b bc       	out	0x2b, r1	; 43
+	OCR1AL = 0;
+ 624:	1a bc       	out	0x2a, r1	; 42
+	OCR1AH = 0;
+ 626:	1b bc       	out	0x2b, r1	; 43
+	OCR1AL = 0;
+ 628:	1a bc       	out	0x2a, r1	; 42
+ 62a:	08 95       	ret
+
+0000062c <_Z16timer1PWMInitICRj>:
+}
+
+void timer1PWMInitICR(uint16_t topcount)
+{
+ 62c:	9c 01       	movw	r18, r24
+	// set PWM mode with ICR top-count
+	TCCR1A |=1<<WGM10;
+ 62e:	9f b5       	in	r25, 0x2f	; 47
+ 630:	91 60       	ori	r25, 0x01	; 1
+ 632:	9f bd       	out	0x2f, r25	; 47
+	TCCR1A &=~(1<<WGM11);
+ 634:	9f b5       	in	r25, 0x2f	; 47
+ 636:	9d 7f       	andi	r25, 0xFD	; 253
+ 638:	9f bd       	out	0x2f, r25	; 47
+	TCCR1B &=~((1<<WGM12)|(1<<WGM13));
+ 63a:	9e b5       	in	r25, 0x2e	; 46
+ 63c:	97 7e       	andi	r25, 0xE7	; 231
+ 63e:	9e bd       	out	0x2e, r25	; 46
+	ICR1 = topcount;
+ 640:	37 bd       	out	0x27, r19	; 39
+ 642:	26 bd       	out	0x26, r18	; 38
+	// clear output compare value A
+	OCR1A = 0;
+ 644:	1b bc       	out	0x2b, r1	; 43
+ 646:	1a bc       	out	0x2a, r1	; 42
+	// clear output compare value B
+	OCR1B = 0;
+ 648:	19 bc       	out	0x29, r1	; 41
+ 64a:	18 bc       	out	0x28, r1	; 40
+ 64c:	08 95       	ret
+
+0000064e <_Z12timer1PWMAOnv>:
+
+void timer1PWMAOn(void)
+{
+	// turn on channel A (OC1A) PWM output
+	// set OC1A as non-inverted PWM
+	TCCR1A |= 1<<COM1A1;
+ 64e:	8f b5       	in	r24, 0x2f	; 47
+ 650:	80 68       	ori	r24, 0x80	; 128
+ 652:	8f bd       	out	0x2f, r24	; 47
+	TCCR1A &=~(1<<COM1A0);
+ 654:	8f b5       	in	r24, 0x2f	; 47
+ 656:	8f 7b       	andi	r24, 0xBF	; 191
+ 658:	8f bd       	out	0x2f, r24	; 47
+	DDRB |=1<<PB1;
+ 65a:	b9 9a       	sbi	0x17, 1	; 23
+ 65c:	08 95       	ret
+
+0000065e <_Z12timer1PWMBOnv>:
+
+void timer1PWMBOn(void)
+{
+	// turn on channel B (OC1B) PWM output
+	// set OC1B as non-inverted PWM
+	TCCR1A |= 1<<COM1B1;
+ 65e:	8f b5       	in	r24, 0x2f	; 47
+ 660:	80 62       	ori	r24, 0x20	; 32
+ 662:	8f bd       	out	0x2f, r24	; 47
+	TCCR1A &=~(1<<COM1B0);
+ 664:	8f b5       	in	r24, 0x2f	; 47
+ 666:	8f 7e       	andi	r24, 0xEF	; 239
+ 668:	8f bd       	out	0x2f, r24	; 47
+	DDRB |=1<<PB2;
+ 66a:	ba 9a       	sbi	0x17, 2	; 23
+ 66c:	08 95       	ret
+
+0000066e <_Z13timer1PWMASetj>:
+	
+}
+
+void timer1PWMASet(uint16_t pwmDuty)
+{
+	OCR1A = pwmDuty;
+ 66e:	9b bd       	out	0x2b, r25	; 43
+ 670:	8a bd       	out	0x2a, r24	; 42
+ 672:	08 95       	ret
+
+00000674 <_Z13timer1PWMBSetj>:
+}
+
+void timer1PWMBSet(uint16_t pwmDuty)
+{
+	OCR1B = pwmDuty;
+ 674:	99 bd       	out	0x29, r25	; 41
+ 676:	88 bd       	out	0x28, r24	; 40
+ 678:	08 95       	ret
+
+0000067a <eeprom_read_byte>:
+ 67a:	e1 99       	sbic	0x1c, 1	; 28
+ 67c:	fe cf       	rjmp	.-4      	; 0x67a <eeprom_read_byte>
+ 67e:	9f bb       	out	0x1f, r25	; 31
+ 680:	8e bb       	out	0x1e, r24	; 30
+ 682:	e0 9a       	sbi	0x1c, 0	; 28
+ 684:	99 27       	eor	r25, r25
+ 686:	8d b3       	in	r24, 0x1d	; 29
+ 688:	08 95       	ret
+
+0000068a <eeprom_update_byte>:
+ 68a:	26 2f       	mov	r18, r22
+
+0000068c <eeprom_update_r18>:
+ 68c:	e1 99       	sbic	0x1c, 1	; 28
+ 68e:	fe cf       	rjmp	.-4      	; 0x68c <eeprom_update_r18>
+ 690:	9f bb       	out	0x1f, r25	; 31
+ 692:	8e bb       	out	0x1e, r24	; 30
+ 694:	e0 9a       	sbi	0x1c, 0	; 28
+ 696:	01 97       	sbiw	r24, 0x01	; 1
+ 698:	0d b2       	in	r0, 0x1d	; 29
+ 69a:	02 16       	cp	r0, r18
+ 69c:	31 f0       	breq	.+12     	; 0x6aa <eeprom_update_r18+0x1e>
+ 69e:	2d bb       	out	0x1d, r18	; 29
+ 6a0:	0f b6       	in	r0, 0x3f	; 63
+ 6a2:	f8 94       	cli
+ 6a4:	e2 9a       	sbi	0x1c, 2	; 28
+ 6a6:	e1 9a       	sbi	0x1c, 1	; 28
+ 6a8:	0f be       	out	0x3f, r0	; 63
+ 6aa:	08 95       	ret
+
+000006ac <_exit>:
+ 6ac:	f8 94       	cli
+
+000006ae <__stop_program>:
+ 6ae:	ff cf       	rjmp	.-2      	; 0x6ae <__stop_program>

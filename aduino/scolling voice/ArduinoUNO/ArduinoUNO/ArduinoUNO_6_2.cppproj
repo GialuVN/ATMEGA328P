@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>6.2</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRGCC8.CPP</ToolchainName>
+    <ProjectGuid>{9c9d0c4e-f4b1-4002-996a-b7fb03062200}</ProjectGuid>
+    <avrdevice>ATmega328P</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>CPP</Language>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AssemblyName>ArduinoUNO</AssemblyName>
+    <Name>ArduinoUNO</Name>
+    <RootNamespace>ArduinoUNO</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
+    <UncachedRange />
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
+    <BootSegment>2</BootSegment>
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <AsfFrameworkConfig>
+      <framework-data xmlns="">
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.17.0" />
+        </dependencies>
+      </framework-data>
+    </AsfFrameworkConfig>
+    <UseGdb>True</UseGdb>
+    <preserveEEPROM>true</preserveEEPROM>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrGccCpp>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+          </ListValues>
+        </avrgcccpp.compiler.symbols.DefSymbols>
+        <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
+        <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
+        <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+        <avrgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcccpp.linker.libraries.Libraries>
+      </AvrGccCpp>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrGccCpp>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>../src</Value>
+            <Value>../src/arduino</Value>
+            <Value>../src/arduino/cores</Value>
+            <Value>../src/arduino/cores/arduino</Value>
+            <Value>../src/arduino/cores/arduino/avr-libc</Value>
+            <Value>../src/arduino/libraries</Value>
+            <Value>../src/arduino/variants</Value>
+            <Value>../src/arduino/variants/standard</Value>
+            <Value>../src/ProjectFiles</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </avrgcccpp.compiler.symbols.DefSymbols>
+        <avrgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>../src</Value>
+            <Value>../src/arduino</Value>
+            <Value>../src/arduino/cores</Value>
+            <Value>../src/arduino/cores/arduino</Value>
+            <Value>../src/arduino/cores/arduino/avr-libc</Value>
+            <Value>../src/arduino/libraries</Value>
+            <Value>../src/arduino/variants</Value>
+            <Value>../src/arduino/variants/standard</Value>
+            <Value>../src/ProjectFiles</Value>
+            <Value>../src/arduino/libraries/SPI</Value>
+            <Value>../src/arduino/libraries/Adafruit_VS1053_Library</Value>
+            <Value>../src/arduino/libraries/SD/src</Value>
+            <Value>../src/arduino/libraries/SD/src/utility</Value>
+          </ListValues>
+        </avrgcccpp.compiler.directories.IncludePaths>
+        <avrgcccpp.compiler.optimization.level>Optimize (-O1)</avrgcccpp.compiler.optimization.level>
+        <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
+        <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
+        <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+        <avrgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcccpp.linker.libraries.Libraries>
+        <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
+      </AvrGccCpp>
+    </ToolchainSettings>
+    <UsesExternalMakeFile>False</UsesExternalMakeFile>
+    <BuildTarget>all</BuildTarget>
+    <CleanTarget>clean</CleanTarget>
+    <ExternalMakeFilePath>C:\Users\RnD\Desktop\ArduinoTemplate\ArduinoUNO\AVR-makefile-base.mk</ExternalMakeFilePath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src" />
+    <Folder Include="src\arduino" />
+    <Folder Include="src\arduino\cores" />
+    <Folder Include="src\arduino\cores\arduino" />
+    <Folder Include="src\arduino\cores\arduino\avr-libc" />
+    <Folder Include="src\arduino\libraries" />
+    <Folder Include="src\arduino\variants" />
+    <Folder Include="src\arduino\variants\standard" />
+    <Folder Include="src\ProjectFiles" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\arduino\cores\arduino\Arduino.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\avr-libc\malloc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\avr-libc\realloc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\avr-libc\sectionname.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\avr-libc\stdlib_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\binary.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\CDC.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\Client.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\HardwareSerial.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\HardwareSerial.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\HID.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\IPAddress.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\IPAddress.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\main.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\new.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\new.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\Platform.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\Print.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\Print.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\Printable.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\Server.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\Stream.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\Stream.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\Tone.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\Udp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\USBAPI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\USBCore.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\USBCore.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\USBDesc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\WCharacter.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\WInterrupts.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\wiring.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\wiring_analog.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\wiring_digital.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\wiring_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\wiring_pulse.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\wiring_shift.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\WMath.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\WString.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\cores\arduino\WString.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\Adafruit_VS1053.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\Adafruit_VS1053.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\FatStructs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\File.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\SD.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\SD.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\Sd2Card.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\Sd2Card.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\Sd2PinMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\SdFat.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\SdFatmainpage.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\SdFatUtil.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\SdFile.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\SdInfo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\SdVolume.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\SPI.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\libraries\SPI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\arduino\variants\standard\pins_arduino.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ProjectFiles\Encoder_S.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ProjectFiles\Encoder_S.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ProjectFiles\ProjectMain.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ProjectFiles\ProjectMain.h">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>

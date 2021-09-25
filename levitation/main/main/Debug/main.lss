@@ -1,0 +1,674 @@
+
+main.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000003fa  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000014  00800100  00800100  0000046e  2**0
+                  ALLOC
+  2 .comment      00000030  00000000  00000000  0000046e  2**0
+                  CONTENTS, READONLY
+  3 .debug_aranges 00000118  00000000  00000000  0000049e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000009e2  00000000  00000000  000005b6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000400  00000000  00000000  00000f98  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   000004e7  00000000  00000000  00001398  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000234  00000000  00000000  00001880  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    000003ee  00000000  00000000  00001ab4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    0000040d  00000000  00000000  00001ea2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 000000d8  00000000  00000000  000022af  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 44 00 	jmp	0x88	; 0x88 <__ctors_end>
+   4:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+   8:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+   c:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  10:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  14:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  18:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  1c:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  20:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  24:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  28:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  2c:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  30:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  34:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  38:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  3c:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  40:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  44:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  48:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  4c:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  50:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  54:	0c 94 dc 00 	jmp	0x1b8	; 0x1b8 <__vector_21>
+  58:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  5c:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  60:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  64:	0c 94 56 00 	jmp	0xac	; 0xac <__bad_interrupt>
+  68:	b1 00       	.word	0x00b1	; ????
+  6a:	b6 00       	.word	0x00b6	; ????
+  6c:	bb 00       	.word	0x00bb	; ????
+  6e:	c0 00       	.word	0x00c0	; ????
+  70:	c5 00       	.word	0x00c5	; ????
+  72:	ca 00       	.word	0x00ca	; ????
+  74:	cf 00       	.word	0x00cf	; ????
+  76:	d4 00       	.word	0x00d4	; ????
+  78:	fa 00       	.word	0x00fa	; ????
+  7a:	0b 01       	movw	r0, r22
+  7c:	1c 01       	movw	r2, r24
+  7e:	2d 01       	movw	r4, r26
+  80:	3e 01       	movw	r6, r28
+  82:	4f 01       	movw	r8, r30
+  84:	60 01       	movw	r12, r0
+  86:	71 01       	movw	r14, r2
+
+00000088 <__ctors_end>:
+  88:	11 24       	eor	r1, r1
+  8a:	1f be       	out	0x3f, r1	; 63
+  8c:	cf ef       	ldi	r28, 0xFF	; 255
+  8e:	d8 e0       	ldi	r29, 0x08	; 8
+  90:	de bf       	out	0x3e, r29	; 62
+  92:	cd bf       	out	0x3d, r28	; 61
+
+00000094 <__do_clear_bss>:
+  94:	21 e0       	ldi	r18, 0x01	; 1
+  96:	a0 e0       	ldi	r26, 0x00	; 0
+  98:	b1 e0       	ldi	r27, 0x01	; 1
+  9a:	01 c0       	rjmp	.+2      	; 0x9e <.do_clear_bss_start>
+
+0000009c <.do_clear_bss_loop>:
+  9c:	1d 92       	st	X+, r1
+
+0000009e <.do_clear_bss_start>:
+  9e:	a4 31       	cpi	r26, 0x14	; 20
+  a0:	b2 07       	cpc	r27, r18
+  a2:	e1 f7       	brne	.-8      	; 0x9c <.do_clear_bss_loop>
+  a4:	0e 94 92 01 	call	0x324	; 0x324 <main>
+  a8:	0c 94 fb 01 	jmp	0x3f6	; 0x3f6 <_exit>
+
+000000ac <__bad_interrupt>:
+  ac:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000b0 <ADC_initial>:
+volatile ADC_DATA adc_data;
+volatile ADC_CTR adc_ctr;
+
+void ADC_initial(unsigned char mask,unsigned char div,unsigned char ref)
+{
+	if (mask==0) return;
+  b0:	88 23       	and	r24, r24
+  b2:	51 f0       	breq	.+20     	; 0xc8 <ADC_initial+0x18>
+		adc_ctr.adc_sequence = 0;
+  b4:	10 92 02 01 	sts	0x0102, r1
+		adc_ctr.adc_ref = ref;
+  b8:	40 93 00 01 	sts	0x0100, r20
+		adc_ctr.adc_mask = mask; //save mask
+  bc:	80 93 03 01 	sts	0x0103, r24
+		DIDR0 = mask;			 //digital disable
+  c0:	80 93 7e 00 	sts	0x007E, r24
+		ADCSRA = div;			// division factor
+  c4:	60 93 7a 00 	sts	0x007A, r22
+  c8:	08 95       	ret
+
+000000ca <ADC_start>:
+}
+
+void ADC_start(void)
+{
+	if (adc_ctr.adc_mask==0) return;
+  ca:	80 91 03 01 	lds	r24, 0x0103
+  ce:	88 23       	and	r24, r24
+  d0:	f1 f1       	breq	.+124    	; 0x14e <ADC_start+0x84>
+	while(adc_ctr.adc_sequence<8)
+  d2:	80 91 02 01 	lds	r24, 0x0102
+  d6:	88 30       	cpi	r24, 0x08	; 8
+  d8:	b0 f5       	brcc	.+108    	; 0x146 <ADC_start+0x7c>
+	{
+		if (adc_ctr.adc_mask&(1<<adc_ctr.adc_sequence))
+  da:	80 91 03 01 	lds	r24, 0x0103
+  de:	20 91 02 01 	lds	r18, 0x0102
+  e2:	90 e0       	ldi	r25, 0x00	; 0
+  e4:	02 c0       	rjmp	.+4      	; 0xea <ADC_start+0x20>
+  e6:	95 95       	asr	r25
+  e8:	87 95       	ror	r24
+  ea:	2a 95       	dec	r18
+  ec:	e2 f7       	brpl	.-8      	; 0xe6 <ADC_start+0x1c>
+  ee:	80 ff       	sbrs	r24, 0
+  f0:	20 c0       	rjmp	.+64     	; 0x132 <ADC_start+0x68>
+  f2:	0a c0       	rjmp	.+20     	; 0x108 <ADC_start+0x3e>
+  f4:	8c 91       	ld	r24, X
+  f6:	20 81       	ld	r18, Z
+  f8:	90 e0       	ldi	r25, 0x00	; 0
+  fa:	02 c0       	rjmp	.+4      	; 0x100 <ADC_start+0x36>
+  fc:	95 95       	asr	r25
+  fe:	87 95       	ror	r24
+ 100:	2a 95       	dec	r18
+ 102:	e2 f7       	brpl	.-8      	; 0xfc <ADC_start+0x32>
+ 104:	80 ff       	sbrs	r24, 0
+ 106:	19 c0       	rjmp	.+50     	; 0x13a <ADC_start+0x70>
+		{
+			ADMUX =(adc_ctr.adc_ref<<REFS0)|(adc_ctr.adc_sequence);		//ref config and MUX sequence
+ 108:	80 91 00 01 	lds	r24, 0x0100
+ 10c:	e2 e0       	ldi	r30, 0x02	; 2
+ 10e:	f1 e0       	ldi	r31, 0x01	; 1
+ 110:	20 81       	ld	r18, Z
+ 112:	30 e4       	ldi	r19, 0x40	; 64
+ 114:	83 9f       	mul	r24, r19
+ 116:	c0 01       	movw	r24, r0
+ 118:	11 24       	eor	r1, r1
+ 11a:	82 2b       	or	r24, r18
+ 11c:	80 93 7c 00 	sts	0x007C, r24
+			ADCSRA |= (1<<ADIE)|(1<<ADIF)|(1<<ADEN)|(1<<ADSC);	//adc interrupt enable and adc enable and start						
+ 120:	aa e7       	ldi	r26, 0x7A	; 122
+ 122:	b0 e0       	ldi	r27, 0x00	; 0
+ 124:	8c 91       	ld	r24, X
+ 126:	88 6d       	ori	r24, 0xD8	; 216
+ 128:	8c 93       	st	X, r24
+			adc_ctr.adc_sequence++;
+ 12a:	80 81       	ld	r24, Z
+ 12c:	8f 5f       	subi	r24, 0xFF	; 255
+ 12e:	80 83       	st	Z, r24
+			return;
+ 130:	08 95       	ret
+		}
+		adc_ctr.adc_sequence++;
+ 132:	e2 e0       	ldi	r30, 0x02	; 2
+ 134:	f1 e0       	ldi	r31, 0x01	; 1
+void ADC_start(void)
+{
+	if (adc_ctr.adc_mask==0) return;
+	while(adc_ctr.adc_sequence<8)
+	{
+		if (adc_ctr.adc_mask&(1<<adc_ctr.adc_sequence))
+ 136:	a3 e0       	ldi	r26, 0x03	; 3
+ 138:	b1 e0       	ldi	r27, 0x01	; 1
+			ADMUX =(adc_ctr.adc_ref<<REFS0)|(adc_ctr.adc_sequence);		//ref config and MUX sequence
+			ADCSRA |= (1<<ADIE)|(1<<ADIF)|(1<<ADEN)|(1<<ADSC);	//adc interrupt enable and adc enable and start						
+			adc_ctr.adc_sequence++;
+			return;
+		}
+		adc_ctr.adc_sequence++;
+ 13a:	80 81       	ld	r24, Z
+ 13c:	8f 5f       	subi	r24, 0xFF	; 255
+ 13e:	80 83       	st	Z, r24
+}
+
+void ADC_start(void)
+{
+	if (adc_ctr.adc_mask==0) return;
+	while(adc_ctr.adc_sequence<8)
+ 140:	80 81       	ld	r24, Z
+ 142:	88 30       	cpi	r24, 0x08	; 8
+ 144:	b8 f2       	brcs	.-82     	; 0xf4 <ADC_start+0x2a>
+			adc_ctr.adc_sequence++;
+			return;
+		}
+		adc_ctr.adc_sequence++;
+	}
+	adc_ctr.adc_sequence=0;
+ 146:	10 92 02 01 	sts	0x0102, r1
+	ADC_start();
+ 14a:	0e 94 65 00 	call	0xca	; 0xca <ADC_start>
+ 14e:	08 95       	ret
+
+00000150 <ADC_read>:
+	ADCSRA &= ~((1<<ADEN)|(1<<ADSC))|(1<<ADIE);//adc disable and stop and adc interrupt disable
+}
+
+unsigned int ADC_read(unsigned char mux)
+{
+	switch (mux)
+ 150:	90 e0       	ldi	r25, 0x00	; 0
+ 152:	88 30       	cpi	r24, 0x08	; 8
+ 154:	91 05       	cpc	r25, r1
+ 156:	68 f5       	brcc	.+90     	; 0x1b2 <ADC_read+0x62>
+ 158:	fc 01       	movw	r30, r24
+ 15a:	ec 5c       	subi	r30, 0xCC	; 204
+ 15c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 15e:	0c 94 f5 01 	jmp	0x3ea	; 0x3ea <__tablejump2__>
+	{
+		case 0:
+		return adc_data.adc0_val;
+ 162:	80 91 04 01 	lds	r24, 0x0104
+ 166:	90 91 05 01 	lds	r25, 0x0105
+ 16a:	08 95       	ret
+		case 1:
+		return adc_data.adc1_val;
+ 16c:	80 91 06 01 	lds	r24, 0x0106
+ 170:	90 91 07 01 	lds	r25, 0x0107
+ 174:	08 95       	ret
+		case 2:
+		return adc_data.adc2_val;
+ 176:	80 91 08 01 	lds	r24, 0x0108
+ 17a:	90 91 09 01 	lds	r25, 0x0109
+ 17e:	08 95       	ret
+		case 3:
+		return adc_data.adc3_val;
+ 180:	80 91 0a 01 	lds	r24, 0x010A
+ 184:	90 91 0b 01 	lds	r25, 0x010B
+ 188:	08 95       	ret
+		case 4:
+		return adc_data.adc4_val;
+ 18a:	80 91 0c 01 	lds	r24, 0x010C
+ 18e:	90 91 0d 01 	lds	r25, 0x010D
+ 192:	08 95       	ret
+		case 5:
+		return adc_data.adc5_val;
+ 194:	80 91 0e 01 	lds	r24, 0x010E
+ 198:	90 91 0f 01 	lds	r25, 0x010F
+ 19c:	08 95       	ret
+		case 6:
+		return adc_data.adc6_val;
+ 19e:	80 91 10 01 	lds	r24, 0x0110
+ 1a2:	90 91 11 01 	lds	r25, 0x0111
+ 1a6:	08 95       	ret
+		case 7:
+		return adc_data.adc7_val;
+ 1a8:	80 91 12 01 	lds	r24, 0x0112
+ 1ac:	90 91 13 01 	lds	r25, 0x0113
+ 1b0:	08 95       	ret
+		default:
+		return 0;
+ 1b2:	80 e0       	ldi	r24, 0x00	; 0
+ 1b4:	90 e0       	ldi	r25, 0x00	; 0
+	}
+	return 0;
+}
+ 1b6:	08 95       	ret
+
+000001b8 <__vector_21>:
+
+ISR(ADC_vect)
+{
+ 1b8:	1f 92       	push	r1
+ 1ba:	0f 92       	push	r0
+ 1bc:	0f b6       	in	r0, 0x3f	; 63
+ 1be:	0f 92       	push	r0
+ 1c0:	11 24       	eor	r1, r1
+ 1c2:	2f 93       	push	r18
+ 1c4:	3f 93       	push	r19
+ 1c6:	4f 93       	push	r20
+ 1c8:	5f 93       	push	r21
+ 1ca:	6f 93       	push	r22
+ 1cc:	7f 93       	push	r23
+ 1ce:	8f 93       	push	r24
+ 1d0:	9f 93       	push	r25
+ 1d2:	af 93       	push	r26
+ 1d4:	bf 93       	push	r27
+ 1d6:	ef 93       	push	r30
+ 1d8:	ff 93       	push	r31
+	switch (adc_ctr.adc_sequence-1)
+ 1da:	80 91 02 01 	lds	r24, 0x0102
+ 1de:	90 e0       	ldi	r25, 0x00	; 0
+ 1e0:	01 97       	sbiw	r24, 0x01	; 1
+ 1e2:	88 30       	cpi	r24, 0x08	; 8
+ 1e4:	91 05       	cpc	r25, r1
+ 1e6:	08 f0       	brcs	.+2      	; 0x1ea <__vector_21+0x32>
+ 1e8:	8c c0       	rjmp	.+280    	; 0x302 <__vector_21+0x14a>
+ 1ea:	fc 01       	movw	r30, r24
+ 1ec:	e4 5c       	subi	r30, 0xC4	; 196
+ 1ee:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1f0:	0c 94 f5 01 	jmp	0x3ea	; 0x3ea <__tablejump2__>
+	{
+		case 0:
+		adc_data.adc0_val = ADCL;
+ 1f4:	80 91 78 00 	lds	r24, 0x0078
+ 1f8:	90 e0       	ldi	r25, 0x00	; 0
+ 1fa:	e4 e0       	ldi	r30, 0x04	; 4
+ 1fc:	f1 e0       	ldi	r31, 0x01	; 1
+ 1fe:	91 83       	std	Z+1, r25	; 0x01
+ 200:	80 83       	st	Z, r24
+		adc_data.adc0_val|=(unsigned int)(ADCH<<8);
+ 202:	80 81       	ld	r24, Z
+ 204:	91 81       	ldd	r25, Z+1	; 0x01
+ 206:	20 91 79 00 	lds	r18, 0x0079
+ 20a:	92 2b       	or	r25, r18
+ 20c:	91 83       	std	Z+1, r25	; 0x01
+ 20e:	80 83       	st	Z, r24
+		ADC_start();
+ 210:	0e 94 65 00 	call	0xca	; 0xca <ADC_start>
+		break;
+ 214:	76 c0       	rjmp	.+236    	; 0x302 <__vector_21+0x14a>
+		
+		case 1:
+		adc_data.adc1_val = ADCL;
+ 216:	80 91 78 00 	lds	r24, 0x0078
+ 21a:	90 e0       	ldi	r25, 0x00	; 0
+ 21c:	e6 e0       	ldi	r30, 0x06	; 6
+ 21e:	f1 e0       	ldi	r31, 0x01	; 1
+ 220:	91 83       	std	Z+1, r25	; 0x01
+ 222:	80 83       	st	Z, r24
+		adc_data.adc1_val|=(unsigned int)(ADCH<<8);
+ 224:	80 81       	ld	r24, Z
+ 226:	91 81       	ldd	r25, Z+1	; 0x01
+ 228:	20 91 79 00 	lds	r18, 0x0079
+ 22c:	92 2b       	or	r25, r18
+ 22e:	91 83       	std	Z+1, r25	; 0x01
+ 230:	80 83       	st	Z, r24
+		ADC_start();
+ 232:	0e 94 65 00 	call	0xca	; 0xca <ADC_start>
+		break;
+ 236:	65 c0       	rjmp	.+202    	; 0x302 <__vector_21+0x14a>
+		case 2:
+		adc_data.adc2_val = ADCL;
+ 238:	80 91 78 00 	lds	r24, 0x0078
+ 23c:	90 e0       	ldi	r25, 0x00	; 0
+ 23e:	e8 e0       	ldi	r30, 0x08	; 8
+ 240:	f1 e0       	ldi	r31, 0x01	; 1
+ 242:	91 83       	std	Z+1, r25	; 0x01
+ 244:	80 83       	st	Z, r24
+		adc_data.adc2_val|=(unsigned int)(ADCH<<8);
+ 246:	80 81       	ld	r24, Z
+ 248:	91 81       	ldd	r25, Z+1	; 0x01
+ 24a:	20 91 79 00 	lds	r18, 0x0079
+ 24e:	92 2b       	or	r25, r18
+ 250:	91 83       	std	Z+1, r25	; 0x01
+ 252:	80 83       	st	Z, r24
+		ADC_start();
+ 254:	0e 94 65 00 	call	0xca	; 0xca <ADC_start>
+		break;
+ 258:	54 c0       	rjmp	.+168    	; 0x302 <__vector_21+0x14a>
+		case 3:
+		adc_data.adc3_val = ADCL;
+ 25a:	80 91 78 00 	lds	r24, 0x0078
+ 25e:	90 e0       	ldi	r25, 0x00	; 0
+ 260:	ea e0       	ldi	r30, 0x0A	; 10
+ 262:	f1 e0       	ldi	r31, 0x01	; 1
+ 264:	91 83       	std	Z+1, r25	; 0x01
+ 266:	80 83       	st	Z, r24
+		adc_data.adc3_val|=(unsigned int)(ADCH<<8);
+ 268:	80 81       	ld	r24, Z
+ 26a:	91 81       	ldd	r25, Z+1	; 0x01
+ 26c:	20 91 79 00 	lds	r18, 0x0079
+ 270:	92 2b       	or	r25, r18
+ 272:	91 83       	std	Z+1, r25	; 0x01
+ 274:	80 83       	st	Z, r24
+		ADC_start();
+ 276:	0e 94 65 00 	call	0xca	; 0xca <ADC_start>
+		break;
+ 27a:	43 c0       	rjmp	.+134    	; 0x302 <__vector_21+0x14a>
+		case 4:
+		adc_data.adc4_val = ADCL;
+ 27c:	80 91 78 00 	lds	r24, 0x0078
+ 280:	90 e0       	ldi	r25, 0x00	; 0
+ 282:	ec e0       	ldi	r30, 0x0C	; 12
+ 284:	f1 e0       	ldi	r31, 0x01	; 1
+ 286:	91 83       	std	Z+1, r25	; 0x01
+ 288:	80 83       	st	Z, r24
+		adc_data.adc4_val|=(unsigned int)(ADCH<<8);
+ 28a:	80 81       	ld	r24, Z
+ 28c:	91 81       	ldd	r25, Z+1	; 0x01
+ 28e:	20 91 79 00 	lds	r18, 0x0079
+ 292:	92 2b       	or	r25, r18
+ 294:	91 83       	std	Z+1, r25	; 0x01
+ 296:	80 83       	st	Z, r24
+		ADC_start();
+ 298:	0e 94 65 00 	call	0xca	; 0xca <ADC_start>
+		break;
+ 29c:	32 c0       	rjmp	.+100    	; 0x302 <__vector_21+0x14a>
+		case 5:
+		adc_data.adc5_val = ADCL;
+ 29e:	80 91 78 00 	lds	r24, 0x0078
+ 2a2:	90 e0       	ldi	r25, 0x00	; 0
+ 2a4:	ee e0       	ldi	r30, 0x0E	; 14
+ 2a6:	f1 e0       	ldi	r31, 0x01	; 1
+ 2a8:	91 83       	std	Z+1, r25	; 0x01
+ 2aa:	80 83       	st	Z, r24
+		adc_data.adc5_val|=(unsigned int)(ADCH<<8);
+ 2ac:	80 81       	ld	r24, Z
+ 2ae:	91 81       	ldd	r25, Z+1	; 0x01
+ 2b0:	20 91 79 00 	lds	r18, 0x0079
+ 2b4:	92 2b       	or	r25, r18
+ 2b6:	91 83       	std	Z+1, r25	; 0x01
+ 2b8:	80 83       	st	Z, r24
+		ADC_start();
+ 2ba:	0e 94 65 00 	call	0xca	; 0xca <ADC_start>
+		break;
+ 2be:	21 c0       	rjmp	.+66     	; 0x302 <__vector_21+0x14a>
+		case 6:
+		adc_data.adc6_val = ADCL;
+ 2c0:	80 91 78 00 	lds	r24, 0x0078
+ 2c4:	90 e0       	ldi	r25, 0x00	; 0
+ 2c6:	e0 e1       	ldi	r30, 0x10	; 16
+ 2c8:	f1 e0       	ldi	r31, 0x01	; 1
+ 2ca:	91 83       	std	Z+1, r25	; 0x01
+ 2cc:	80 83       	st	Z, r24
+		adc_data.adc6_val|=(unsigned int)(ADCH<<8);
+ 2ce:	80 81       	ld	r24, Z
+ 2d0:	91 81       	ldd	r25, Z+1	; 0x01
+ 2d2:	20 91 79 00 	lds	r18, 0x0079
+ 2d6:	92 2b       	or	r25, r18
+ 2d8:	91 83       	std	Z+1, r25	; 0x01
+ 2da:	80 83       	st	Z, r24
+		ADC_start();
+ 2dc:	0e 94 65 00 	call	0xca	; 0xca <ADC_start>
+		break;
+ 2e0:	10 c0       	rjmp	.+32     	; 0x302 <__vector_21+0x14a>
+		case 7:
+		adc_data.adc7_val = ADCL;
+ 2e2:	80 91 78 00 	lds	r24, 0x0078
+ 2e6:	90 e0       	ldi	r25, 0x00	; 0
+ 2e8:	e2 e1       	ldi	r30, 0x12	; 18
+ 2ea:	f1 e0       	ldi	r31, 0x01	; 1
+ 2ec:	91 83       	std	Z+1, r25	; 0x01
+ 2ee:	80 83       	st	Z, r24
+		adc_data.adc7_val|=(unsigned int)(ADCH<<8);
+ 2f0:	80 81       	ld	r24, Z
+ 2f2:	91 81       	ldd	r25, Z+1	; 0x01
+ 2f4:	20 91 79 00 	lds	r18, 0x0079
+ 2f8:	92 2b       	or	r25, r18
+ 2fa:	91 83       	std	Z+1, r25	; 0x01
+ 2fc:	80 83       	st	Z, r24
+		ADC_start();
+ 2fe:	0e 94 65 00 	call	0xca	; 0xca <ADC_start>
+		break;
+		default:
+		break;
+	}
+	
+}
+ 302:	ff 91       	pop	r31
+ 304:	ef 91       	pop	r30
+ 306:	bf 91       	pop	r27
+ 308:	af 91       	pop	r26
+ 30a:	9f 91       	pop	r25
+ 30c:	8f 91       	pop	r24
+ 30e:	7f 91       	pop	r23
+ 310:	6f 91       	pop	r22
+ 312:	5f 91       	pop	r21
+ 314:	4f 91       	pop	r20
+ 316:	3f 91       	pop	r19
+ 318:	2f 91       	pop	r18
+ 31a:	0f 90       	pop	r0
+ 31c:	0f be       	out	0x3f, r0	; 63
+ 31e:	0f 90       	pop	r0
+ 320:	1f 90       	pop	r1
+ 322:	18 95       	reti
+
+00000324 <main>:
+char buf[100];
+//unsigned char _pwm;
+
+int main(void)
+{
+	LED_CONFIG;
+ 324:	54 9a       	sbi	0x0a, 4	; 10
+	RS485_initial(MYUBRR);
+ 326:	83 e0       	ldi	r24, 0x03	; 3
+ 328:	90 e0       	ldi	r25, 0x00	; 0
+ 32a:	0e 94 e5 01 	call	0x3ca	; 0x3ca <RS485_initial>
+	ADC_initial(0x01,ADC_div8,ADC_REF_VCC);
+ 32e:	41 e0       	ldi	r20, 0x01	; 1
+ 330:	63 e0       	ldi	r22, 0x03	; 3
+ 332:	81 e0       	ldi	r24, 0x01	; 1
+ 334:	0e 94 58 00 	call	0xb0	; 0xb0 <ADC_initial>
+	pwm_phasecorrect_timer2_initial(clk_timer2_div8);
+ 338:	82 e0       	ldi	r24, 0x02	; 2
+ 33a:	0e 94 d4 01 	call	0x3a8	; 0x3a8 <pwm_phasecorrect_timer2_initial>
+	pwm_phasecorrect_timer2_OCR2B_updata(0);
+ 33e:	80 e0       	ldi	r24, 0x00	; 0
+ 340:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <pwm_phasecorrect_timer2_OCR2B_updata>
+	ADC_start();
+ 344:	0e 94 65 00 	call	0xca	; 0xca <ADC_start>
+	sei();
+ 348:	78 94       	sei
+				
+			}
+			else
+			{
+				
+				LED_REV;
+ 34a:	c0 e1       	ldi	r28, 0x10	; 16
+		//RS485_putc((const unsigned char*)buf);
+		//TX_NEWLINE;
+		//_delay_ms(100);
+		//
+		//
+			if (ADC_read(ADC0)>=555)
+ 34c:	80 e0       	ldi	r24, 0x00	; 0
+ 34e:	0e 94 a8 00 	call	0x150	; 0x150 <ADC_read>
+ 352:	8b 32       	cpi	r24, 0x2B	; 43
+ 354:	92 40       	sbci	r25, 0x02	; 2
+ 356:	28 f0       	brcs	.+10     	; 0x362 <main+0x3e>
+			{
+				LED_ON;
+ 358:	5c 9a       	sbi	0x0b, 4	; 11
+				pwm_phasecorrect_timer2_OCR2B_updata(20);
+ 35a:	84 e1       	ldi	r24, 0x14	; 20
+ 35c:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <pwm_phasecorrect_timer2_OCR2B_updata>
+ 360:	f5 cf       	rjmp	.-22     	; 0x34c <main+0x28>
+			}
+			else if ((ADC_read(ADC0)>=510) && (ADC_read(ADC0)<=540))
+ 362:	80 e0       	ldi	r24, 0x00	; 0
+ 364:	0e 94 a8 00 	call	0x150	; 0x150 <ADC_read>
+ 368:	8e 3f       	cpi	r24, 0xFE	; 254
+ 36a:	91 40       	sbci	r25, 0x01	; 1
+ 36c:	58 f0       	brcs	.+22     	; 0x384 <main+0x60>
+ 36e:	80 e0       	ldi	r24, 0x00	; 0
+ 370:	0e 94 a8 00 	call	0x150	; 0x150 <ADC_read>
+ 374:	8d 31       	cpi	r24, 0x1D	; 29
+ 376:	92 40       	sbci	r25, 0x02	; 2
+ 378:	28 f4       	brcc	.+10     	; 0x384 <main+0x60>
+			{
+				LED_OFF;
+ 37a:	5c 98       	cbi	0x0b, 4	; 11
+				pwm_phasecorrect_timer2_OCR2B_updata(100);
+ 37c:	84 e6       	ldi	r24, 0x64	; 100
+ 37e:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <pwm_phasecorrect_timer2_OCR2B_updata>
+ 382:	e4 cf       	rjmp	.-56     	; 0x34c <main+0x28>
+			}
+			else if ((ADC_read(ADC0)<510))
+ 384:	80 e0       	ldi	r24, 0x00	; 0
+ 386:	0e 94 a8 00 	call	0x150	; 0x150 <ADC_read>
+ 38a:	8e 3f       	cpi	r24, 0xFE	; 254
+ 38c:	91 40       	sbci	r25, 0x01	; 1
+ 38e:	28 f4       	brcc	.+10     	; 0x39a <main+0x76>
+			{
+				LED_OFF;
+ 390:	5c 98       	cbi	0x0b, 4	; 11
+				pwm_phasecorrect_timer2_OCR2B_updata(20);
+ 392:	84 e1       	ldi	r24, 0x14	; 20
+ 394:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <pwm_phasecorrect_timer2_OCR2B_updata>
+ 398:	d9 cf       	rjmp	.-78     	; 0x34c <main+0x28>
+				
+			}
+			else
+			{
+				
+				LED_REV;
+ 39a:	8b b1       	in	r24, 0x0b	; 11
+ 39c:	8c 27       	eor	r24, r28
+ 39e:	8b b9       	out	0x0b, r24	; 11
+				pwm_phasecorrect_timer2_OCR2B_updata(255);
+ 3a0:	8f ef       	ldi	r24, 0xFF	; 255
+ 3a2:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <pwm_phasecorrect_timer2_OCR2B_updata>
+ 3a6:	d2 cf       	rjmp	.-92     	; 0x34c <main+0x28>
+
+000003a8 <pwm_phasecorrect_timer2_initial>:
+
+//timer 2 pwm_phasecorect
+void pwm_phasecorrect_timer2_initial(unsigned char clk)
+{
+	 // OC2A,OC2B IS OUTPUT
+	DDRB |=(1<<PORTB3);
+ 3a8:	23 9a       	sbi	0x04, 3	; 4
+	DDRD |=(1<<PORTD3);
+ 3aa:	53 9a       	sbi	0x0a, 3	; 10
+	
+	TCCR2A = (0<<COM2A0)| (1<<COM2A1)| (0<<COM2B0)| (1<<COM2B1)| (1<<WGM20);
+ 3ac:	91 ea       	ldi	r25, 0xA1	; 161
+ 3ae:	90 93 b0 00 	sts	0x00B0, r25
+	TCCR2B =(clk<<CS00);
+ 3b2:	80 93 b1 00 	sts	0x00B1, r24
+	TCNT2 = 0;
+ 3b6:	10 92 b2 00 	sts	0x00B2, r1
+	OCR2A = 0;
+ 3ba:	10 92 b3 00 	sts	0x00B3, r1
+	OCR2B = 0;
+ 3be:	10 92 b4 00 	sts	0x00B4, r1
+ 3c2:	08 95       	ret
+
+000003c4 <pwm_phasecorrect_timer2_OCR2B_updata>:
+	OCR2A = val;	
+}
+
+void pwm_phasecorrect_timer2_OCR2B_updata(unsigned char val)
+{
+	OCR2B =val;
+ 3c4:	80 93 b4 00 	sts	0x00B4, r24
+ 3c8:	08 95       	ret
+
+000003ca <RS485_initial>:
+ */ 
+
+#include "RS485_debug.h"
+void RS485_initial(unsigned int ubrr)// MYUBRR
+{
+	RS_DDR |=(1<<TXD_PIN)|(1<<TXEN_PIN);
+ 3ca:	2a b1       	in	r18, 0x0a	; 10
+ 3cc:	22 68       	ori	r18, 0x82	; 130
+ 3ce:	2a b9       	out	0x0a, r18	; 10
+	RS_DDR &=~(1<<RXD_PIN);
+ 3d0:	50 98       	cbi	0x0a, 0	; 10
+	RS_PORT |= 1<<RXD_PIN;
+ 3d2:	58 9a       	sbi	0x0b, 0	; 11
+	/* Set baud rate */
+	UBRR0H = (unsigned char)(ubrr>>8);
+ 3d4:	90 93 c5 00 	sts	0x00C5, r25
+	UBRR0L = (unsigned char)ubrr;
+ 3d8:	80 93 c4 00 	sts	0x00C4, r24
+	/* Enable transmitter */
+	UCSR0B = (1<<TXEN0)|(1<<RXEN0);
+ 3dc:	88 e1       	ldi	r24, 0x18	; 24
+ 3de:	80 93 c1 00 	sts	0x00C1, r24
+	/* Set frame format: 8data, 2stop bit */
+	UCSR0C =(1<<USBS0)|(3<<UCSZ00);
+ 3e2:	8e e0       	ldi	r24, 0x0E	; 14
+ 3e4:	80 93 c2 00 	sts	0x00C2, r24
+ 3e8:	08 95       	ret
+
+000003ea <__tablejump2__>:
+ 3ea:	ee 0f       	add	r30, r30
+ 3ec:	ff 1f       	adc	r31, r31
+
+000003ee <__tablejump__>:
+ 3ee:	05 90       	lpm	r0, Z+
+ 3f0:	f4 91       	lpm	r31, Z
+ 3f2:	e0 2d       	mov	r30, r0
+ 3f4:	09 94       	ijmp
+
+000003f6 <_exit>:
+ 3f6:	f8 94       	cli
+
+000003f8 <__stop_program>:
+ 3f8:	ff cf       	rjmp	.-2      	; 0x3f8 <__stop_program>
